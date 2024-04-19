@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/propAppartement/")
 @CrossOrigin("*")
 public class PropAppartementWs {
-    //mohammed
+    //mohammed  ezzaim
     @PostMapping
     public int save(@RequestBody PropAppartement appartement) {
         return propAppartementService.save(appartement);

@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/appartement/")
 @CrossOrigin("*")
 public class AppartementWs {
-//mohammed
+//mohammed ezzaim
     public AppartementWs(AppartementService appartementService, AppartementConverter appartementConverter) {
         this.appartementService = appartementService;
         this.appartementConverter = appartementConverter;
