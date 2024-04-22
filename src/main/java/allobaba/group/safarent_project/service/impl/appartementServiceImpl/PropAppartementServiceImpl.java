@@ -75,7 +75,7 @@ public class PropAppartementServiceImpl implements PropAppartementService {
         propAppartement.setRibPropAppt(propAppartemenetDto.getRibPropAppt());
         propAppartement.setNumCompteBkPropApp(propAppartemenetDto.getNumCompteBkPropApp());
         propAppartement.setCin(propAppartemenetDto.getCin());
-        propAppartement.setUsernamePropAppt(propAppartemenetDto.getCin());
+        propAppartement.setUsernamePropAppt(propAppartemenetDto.getUsernamePropAppt());
 
         propAppartementDao.save(propAppartement);
         return 1;

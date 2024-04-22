@@ -1,14 +1,10 @@
 package allobaba.group.safarent_project.service.impl.appartementServiceImpl;
 
 import allobaba.group.safarent_project.bean.appartementBean.CategoriesAppartement;
-import allobaba.group.safarent_project.bean.appartementBean.PropAppartement;
 import allobaba.group.safarent_project.dao.appartementDao.CategoriesAppartementDao;
 import allobaba.group.safarent_project.service.facade.appartementService.CategoriesAppartementService;
 import allobaba.group.safarent_project.ws.converter.appartementConverter.CategoriesAppartementConverter;
 import allobaba.group.safarent_project.ws.dto.appartementDto.CategoriesAppartementDto;
-import allobaba.group.safarent_project.ws.dto.appartementDto.PropAppartemenetDto;
-import org.springframework.beans.BeanUtils;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,22 +42,18 @@ public class CategoriesAppartementServiceImpl implements CategoriesAppartementSe
     }
 
     @Override
-    public int update(CategoriesAppartementDto categoriesAppartementDto) {
-        if (categoriesAppartementDto == null) {
-            return -1;
-        }
+    public int update(String libelle, String libelleNew) {
 
-        String libelle = categoriesAppartementDto.getLibelle();
         if (libelle == null || libelle.isEmpty()) {
-            return -2;
+            return -1;
         }
 
         CategoriesAppartement categoriesAppartement = categoriesAppartementDao.findByLibelle(libelle);
         if (categoriesAppartement == null) {
-            return -3;
+            return -2;
         }
 
-        categoriesAppartement.setLibelle(categoriesAppartementDto.getLibelle());
+        categoriesAppartement.setLibelle(libelleNew);
         categoriesAppartementDao.save(categoriesAppartement);
         return 1;
     }

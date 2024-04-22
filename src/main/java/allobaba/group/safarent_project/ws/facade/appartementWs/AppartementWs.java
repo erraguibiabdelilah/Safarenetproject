@@ -21,7 +21,7 @@ public class AppartementWs {
 
     @PostMapping
     public int save(@RequestBody  AppartementDto apparent) {
-        return appartementService.save(apparent);
+        return appartementService.save(appartementConverter.toBean(apparent));
     }
 
     @GetMapping
@@ -41,7 +41,7 @@ public class AppartementWs {
     }
 
     @GetMapping("code/{code}")
-    public AppartementDto findByCode(String  code) {
+    public AppartementDto findByCode(@PathVariable String  code) {
         return appartementConverter.toDto(appartementService.findByCode(code));
     }
 
@@ -52,8 +52,8 @@ public class AppartementWs {
     }
 
     @PutMapping
-    public int update(AppartementDto appartementDto) {
-        return appartementService.update(appartementDto);
+    public int update(@RequestBody  AppartementDto appartementDto) {
+        return appartementService.update(appartementConverter.toBean(appartementDto));
     }
 
     private final AppartementService appartementService;

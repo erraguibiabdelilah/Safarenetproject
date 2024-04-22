@@ -35,8 +35,8 @@ public class CategoriesAppartementWs {
     }
 
     @PutMapping
-    public int update(@RequestBody CategoriesAppartementDto categoriesAppartementDto) {
-        return categoriesAppartementService.update(categoriesAppartementDto);
+    public int update(@RequestBody UpdateCategories updateCategories) {
+        return categoriesAppartementService.update(updateCategories.libelle,updateCategories.libelleNew);
     }
 
     private final CategoriesAppartementService categoriesAppartementService;
@@ -46,4 +46,9 @@ public class CategoriesAppartementWs {
         this.categoriesAppartementService = categoriesAppartementService;
         this.categoriesAppartementConverter = categoriesAppartementConverter;
     }
+}
+
+class UpdateCategories{
+  public   String libelle;
+  public   String libelleNew;
 }

@@ -24,6 +24,7 @@ public class PropAppartement {
     private String numCompteBkPropApp;
     private String cin;
     private String usernamePropAppt;
+
     private String password;
 
     @JsonIgnore
@@ -35,7 +36,7 @@ public class PropAppartement {
     private List<Paiement> paiements;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "propAppartement",cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "propAppartement",cascade = CascadeType.ALL)
     private List<Appartement> appartementList;
 
     public PropAppartement(Long idPropAppartement, String nom, String prenom, String numTele, String email, String ribPropAppt, String numCompteBkPropApp, String cin, String usernamePropAppt, String password, List<Client> clients, List<Paiement> paiements, List<Appartement> appartementList) {

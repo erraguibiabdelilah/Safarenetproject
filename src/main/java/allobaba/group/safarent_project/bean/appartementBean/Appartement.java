@@ -24,11 +24,11 @@ public class Appartement {
     @OneToMany
     private List<Reservation> reservation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "categoriesAppartement_id")
     private CategoriesAppartement categoriesAppartement;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "propAppartement_id")
     private PropAppartement propAppartement;
 

@@ -1,6 +1,9 @@
 package allobaba.group.safarent_project.ws.dto.appartementDto;
 public class PropAppartemenetDto {
 
+
+
+
     private String nom;
     private String prenom;
     private String numTele;
@@ -9,6 +12,9 @@ public class PropAppartemenetDto {
     private String numCompteBkPropApp;
     private String cin;
     private String usernamePropAppt;
+    private String password;
+
+
 
     public String getNom() {
         return nom;
@@ -72,5 +78,12 @@ public class PropAppartemenetDto {
 
     public void setUsernamePropAppt(String usernamePropAppt) {
         this.usernamePropAppt = usernamePropAppt;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

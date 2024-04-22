@@ -7,12 +7,14 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface AppartementService {
-    int save(AppartementDto appartement);
+    int save(Appartement appartement);
+
     List<Appartement> findAll();
     Appartement findByCode(String code);
     int deleteByCode(String code);
 
-    int update(AppartementDto appartementDto);
+
+    int update(Appartement appartementNv);
 
     List<Appartement> findByCategoriesAppartementLibelle(String libelle);
 

@@ -3,14 +3,12 @@ package allobaba.group.safarent_project.service.impl.appartementServiceImpl;
 import allobaba.group.safarent_project.bean.appartementBean.Appartement;
 import allobaba.group.safarent_project.bean.appartementBean.CategoriesAppartement;
 import allobaba.group.safarent_project.bean.appartementBean.PropAppartement;
-import allobaba.group.safarent_project.bean.communBean.Reservation;
 import allobaba.group.safarent_project.dao.appartementDao.AppartementDao;
 import allobaba.group.safarent_project.service.facade.appartementService.AppartementService;
 import allobaba.group.safarent_project.service.facade.appartementService.CategoriesAppartementService;
 import allobaba.group.safarent_project.service.facade.appartementService.PropAppartementService;
 import allobaba.group.safarent_project.service.facade.communService.ReservationService;
 import allobaba.group.safarent_project.ws.converter.appartementConverter.AppartementConverter;
-import allobaba.group.safarent_project.ws.dto.appartementDto.AppartementDto;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -39,8 +37,7 @@ public class AppartementServiceImpl implements AppartementService {
     }
 
     @Override
-    public int save(AppartementDto appartementDto) {
-        Appartement appartement = appartementConverter.toBean(appartementDto);
+    public int save(Appartement appartement) {
         if (appartement.getCode() == null ) {
             return -1;
         }
@@ -84,12 +81,12 @@ public class AppartementServiceImpl implements AppartementService {
     }
 
     @Override
-    public int update(AppartementDto appartementDto) {
-        if (appartementDto == null) {
+    public int update(Appartement appartementNv) {
+        if (appartementNv == null) {
             return -1;
         }
 
-        String code = appartementDto.getCode();
+        String code = appartementNv.getCode();
 
         if (code == null) {
             return -2;
@@ -100,10 +97,8 @@ public class AppartementServiceImpl implements AppartementService {
             return -3;
         }
 
-
-
-        String libelle=appartementDto.getCategoriesAppartementDto().getLibelle();
-        String cin=appartementDto.getPropAppartemenetDto().getCin();
+        String libelle=appartementNv.getCategoriesAppartement().getLibelle();
+        String cin=appartementNv.getPropAppartement().getCin();
 
         if(libelle==null  || cin==null || cin.isEmpty() || libelle.isEmpty()){
 
@@ -113,10 +108,10 @@ public class AppartementServiceImpl implements AppartementService {
         CategoriesAppartement categoriesAppartement=categoriesAppartementService.findByLibelle(libelle);
         PropAppartement propAppartement=propAppartementService.findByCin(cin);
 
-        appartement.setCode(appartement.getCode());
-        appartement.setSuperficie(appartement.getSuperficie());
-        appartement.setAdresse(appartement.getAdresse());
-        appartement.setLoyerMensuel(appartement.getLoyerMensuel());
+        appartement.setCode(appartementNv.getCode());
+        appartement.setSuperficie(appartementNv.getSuperficie());
+        appartement.setAdresse(appartementNv.getAdresse());
+        appartement.setLoyerMensuel(appartementNv.getLoyerMensuel());
 
         if(categoriesAppartement!=null){
             appartement.setCategoriesAppartement(categoriesAppartement);

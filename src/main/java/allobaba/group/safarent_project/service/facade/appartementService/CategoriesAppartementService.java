@@ -8,7 +8,9 @@ import java.util.List;
 public interface CategoriesAppartementService {
     int save(CategoriesAppartementDto categoriesAppartement);
     List<CategoriesAppartement> findAll();
-    int  update(CategoriesAppartementDto categoriesAppartementDto);
+
+    int update(String libelle, String libelleNew);
+
     CategoriesAppartement findByLibelle(String libelle);
     int deleteByLibelle(String libelle);
 }
