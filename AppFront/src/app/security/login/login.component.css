@@ -1,0 +1,90 @@
+.login-body {
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  background: url("../../../assets/photo/login-bg.jpg") no-repeat;
+  background-size: cover;
+}
+
+.login-panel {
+  padding: 20px 70px;
+  width: 400px; /* Ajustez la largeur selon vos besoins */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+
+.login-panel-content {
+  margin-top: 20px; /* Ajustez la marge selon vos besoins */
+}
+
+.logo-container {
+  text-align: center; /* Centrer le texte */
+  margin-bottom: 20px; /* Ajustez la marge basse selon vos besoins */
+}
+
+.guest-sign-in {
+  color: #303030;
+}
+
+.username-container,
+.password-container {
+  margin-bottom: 15px; /* Ajustez la marge basse selon vos besoins */
+}
+
+.label {
+  display: block;
+  color: #252529;
+  margin-bottom: 5px; /* Ajustez la marge basse selon vos besoins */
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.rememberme-container {
+  margin-top: 10px; /* Ajustez la marge haute selon vos besoins */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Répartir les boutons horizontalement */
+  align-items: center;
+}
+
+.btn {
+  min-width: 120px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.footer {
+  font-size: 12px;
+  color: #65656a;
+  text-align: center;
+  margin-top: 20px; /* Ajustez la marge haute selon vos besoins */
+}
