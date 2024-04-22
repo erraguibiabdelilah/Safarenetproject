@@ -1,0 +1,19 @@
+
+<div class="card m-5">
+
+  <div class="card-header">
+    <h1>Creation de compte</h1>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="searchFormGroup" (ngSubmit)="creeCompt()">
+        <label class="form-label">username :</label>
+        <input type="text" formControlName="username" class="form-control" >
+        <label class="form-label">password :</label>
+        <input type="password" formControlName="password" class="form-control">
+        <button class="btn btn-info mt-3" type="submit">
+          cree
+        </button>
+    </form>
+  </div>
+</div>
+
