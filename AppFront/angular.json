@@ -3,7 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<<< HEAD:AppFront/angular.json
     "AppFront": {
       "projectType": "application",
       "schematics": {
@@ -17,11 +16,6 @@
           "standalone": false
         }
       },
-========
-    "Font": {
-      "projectType": "application",
-      "schematics": {},
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -29,11 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-<<<<<<<< HEAD:AppFront/angular.json
             "outputPath": "dist/app-front",
-========
-            "outputPath": "dist/font",
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -45,9 +35,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-<<<<<<<< HEAD:AppFront/angular.json
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ],
@@ -56,9 +46,6 @@
             "ssr": {
               "entry": "server.ts"
             }
-========
-            "scripts": []
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
           },
           "configurations": {
             "production": {
@@ -88,17 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-<<<<<<<< HEAD:AppFront/angular.json
               "buildTarget": "AppFront:build:production"
             },
             "development": {
               "buildTarget": "AppFront:build:development"
-========
-              "buildTarget": "Font:build:production"
-            },
-            "development": {
-              "buildTarget": "Font:build:development"
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
             }
           },
           "defaultConfiguration": "development"
@@ -106,11 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-<<<<<<<< HEAD:AppFront/angular.json
             "buildTarget": "AppFront:build"
-========
-            "buildTarget": "Font:build"
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
           }
         },
         "test": {
@@ -135,10 +111,6 @@
     }
   },
   "cli": {
-<<<<<<<< HEAD:AppFront/angular.json
     "analytics": "fe227f34-ce37-44da-9bfa-3bb210a7a95e"
-========
-    "analytics": "e8e897ba-bb6f-48aa-a1b3-11ad46cbeac5"
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/angular.json
   }
 }

@@ -8,13 +8,9 @@
     ]
   },
   "files": [
-<<<<<<<< HEAD:AppFront/tsconfig.app.json
     "src/main.ts",
     "src/main.server.ts",
     "server.ts"
-========
-    "src/main.ts"
->>>>>>>> 685d440aea307017f862c6121c4a06be5ee33161:Font/tsconfig.app.json
   ],
   "include": [
     "src/**/*.d.ts"
