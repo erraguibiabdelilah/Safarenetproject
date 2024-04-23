@@ -2,9 +2,12 @@ package org.sid.springsecurity.service.impl.voitureServiceImpl;
 
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.dao.voitureDao.AgenceLocationDao;
+import org.sid.springsecurity.security.bean.AppRole;
+import org.sid.springsecurity.security.dao.AppRoleDao;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +19,10 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
     private AgenceLocationDao agenceLocationDao;
     @Autowired
     private AgenceLocationService agenceLocationService;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private AppRoleDao appRoleDao;
 
 
     @Override
@@ -28,6 +34,13 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
             System.out.println("deja existed");
             return -2;
         } else {
+            String pw=agenceLocation.getPassword();
+            if (pw.isEmpty()) {
+                return -3;
+            }
+            agenceLocation.setPassword(passwordEncoder.encode(pw));
+            AppRole appRole=appRoleDao.findByRoleName("MANAGER-VOI");
+            agenceLocation.getAppRoles().add(appRole);
             agenceLocationDao.save(agenceLocation);
             return 1;
         }
@@ -67,7 +80,7 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
         existingagenceLocation.setRaisonSocialAg(agenceLocation.getRaisonSocialAg());
         existingagenceLocation.setRibAgenceLoc(agenceLocation.getRibAgenceLoc());
         existingagenceLocation.setRCAgLoc(agenceLocation.getRCAgLoc());
-        existingagenceLocation.setUsernameAgenceLoc(agenceLocation.getUsernameAgenceLoc());
+        existingagenceLocation.setUsername(agenceLocation.getUsername());
         existingagenceLocation.setVoitures(agenceLocation.getVoitures());
 
         agenceLocationDao.save(existingagenceLocation);

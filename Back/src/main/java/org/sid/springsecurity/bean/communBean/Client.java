@@ -3,21 +3,18 @@ package org.sid.springsecurity.bean.communBean;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.sid.springsecurity.bean.appartementBean.PropAppartement;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
+import org.sid.springsecurity.security.bean.AppUser;
 
 import javax.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Client {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
+public class Client extends AppUser {
     private String cin ;
     private String prenom ;
     private String nom ;
     private String numTeleClient;
-    private String usernameClient;
-    private String passwordClient;
     private String emailClient;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -32,13 +29,7 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Reservation> reservation ;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCin() {
         return cin;
@@ -72,21 +63,7 @@ public class Client {
         this.numTeleClient = numTeleClient;
     }
 
-    public String getUsernameClient() {
-        return usernameClient;
-    }
 
-    public void setUsernameClient(String usernameClient) {
-        this.usernameClient = usernameClient;
-    }
-
-    public String getPasswordClient() {
-        return passwordClient;
-    }
-
-    public void setPasswordClient(String passwordClient) {
-        this.passwordClient = passwordClient;
-    }
 
     public String getEmailClient() {
         return emailClient;
@@ -120,14 +97,11 @@ public class Client {
         this.reservation = reservation;
     }
 
-    public Client(Long id, String cin, String prenom, String nom, String numTeleClient, String usernameClient, String passwordClient, String emailClient, AgenceLocation agence_Location, PropAppartement prop_appartement, List<Reservation> reservation) {
-        this.id = id;
+    public Client(String cin, String prenom, String nom, String numTeleClient , String emailClient, AgenceLocation agence_Location, PropAppartement prop_appartement, List<Reservation> reservation) {
         this.cin = cin;
         this.prenom = prenom;
         this.nom = nom;
         this.numTeleClient = numTeleClient;
-        this.usernameClient = usernameClient;
-        this.passwordClient = passwordClient;
         this.emailClient = emailClient;
         this.agenceLocation = agence_Location;
         this.prop_appartement = prop_appartement;

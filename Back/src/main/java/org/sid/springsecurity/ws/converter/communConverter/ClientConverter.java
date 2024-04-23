@@ -30,7 +30,8 @@ public class ClientConverter {
             dto.setNom(bean.getNom());
             dto.setPrenom(bean.getPrenom());
             dto.setNul_TeleClient(bean.getNumTeleClient());
-            dto.setUsername_Client(bean.getUsernameClient());
+            dto.setUsername_Client(bean.getUsername());
+            dto.setPassword_Client(bean.getPassword());
             dto.setEmail_Client(bean.getEmailClient());
             if (bean.getAgence_Location() != null) {
                 dto.setAgenceLocation(agenceLocationConverter.toDto(bean.getAgence_Location()));
@@ -52,7 +53,8 @@ public class ClientConverter {
             bean.setNom(dto.getNom());
             bean.setPrenom(dto.getPrenom());
             bean.setNumTeleClient(dto.getNul_TeleClient());
-            bean.setUsernameClient(dto.getUsername_Client());
+            bean.setUsername(dto.getUsername_Client());
+            bean.setPassword(dto.getPassword_Client());
             bean.setEmailClient(dto.getEmail_Client());
             if (dto.getAgenceLocation() != null) {
                 bean.setAgence_Location(agenceLocationConverter.toBean(dto.getAgenceLocation()));

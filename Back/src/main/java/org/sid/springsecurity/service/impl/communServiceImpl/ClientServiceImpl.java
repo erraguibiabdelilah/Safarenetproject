@@ -5,11 +5,14 @@ import org.sid.springsecurity.bean.appartementBean.PropAppartement;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.dao.communDao.ClientDao;
+import org.sid.springsecurity.security.bean.AppRole;
+import org.sid.springsecurity.security.dao.AppRoleDao;
 import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
 import org.sid.springsecurity.service.facade.communService.ClientService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +30,10 @@ public class ClientServiceImpl implements ClientService {
     @Autowired
     private AgenceLocationService agenceLocationService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private AppRoleDao appRoleDao;
 
     public ClientServiceImpl(ClientDao clientDao ) {
         this.clientDao = clientDao;
@@ -64,6 +71,13 @@ public class ClientServiceImpl implements ClientService {
             client.setAgence_Location(null);
             client.setProp_appartement(null);
         }
+        String pw=client.getPassword();
+        if (pw.isEmpty()) {
+            return -3;
+        }
+        client.setPassword(passwordEncoder.encode(pw));
+        AppRole appRole=appRoleDao.findByRoleName("USER");
+        client.getAppRoles().add(appRole);
         clientDao.save(client);
 
 
@@ -105,7 +119,7 @@ public class ClientServiceImpl implements ClientService {
             client.setPrenom(client.getPrenom());
             client.setNom(client.getNom());
             client.setNumTeleClient(client.getNumTeleClient());
-            client.setUsernameClient(client.getUsernameClient());
+            client.setUsername(client.getUsername());
             client.setAgence_Location(client.getAgence_Location());
             client.setProp_appartement(client.getProp_appartement());
 
