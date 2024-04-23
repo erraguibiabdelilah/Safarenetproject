@@ -3,23 +3,20 @@ package org.sid.springsecurity.bean.voitureBean;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.communBean.Paiement;
+import org.sid.springsecurity.security.bean.AppUser;
 
 import javax.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class AgenceLocation {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class AgenceLocation extends AppUser {
     private Long iceAgLoc;
     private String raisonSocialAg;
     private String adresse;
     private int numTelephone;
     private int numCompteBkAgLoc;
     private Long ribAgenceLoc;
-    private String usernameAgenceLoc;
-    private String password;
     private Long RCAgLoc ;
 
     @JsonIgnore
@@ -38,13 +35,6 @@ public class AgenceLocation {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getIceAgLoc() {
         return iceAgLoc;
@@ -94,21 +84,6 @@ public class AgenceLocation {
         this.ribAgenceLoc = ribAgenceLoc;
     }
 
-    public String getUsernameAgenceLoc() {
-        return usernameAgenceLoc;
-    }
-
-    public void setUsernameAgenceLoc(String usernameAgenceLoc) {
-        this.usernameAgenceLoc = usernameAgenceLoc;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public Long getRCAgLoc() {
         return RCAgLoc;
@@ -142,16 +117,13 @@ public class AgenceLocation {
         this.paiements = paiements;
     }
 
-    public AgenceLocation(Long id, Long iceAgLoc, String raisonSocialAg, String adresse, int numTelephone, int numCompteBkAgLoc, Long ribAgence_Loc, String usernameAgenceLoc, String password, Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
-        this.id = id;
+    public AgenceLocation( Long iceAgLoc, String raisonSocialAg, String adresse, int numTelephone, int numCompteBkAgLoc, Long ribAgence_Loc , Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
         this.iceAgLoc = iceAgLoc;
         this.raisonSocialAg = raisonSocialAg;
         this.adresse = adresse;
         this.numTelephone = numTelephone;
         this.numCompteBkAgLoc = numCompteBkAgLoc;
         this.ribAgenceLoc = ribAgence_Loc;
-        this.usernameAgenceLoc = usernameAgenceLoc;
-        this.password = password;
         this.RCAgLoc = RCAgLoc;
         this.voitures = voitures;
         this.clients = clients;

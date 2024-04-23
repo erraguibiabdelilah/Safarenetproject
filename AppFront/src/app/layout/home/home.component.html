@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    <ul class="nav">
+      <li class="nav-item">
+        <a (click)="clicVoiture()"
+            class="nav_x nav-link text-dark p-0" >Voiture</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="clicApp()"  class="nav_x nav-link text-dark p-0" >Appartement</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="obejetClicked==true" class="card-body">
+    <div class="row">
+      <div class="col-4">
+        <select name="category" id="category" class="input_category form-control">
+          <option value="" disabled selected>  Categorie</option>
+          <option value="voiture">Catégorie 1</option>
+          <option value="appartement">Catégorie 2</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <select name="location" id="location" class=" input_modle form-control">
+          <option value="" disabled selected>Modele</option>
+          <option value="paris">Paris</option>
+          <option value="lyon">Lyon</option>
+          <option value="marseille">Marseille</option>
+          <option value="lille">Lille</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <button type="submit" class="btn_search btn btn-primary">Rechercher</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="obejetClicked==false"  class="card-body" >
+    <div class="row">
+      <div class="col-6">
+        <select name="category" style="width: 50rem !important;"  class="input_category form-control" >
+          <option value="" disabled selected>  Categorie</option>
+          <option value="voiture">Catégorie 1</option>
+          <option value="appartement">Catégorie 2</option>
+        </select>
+      </div>
+      <div class="col-4">
+
+      <div class="col-6">
+        <button type="submit" class="btn_search btn btn-primary">Rechercher</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

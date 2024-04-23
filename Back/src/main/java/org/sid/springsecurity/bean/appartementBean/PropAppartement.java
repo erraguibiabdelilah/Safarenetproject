@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.communBean.Paiement;
+import org.sid.springsecurity.security.bean.AppUser;
 
 import javax.persistence.*;
 
@@ -13,10 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "propAppartemenet")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PropAppartement {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class PropAppartement extends AppUser {
     private String nom;
     private String prenom;
     private String numTele;
@@ -24,9 +22,7 @@ public class PropAppartement {
     private String ribPropAppt;
     private String numCompteBkPropApp;
     private String cin;
-    private String usernamePropAppt;
 
-    private String password;
 
     @JsonIgnore
     @OneToMany(mappedBy = "prop_appartement")
@@ -40,8 +36,7 @@ public class PropAppartement {
     @OneToMany(mappedBy = "propAppartement",cascade = CascadeType.ALL)
     private List<Appartement> appartementList;
 
-    public PropAppartement(Long idPropAppartement, String nom, String prenom, String numTele, String email, String ribPropAppt, String numCompteBkPropApp, String cin, String usernamePropAppt, String password, List<Client> clients, List<Paiement> paiements, List<Appartement> appartementList) {
-        this.id = idPropAppartement;
+    public PropAppartement( String nom, String prenom, String numTele, String email, String ribPropAppt, String numCompteBkPropApp, String cin,  List<Client> clients, List<Paiement> paiements, List<Appartement> appartementList) {
         this.nom = nom;
         this.prenom = prenom;
         this.numTele = numTele;
@@ -49,8 +44,6 @@ public class PropAppartement {
         this.ribPropAppt = ribPropAppt;
         this.numCompteBkPropApp = numCompteBkPropApp;
         this.cin = cin;
-        this.usernamePropAppt = usernamePropAppt;
-        this.password = password;
         this.clients = clients;
         this.paiements = paiements;
         this.appartementList = appartementList;
@@ -68,13 +61,7 @@ public class PropAppartement {
 
     }
 
-    public Long getIdPropAppartement() {
-        return id;
-    }
 
-    public void setIdPropAppartement(Long idPropAppartement) {
-        this.id = idPropAppartement;
-    }
 
     public String getNom() {
         return nom;
@@ -132,21 +119,7 @@ public class PropAppartement {
         this.cin = cin;
     }
 
-    public String getUsernamePropAppt() {
-        return usernamePropAppt;
-    }
 
-    public void setUsernamePropAppt(String usernamePropAppt) {
-        this.usernamePropAppt = usernamePropAppt;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public List<Client> getClients() {
         return clients;

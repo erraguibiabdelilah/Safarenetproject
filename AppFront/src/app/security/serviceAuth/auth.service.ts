@@ -94,4 +94,5 @@ export class AuthService {
     return  this.http.post<AppUser>("http://localhost:8085/user",this.userApp)
   }
 
+
 }

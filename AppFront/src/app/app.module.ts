@@ -46,11 +46,16 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./security/login/login.component";
 import {CreerCompteComponent} from "./security/creer-compte/creer-compte.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NavbarComponent} from "./security/navbar/navbar.component";
+import {NavbarComponent} from "./layout/navbar/navbar.component";
 import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorized.component";
 import {AdminTemplateComponent} from "./security/admin-template/admin-template.component";
 import {AuthService} from "./security/serviceAuth/auth.service";
 import {AppHtppEzInterceptor} from "./security/interceptors/app-htpp-ez.interceptor";
+import { ProfileComponent } from './layout/user/profile/profile.component';
+import { NotFoundPageComponent } from './layout/not-found-page/not-found-page.component';
+import { VideMessageComponent } from './layout/vide-message/vide-message.component';
+import { VideNotificationComponent } from './layout/vide-notification/vide-notification.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -98,7 +103,11 @@ import {AppHtppEzInterceptor} from "./security/interceptors/app-htpp-ez.intercep
     CreerCompteComponent,
     NavbarComponent,
     NoteAuthorizedComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    ProfileComponent,
+    NotFoundPageComponent,
+    VideMessageComponent,
+    VideNotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +118,8 @@ import {AppHtppEzInterceptor} from "./security/interceptors/app-htpp-ez.intercep
   ],
   providers: [
     AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true },
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

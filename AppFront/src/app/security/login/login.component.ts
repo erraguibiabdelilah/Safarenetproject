@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../serviceAuth/auth.service";
 import {Router} from "@angular/router";
+import {RedirectService} from "../../sahred/service/LayoutService/RedirectService.service";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements  OnInit{
 
   formLogin! :FormGroup;
-  constructor(private fb:FormBuilder,private authService:AuthService,private router:Router) {
+  constructor(private fb:FormBuilder,private authService:AuthService,private router:Router,private redirectService:RedirectService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +30,10 @@ export class LoginComponent implements  OnInit{
       {
         next :data => {
           this.authService.loadProfile(data);
-          this.router.navigateByUrl("/admin");
+
+          if (this.redirectService==null){this.router.navigateByUrl("/home");}
+          else
+          this.redirectService.redirectToStoredUrl();
         },
         error :err => {
           console.log("error")

@@ -5,9 +5,13 @@ import org.sid.springsecurity.bean.appartementBean.PropAppartement;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.communBean.Paiement;
 import org.sid.springsecurity.dao.appartementDao.PropAppartementDao;
+import org.sid.springsecurity.security.bean.AppRole;
+import org.sid.springsecurity.security.dao.AppRoleDao;
 import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
 import org.sid.springsecurity.ws.converter.appartementConverter.PropAppartemenetConverter;
 import org.sid.springsecurity.ws.dto.appartementDto.PropAppartemenetDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +20,10 @@ import java.util.List;
 public class PropAppartementServiceImpl implements PropAppartementService {
     private final PropAppartementDao propAppartementDao;
     private final PropAppartemenetConverter propAppartemenetConverter;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private AppRoleDao appRoleDao;
     public PropAppartementServiceImpl( PropAppartementDao propAppartementDao,  PropAppartemenetConverter propAppartemenetConverter) {
         this.propAppartementDao = propAppartementDao;
         this.propAppartemenetConverter = propAppartemenetConverter;
@@ -44,6 +52,13 @@ public class PropAppartementServiceImpl implements PropAppartementService {
                 propAppartement.setAppartementList(appartements);
             }
         }
+        String pw=propAppartement.getPassword();
+        if (pw.isEmpty()) {
+            return -3;
+        }
+        propAppartement.setPassword(passwordEncoder.encode(pw));
+        AppRole appRole=appRoleDao.findByRoleName("MANAGER-APT");
+        propAppartement.getAppRoles().add(appRole);
       propAppartemenetConverter.toDto(propAppartementDao.save(propAppartement));
         return 1;
     }
@@ -76,7 +91,7 @@ public class PropAppartementServiceImpl implements PropAppartementService {
         propAppartement.setRibPropAppt(propAppartemenetDto.getRibPropAppt());
         propAppartement.setNumCompteBkPropApp(propAppartemenetDto.getNumCompteBkPropApp());
         propAppartement.setCin(propAppartemenetDto.getCin());
-        propAppartement.setUsernamePropAppt(propAppartemenetDto.getUsernamePropAppt());
+        propAppartement.setUsername(propAppartemenetDto.getUsernamePropAppt());
 
         propAppartementDao.save(propAppartement);
         return 1;
