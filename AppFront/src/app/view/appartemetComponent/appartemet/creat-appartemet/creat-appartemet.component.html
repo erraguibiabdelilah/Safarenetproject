@@ -1,0 +1,98 @@
+<div class="container mt-5">
+  <div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Appartement save with succes
+    <i class="bi bi-bell-fill"></i></div>
+  <div class="card">
+    <h5 class="card-header">ProPritaire
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-plus-square custom-icon"></i> Ajouter
+      </button>
+    </h5>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>code</th>
+          <th>adress</th>
+          <th>superficie</th>
+          <th>loyerMensuel</th>
+          <th>cin</th>
+          <th>libelle</th>
+          <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ez of items; let i = index">
+          <td>{{ez.code}}</td>
+          <td>{{ez.adresse}}</td>
+          <td>{{ez.superficie}}</td>
+          <td>{{ez.loyerMensuel}}</td>
+          <td>{{ez.propAppartemenetDto.cin}}</td>
+          <td>{{ez.categoriesAppartementDto.libelle}}</td>
+          <td>
+            <div class="d-flex gap-2"> <!-- Utilisation d'une classe flexbox avec un espace entre les éléments -->
+              <a class="btn btn-outline-danger" (click)="delete(ez.code)">
+                <i class="bi bi-trash"></i>
+              </a>
+              <app-edit-appartemet [codeEnfante]="ez.code"></app-edit-appartemet>
+              <a class="btn btn-outline-primary">
+                <i class="bi bi-printer"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content custom-modal">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un élément</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="p-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="col-md-6">
+                <form>
+                  <div class="col-12">
+                    <label class="form-label">code</label>
+                    <input class="form-control" [(ngModel)]="item.code" [ngModelOptions]="{standalone: true}" >
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">adresse</label>
+                    <input class="form-control" [(ngModel)]="item.adresse" [ngModelOptions]="{standalone: true}" >
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">superficie</label>
+                    <input class="form-control" [(ngModel)]="item.superficie" [ngModelOptions]="{standalone: true}" >
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">loyerMensuel</label>
+                    <input class="form-control" [(ngModel)]="item.loyerMensuel" [ngModelOptions]="{standalone: true}" >
+                  </div>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"   [(ngModel)]="selectedProp" [ngModelOptions]="{standalone: true}" >
+                    <option *ngFor="let option of propString" [value]="option">{{ option }}</option>
+                  </select>
+
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedCategory" [ngModelOptions]="{standalone: true}" >
+                    <option *ngFor="let option of categoriesString" [value]="option">{{ option }}</option>
+                  </select>
+                  <button class="btn btn-outline-danger" type="submit" (click)="save()" >Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
