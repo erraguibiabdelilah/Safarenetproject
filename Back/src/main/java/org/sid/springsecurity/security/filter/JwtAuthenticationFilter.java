@@ -34,8 +34,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         System.out.println("La méthode: attemptAuthentication");
         String username=request.getParameter("username");
         String password=request.getParameter("password");
-        System.out.println(username);
-        System.out.println(password);
+//        System.out.println(username);
+//        System.out.println(password);
+
         UsernamePasswordAuthenticationToken authenticationToken=new UsernamePasswordAuthenticationToken(username,password);
         return authenticationManager.authenticate(authenticationToken);
     }
@@ -50,7 +51,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Algorithm algo1 = Algorithm.HMAC256("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
         String jwtAccessToken = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() +5* 60 * 1000))
+                .withExpiresAt(new Date(System.currentTimeMillis() +120* 60 * 1000))
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("authority", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algo1);

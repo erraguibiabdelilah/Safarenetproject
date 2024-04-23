@@ -43,13 +43,14 @@ import { CreatVoitureComponent } from './view/voitureComponent/voiture/creat-voi
 import { EditVoitureComponent } from './view/voitureComponent/voiture/edit-voiture/edit-voiture.component';
 import { ListVoitureComponent } from './view/voitureComponent/voiture/list-voiture/list-voiture.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AppHttpInterceptor} from "./security/interceptors/app-http.interceptor";
 import {LoginComponent} from "./security/login/login.component";
 import {CreerCompteComponent} from "./security/creer-compte/creer-compte.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NavbarComponent} from "./security/navbar/navbar.component";
 import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorized.component";
 import {AdminTemplateComponent} from "./security/admin-template/admin-template.component";
+import {AuthService} from "./security/serviceAuth/auth.service";
+import {AppHtppEzInterceptor} from "./security/interceptors/app-htpp-ez.interceptor";
 
 @NgModule({
   declarations: [
@@ -103,11 +104,12 @@ import {AdminTemplateComponent} from "./security/admin-template/admin-template.c
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    // provideClientHydration()
-    {provide: HTTP_INTERCEPTORS,useClass : AppHttpInterceptor,multi :true}
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

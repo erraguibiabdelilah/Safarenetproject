@@ -22,17 +22,14 @@ export class LoginComponent implements  OnInit{
   }
 
   handleLogin(){
-
     let username=this.formLogin.value.username
     let password=this.formLogin.value.password
 
     this.authService.login(username,password).subscribe(
       {
         next :data => {
-          console.log(data)
-
           this.authService.loadProfile(data);
-          this.router.navigateByUrl("/admin")
+          this.router.navigateByUrl("/admin");
         },
         error :err => {
           console.log("error")
@@ -41,4 +38,5 @@ export class LoginComponent implements  OnInit{
       }
     )
   }
+
 }

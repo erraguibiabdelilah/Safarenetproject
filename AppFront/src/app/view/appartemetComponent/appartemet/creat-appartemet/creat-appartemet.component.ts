@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
-import {Appartemet} from "../../../../sahred/model/appartemetModel/appartemet.model";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.model";
+import {CategoriesAppartement} from "../../../../sahred/model/appartemetModel/categories-appartement.model";
+import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AppartemetService} from "../../../../sahred/service/appartemetService/appartemet.service";
+import {
+  CategoriesAppartementService
+} from "../../../../sahred/service/appartemetService/categories-appartement.service";
+import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
 
 @Component({
   selector: 'app-creat-appartemet',
@@ -11,70 +16,152 @@ import {Observable} from "rxjs";
 export class CreatAppartemetComponent {
 
 
-  public codeAppartemetService! :string;
+  public _ok:boolean=false;
 
-  public  editAppartemetExiste : Appartemet=new Appartemet();
+  public  propUpdate!:Appartement;
 
+  public  categorits : CategoriesAppartement[]=[]
 
-  public _item: Appartemet = new Appartemet();
-  public _items:Array<Appartemet>=new Array<Appartemet>();
+  public  categoriesString: string[]=[]
 
+  public selectedCategory: string="";
 
+  public  propAppartements! :PropAppartement[]
 
-  constructor(private http: HttpClient) {
-
+  public  propString : string[]=[]
+  public  selectedProp :string=""
+  constructor(public appartemetService :AppartemetService,public categorieService:CategoriesAppartementService,public  propAppartement:PropAppartementService) {
   }
 
-  public save(): Observable<any> {
-    return this.http.post<number>("http://localhost:8081/api/appartement/", this.item);
-  }
+  public save() {
+    this.item.categoriesAppartementDto.libelle=this.selectedCategory
+    this.item.propAppartemenetDto.cin=this.selectedProp
+    this.service.save().subscribe({
 
-  public getAll():Observable<Array<Appartemet>>{
-    return this.http.get<Array<Appartemet>>("http://localhost:8081/api/appartement/");
-  }
+      next: (response: number) => {
 
-  public delete(code:String):Observable<any>{
-    return this.http.delete<number>(`http://localhost:8081/api/appartement/code/${code}`);
-  }
+        console.log(response)
+        if (response === -1) {
 
+        } else if (response === -2) {
+          console.log("mohammed l3z!!")
+        } else if (response === -3) {
+          // Traitement pour le cas où l'enregistrement a échoué avec le code -3
+        } else if (response === 1) {
 
-  public  getAppartemetsbyLibelle(libelle:String):Observable<any>{
-    return this.http.get(`http://localhost:8081/api/appartement/listAppartementCategories/${libelle}`);
-  }
+          this._ok = true
+          setTimeout(() => {
+            this._ok = false; // Hide the notification after 5 seconds
+          }, 10000);
 
+          this.getAll();
 
-  public  getAppartemetsCin(cin:String):Observable<any>{
-    return this.http.get(`http://localhost:8081/api/appartement/listAppartementCin/${cin}`);
-  }
-
-
-  public  update(propritaire:Appartemet):Observable<any>{
-    return this.http.put("http://localhost:8081/api/appartement/",propritaire)
-
-  }
-
-
-  get items(): Array<Appartemet> {
-    return this._items;
-  }
-
-  set items(value: Array<Appartemet>) {
-    this._items = value;
-  }
-
-  get item(): Appartemet {
-    return this._item;
-  }
-
-  set item(value: Appartemet) {
-    this._item = value;
+        }
+      },
+      error: () => {
+        // Gérer les erreurs
+      }
+    });
   }
 
 
-  get(code: string):Observable<Appartemet> {
+  public  getAll(){
+    this.appartemetService.getAll().subscribe({
+      next:data=>{
+        this.items=data
+      },
+      error:err => {
+        console.log(err)
+      }
+    })
+  }
 
-    return this.http.get<Appartemet>(`http://localhost:8081/api/appartement/code/${code}`);
 
+
+  public  getCategoriesLibelle(){
+    this.categorieService.getAll().subscribe(
+      {
+        next:data=>{
+          this.categorits=data
+          this.categorits.map(c=>{
+            this.categoriesString.push(c.libelle.toString())
+          })
+        }
+      }
+    )
+  }
+
+  public  getPropCin(){
+    this.propAppartement.getAll().subscribe(
+      {
+        next:data=>{
+          this.propAppartements=data
+          this.propAppartements.map(c=>{
+            this.propString.push(c.cin.toString())
+          })
+        }
+      }
+    )
+  }
+
+
+  public  delete(cin:string){
+    this.appartemetService.delete(cin).subscribe({
+      next:value => {
+        this.getAll();
+      },
+      error:err => {
+        console.log(err)
+      }
+    })
+  }
+
+
+  public  update():any{
+    return this.appartemetService.update(this.propUpdate).subscribe({
+      next:()=>{
+        this.getAll();
+      },
+      error:()=>{
+
+      }
+
+    })
+
+  }
+
+
+
+  get item(): Appartement {
+    return this.appartemetService.item;
+  }
+
+  set item(value: Appartement) {
+    this.appartemetService.item = value;
+  }
+
+  get items(): Array<Appartement> {
+    return this.appartemetService._items;
+  }
+
+  set items(value: Array<Appartement>) {
+    this.appartemetService._items = value;
+  }
+
+
+  get service(): AppartemetService {
+    return this.appartemetService;
+  }
+
+  set service(value: AppartemetService) {
+    this.appartemetService = value;
+  }
+
+  ngOnInit(): void {
+    console.log(this.items.map(value => console.log(value)))
+    this.getAll();
+    this.getCategoriesLibelle();
+    this.getPropCin();
   }
 
 }

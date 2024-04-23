@@ -2,7 +2,7 @@
 import {CategoriesAppartement} from "./categories-appartement.model";
 import {Reservation} from "../communModel/reservation.model";
 import {PropAppartement} from "./prop-appartement.model";
-export class Appartemet {
+export class Appartement {
   code: string;
   superficie: number;
   adresse: string;
