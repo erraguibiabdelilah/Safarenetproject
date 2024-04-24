@@ -27,16 +27,18 @@ public class SpringSecurityApplication {
      @Bean
     CommandLineRunner start(AccountService accountService){
         return args -> {
-            accountService.addNewRole(new AppRole(null,"USER"));
+            accountService.addNewRole(new AppRole(null,"ADMIN"));
             accountService.addNewRole(new AppRole(null,"MANAGER-APT"));
             accountService.addNewRole(new AppRole(null,"MANAGER-VOI"));
-            accountService.addNewRole(new AppRole(null,"ADMIN"));
+            accountService.addNewRole(new AppRole(null,"USER"));
 
             accountService.addNewUser(new AppUser(null,"admin","admin",new ArrayList<>()));
 
 
-            accountService.addRoleToUser("admin","USER");
             accountService.addRoleToUser("admin","ADMIN");
+            accountService.addRoleToUser("admin","MANAGER-APT");
+            accountService.addRoleToUser("admin","MANAGER-VOI");
+            accountService.addRoleToUser("admin","USER");
 
         };
     }

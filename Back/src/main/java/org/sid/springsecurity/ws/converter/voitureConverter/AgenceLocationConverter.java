@@ -28,18 +28,18 @@ public class AgenceLocationConverter {
            bean.setUsername(dto.getUsernameAgenceLoc());
            bean.setPassword(dto.getPassword());
            bean.setRCAgLoc(dto.getRCAgLoc());
-            if(dto.getVoitureDtos()!=null){
-                bean.setVoitures(voitureConverter.toBean(dto.getVoitureDtos()));
-
-            }
-            if(dto.getClientDtos()!=null){
-                bean.setClients(clientConverter.toBean(dto.getClientDtos()));
-
-            }
-            if(dto.getPaiementDtos()!=null){
-                bean.setPaiements(paiementConverter.toBean(dto.getPaiementDtos()));
-
-            }
+//            if(dto.getVoitureDtos()!=null){
+//                bean.setVoitures(voitureConverter.toBean(dto.getVoitureDtos()));
+//
+//            }
+//            if(dto.getClientDtos()!=null){
+//                bean.setClients(clientConverter.toBean(dto.getClientDtos()));
+//
+//            }
+//            if(dto.getPaiementDtos()!=null){
+//                bean.setPaiements(paiementConverter.toBean(dto.getPaiementDtos()));
+//
+//            }
             return bean;
         }
     }
@@ -59,18 +59,18 @@ public class AgenceLocationConverter {
             dto.setPassword(bean.getPassword());
             dto.setRCAgLoc(bean.getRCAgLoc());
 
-            if(bean.getVoitures()!=null){
-                dto.setVoitureDtos(voitureConverter.toDto(bean.getVoitures()));
-
-            }
-            if(bean.getClients()!=null){
-                dto.setClientDtos(clientConverter.toDto(bean.getClients()));
-
-            }
-            if(bean.getPaiements()!=null){
-                dto.setPaiementDtos(paiementConverter.toDto(bean.getPaiements()));
-
-            }
+//            if(bean.getVoitures()!=null){
+//                dto.setVoitureDtos(voitureConverter.toDto(bean.getVoitures()));
+//
+//            }
+//            if(bean.getClients()!=null){
+//                dto.setClientDtos(clientConverter.toDto(bean.getClients()));
+//
+//            }
+//            if(bean.getPaiements()!=null){
+//                dto.setPaiementDtos(paiementConverter.toDto(bean.getPaiements()));
+//
+//            }
             return dto;
         }
 

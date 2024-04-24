@@ -44,8 +44,14 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public int save(Client client) {
+        System.out.println("********************************************************************************************");
+        System.out.println(client.getCin());
+        System.out.println(client.getUsername());
+        System.out.println(client.getPassword());
+        System.out.println("********************************************************************************************");
         Long iceAgLoc =null;
         String cin = "";
+
         if (client == null) {
             System.out.println("null");
             return -1;
@@ -79,7 +85,6 @@ public class ClientServiceImpl implements ClientService {
         AppRole appRole=appRoleDao.findByRoleName("USER");
         client.getAppRoles().add(appRole);
         clientDao.save(client);
-
 
         return 1;
     }

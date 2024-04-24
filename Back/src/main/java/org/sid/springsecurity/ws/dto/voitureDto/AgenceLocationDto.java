@@ -18,9 +18,9 @@ public class AgenceLocationDto {
     private String password;
     private Long RCAgLoc ;
 
-    private List<VoitureDto> voitureDtos;
-    private List<ClientDto> clientDtos ;
-    private List<PaiementDto> paiementDtos ;
+//    private List<VoitureDto> voitureDtos;
+//    private List<ClientDto> clientDtos ;
+//    private List<PaiementDto> paiementDtos ;
 
     public Long getId() {
         return id;
@@ -102,27 +102,28 @@ public class AgenceLocationDto {
         this.RCAgLoc = RCAgLoc;
     }
 
-    public List<VoitureDto> getVoitureDtos() {
-        return voitureDtos;
-    }
-
-    public void setVoitureDtos(List<VoitureDto> voitureDtos) {
-        this.voitureDtos = voitureDtos;
-    }
-
-    public List<ClientDto> getClientDtos() {
-        return clientDtos;
-    }
-
-    public void setClientDtos(List<ClientDto> clientDtos) {
-        this.clientDtos = clientDtos;
-    }
-
-    public List<PaiementDto> getPaiementDtos() {
-        return paiementDtos;
-    }
-
-    public void setPaiementDtos(List<PaiementDto> paiementDtos) {
-        this.paiementDtos = paiementDtos;
-    }
+//
+//    public List<VoitureDto> getVoitureDtos() {
+//        return voitureDtos;
+//    }
+//
+//    public void setVoitureDtos(List<VoitureDto> voitureDtos) {
+//        this.voitureDtos = voitureDtos;
+//    }
+//
+//    public List<ClientDto> getClientDtos() {
+//        return clientDtos;
+//    }
+//
+//    public void setClientDtos(List<ClientDto> clientDtos) {
+//        this.clientDtos = clientDtos;
+//    }
+//
+//    public List<PaiementDto> getPaiementDtos() {
+//        return paiementDtos;
+//    }
+//
+//    public void setPaiementDtos(List<PaiementDto> paiementDtos) {
+//        this.paiementDtos = paiementDtos;
+//    }
 }
