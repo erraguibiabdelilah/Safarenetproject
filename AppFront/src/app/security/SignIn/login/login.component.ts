@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {AuthService} from "../serviceAuth/auth.service";
+import {AuthService} from "../../serviceAuth/auth.service";
 import {Router} from "@angular/router";
-import {RedirectService} from "../../sahred/service/LayoutService/RedirectService.service";
+import {RedirectService} from "../../../sahred/service/LayoutService/RedirectService.service";
 
 @Component({
   selector: 'app-login',
@@ -34,6 +34,8 @@ export class LoginComponent implements  OnInit{
           if (this.redirectService==null){this.router.navigateByUrl("/home");}
           else
           this.redirectService.redirectToStoredUrl();
+
+          // this.router.navigateByUrl("/admin")
         },
         error :err => {
           console.log("error")

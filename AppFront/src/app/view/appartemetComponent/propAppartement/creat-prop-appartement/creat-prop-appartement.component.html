@@ -36,7 +36,7 @@
           <td>{{ez.email}}</td>
           <td>{{ez.ribPropAppt}}</td>
           <td>{{ez.numCompteBkPropApp}}</td>
-          <td>{{ez.usernamePropAppt}}</td>
+          <td>{{ez.username}}</td>
           <td>
             <button class="btn btn-outline-primary" (click)="getAppartemetsbyCin(ez.cin)">
               <i class="bi bi-house-door-fill"></i>
@@ -101,7 +101,7 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Nom d'utilisateur</label>
-                    <input class="form-control" [(ngModel)]="item.usernamePropAppt" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Mot de passe</label>

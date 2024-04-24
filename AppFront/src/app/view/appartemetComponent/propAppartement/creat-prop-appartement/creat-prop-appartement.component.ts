@@ -128,7 +128,7 @@ export class CreatPropAppartementComponent implements OnInit{
     this.item.nom="";
     this.item.prenom="";
     this.item.email="";
-    this.item.usernamePropAppt="";
+    this.item.username="";
     this.item.ribPropAppt="";
     this.item.numTele="",
       this.item.numCompteBkPropApp="",

@@ -43,8 +43,7 @@ import { CreatVoitureComponent } from './view/voitureComponent/voiture/creat-voi
 import { EditVoitureComponent } from './view/voitureComponent/voiture/edit-voiture/edit-voiture.component';
 import { ListVoitureComponent } from './view/voitureComponent/voiture/list-voiture/list-voiture.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {LoginComponent} from "./security/login/login.component";
-import {CreerCompteComponent} from "./security/creer-compte/creer-compte.component";
+import {LoginComponent} from "./security/SignIn/login/login.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NavbarComponent} from "./layout/navbar/navbar.component";
 import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorized.component";
@@ -56,6 +55,9 @@ import { NotFoundPageComponent } from './layout/not-found-page/not-found-page.co
 import { VideMessageComponent } from './layout/vide-message/vide-message.component';
 import { VideNotificationComponent } from './layout/vide-notification/vide-notification.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {PropComponent} from "./security/SignUp/prop/prop.component";
+import {AgenceComponent} from "./security/SignUp/agence/agence.component";
+import {UserComponent} from "./security/SignUp/user/user.component";
 
 @NgModule({
   declarations: [
@@ -100,14 +102,16 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     EditVoitureComponent,
     ListVoitureComponent,
     LoginComponent,
-    CreerCompteComponent,
     NavbarComponent,
     NoteAuthorizedComponent,
     AdminTemplateComponent,
     ProfileComponent,
     NotFoundPageComponent,
     VideMessageComponent,
-    VideNotificationComponent
+    VideNotificationComponent,
+    PropComponent,
+    AgenceComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

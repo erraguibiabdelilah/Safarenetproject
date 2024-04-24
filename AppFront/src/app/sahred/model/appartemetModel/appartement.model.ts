@@ -27,7 +27,7 @@ export class Appartement {
       ribPropAppt : "",
       numCompteBkPropApp : "",
       cin : "",
-      usernamePropAppt : "",
+      username : "",
       password:""
     };
   }

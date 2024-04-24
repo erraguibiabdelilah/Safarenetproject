@@ -5,6 +5,7 @@ import {jwtDecode} from "jwt-decode";
 import {Router} from "@angular/router";
 import {AppUser} from "../bean/app-user.model";
 import {isPlatformBrowser} from "@angular/common";
+import {Client} from "../../sahred/model/communModel/client.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class AuthService {
   roles : any;
   username : any;
   accessToken! : any ;
+
+  client:Client=new Client();
 
   accessTokenEz! : any ;
   userApp :AppUser=new AppUser();
@@ -87,11 +90,9 @@ export class AuthService {
   //
   //   }
   // }
-  creeCompte(username: any, password: any) {
-    this.userApp.username=username;
-    this.userApp.password=password;
-    console.log(this.userApp)
-    return  this.http.post<AppUser>("http://localhost:8085/user",this.userApp)
+  creeCompte(client:Client){
+    console.log(this.client)
+    return  this.http.post<number>("http://localhost:8085/api/client/",client)
   }
 
 

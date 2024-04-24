@@ -51,6 +51,14 @@ export class PropAppartementService {
   }
 
 
+  creeCompte(cin:any,username: any, password: any):Observable<any> {
+    this.item.cin=cin;
+    this.item.username=username;
+    this.item.password=password;
+    console.log(this.item)
+    return  this.http.post<any>("http://localhost:8085/api/propAppartement/", this.item)
+  }
+
   get item(): PropAppartement {
     return this._item;
   }

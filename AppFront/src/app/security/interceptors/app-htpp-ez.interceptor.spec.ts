@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse} from '@angular/common/http';
-import { appHtppEzInterceptor } from './app-htpp-ez.interceptor';
 import {Observable, of} from "rxjs";
-import {Injectable} from "@angular/core";
+import {AppHtppEzInterceptor} from "./app-htpp-ez.interceptor";
 
 describe('appHtppEzInterceptor', () => {
   let interceptor: HttpInterceptor;
@@ -10,11 +9,11 @@ describe('appHtppEzInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: appHtppEzInterceptor, useClass: appHtppEzInterceptor }
+        { provide: AppHtppEzInterceptor, useClass: AppHtppEzInterceptor }
       ]
     });
 
-    interceptor = TestBed.inject(appHtppEzInterceptor);
+    interceptor = TestBed.inject(AppHtppEzInterceptor);
   });
 
   it('should be created', () => {

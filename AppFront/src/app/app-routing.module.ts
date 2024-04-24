@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CreerCompteComponent} from "./security/creer-compte/creer-compte.component";
-import {LoginComponent} from "./security/login/login.component";
+import {LoginComponent} from "./security/SignIn/login/login.component";
 import {
   CreatAppartemetComponent
 } from "./view/appartemetComponent/appartemet/creat-appartemet/creat-appartemet.component";
@@ -22,11 +21,16 @@ import {HomeComponent} from "./layout/home/home.component";
 import {NotFoundPageComponent} from "./layout/not-found-page/not-found-page.component";
 import {VideMessageComponent} from "./layout/vide-message/vide-message.component";
 import {VideNotificationComponent} from "./layout/vide-notification/vide-notification.component";
+import {AgenceComponent} from "./security/SignUp/agence/agence.component";
+import {PropComponent} from "./security/SignUp/prop/prop.component";
+import {UserComponent} from "./security/SignUp/user/user.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path :"login", component : LoginComponent},
-  { path :"creercompte", component : CreerCompteComponent},
+  { path :"creercompte", component : UserComponent},
+  { path :"prop", component : PropComponent},
+  { path :"agence", component : AgenceComponent},
   { path :"", redirectTo:"/home",pathMatch:"full"},
   { path: "message", component: SignInMessageComponent },
   { path: "notification", component: SignInNotificationComponent },
@@ -38,7 +42,6 @@ const routes: Routes = [
       { path :"categories",component:CreatCategoriesAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"propraitaire",component:CreatPropAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
-
     ]},
 
 
