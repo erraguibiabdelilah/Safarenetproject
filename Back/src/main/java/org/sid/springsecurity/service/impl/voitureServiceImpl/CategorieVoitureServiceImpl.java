@@ -16,8 +16,6 @@ public class CategorieVoitureServiceImpl implements CategorieVoitureService {
 
     @Autowired
     private CategorieVoitureDao categorieVoitureDao;
-    @Autowired
-    private CategorieVoitureConverter categorieVoitureConverter;
 
     @Override
     public int save(CategorieVoiture categorieVoiture) {
@@ -33,6 +31,21 @@ public class CategorieVoitureServiceImpl implements CategorieVoitureService {
             e.printStackTrace();
             return -4;
         }
+    }
+    @Override
+    public int update(CategorieVoiture categorieVoiture) {
+
+        if(categorieVoiture.getLibelle()==null){
+            CategorieVoiture existingCategorie=null;
+        }
+        CategorieVoiture existingCategorie = categorieVoitureDao.findByLibelle(categorieVoiture.getLibelle());
+
+        if (existingCategorie == null) {
+            return -1;
+        }
+            existingCategorie.setLibelle(categorieVoiture.getLibelle());
+            categorieVoitureDao.save(existingCategorie);
+            return 1;
     }
 
 

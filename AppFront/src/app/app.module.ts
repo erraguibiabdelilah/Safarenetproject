@@ -58,6 +58,22 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {PropComponent} from "./security/SignUp/prop/prop.component";
 import {AgenceComponent} from "./security/SignUp/agence/agence.component";
 import {UserComponent} from "./security/SignUp/user/user.component";
+import {MatTable, MatTableModule} from "@angular/material/table";
+import {MatCard, MatCardContent, MatCardModule} from "@angular/material/card";
+import {MatDivider, MatDividerModule} from "@angular/material/divider";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
+import {ButtonModule} from "primeng/button";
+import {ToolbarModule} from 'primeng/toolbar';
+import {SplitButtonModule} from "primeng/splitbutton";
+import {DialogModule} from "primeng/dialog";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {MenuModule} from "primeng/menu";
+import {ToastModule} from "primeng/toast";
+import {MatFormField, MatInput, MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {DropdownModule} from "primeng/dropdown";
+import {PaginatorModule} from "primeng/paginator";
 
 @NgModule({
   declarations: [
@@ -118,7 +134,25 @@ import {UserComponent} from "./security/SignUp/user/user.component";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatCardContent,
+    MatCardModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatSortHeader,
+    MatSort,
+    ButtonModule,
+    ToolbarModule,
+    SplitButtonModule,
+    DialogModule,
+    RadioButtonModule,
+    MenuModule,
+    ToastModule,
+    MatInputModule,
+    MatFormFieldModule,
+    DropdownModule,
+    PaginatorModule
   ],
   providers: [
     AuthService,

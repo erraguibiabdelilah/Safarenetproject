@@ -24,6 +24,10 @@ import {VideNotificationComponent} from "./layout/vide-notification/vide-notific
 import {AgenceComponent} from "./security/SignUp/agence/agence.component";
 import {PropComponent} from "./security/SignUp/prop/prop.component";
 import {UserComponent} from "./security/SignUp/user/user.component";
+import {ListVoitureComponent} from "./view/voitureComponent/voiture/list-voiture/list-voiture.component";
+import {
+  CreatCategorieVoitureComponent
+} from "./view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -36,6 +40,8 @@ const routes: Routes = [
   { path: "notification", component: SignInNotificationComponent },
   { path: "videMessage", component: VideMessageComponent },
   { path: "videNotification", component: VideNotificationComponent },
+  { path: "listeVoiture", component: CreatCategorieVoitureComponent },
+
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
       { path :"appartemet",component:CreatAppartemetComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
