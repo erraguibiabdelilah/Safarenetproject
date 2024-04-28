@@ -27,7 +27,7 @@ public class AgenceLocationWs {
         return agenceLocationService.save(agenceLocation);
     }
     @GetMapping("iceAgLoc/{iceAgLoc}")
-    public AgenceLocationDto findByiceAgLoc(@PathVariable Long iceAgLoc)  {
+    public AgenceLocationDto findByiceAgLoc(@PathVariable String iceAgLoc)  {
         return converter.toDto(agenceLocationService.findByiceAgLoc(iceAgLoc));
     }
     @GetMapping

@@ -8,8 +8,6 @@ public interface CategorieVoitureService {
 
     int save(CategorieVoiture categorieVoiture);
 
-    int update(CategorieVoiture categorieVoiture);
-
     CategorieVoiture findByLibelle(String libelle);
 
 

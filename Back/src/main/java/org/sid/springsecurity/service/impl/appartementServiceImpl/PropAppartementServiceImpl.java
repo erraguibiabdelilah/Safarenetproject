@@ -57,8 +57,10 @@ public class PropAppartementServiceImpl implements PropAppartementService {
             return -3;
         }
         propAppartement.setPassword(passwordEncoder.encode(pw));
-        AppRole appRole=appRoleDao.findByRoleName("MANAGER-APT");
-        propAppartement.getAppRoles().add(appRole);
+        AppRole appRole1=appRoleDao.findByRoleName("MANAGER-APT");
+        AppRole appRole2=appRoleDao.findByRoleName("USER");
+        propAppartement.getAppRoles().add(appRole1);
+        propAppartement.getAppRoles().add(appRole2);
       propAppartemenetConverter.toDto(propAppartementDao.save(propAppartement));
         return 1;
     }
@@ -91,7 +93,7 @@ public class PropAppartementServiceImpl implements PropAppartementService {
         propAppartement.setRibPropAppt(propAppartemenetDto.getRibPropAppt());
         propAppartement.setNumCompteBkPropApp(propAppartemenetDto.getNumCompteBkPropApp());
         propAppartement.setCin(propAppartemenetDto.getCin());
-        propAppartement.setUsername(propAppartemenetDto.getUsernamePropAppt());
+        propAppartement.setUsername(propAppartemenetDto.getUsername());
 
         propAppartementDao.save(propAppartement);
         return 1;

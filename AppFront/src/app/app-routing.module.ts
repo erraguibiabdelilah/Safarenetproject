@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./security/SignIn/login/login.component";
 import {
   CreatAppartemetComponent
 } from "./view/appartemetComponent/appartemet/creat-appartemet/creat-appartemet.component";
@@ -21,23 +20,21 @@ import {HomeComponent} from "./layout/home/home.component";
 import {NotFoundPageComponent} from "./layout/not-found-page/not-found-page.component";
 import {VideMessageComponent} from "./layout/vide-message/vide-message.component";
 import {VideNotificationComponent} from "./layout/vide-notification/vide-notification.component";
-import {AgenceComponent} from "./security/SignUp/agence/agence.component";
-import {PropComponent} from "./security/SignUp/prop/prop.component";
-import {UserComponent} from "./security/SignUp/user/user.component";
 import {ListVoitureComponent} from "./view/voitureComponent/voiture/list-voiture/list-voiture.component";
 import {
   CreatCategorieVoitureComponent
 } from "./view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component";
+<<<<<<< HEAD
 import {CreatContratComponent} from "./view/communComponent/contrat/creat-contrat/creat-contrat.component";
 import {CreatFactureComponent} from "./view/communComponent/facture/creat-facture/creat-facture.component";
 import {CreatLocationComponent} from "./view/communComponent/location/creat-location/creat-location.component";
+=======
+import {LoginComponent} from "./security/login/login.component";
+>>>>>>> 31998ce695faab9434ea81f146fb613006bc16fb
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path :"login", component : LoginComponent},
-  { path :"creercompte", component : UserComponent},
-  { path :"prop", component : PropComponent},
-  { path :"agence", component : AgenceComponent},
   { path :"", redirectTo:"/home",pathMatch:"full"},
   { path: "message", component: SignInMessageComponent },
   { path: "notification", component: SignInNotificationComponent },

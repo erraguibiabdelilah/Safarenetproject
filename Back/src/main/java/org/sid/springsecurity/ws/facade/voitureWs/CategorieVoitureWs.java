@@ -33,17 +33,12 @@ public class CategorieVoitureWs {
         return categorieVoitureService.save(categorieVoiture);
     }
 
-    @GetMapping
+    @GetMapping("")
     public List<CategorieVoitureDto> findAll() {
         return converter.toDto(categorieVoitureService.findAll());
     }
     @DeleteMapping("libelle/{libelle}")
     public int deleteByLibelle(@PathVariable String libelle) {
         return categorieVoitureService.deleteByLibelle(libelle);
-    }
-    @PutMapping
-    public int update(@RequestBody CategorieVoitureDto categorieVoitureDto) {
-        CategorieVoiture categorieVoiture=converter.toBean(categorieVoitureDto);
-        return categorieVoitureService.update(categorieVoiture);
     }
 }

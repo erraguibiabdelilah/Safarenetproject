@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AgenceLocationDao extends JpaRepository<AgenceLocation,Long> {
-    AgenceLocation findByIceAgLoc(Long id);
+    AgenceLocation findByIceAgLoc(String id);
     int deleteByIceAgLoc(Long ice);
 }

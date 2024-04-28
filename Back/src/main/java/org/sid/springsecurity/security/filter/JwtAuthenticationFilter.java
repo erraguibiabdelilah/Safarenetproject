@@ -31,7 +31,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        System.out.println("La méthode: attemptAuthentication");
         String username=request.getParameter("username");
         String password=request.getParameter("password");
 //        System.out.println(username);
@@ -42,7 +41,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-
         System.out.println("La méthode: successfulAuthentication");
         User user = (User) authResult.getPrincipal();
         System.out.println(user);

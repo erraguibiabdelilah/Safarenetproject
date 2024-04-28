@@ -18,6 +18,7 @@ public class AppUser {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String username;
+    @Column(unique = true)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @ManyToMany(fetch =FetchType.EAGER)
