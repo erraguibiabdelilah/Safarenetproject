@@ -29,17 +29,25 @@ public class FactureServiceImpl implements FactureService {
             System.out.println("facture null");
             return -1 ;
         }
-        if (facture.getRef()==null){return -2;}
+        if (facture.getRef()==null){
+            return -2;
+        }
         if (findByRef(facture.getRef()) != null) {
             System.out.println("facture (ref) deja existed");
             return -3;
         }
 
-        if(facture.getLocation()==null && facture.getLocation().getRef()==null){
-            return -4;
-        }
         Location location = locationService.findByRef(facture.getLocation().getRef());
 
+        if(facture.getLocation().getRef()==null){
+            System.out.println("ref de location null");
+            return -4;
+        }
+
+        if(location==null ){
+            System.out.println("location null");
+            return -5;
+        }
 
         facture.setPaiement(paiement);
         facture.setLocation(location);

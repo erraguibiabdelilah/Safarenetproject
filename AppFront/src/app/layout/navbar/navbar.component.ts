@@ -38,4 +38,5 @@ export class NavbarComponent implements OnInit {
     //logique si la boite de notifaiaction n'est pas vide
 
   }
+
 }

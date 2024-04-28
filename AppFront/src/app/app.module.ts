@@ -74,6 +74,15 @@ import {MatFormField, MatInput, MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
+import {MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavModule} from "@angular/material/sidenav";
+import {MatList, MatListItem, MatNavList} from "@angular/material/list";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
+import {MatMenu, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
+import {MatBadge, MatBadgeModule} from "@angular/material/badge";
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatButton, MatButtonModule} from "@angular/material/button";
+import {RippleModule} from "primeng/ripple";
+import {ChipsModule} from "primeng/chips";
 
 @NgModule({
   declarations: [
@@ -140,8 +149,7 @@ import {PaginatorModule} from "primeng/paginator";
     MatCardModule,
     MatDividerModule,
     MatPaginatorModule,
-    MatSortHeader,
-    MatSort,
+    MatSortModule,
     ButtonModule,
     ToolbarModule,
     SplitButtonModule,
@@ -152,7 +160,22 @@ import {PaginatorModule} from "primeng/paginator";
     MatInputModule,
     MatFormFieldModule,
     DropdownModule,
-    PaginatorModule
+    PaginatorModule,
+    MatDrawerContent,
+    MatListItem,
+
+    MatIconModule,
+    MatDrawerContainer,
+    MatNavList,
+    MatMenuTrigger,
+    MatMenuModule,
+    MatBadgeModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatList,
+    RippleModule,
+    ChipsModule
   ],
   providers: [
     AuthService,

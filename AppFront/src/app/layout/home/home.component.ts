@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgClass, NgIf} from "@angular/common";
+import {MatCard, MatCardModule} from "@angular/material/card";
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import {NgClass, NgIf} from "@angular/common";
   standalone: true,
   imports: [
     NgIf,
-    NgClass
+    NgClass,
+    MatCardModule
   ],
   styleUrl: './home.component.css'
 })

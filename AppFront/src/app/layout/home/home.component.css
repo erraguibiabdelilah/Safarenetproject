@@ -86,16 +86,6 @@ button:hover {
   border-radius: 5rem;
 }
 
-.input_modle{
-  width: 31rem;
-  margin-left:8rem;
-  border-radius:12px;
-}
-
-.input_category{
-  width: 31rem;
-  border-radius:12px;
-}
 .nav_x{
   position: relative;
   left: 500px;

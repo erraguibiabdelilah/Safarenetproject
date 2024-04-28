@@ -26,21 +26,30 @@ public class ContratServiceImpl implements ContratService {
             System.out.println("Contrat null");
             return -1;
         }
-        if (findByNumContrat(contrat.getNumContrat()) != null) {
-            System.out.println("contrat (numContrat) deja existed");
+        if (contrat.getNumContrat() == 0) {
+            System.out.println(" numContrat est null");
             return -2;
         }
 
-        Location location = locationService.findByRef(contrat.getLocation().getRef());
-
-        if (location == null) {
-            System.out.println("location est null");
+        if (findByNumContrat(contrat.getNumContrat()) != null) {
+            System.out.println("contrat (numContrat) deja existed");
             return -3;
         }
-        if (locationService.findByRef(location.getRef()) == null) {
-            System.out.println("Cette location n'existe pas");
+        Location location = locationService.findByRef(contrat.getLocation().getRef());
+
+        if(contrat.getLocation().getRef()==null){
+            System.out.println("ref de location null");
             return -4;
         }
+        if (location == null) {
+            System.out.println("location est null");
+            return -5;
+        }
+        if (contrat.getPrixHT()<contrat.getRest()) {
+            System.out.println("reste < pritht ");
+            return -6;
+        }
+
 
         contrat.setLocation(location);
         contratDao.save(contrat);
