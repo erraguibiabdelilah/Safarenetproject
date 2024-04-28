@@ -38,16 +38,23 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
             if (pw.isEmpty()) {
                 return -3;
             }
+
+
             agenceLocation.setPassword(passwordEncoder.encode(pw));
-            AppRole appRole=appRoleDao.findByRoleName("MANAGER-VOI");
-            agenceLocation.getAppRoles().add(appRole);
+
+            AppRole appRole1=appRoleDao.findByRoleName("MANAGER-VOI");
+            AppRole appRole2=appRoleDao.findByRoleName("USER");
+
+            agenceLocation.getAppRoles().add(appRole1);
+            agenceLocation.getAppRoles().add(appRole2);
+
             agenceLocationDao.save(agenceLocation);
             return 1;
         }
     }
 
     @Override
-    public AgenceLocation findByiceAgLoc(Long iceAgLoc) {
+    public AgenceLocation findByiceAgLoc(String iceAgLoc) {
         return agenceLocationDao.findByIceAgLoc(iceAgLoc);
     }
 
@@ -62,7 +69,7 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
             return -1;
         }
 
-        Long iceAgLoc = agenceLocation.getIceAgLoc();
+        String iceAgLoc = agenceLocation.getIceAgLoc();
         if (iceAgLoc == null) {
             return -2;
         }

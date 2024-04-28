@@ -7,11 +7,10 @@ import org.sid.springsecurity.ws.dto.communDto.PaiementDto;
 import java.util.List;
 
 public class AgenceLocationDto {
-    private Long id;
-    private Long iceAgLoc;
+    private String iceAgLoc;
     private String raisonSocialAg;
     private String adresse;
-    private int numTelephone;
+    private String numTelephone;
     private int numCompteBkAgLoc;
     private Long ribAgenceLoc;
     private String usernameAgenceLoc;
@@ -22,19 +21,13 @@ public class AgenceLocationDto {
 //    private List<ClientDto> clientDtos ;
 //    private List<PaiementDto> paiementDtos ;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getIceAgLoc() {
+    public String getIceAgLoc() {
         return iceAgLoc;
     }
 
-    public void setIceAgLoc(Long iceAgLoc) {
+    public void setIceAgLoc(String iceAgLoc) {
         this.iceAgLoc = iceAgLoc;
     }
 
@@ -54,12 +47,20 @@ public class AgenceLocationDto {
         this.adresse = adresse;
     }
 
-    public int getNumTelephone() {
+    public String getNumTelephone() {
         return numTelephone;
     }
 
-    public void setNumTelephone(int numTelephone) {
+    public void setNumTelephone(String numTelephone) {
         this.numTelephone = numTelephone;
+    }
+
+    public Long getRibAgenceLoc() {
+        return ribAgenceLoc;
+    }
+
+    public void setRibAgenceLoc(Long ribAgenceLoc) {
+        this.ribAgenceLoc = ribAgenceLoc;
     }
 
     public int getNumCompteBkAgLoc() {
@@ -101,12 +102,6 @@ public class AgenceLocationDto {
     public void setRCAgLoc(Long RCAgLoc) {
         this.RCAgLoc = RCAgLoc;
     }
-
-//
-//    public List<VoitureDto> getVoitureDtos() {
-//        return voitureDtos;
-//    }
-//
 //    public void setVoitureDtos(List<VoitureDto> voitureDtos) {
 //        this.voitureDtos = voitureDtos;
 //    }
@@ -118,6 +113,12 @@ public class AgenceLocationDto {
 //    public void setClientDtos(List<ClientDto> clientDtos) {
 //        this.clientDtos = clientDtos;
 //    }
+
+//
+//    public List<VoitureDto> getVoitureDtos() {
+//        return voitureDtos;
+//    }
+//
 //
 //    public List<PaiementDto> getPaiementDtos() {
 //        return paiementDtos;

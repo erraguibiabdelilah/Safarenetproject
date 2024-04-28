@@ -43,7 +43,6 @@ import { CreatVoitureComponent } from './view/voitureComponent/voiture/creat-voi
 import { EditVoitureComponent } from './view/voitureComponent/voiture/edit-voiture/edit-voiture.component';
 import { ListVoitureComponent } from './view/voitureComponent/voiture/list-voiture/list-voiture.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {LoginComponent} from "./security/SignIn/login/login.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NavbarComponent} from "./layout/navbar/navbar.component";
 import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorized.component";
@@ -55,25 +54,32 @@ import { NotFoundPageComponent } from './layout/not-found-page/not-found-page.co
 import { VideMessageComponent } from './layout/vide-message/vide-message.component';
 import { VideNotificationComponent } from './layout/vide-notification/vide-notification.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {PropComponent} from "./security/SignUp/prop/prop.component";
-import {AgenceComponent} from "./security/SignUp/agence/agence.component";
-import {UserComponent} from "./security/SignUp/user/user.component";
-import {MatTable, MatTableModule} from "@angular/material/table";
-import {MatCard, MatCardContent, MatCardModule} from "@angular/material/card";
-import {MatDivider, MatDividerModule} from "@angular/material/divider";
-import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {ButtonModule} from "primeng/button";
-import {ToolbarModule} from 'primeng/toolbar';
-import {SplitButtonModule} from "primeng/splitbutton";
-import {DialogModule} from "primeng/dialog";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {MenuModule} from "primeng/menu";
-import {ToastModule} from "primeng/toast";
-import {MatFormField, MatInput, MatInputModule} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
+import {ToastModule} from "primeng/toast";
+import {SplitButtonModule} from "primeng/splitbutton";
+import {ToolbarModule} from "primeng/toolbar";
+import {ButtonModule} from "primeng/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatCardContent, MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
+import {DialogModule} from "primeng/dialog";
+import {LoginComponent} from "./security/login/login.component";
+import {MessageService} from "primeng/api";
+import {AvatarModule} from "primeng/avatar";
+import {NgOptimizedImage} from "@angular/common";
+import {AutoFocusModule} from "primeng/autofocus";
+import {StepperModule} from "primeng/stepper";
+import {IconFieldModule} from "primeng/iconfield";
+import {InputIconModule} from "primeng/inputicon";
+import {PasswordModule} from "primeng/password";
+import {ToggleButtonModule} from "primeng/togglebutton";
 
 @NgModule({
   declarations: [
@@ -125,9 +131,6 @@ import {PaginatorModule} from "primeng/paginator";
     NotFoundPageComponent,
     VideMessageComponent,
     VideNotificationComponent,
-    PropComponent,
-    AgenceComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -152,9 +155,19 @@ import {PaginatorModule} from "primeng/paginator";
     MatInputModule,
     MatFormFieldModule,
     DropdownModule,
-    PaginatorModule
+    PaginatorModule,
+    DialogModule,
+    AvatarModule,
+    NgOptimizedImage,
+    AutoFocusModule,
+    StepperModule,
+    IconFieldModule,
+    InputIconModule,
+    PasswordModule,
+    ToggleButtonModule
   ],
   providers: [
+    MessageService,
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true },
     provideAnimationsAsync()

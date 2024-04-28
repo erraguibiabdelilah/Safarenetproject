@@ -36,7 +36,7 @@ public class PropAppartemenetConverter {
             bean.setRibPropAppt(dto.getRibPropAppt());
             bean.setNumCompteBkPropApp(dto.getNumCompteBkPropApp());
             bean.setCin(dto.getCin());
-            bean.setUsername(dto.getUsernamePropAppt());
+            bean.setUsername(dto.getUsername());
             bean.setPassword(dto.getPassword());
 
             return bean;
@@ -56,7 +56,7 @@ public class PropAppartemenetConverter {
             dto.setRibPropAppt(bean.getRibPropAppt());
             dto.setNumCompteBkPropApp(bean.getNumCompteBkPropApp());
             dto.setCin(bean.getCin());
-            dto.setUsernamePropAppt(bean.getUsername());
+            dto.setUsername(bean.getUsername());
             dto.setPassword(bean.getPassword());
 
             return dto;

@@ -3,18 +3,20 @@ package org.sid.springsecurity.bean.voitureBean;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.communBean.Paiement;
+import org.sid.springsecurity.security.bean.AppRole;
 import org.sid.springsecurity.security.bean.AppUser;
 
 import javax.persistence.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
 public class AgenceLocation extends AppUser {
-    private Long iceAgLoc;
+    private String iceAgLoc;
     private String raisonSocialAg;
     private String adresse;
-    private int numTelephone;
+    private String numTelephone;
     private int numCompteBkAgLoc;
     private Long ribAgenceLoc;
     private Long RCAgLoc ;
@@ -36,11 +38,11 @@ public class AgenceLocation extends AppUser {
     }
 
 
-    public Long getIceAgLoc() {
+    public String getIceAgLoc() {
         return iceAgLoc;
     }
 
-    public void setIceAgLoc(Long iceAgLoc) {
+    public void setIceAgLoc(String iceAgLoc) {
         this.iceAgLoc = iceAgLoc;
     }
 
@@ -60,13 +62,7 @@ public class AgenceLocation extends AppUser {
         this.adresse = adresse;
     }
 
-    public int getNumTelephone() {
-        return numTelephone;
-    }
 
-    public void setNumTelephone(int numTelephone) {
-        this.numTelephone = numTelephone;
-    }
 
     public int getNumCompteBkAgLoc() {
         return numCompteBkAgLoc;
@@ -117,16 +113,26 @@ public class AgenceLocation extends AppUser {
         this.paiements = paiements;
     }
 
-    public AgenceLocation( Long iceAgLoc, String raisonSocialAg, String adresse, int numTelephone, int numCompteBkAgLoc, Long ribAgence_Loc , Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
+    public AgenceLocation(Long id, String username, String password, Collection<AppRole> appRoles, String iceAgLoc, String raisonSocialAg, String adresse, String numTelephone, int numCompteBkAgLoc, Long ribAgenceLoc, Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
+        super(id, username, password, appRoles);
         this.iceAgLoc = iceAgLoc;
         this.raisonSocialAg = raisonSocialAg;
         this.adresse = adresse;
         this.numTelephone = numTelephone;
         this.numCompteBkAgLoc = numCompteBkAgLoc;
-        this.ribAgenceLoc = ribAgence_Loc;
+        this.ribAgenceLoc = ribAgenceLoc;
         this.RCAgLoc = RCAgLoc;
         this.voitures = voitures;
         this.clients = clients;
         this.paiements = paiements;
+    }
+
+
+    public String getNumTelephone() {
+        return numTelephone;
+    }
+
+    public void setNumTelephone(String numTelephone) {
+        this.numTelephone = numTelephone;
     }
 }

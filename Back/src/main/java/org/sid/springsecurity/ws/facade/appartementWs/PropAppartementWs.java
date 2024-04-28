@@ -14,9 +14,8 @@ import java.util.List;
 public class PropAppartementWs {
     //mohammed  ezzaim
     @PostMapping
-
-    public int save(@RequestBody PropAppartement appartement) {
-        return propAppartementService.save(appartement);
+    public int save(@RequestBody PropAppartemenetDto propAppartemenetDto) {
+        return propAppartementService.save(propAppartemenetConverter.toBean(propAppartemenetDto));
     }
 
     @GetMapping

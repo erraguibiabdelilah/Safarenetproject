@@ -49,7 +49,7 @@ public class ClientServiceImpl implements ClientService {
         System.out.println(client.getUsername());
         System.out.println(client.getPassword());
         System.out.println("********************************************************************************************");
-        Long iceAgLoc =null;
+        String iceAgLoc =null;
         String cin = "";
 
         if (client == null) {
@@ -72,7 +72,6 @@ public class ClientServiceImpl implements ClientService {
         if (agenceLocation != null || propAppartement != null) {
             client.setAgence_Location(agenceLocation);
             client.setProp_appartement(propAppartement);
-
         } else {
             client.setAgence_Location(null);
             client.setProp_appartement(null);

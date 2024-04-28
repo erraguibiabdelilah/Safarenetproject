@@ -6,6 +6,8 @@ import {Router} from "@angular/router";
 import {AppUser} from "../bean/app-user.model";
 import {isPlatformBrowser} from "@angular/common";
 import {Client} from "../../sahred/model/communModel/client.model";
+import {PropAppartement} from "../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceLocation} from "../../sahred/model/voitureModel/agence-location.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +19,17 @@ export class AuthService {
   username : any;
   accessToken! : any ;
 
-  client:Client=new Client();
-
   accessTokenEz! : any ;
   userApp :AppUser=new AppUser();
+
+  client:Client=new Client();
+
+  propAppartement:PropAppartement=new PropAppartement();
+
+  agenceLocation:AgenceLocation=new AgenceLocation();
+
+
+
   // refrechToken! :any;
   constructor(private http: HttpClient,private router:Router,@Inject(PLATFORM_ID) private platformId: Object) { }
 
@@ -45,10 +54,9 @@ export class AuthService {
 
     // @ts-ignore
     let decodejwt = jwtDecode(this.accessToken) as { sub: string, authority: string };
-    console.log(decodejwt)
     this.username=decodejwt.sub;
-    console.log(this.username)
     this.roles=decodejwt.authority
+    console.log(this.roles)
 
     window.localStorage.setItem("jwt-token-access",this.accessToken);
     // window.localStorage.setItem("jwt-token-ref",this.refrechToken);
@@ -60,7 +68,7 @@ export class AuthService {
     this.username=undefined;
     this.roles=undefined;
     window.localStorage.removeItem("jwt-token-access")
-    this.router.navigateByUrl("/home")
+    this.router.navigateByUrl("/login")
   }
 
 
@@ -74,7 +82,7 @@ export class AuthService {
       console.log("token localStorage")
       if(tokenAccess ){
         this.loadProfile({"accessToken":tokenAccess});
-        this.router.navigateByUrl("/home")
+        this.router.navigateByUrl("/admin")
 
       }
     }
@@ -90,10 +98,54 @@ export class AuthService {
   //
   //   }
   // }
-  creeCompte(client:Client){
-    console.log(this.client)
+
+  creeCompte1(client:Client){
     return  this.http.post<number>("http://localhost:8085/api/client/",client)
   }
 
+  creeCompte2(propAppartement:PropAppartement){
+    return  this.http.post<number>("http://localhost:8085/api/propAppartement/",propAppartement)
+  }
+
+  creeCompte3(agenceLocation:AgenceLocation){
+    return  this.http.post<number>("http://localhost:8085/api/agenceLocation/",agenceLocation)
+  }
+
+
+
+
+  viderClient(){
+    this.client.cin="";
+    this.client.prenom="";
+    this.client.nom="";
+    this.client.numTeleClient="";
+    this.client.username_Client="";
+    this.client.password_Client="";
+    this.client.email_Client="";
+  }
+
+  viderProp(){
+    this.propAppartement.cin="";
+    this.propAppartement.prenom="";
+    this.propAppartement.nom="";
+    this.propAppartement.numTele="";
+    this.propAppartement.email="";
+    this.propAppartement.ribPropAppt="";
+    this.propAppartement.numCompteBkPropApp="";
+    this.propAppartement.username="";
+    this.propAppartement.password="";
+  }
+
+  viderAgence(){
+    this.agenceLocation.iceAgLoc="";
+    this.agenceLocation.raisonSocialAg="";
+    this.agenceLocation.adresse="";
+    this.agenceLocation.numTelephone="";
+    this.agenceLocation.numCompteBkAgLoc=0;
+    this.agenceLocation.ribAgenceLoc=0;
+    this.agenceLocation.usernameAgenceLoc="";
+    this.agenceLocation.password="";
+    this.agenceLocation.RCAgLoc=0;
+  }
 
 }

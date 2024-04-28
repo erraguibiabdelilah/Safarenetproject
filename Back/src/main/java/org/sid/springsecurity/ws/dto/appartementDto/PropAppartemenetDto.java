@@ -3,7 +3,6 @@ public class PropAppartemenetDto {
 
 
 
-
     private String nom;
     private String prenom;
     private String numTele;
@@ -11,7 +10,7 @@ public class PropAppartemenetDto {
     private String ribPropAppt;
     private String numCompteBkPropApp;
     private String cin;
-    private String usernamePropAppt;
+    private String username;
     private String password;
 
 
@@ -72,13 +71,14 @@ public class PropAppartemenetDto {
         this.cin = cin;
     }
 
-    public String getUsernamePropAppt() {
-        return usernamePropAppt;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernamePropAppt(String usernamePropAppt) {
-        this.usernamePropAppt = usernamePropAppt;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
     public String getPassword() {
         return password;
     }
