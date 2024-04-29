@@ -24,13 +24,10 @@ import {ListVoitureComponent} from "./view/voitureComponent/voiture/list-voiture
 import {
   CreatCategorieVoitureComponent
 } from "./view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component";
-<<<<<<< HEAD
 import {CreatContratComponent} from "./view/communComponent/contrat/creat-contrat/creat-contrat.component";
 import {CreatFactureComponent} from "./view/communComponent/facture/creat-facture/creat-facture.component";
 import {CreatLocationComponent} from "./view/communComponent/location/creat-location/creat-location.component";
-=======
 import {LoginComponent} from "./security/login/login.component";
->>>>>>> 31998ce695faab9434ea81f146fb613006bc16fb
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -41,9 +38,7 @@ const routes: Routes = [
   { path: "videMessage", component: VideMessageComponent },
   { path: "videNotification", component: VideNotificationComponent },
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
-  { path: "createContrat" , component:CreatContratComponent},
-  { path: "createFacteur" , component:CreatFactureComponent},
-  { path: "createLocation" , component:CreatLocationComponent},
+
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
 
@@ -51,6 +46,9 @@ const routes: Routes = [
       { path :"categories",component:CreatCategoriesAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"propraitaire",component:CreatPropAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
+      { path: "createContrat" , component:CreatContratComponent},
+      { path: "createFacteur" , component:CreatFactureComponent},
+      { path: "createLocation" , component:CreatLocationComponent},
     ]},
 
 

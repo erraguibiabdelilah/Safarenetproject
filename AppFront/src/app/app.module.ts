@@ -58,7 +58,6 @@ import {RadioButtonModule} from "primeng/radiobutton";
 import {MenuModule} from "primeng/menu";
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
-<<<<<<< HEAD
 import {MatDrawerContainer, MatDrawerContent, MatSidenav, MatSidenavModule} from "@angular/material/sidenav";
 import {MatList, MatListItem, MatNavList} from "@angular/material/list";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
@@ -68,30 +67,21 @@ import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {RippleModule} from "primeng/ripple";
 import {ChipsModule} from "primeng/chips";
-=======
-import {ToastModule} from "primeng/toast";
-import {SplitButtonModule} from "primeng/splitbutton";
+import {LoginComponent} from "./security/login/login.component";
+import {MatTableModule} from "@angular/material/table";
+import {MatCardContent, MatCardModule} from "@angular/material/card";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 import {ToolbarModule} from "primeng/toolbar";
 import {ButtonModule} from "primeng/button";
+import {SplitButtonModule} from "primeng/splitbutton";
+import {DialogModule} from "primeng/dialog";
+import {ToastModule} from "primeng/toast";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatSort, MatSortHeader} from "@angular/material/sort";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatDividerModule} from "@angular/material/divider";
-import {MatCardContent, MatCardModule} from "@angular/material/card";
-import {MatTableModule} from "@angular/material/table";
-import {DialogModule} from "primeng/dialog";
-import {LoginComponent} from "./security/login/login.component";
 import {MessageService} from "primeng/api";
-import {AvatarModule} from "primeng/avatar";
-import {NgOptimizedImage} from "@angular/common";
-import {AutoFocusModule} from "primeng/autofocus";
-import {StepperModule} from "primeng/stepper";
-import {IconFieldModule} from "primeng/iconfield";
-import {InputIconModule} from "primeng/inputicon";
-import {PasswordModule} from "primeng/password";
-import {ToggleButtonModule} from "primeng/togglebutton";
->>>>>>> 31998ce695faab9434ea81f146fb613006bc16fb
+
 
 @NgModule({
   declarations: [
@@ -167,7 +157,7 @@ import {ToggleButtonModule} from "primeng/togglebutton";
     MatFormFieldModule,
     DropdownModule,
     PaginatorModule,
-<<<<<<< HEAD
+
     MatDrawerContent,
     MatListItem,
 
@@ -183,17 +173,7 @@ import {ToggleButtonModule} from "primeng/togglebutton";
     MatList,
     RippleModule,
     ChipsModule
-=======
-    DialogModule,
-    AvatarModule,
-    NgOptimizedImage,
-    AutoFocusModule,
-    StepperModule,
-    IconFieldModule,
-    InputIconModule,
-    PasswordModule,
-    ToggleButtonModule
->>>>>>> 31998ce695faab9434ea81f146fb613006bc16fb
+
   ],
   providers: [
     MessageService,

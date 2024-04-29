@@ -132,21 +132,28 @@
   <mat-drawer #mydrawer opened="true" mode="side" position="start" >
     <mat-list>
       <mat-list-item>
-        <button mat-button routerLink="/createContrat">
+        <button mat-button routerLink="/admin/appartemet" *ngIf="authService.isAuthService">
+          <mat-icon>Appartemet </mat-icon>
+          create Appartemet
+        </button>
+
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/createContrat" *ngIf="authService.isAuthService">
           <mat-icon>create </mat-icon>
           create Contrat
         </button>
 
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/createLocation">
+        <button mat-button routerLink="/admin/createLocation" *ngIf="authService.isAuthService">
           <mat-icon>Loaction</mat-icon>
           Create Location
         </button>
 
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/createFacteur">
+        <button mat-button routerLink="/admin/createFacteur" *ngIf="authService.isAuthService">
           <mat-icon>Facteur</mat-icon>
           Create Facteur
         </button>
