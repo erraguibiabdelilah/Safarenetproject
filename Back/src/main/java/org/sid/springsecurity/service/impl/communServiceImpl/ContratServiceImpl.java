@@ -49,6 +49,11 @@ public class ContratServiceImpl implements ContratService {
             System.out.println("reste < pritht ");
             return -6;
         }
+        String ref = contrat.getLocation().getRef();
+        if(contratDao.findByLocationRef(ref) != null){
+            System.out.println("ref location deja existe");
+            return -7 ;
+        }
 
 
         contrat.setLocation(location);

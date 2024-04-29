@@ -15,7 +15,13 @@ import {Facture} from "../../../../sahred/model/communModel/facture.model";
 export class CreatFactureComponent implements OnInit, AfterViewInit {
 
   public dataSource!: MatTableDataSource<any>;
+
+  // variable and save dialoge update
   public display:boolean = false;
+  public displaySave:boolean = false;
+  public displayUpdate:boolean = false;
+  contrat:any ;
+
   public submitted:boolean=false;
 
 
@@ -62,16 +68,6 @@ export class CreatFactureComponent implements OnInit, AfterViewInit {
       }
     })
   }
-
-
-
-
-
-
-  showDialog() {
-    this.display = true;
-  }
-
   saveObject() {
     this.service.save().subscribe({
       next:(data)=>{
@@ -87,7 +83,7 @@ export class CreatFactureComponent implements OnInit, AfterViewInit {
       },
       error:(err)=>{
         console.log(err)
-    }
+      }
     })
 
 
@@ -96,10 +92,7 @@ export class CreatFactureComponent implements OnInit, AfterViewInit {
 
 
 
-  hideDialog() {
-    this.display=false;
-    this.submitted = false;
-  }
+
 
   exportToPDF() {
     const content = document.getElementById('content');
@@ -162,5 +155,63 @@ export class CreatFactureComponent implements OnInit, AfterViewInit {
     })
   }
 
+
+
+
+
+
+  public get(ref:string){
+
+    this.service.get(ref).subscribe({
+      next:(data)=>{
+        console.log("data"+data.dateFacture +data.ref + data.paiementDto+data.montantTotal+data.location.ref)
+        this.contrat=data;
+        console.log("this.contrat"+this.contrat.dateFacture +this.contrat.ref + this.contrat.paiementDto+this.contrat.montantTotal+this.contrat.location.ref)
+      },
+      error:(err)=>{
+        console.log('verifier getByRef contrat');
+      }
+    })
+  }
+
+
+  hideDialog() {
+    this.displayUpdate=false;
+    this.displaySave = false
+    this.displayDilog();
+    this.submitted = false;
+  }
+
+
+  showDialog() {
+    this.displaySave = true;
+    this.displayUpdate=false ;
+    this.displayDilog()
+  }
+  showUpdate(ref:string) {
+    this.get(ref);
+    this.displayUpdate = true;
+    this.displaySave = false ;
+    this.displayDilog()
+  }
+  displayDilog(){
+    this.display = this.displayUpdate || this.displaySave;
+  }
+  update(){
+    this.service.update(this.contrat).subscribe({
+      next:(data)=>{
+        if(data==1){
+          this.hideDialog()
+          this.getAll();
+        }
+        else{
+          alert(data)
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
 
 }

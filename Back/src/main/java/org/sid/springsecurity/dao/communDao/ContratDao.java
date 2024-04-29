@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContratDao extends JpaRepository<Contrat ,Long > {
     Contrat findByNumContrat(int numContrat);
-    int deleteByNumContrat(int numContrat); }
+    int deleteByNumContrat(int numContrat);
+    Contrat findByLocationRef(String ref);
+}

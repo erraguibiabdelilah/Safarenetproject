@@ -5,52 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5ac6d2f-0ae8-4af3-ba94-1cbc0a886cec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AppFront/src/app/security/login/login.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppFront/src/app/security/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppFront/src/app/security/login/login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppFront/src/assets/photo/client.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppFront/src/assets/photo/image/voiture.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/sahred/model/voitureModel/agence-location.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/sahred/model/voitureModel/agence-location.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignIn/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignIn/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignIn/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/agence/agence.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/agence/agence.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/agence/agence.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/prop/prop.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/prop/prop.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/prop/prop.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/user/user.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/user/user.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/SignUp/user/user.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/serviceAuth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/security/serviceAuth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/app/view/voitureComponent/voiture/list-voiture/list-voiture.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/view/voitureComponent/voiture/list-voiture/list-voiture.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppFront/src/assets/photo/login-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/assets/login-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/bean/voitureBean/AgenceLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/bean/voitureBean/AgenceLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/dao/voitureDao/AgenceLocationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/dao/voitureDao/AgenceLocationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/bean/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/bean/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/voitureService/AgenceLocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/voitureService/AgenceLocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/voitureService/CategorieVoitureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/voitureService/CategorieVoitureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/appartementServiceImpl/PropAppartementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/appartementServiceImpl/PropAppartementServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/communServiceImpl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/communServiceImpl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/voitureServiceImpl/AgenceLocationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/voitureServiceImpl/AgenceLocationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/voitureServiceImpl/CategorieVoitureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/voitureServiceImpl/CategorieVoitureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/converter/appartementConverter/PropAppartemenetConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/converter/appartementConverter/PropAppartemenetConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/dto/appartementDto/PropAppartemenetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/dto/appartementDto/PropAppartemenetDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/dto/voitureDto/AgenceLocationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/dto/voitureDto/AgenceLocationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/appartementWs/PropAppartementWs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/appartementWs/PropAppartementWs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/voitureWs/AgenceLocationWs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/voitureWs/AgenceLocationWs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/voitureWs/CategorieVoitureWs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/voitureWs/CategorieVoitureWs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging feature/ismail",
+    "git-widget-placeholder": "feature/ismail",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -93,19 +48,6 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Safarenetproject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Safarenetproject" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SafarentProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="safarent_project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="allobaba.group.safarent_project.SafarentProjectApplication" />
@@ -135,6 +77,7 @@
       <workItem from="1713789710388" duration="47000" />
       <workItem from="1714083931572" duration="63000" />
       <workItem from="1714324150514" duration="26000" />
+      <workItem from="1714413788009" duration="53000" />
     </task>
     <servers />
   </component>
