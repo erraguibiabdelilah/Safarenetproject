@@ -47,8 +47,8 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-color: rgb(174, 161, 164);
   /* background-color: crimson; */
   border-radius: 50%;
@@ -93,7 +93,7 @@ body{
   margin-bottom: auto ;
   /*top: 0;*/
   /*left: 0;*/
-  right: -80px;
+  right: -60px;
   /*bottom: 0;*/
   width: 50px;
   height: 50px;
