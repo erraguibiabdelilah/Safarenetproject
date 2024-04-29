@@ -15,9 +15,13 @@ import {Location} from "../../../../sahred/model/communModel/location.model";
 export class CreatLocationComponent implements OnInit, AfterViewInit {
 
   public dataSource!: MatTableDataSource<any>;
-  public display:boolean = false;
   public submitted:boolean=false;
 
+  // variable and save dialoge update
+  public display:boolean = false;
+  public displaySave:boolean = false;
+  public displayUpdate:boolean = false;
+  contrat:any ;
 
   public ListeColum = [
     "ref","action"
@@ -61,16 +65,6 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
       }
     })
   }
-
-
-
-
-
-
-  showDialog() {
-    this.display = true;
-  }
-
   saveObject() {
     this.service.save().subscribe({
       next:(data)=>{
@@ -83,18 +77,7 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
         }
       }
     })
-
-
   }
-
-
-
-
-  hideDialog() {
-    this.display=false;
-    this.submitted = false;
-  }
-
   exportToPDF() {
     const content = document.getElementById('content');
 
@@ -102,7 +85,6 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
     html2canvas(content).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
-
       const imgWidth = 210; // Largeur de la page A4
       const imgHeight = canvas.height * imgWidth / canvas.width;
 
@@ -111,15 +93,10 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
     });
   }
 
-
-
-
   search(event: Event) {
     let value=(event.target as HTMLInputElement).value;
     this.dataSource.filter=value;
   }
-
-
 
   get item(): Location {
     return this.service.item ;
@@ -144,7 +121,6 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
 
   protected readonly console = console;
 
-
   public  handlDelete(ref:string){
     this.service.delete(ref).subscribe({
       next:(data) => {
@@ -156,5 +132,59 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
     })
   }
 
+
+  public get(ref:string){
+
+    this.service.get(ref).subscribe({
+      next:(data)=>{
+        console.log("data"+data.ref)
+        this.contrat=data;
+        console.log("this.contrat"+this.contrat.dateFacture)
+      },
+      error:(err)=>{
+        console.log('verifier getByRef contrat');
+      }
+    })
+  }
+
+
+  hideDialog() {
+    this.displayUpdate=false;
+    this.displaySave = false
+    this.displayDilog();
+    this.submitted = false;
+  }
+
+
+  showDialog() {
+    this.displaySave = true;
+    this.displayUpdate=false ;
+    this.displayDilog()
+  }
+  showUpdate(ref:string) {
+    this.get(ref);
+    this.displayUpdate = true;
+    this.displaySave = false ;
+    this.displayDilog()
+  }
+  displayDilog(){
+    this.display = this.displayUpdate || this.displaySave;
+  }
+  update(){
+    this.service.update(this.contrat).subscribe({
+      next:(data)=>{
+        if(data==1){
+          this.hideDialog()
+          this.getAll();
+        }
+        else{
+          alert(data)
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
 
 }

@@ -13,10 +13,16 @@ import {ContratService} from "../../../../sahred/service/communService/contrat.s
   templateUrl: './creat-contrat.component.html',
   styleUrl: './creat-contrat.component.css'
 })
- export class CreatContratComponent implements OnInit, AfterViewInit {
+export class CreatContratComponent implements OnInit, AfterViewInit {
 
   public dataSource!: MatTableDataSource<any>;
+
+  // variable and save dialoge update
   public display:boolean = false;
+  public displaySave:boolean = false;
+  public displayUpdate:boolean = false;
+  contrat:any ;
+
   public submitted:boolean=false;
 
 
@@ -47,6 +53,7 @@ import {ContratService} from "../../../../sahred/service/communService/contrat.s
   }
 
 
+
   public getAll(){
     this.service.getAll().subscribe({
       next:(data)=>{
@@ -65,21 +72,12 @@ import {ContratService} from "../../../../sahred/service/communService/contrat.s
     })
   }
 
-
-
-
-
-
-  showDialog() {
-    this.display = true;
-  }
-
   saveObject() {
     this.service.save().subscribe({
       next:(data)=>{
         if(data==1){
           this.submitted = true;
-          this.display=false;
+          this.hideDialog()
 
           this.getAll();
         }
@@ -93,35 +91,86 @@ import {ContratService} from "../../../../sahred/service/communService/contrat.s
   }
 
 
-
-
-  hideDialog() {
-    this.display=false;
-    this.submitted = false;
-  }
-
-  exportToPDF() {
-    const content = document.getElementById('content');
-
-    // @ts-ignore
-    html2canvas(content).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-
-      const imgWidth = 210; // Largeur de la page A4
-      const imgHeight = canvas.height * imgWidth / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save('export.pdf');
-    });
-  }
-
-
-
-
   search(event: Event) {
     let value=(event.target as HTMLInputElement).value;
     this.dataSource.filter=value;
+  }
+
+
+  // editProduct(item: Contrat) {
+  //
+  //   alert('pas de champ à modifier ');
+  //   this.displayContrat = true ;
+  // }
+
+  protected readonly console = console;
+
+
+  public  handlDelete(numContrat:number){
+    this.service.delete(numContrat).subscribe({
+      next:(data) => {
+
+        if(data==1) this.getAll();
+      },
+      error:(err) => {
+        console.log(err)
+      }
+    })
+  }
+
+
+  public get(numContrat:number){
+
+    this.service.get(numContrat).subscribe({
+      next:(data)=>{
+
+        this.contrat=data;
+        console.log(this.contrat)
+      },
+      error:(err)=>{
+        console.log('verifier getByRef contrat');
+      }
+    })
+  }
+
+
+  hideDialog() {
+    this.displayUpdate=false;
+    this.displaySave = false
+    this.displayDilog();
+    this.submitted = false;
+  }
+
+
+  showDialog() {
+    this.displaySave = true;
+    this.displayUpdate=false ;
+    this.displayDilog()
+  }
+  showUpdate(num:number) {
+    this.get(num);
+    this.displayUpdate = true;
+    this.displaySave = false ;
+    this.displayDilog()
+  }
+  displayDilog(){
+    this.display = this.displayUpdate || this.displaySave;
+  }
+  update(){
+    this.service.update(this.contrat).subscribe({
+      next:(data)=>{
+        if(data==1){
+          this.hideDialog()
+          this.getAll();
+        }
+        else{
+          alert(data)
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
   }
 
 
@@ -142,188 +191,22 @@ import {ContratService} from "../../../../sahred/service/communService/contrat.s
     this.service.items = value;
   }
 
-  editProduct(item: Contrat) {
 
-    alert('pas de champ à modifier ');
+  exportToPDF() {
+    const content = document.getElementById('content');
+
+    // @ts-ignore
+    html2canvas(content).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+
+      const imgWidth = 210; // Largeur de la page A4
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save('export.pdf');
+    });
   }
-
-  protected readonly console = console;
-
-
-  public  handlDelete(numContrat:number){
-    this.service.delete(numContrat).subscribe({
-      next:(data) => {
-
-        if(data==1) this.getAll();
-      },
-      error:(err) => {
-        console.log(err)
-      }
-    })
-  }
-
 
 }
 
-
-//
-//   public _ok:boolean=false;
-//
-//   constructor(public _service :ContratService,private router:Router) {
-//
-//   }
-//
-//
-//   public save() {
-//     this.service.save().subscribe({
-//       next: (response) => {
-//         console.log(response)
-//         if (response === -1) {
-//         } else if (response === -2) {
-//         } else if (response === -3) {
-//         } else if (response === 1) {
-//           this._ok = true
-//           setTimeout(() => {
-//             this._ok = false; // Hide the notification after 5 seconds
-//           }, 10000);
-//
-//           this.get();
-//         }
-//       },
-//       error: (err) => {
-//         console.log("error::"+err)
-//       }
-//     });
-//   }
-//
-//
-//   public  get(){
-//     this._service.getAll().subscribe({
-//       next:data=>{
-//         this.items=data
-//       },
-//       error:err => {
-//         console.log(err)
-//       }
-//     })
-//   }
-//
-//   public  delete(numContrat:number){
-//     this._service.delete(numContrat).subscribe({
-//       next:value => {
-//         this.get();
-//       },
-//       error:err => {
-//         console.log(err)
-//       }
-//     })
-//   }
-//
-//   ngOnInit(): void {
-//     this.get();
-//   }
-//
-//
-//   // editProp(cin:string) {
-//   //   this.router.navigateByUrl("editProp")
-//   // }
-//
-//
-//
-//
-//   get item(): Contrat {
-//     return this._service.item;
-//   }
-//
-//
-//   set item(value: Contrat) {
-//     this._service.item = value;
-//   }
-//
-//
-//   get items(): Array<Contrat> {
-//     return this._service._items;
-//   }
-//
-//   set items(value: Array<Contrat>) {
-//     this._service._items = value;
-//   }
-//   get service(): ContratService {
-//     return this._service;
-//   }
-//
-//   set service(value: ContratService) {
-//     this._service = value;
-//   }
-//
-//
-//
-//   public  update(cin :string):any{
-//
-//
-//
-//
-//
-//     // supprimet() {
-//     //   this.item.nom="";
-//     //   this.item.prenom="";
-//     //   this.item.email="";
-//     //   this.item.username="";
-//     //   this.item.ribPropAppt="";
-//     //   this.item.numTele="",
-//     //     this.item.numCompteBkPropApp="",
-//     //     this.item.cin=""
-//     // }
-//
-//
-//
-//
-//
-//
-// // this._service.cinEdit=cin
-// //     console.log(this._service.cinEdit)
-//     // this.router.navigateByUrl("editProp")
-//     // this._service.update(this.item).subscribe(
-//     //   {
-//     //     next :data=>{
-//     //       console.log("mohammed")
-//     //       this._ok = true
-//     //       setTimeout(() => {
-//     //         this._ok = false; // Hide the notification after 5 seconds
-//     //       }, 10000);
-//     //
-//     //       this.get();
-//     //     },error:err => {
-//     //       console.log(err);
-//     //     }
-//     //   }
-//     // )
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//     // public  getAppartemetsbyCin(cin:String){
-//     //   this._appartementService.getAppartemetsCin(cin).subscribe({
-//     //     next:data=>{
-//     //       // console.log(data)
-//     //       this._service._appartemetsByCin=data
-//     //       console.log(this._service._appartemetsByCin)
-//     //       this.router.navigateByUrl("/listComponent")
-//     //
-//     //     },
-//     //     error:err => {
-//     //       console.log(err)
-//     //     }
-//     //   })
-//     // }
-//
-//   }
-//
-// }

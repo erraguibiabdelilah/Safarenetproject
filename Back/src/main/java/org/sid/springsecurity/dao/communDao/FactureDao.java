@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface FactureDao extends JpaRepository<Facture , Long> {
     Facture findByRef(String ref);
     int deleteByRef(String ref);
+    Facture findByLocationRef(String ref);
 }

@@ -48,6 +48,11 @@ public class FactureServiceImpl implements FactureService {
             System.out.println("location null");
             return -5;
         }
+        String ref = facture.getLocation().getRef();
+        if(factureDao.findByLocationRef(ref)!=null){
+            System.out.println("ref location deja existe");
+            return -6;
+        }
 
         facture.setPaiement(paiement);
         facture.setLocation(location);
