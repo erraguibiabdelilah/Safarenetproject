@@ -36,9 +36,6 @@ import { ListAgenceLocationComponent } from './view/voitureComponent/agenceLocat
 import { CreatCategorieVoitureComponent } from './view/voitureComponent/categorieVoiture/creat-categorie-voiture/creat-categorie-voiture.component';
 import { EditCategorieVoitureComponent } from './view/voitureComponent/categorieVoiture/edit-categorie-voiture/edit-categorie-voiture.component';
 import { ListCategorieVoitureComponent } from './view/voitureComponent/categorieVoiture/list-categorie-voiture/list-categorie-voiture.component';
-import { CreatModeleComponent } from './view/voitureComponent/modele/creat-modele/creat-modele.component';
-import { EditModeleComponent } from './view/voitureComponent/modele/edit-modele/edit-modele.component';
-import { ListModeleComponent } from './view/voitureComponent/modele/list-modele/list-modele.component';
 import { CreatVoitureComponent } from './view/voitureComponent/voiture/creat-voiture/creat-voiture.component';
 import { EditVoitureComponent } from './view/voitureComponent/voiture/edit-voiture/edit-voiture.component';
 import { ListVoitureComponent } from './view/voitureComponent/voiture/list-voiture/list-voiture.component';
@@ -49,7 +46,6 @@ import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorize
 import {AdminTemplateComponent} from "./security/admin-template/admin-template.component";
 import {AuthService} from "./security/serviceAuth/auth.service";
 import {AppHtppEzInterceptor} from "./security/interceptors/app-htpp-ez.interceptor";
-import { ProfileComponent } from './layout/user/profile/profile.component';
 import { NotFoundPageComponent } from './layout/not-found-page/not-found-page.component';
 import { VideMessageComponent } from './layout/vide-message/vide-message.component';
 import { VideNotificationComponent } from './layout/vide-notification/vide-notification.component';
@@ -119,9 +115,6 @@ import {MessageService} from "primeng/api";
     CreatCategorieVoitureComponent,
     EditCategorieVoitureComponent,
     ListCategorieVoitureComponent,
-    CreatModeleComponent,
-    EditModeleComponent,
-    ListModeleComponent,
     CreatVoitureComponent,
     EditVoitureComponent,
     ListVoitureComponent,
@@ -129,7 +122,6 @@ import {MessageService} from "primeng/api";
     NavbarComponent,
     NoteAuthorizedComponent,
     AdminTemplateComponent,
-    ProfileComponent,
     NotFoundPageComponent,
     VideMessageComponent,
     VideNotificationComponent,

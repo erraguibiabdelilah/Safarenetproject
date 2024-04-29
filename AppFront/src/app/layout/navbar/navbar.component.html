@@ -98,7 +98,7 @@
       <button mat-menu-item >Francais</button>
     </mat-menu>
 
-<button mat-button routerLink="/login" >Sign in</button>
+<button mat-button routerLink="/login" *ngIf="!authService.isAuthService" >Sign in</button>
 
   <button mat-button>
     <a (click)="onNotificationClick()" class="nav-link " href="#" tabindex="-1"  routerLink="/notification"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
@@ -118,8 +118,9 @@
     </svg>
   </button>
   <mat-menu #importMenu>
-    <p>Hello {{this.authService.username}} !</p>
-    <button mat-menu-item [routerLink]=""  >Profile</button>
+    <p class="border-bottom">Hello {{this.authService.username}} !</p>
+
+    <button mat-menu-item routerLink="/profile" >Profile</button>
     <button mat-menu-item (click)="handleLogout()">Logout</button>
   </mat-menu>
 

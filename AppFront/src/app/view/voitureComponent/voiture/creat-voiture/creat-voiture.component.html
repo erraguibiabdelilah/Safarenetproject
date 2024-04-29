@@ -1,1 +1,271 @@
-<p>creat-voiture works!</p>
+<div class="container mt-5">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> CRUD VOITURE</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+
+      <p-toolbar [ngStyle]="{'margin': '2rem'}" class="custom-toolbar">
+        <div class="p-toolbar-group-left">
+          <p-button type="button" (click)="showDialog()" class="mx-2 " label="New" icon="pi pi-plus"></p-button>
+          <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export"
+                    styleClass="p-button-success"></p-button>
+        </div>
+
+        <div class="p-toolbar-group-right">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput (change)="search($event)">
+          </mat-form-field>
+        </div>
+
+      </p-toolbar>
+      <div class="table-wrapper">
+        <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">
+
+          <ng-container matColumnDef="couleur"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>couleur</th>
+            <td mat-cell *matCellDef="let element"> {{ element.couleur }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="photo"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>photo</th>
+            <td mat-cell *matCellDef="let element"> {{ element.photo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nbrPlace"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>nbrPlace</th>
+            <td mat-cell *matCellDef="let element"> {{ element.nbrPlace }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="matricule"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>matricule</th>
+            <td mat-cell *matCellDef="let element"> {{ element.matricule }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="kiloMetrage"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>kiloMetrage</th>
+            <td mat-cell *matCellDef="let element"> {{ element.kiloMetrage }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="boitevitesse"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>boitevitesse</th>
+            <td mat-cell *matCellDef="let element"> {{ element.boitevitesse }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="annee"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>annee</th>
+            <td mat-cell *matCellDef="let element"> {{ element.annee }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="ville"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ville</th>
+            <td mat-cell *matCellDef="let element"> {{ element.ville }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="dateMisecirculation"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>dateMisecirculation</th>
+            <td mat-cell *matCellDef="let element"> {{ element.dateMisecirculation }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="dateAssurance"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>dateAssurance</th>
+            <td mat-cell *matCellDef="let element"> {{ element.dateAssurance }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="sateVisitetechnique"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>sateVisitetechnique</th>
+            <td mat-cell *matCellDef="let element"> {{ element.sateVisitetechnique }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nomModele"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>nomModele</th>
+            <td mat-cell *matCellDef="let element"> {{ element.nomModele }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="prix"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Prix</th>
+            <td mat-cell *matCellDef="let element"> {{ element.prix }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="puissance"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>puissance</th>
+            <td mat-cell *matCellDef="let element"> {{ element.puissance }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Carburant"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Carburant</th>
+            <td mat-cell *matCellDef="let element"> {{ element.Carburant }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="categorie"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>categorie.Libelle</th>
+            <td mat-cell *matCellDef="let element"> {{ element.categorie.libelle }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="agenceLocation"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>agenceLocation.iceAgLoc</th>
+            <td mat-cell *matCellDef="let element"> {{ element.agenceLocation.iceAgLoc }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+              <a (click)=editProduct(element)><i class="bi bi-pencil mx-2 btn btn-outline-success rounded-5"></i></a>
+              <a><i (click)="handlDelete(element.ville)" class="bi bi-trash mx-2 btn btn-outline-danger rounded-5"></i></a>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>
+          <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+<p-dialog [(visible)]="display" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true"
+          styleClass="p-fluid">
+
+  <div class=" row field col">
+
+    <div class="col-6">
+      <label class="form-label">couleur</label>
+      <input class="form-control" type="text" pInputText placeholder="couleur" [(ngModel)]="item.couleur" required autofocus/>
+
+    </div>
+    <div class="col-6">
+      <label class="form-label">nbrPlace</label>
+      <input class="form-control" type="text" pInputText placeholder="nbrPlace" [(ngModel)]="item.nbrPlace" required autofocus/>
+    </div>
+
+  </div>
+
+  <div class="field col">
+    <label class="form-label">photo</label>
+    <input class="form-control" type="text" pInputText placeholder="photo" [(ngModel)]="item.photo" required autofocus/>
+  </div>
+
+
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">matricule</label>
+      <input class="form-control" type="text" pInputText placeholder="matricule" [(ngModel)]="item.matricule" required
+             autofocus/>
+    </div>
+
+    <div class="col-6">
+      <label class="form-label">kiloMetrage</label>
+      <input class="form-control" type="text" pInputText placeholder="kiloMetrage" [(ngModel)]="item.kiloMetrage" required
+             autofocus/>
+    </div>
+  </div>
+
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">boitevitesse</label>
+      <input class="form-control" type="text" pInputText placeholder="boitevitesse" [(ngModel)]="item.boitevitesse" required
+             autofocus/>
+    </div>
+    <div class="col-6">
+      <label class="form-label">annee</label>
+      <input class="form-control" type="text" pInputText placeholder="annee" [(ngModel)]="item.annee" required autofocus/>
+    </div>
+  </div>
+
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">ville</label>
+      <input class="form-control" type="text" pInputText placeholder="ville" [(ngModel)]="item.ville" required autofocus/>
+    </div>
+    <div class="col-6">
+      <label class="form-label">dateMisecirculation</label>
+      <input class="form-control" type="date" pInputText placeholder="dateMisecirculation" [(ngModel)]="item.dateMisecirculation"
+             required autofocus/>
+    </div>
+  </div>
+
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">dateAssurance</label>
+      <input class="form-control" type="date" pInputText placeholder="dateAssurance" [(ngModel)]="item.dateAssurance" required
+             autofocus/>
+    </div>
+    <div class="col-6">
+      <label class="form-label">sateVisitetechnique</label>
+      <input class="form-control" type="date" pInputText placeholder="sateVisitetechnique" [(ngModel)]="item.sateVisitetechnique"
+             required autofocus/>
+    </div>
+  </div>
+
+
+  <div class="row field col">
+    <div class="col-6">
+      <label class="form-label">nomModele</label>
+      <input class="form-control" type="text" pInputText placeholder="nomModele" [(ngModel)]="item.nomModele" required
+             autofocus/>
+    </div>
+    <div class="col-6">
+      <label class="form-label">prix</label>
+      <input class="form-control" type="text" pInputText placeholder="prix" [(ngModel)]="item.prix" required autofocus/>
+    </div>
+  </div>
+
+
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">puissance</label>
+      <input class="form-control" type="text" pInputText placeholder="puissance" [(ngModel)]="item.puissance" required
+             autofocus/>
+    </div>
+    <div class="col-6">
+      <label class="form-label">Carburant</label>
+      <input class="form-control" type="text" pInputText placeholder="Carburant" [(ngModel)]="item.Carburant" required
+             autofocus/>
+    </div>
+  </div>
+  <div class=" row field col">
+    <div class="col-6">
+      <label class="form-label">categorie</label>
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [ngModel]="item.categorie.libelle">
+        <option *ngFor="let option of categorie" [value]="option.libelle">{{ option.libelle }}</option>
+      </select>
+    </div>
+
+    <div class="col-6">
+      <label class="form-label">Agence location</label>
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [ngModel]="item.agenceLocation.iceAgLoc">
+        <option *ngFor="let option of agencesLocations" [value]="option.iceAgLoc">{{ option.iceAgLoc }}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveObject()"></button>
+  </ng-template>
+</p-dialog>
+
+
+

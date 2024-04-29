@@ -137,10 +137,10 @@ export class AuthService {
   }
 
   viderAgence(){
-    this.agenceLocation.iceAgLoc="";
+    this.agenceLocation.iceAgLoc=0;
     this.agenceLocation.raisonSocialAg="";
     this.agenceLocation.adresse="";
-    this.agenceLocation.numTelephone="";
+    this.agenceLocation.numTelephone=0;
     this.agenceLocation.numCompteBkAgLoc=0;
     this.agenceLocation.ribAgenceLoc=0;
     this.agenceLocation.usernameAgenceLoc="";

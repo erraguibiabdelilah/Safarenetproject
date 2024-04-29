@@ -3,7 +3,6 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import html2canvas from "html2canvas";
-// @ts-ignore
 import jsPDF from 'jspdf';
 import {Voiture} from "../../../../sahred/model/voitureModel/voiture.model";
 import {VoitureService} from "../../../../sahred/service/voitureService/voiture.service";

@@ -28,6 +28,8 @@ import {CreatContratComponent} from "./view/communComponent/contrat/creat-contra
 import {CreatFactureComponent} from "./view/communComponent/facture/creat-facture/creat-facture.component";
 import {CreatLocationComponent} from "./view/communComponent/location/creat-location/creat-location.component";
 import {LoginComponent} from "./security/login/login.component";
+import {ProfileComponent} from "./layout/profile/profile/profile.component";
+import {authGuard} from "./layout/navbar/garde/garde";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -35,9 +37,10 @@ const routes: Routes = [
   { path :"", redirectTo:"/home",pathMatch:"full"},
   { path: "message", component: SignInMessageComponent },
   { path: "notification", component: SignInNotificationComponent },
-  { path: "videMessage", component: VideMessageComponent },
-  { path: "videNotification", component: VideNotificationComponent },
+  { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
+  { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
+  { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
