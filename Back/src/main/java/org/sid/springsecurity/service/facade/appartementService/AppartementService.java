@@ -19,4 +19,7 @@ public interface AppartementService {
 
     List<Appartement>  findByPropAppartementCin(String cin);
 
+    List<Appartement> findByAdresse(String adresse);
+
+    List<Appartement> findByLoyerMensuelLessThanEqual(double mont);
 }

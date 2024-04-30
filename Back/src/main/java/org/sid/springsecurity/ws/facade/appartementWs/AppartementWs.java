@@ -1,5 +1,6 @@
 package org.sid.springsecurity.ws.facade.appartementWs;
 
+import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.service.facade.appartementService.AppartementService;
 import org.sid.springsecurity.ws.converter.appartementConverter.AppartementConverter;
 import org.sid.springsecurity.ws.dto.appartementDto.AppartementDto;
@@ -61,6 +62,14 @@ public class AppartementWs {
         return appartementService.update(appartementConverter.toBean(appartementDto));
     }
 
+    @GetMapping("/adresse/{adresse}")
+    public List<Appartement> findByAdresse(@PathVariable String adresse){
+        return appartementService.findByAdresse(adresse);
+    }
+    @GetMapping("/LoyerMensuel/{mont}")
+    public List<Appartement> findByLoyerMensuelLessThanEqual(@PathVariable double mont ){
+        return appartementService.findByLoyerMensuelLessThanEqual(mont);
+    }
     private final AppartementService appartementService;
 
     private  final AppartementConverter appartementConverter;

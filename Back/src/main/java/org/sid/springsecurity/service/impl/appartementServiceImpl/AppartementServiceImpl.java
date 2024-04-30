@@ -132,4 +132,14 @@ public class AppartementServiceImpl implements AppartementService {
     public List<Appartement> findByPropAppartementCin(String cin) {
         return appartementDao.findByPropAppartementCin(cin);
     }
+    @Override
+    public List<Appartement> findByAdresse(String adresse){
+        return appartementDao.findByAdresse(adresse);
+    }
+
+    @Override
+    public List<Appartement> findByLoyerMensuelLessThanEqual(double mont) {
+        return appartementDao.findByLoyerMensuelLessThanEqual(mont);
+    }
+
 }
