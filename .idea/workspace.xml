@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5ac6d2f-0ae8-4af3-ba94-1cbc0a886cec" name="Changes" comment="" />
+    <list default="true" id="c5ac6d2f-0ae8-4af3-ba94-1cbc0a886cec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/home/home.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,20 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/ismail&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/ismail",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\Prorammes\\p  Safarente\\SafarentProject3\\Safarenetproject\\AppFront\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SafarentProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="safarent_project" />
@@ -77,6 +83,7 @@
       <workItem from="1714324150514" duration="26000" />
       <workItem from="1714413788009" duration="53000" />
       <workItem from="1714487629703" duration="41000" />
+      <workItem from="1714555175603" duration="1234000" />
     </task>
     <servers />
   </component>

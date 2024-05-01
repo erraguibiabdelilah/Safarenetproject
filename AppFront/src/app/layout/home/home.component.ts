@@ -38,7 +38,11 @@ export class HomeComponent implements OnInit{
   // Variable Apparetement
   public dataCategorieApartement:Array<CategoriesAppartement>=new Array<CategoriesAppartement>();
   public dataApartement:Array<Appartement>=new Array<Appartement>();
+  public dataApartement2:Array<Appartement>=new Array<Appartement>();
   public selecCategorieApt:any;
+  public dataByPrixApparetement:Array<Appartement>=new Array<Appartement>();
+
+
   constructor(private voitureService:VoitureService , private categoreieappartemetService:CategoriesAppartementService ,
               private apartement:AppartemetService) {
   }
@@ -49,6 +53,76 @@ export class HomeComponent implements OnInit{
     this.getAllCategoriesApt();
     this.getAllApartement();
     }
+
+
+
+
+
+  public  getAllCategoriesApt(){
+    this.categoreieappartemetService.getAll().subscribe({
+      next:data=>{
+        this.dataCategorieApartement=data
+      },
+      error:err => {
+        console.log(err)
+      }
+    })
+  }
+
+  public getAllApartement(){
+    this.apartement.getAll().subscribe({
+      next:data=>{
+        this.dataApartement=data
+        this.dataApartement2=data
+      },
+      error:err => {
+        console.log("verfie getAll Apparetement")
+      }
+    })
+  }
+  public getAllByCategorierAPT(libelle:string){
+    this.apartement.getAppartemetsbyLibelle(libelle).subscribe({
+      next:data=>{
+        this.dataApartement=data ;
+        this.dataApartement2=data;
+      },
+      error:err=>{
+        console.log("verifie getByCategorieAppartement");
+      }
+    })
+  }
+  public onCategorieChange(){
+    if(this.selecCategorieApt == ""){this.getAllApartement()}
+    else{
+      // this.getAllApartement()
+      this.getAllByCategorierAPT(this.selecCategorieApt)
+    }
+
+    console.log("dataselectcate====>"+this.selecCategorieApt)
+  }
+  public apparetementByMontant(){
+    if(this.villSelected == ''){
+      this.onCategorieChange()
+      // if(this.selecCategorieApt===""){
+      //   this.getAll();
+      // }else{
+      //   this.getAllByCategorierAPT(this.selecCategorieApt);
+      // }
+    }else {
+      alert(this.villSelected)
+      this.dataApartement = this.dataApartement2
+      this.dataApartement = this.dataApartement.filter(appartement => appartement.adresse === this.villSelected);
+    }
+  }
+  ville: any[] =[ "Agadire","Safi","Zagora", "Rabat"];
+  villSelected!:string;
+
+
+
+
+
+
+
 
   public clicVoiture() {
     this.obejetClicked=true;
@@ -81,43 +155,4 @@ export class HomeComponent implements OnInit{
   }
 
 
-
-
-
-  public  getAllCategoriesApt(){
-    this.categoreieappartemetService.getAll().subscribe({
-      next:data=>{
-        this.dataCategorieApartement=data
-      },
-      error:err => {
-        console.log(err)
-      }
-    })
-  }
-
-  public getAllApartement(){
-    this.apartement.getAll().subscribe({
-      next:data=>{
-        this.dataApartement=data
-      },
-      error:err => {
-        console.log("verfie getAll Apparetement")
-      }
-    })
-  }
-  public getAllByCategorierAPT(libelle:string){
-    this.apartement.getAppartemetsbyLibelle(libelle).subscribe({
-      next:data=>{
-        this.dataApartement=data ;
-      },
-      error:err=>{
-        console.log("verifie getByCategorieAppartement");
-      }
-    })
-  }
-  onCategorieChange(){
-    if(this.selecCategorieApt===""){this.getAllApartement()}
-    this.getAllByCategorierAPT(this.selecCategorieApt)
-    console.log("dataselectcate====>"+this.selecCategorieApt)
-  }
 }
