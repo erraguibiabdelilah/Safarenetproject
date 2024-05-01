@@ -31,7 +31,7 @@ export class AppartemetService {
     return this.http.get<Array<Appartement>>("http://localhost:8085/api/appartement/");
   }
 
-  public delete(code:String):Observable<number>{
+  public delete(code:String):Observable<any>{
     return this.http.delete<number>(`http://localhost:8085/api/appartement/code/${code}`);
   }
 
@@ -47,7 +47,7 @@ export class AppartemetService {
 
 
   public  update(propritaire:Appartement):Observable<any>{
-    return this.http.put<any>("http://localhost:8085/api/appartement/",propritaire)
+    return this.http.put("http://localhost:8085/api/appartement/",propritaire)
 
   }
 

@@ -33,10 +33,10 @@ export class NavbarComponent implements OnInit {
   }
 
   onNotificationClick(): void {
-      if(this.authService.isAuthService)
+    if(this.authService.isAuthService)
       this.router.navigateByUrl('/videNotification')
-      else
-        this.router.navigateByUrl('/notification')
+    else
+      this.router.navigateByUrl('/notification')
     //logique si la boite de notifaiaction n'est pas vide
 
   }

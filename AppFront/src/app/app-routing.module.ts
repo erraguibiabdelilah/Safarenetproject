@@ -16,7 +16,6 @@ import {AuthenticationGuard} from "./security/guards/authentication.guard";
 import {AuthorizationGuard} from "./security/guards/authorization.guard";
 import {SignInMessageComponent} from "./layout/sign-in-message/sign-in-message.component";
 import {SignInNotificationComponent} from "./layout/sign-in-notification/sign-in-notification.component";
-import {HomeComponent} from "./layout/home/home.component";
 import {NotFoundPageComponent} from "./layout/not-found-page/not-found-page.component";
 import {VideMessageComponent} from "./layout/vide-message/vide-message.component";
 import {VideNotificationComponent} from "./layout/vide-notification/vide-notification.component";
@@ -30,10 +29,11 @@ import {CreatLocationComponent} from "./view/communComponent/location/creat-loca
 import {LoginComponent} from "./security/login/login.component";
 import {ProfileComponent} from "./layout/profile/profile/profile.component";
 import {authGuard} from "./layout/navbar/garde/garde";
-import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-ez.component";
+import {CarouselTestComponent} from "./layout/carousel-test/carousel-test.component";
+import {HomeComponent} from "./layout/home/home.component";
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
+  { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
   { path :"", redirectTo:"/home",pathMatch:"full"},
   { path: "message", component: SignInMessageComponent },
@@ -41,18 +41,18 @@ const routes: Routes = [
   { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
+  { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
-      { path :"appartemet",component:CreatAppartemetComponent},
-      { path :"categories",component:CreatCategoriesAppartementComponent},
+
+      { path :"appartemet",component:CreatAppartemetComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
+      { path :"categories",component:CreatCategoriesAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"propraitaire",component:CreatPropAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
       { path: "createContrat" , component:CreatContratComponent},
       { path: "createFacteur" , component:CreatFactureComponent},
       { path: "createLocation" , component:CreatLocationComponent},
-      // { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
-      { path: "profile", component: ProfileEzComponent,canActivate:[authGuard] }
     ]},
 
 
@@ -64,5 +64,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-

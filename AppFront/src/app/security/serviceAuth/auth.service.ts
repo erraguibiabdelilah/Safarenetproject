@@ -63,7 +63,7 @@ export class AuthService {
     this.roles=decodejwt.authority
 
     if(this.roles.includes("USER") && !this.roles.includes("ADMIN") && !this.roles.includes("MANAGER-VOI") && !this.roles.includes("MANAGER-APT")){
-        this.isUser=true
+      this.isUser=true
       this.isAgenceLocation=false;
       this.isPropraitaire=true;
     }
@@ -86,7 +86,7 @@ export class AuthService {
     this.getByUsername(this.username).subscribe(
       {next:data=>{
 
-        console.log(data)
+          console.log(data)
           this.dataUtilisateur=data
           console.log(this.dataUtilisateur)
         },

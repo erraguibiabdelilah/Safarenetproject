@@ -77,7 +77,13 @@ import {ToastModule} from "primeng/toast";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MessageService} from "primeng/api";
-import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-ez.component";
+import { CarouselTestComponent } from './layout/carousel-test/carousel-test.component';
+import {ProfileComponent} from "./layout/profile/profile/profile.component";
+import { CarouselWithAnimationComponent } from './layout/carousel-with-animation/carousel-with-animation.component';
+
+import {SearchIcon} from "primeng/icons/search";
+import {HomeComponent} from "./layout/home/home.component";
+import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.component';
 
 
 @NgModule({
@@ -126,7 +132,11 @@ import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-
     NotFoundPageComponent,
     VideMessageComponent,
     VideNotificationComponent,
-    ProfileEzComponent
+    CarouselTestComponent,
+    CarouselWithAnimationComponent,
+    HomeComponent,
+    ProdileEzzComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -151,8 +161,10 @@ import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-
     MatFormFieldModule,
     DropdownModule,
     PaginatorModule,
+
     MatDrawerContent,
     MatListItem,
+
     MatIconModule,
     MatDrawerContainer,
     MatNavList,
@@ -165,13 +177,17 @@ import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-
     MatList,
     RippleModule,
     ChipsModule,
+    SearchIcon,
 
   ],
   providers: [
     MessageService,
     AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true},
     provideAnimationsAsync()
+  ],
+  exports: [
+    CarouselTestComponent
   ],
   bootstrap: [AppComponent]
 })

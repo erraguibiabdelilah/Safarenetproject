@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import {AuthService} from "../../../security/serviceAuth/auth.service";
 
 @Component({
-  selector: 'app-profile-ez',
-  templateUrl: './profile-ez.component.html',
-  styleUrl: './profile-ez.component.css'
+  selector: 'app-prodile-ezz',
+  templateUrl: './prodile-ezz.component.html',
+  styleUrl: './prodile-ezz.component.css'
 })
-export class ProfileEzComponent {
-
+export class ProdileEzzComponent {
   constructor(protected authService:AuthService) {
 
   }

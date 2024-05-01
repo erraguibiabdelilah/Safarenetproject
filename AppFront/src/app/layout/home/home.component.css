@@ -1,11 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: white;
+.prev{
+  width: 3rem;
+  position: relative;
+  right: 28rem;
+  bottom: 3rem;
 }
+
+
+.btn_format{
+  position: relative;
+  bottom: -1.5rem;
+  left: 23rem;
+  margin-bottom: 2rem;
+}
+
 
 .card_t {
   width: 90%;
@@ -14,7 +21,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  top: 5rem;
+  top: 2rem;
   left: 5%;
 }
 .card-header{
@@ -44,7 +51,7 @@ body {
 }
 
 .card-body {
- padding: 1rem;
+  padding: 1rem;
   padding-bottom: 0;
 }
 form {
@@ -303,11 +310,7 @@ a.active{
 }
 
 
-.btn_format{
-  position: relative;
-  bottom: 3.5rem;
-  left: 27rem;
-}
+
 
 
 li{
@@ -317,5 +320,6 @@ li{
   font-family: monospace;
 }
 
-
-
+.carousel{
+  margin-left:6rem;
+}
