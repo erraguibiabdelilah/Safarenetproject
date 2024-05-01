@@ -1,6 +1,7 @@
 package org.sid.springsecurity.ws.dto.appartementDto;
 
 public class CategoriesAppartementDto {
+    private Long id;
     private String libelle;
 
     public String getLibelle() {
@@ -11,4 +12,11 @@ public class CategoriesAppartementDto {
         this.libelle = libelle;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

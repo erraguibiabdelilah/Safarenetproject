@@ -33,6 +33,7 @@ public class AppartementConverter {
         }
         else {
             Appartement bean = new Appartement();
+            bean.setId(dto.getId());
             bean.setCode(dto.getCode());
             bean.setSuperficie(dto.getSuperficie());
             bean.setAdresse(dto.getAdresse());
@@ -57,6 +58,7 @@ public class AppartementConverter {
         }
         else {
             AppartementDto dto = new AppartementDto();
+            dto.setId(bean.getId());
             dto.setCode(bean.getCode());
             dto.setSuperficie(bean.getSuperficie());
             dto.setAdresse(bean.getAdresse());

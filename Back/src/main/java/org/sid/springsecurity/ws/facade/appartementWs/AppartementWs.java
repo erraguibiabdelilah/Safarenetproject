@@ -20,44 +20,38 @@ public class AppartementWs {
     }
 
     @PostMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
+
     public int save(@RequestBody AppartementDto apparent) {
         return appartementService.save(appartementConverter.toBean(apparent));
     }
 
     @GetMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public List<AppartementDto> findAll() {
         return appartementConverter.toDto(appartementService.findAll());
     }
 
 
     @GetMapping("listAppartementCategories/{libelle}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public List<AppartementDto> findByCategoriesAppartementLibelle(@PathVariable String libelle) {
         return appartementConverter.toDto(appartementService.findByCategoriesAppartementLibelle(libelle));
     }
 
     @GetMapping("listAppartementCin/{cin}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public List<AppartementDto> findByPropAppartementCin(@PathVariable String cin) {
         return appartementConverter.toDto(appartementService.findByPropAppartementCin(cin));
     }
 
     @GetMapping("code/{code}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public AppartementDto findByCode(@PathVariable String  code) {
         return appartementConverter.toDto(appartementService.findByCode(code));
     }
 
     @DeleteMapping("code/{code}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int deleteByCode(@PathVariable String code) {
         return appartementService.deleteByCode(code);
     }
 
     @PutMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int update(@RequestBody  AppartementDto appartementDto) {
         return appartementService.update(appartementConverter.toBean(appartementDto));
     }

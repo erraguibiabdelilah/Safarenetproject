@@ -5,6 +5,7 @@ import org.sid.springsecurity.ws.dto.communDto.ReservationDto;
 import java.util.List;
 
 public class AppartementDto {
+    private Long id;
     private String code;
     private int superficie;
     private String adresse;
@@ -70,5 +71,13 @@ public class AppartementDto {
 
     public void setCategoriesAppartementDto(CategoriesAppartementDto categoriesAppartementDto) {
         this.categoriesAppartementDto = categoriesAppartementDto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

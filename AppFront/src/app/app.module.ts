@@ -77,6 +77,7 @@ import {ToastModule} from "primeng/toast";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MessageService} from "primeng/api";
+import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-ez.component";
 
 
 @NgModule({
@@ -125,6 +126,7 @@ import {MessageService} from "primeng/api";
     NotFoundPageComponent,
     VideMessageComponent,
     VideNotificationComponent,
+    ProfileEzComponent
   ],
   imports: [
     BrowserModule,
@@ -149,10 +151,8 @@ import {MessageService} from "primeng/api";
     MatFormFieldModule,
     DropdownModule,
     PaginatorModule,
-
     MatDrawerContent,
     MatListItem,
-
     MatIconModule,
     MatDrawerContainer,
     MatNavList,
@@ -164,7 +164,7 @@ import {MessageService} from "primeng/api";
     MatSidenavModule,
     MatList,
     RippleModule,
-    ChipsModule
+    ChipsModule,
 
   ],
   providers: [

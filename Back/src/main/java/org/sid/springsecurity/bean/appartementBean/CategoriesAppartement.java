@@ -10,8 +10,8 @@ import java.util.List;
 @Table(name = "categoriesAppartement")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CategoriesAppartement {
-    @Id  @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Id  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id= 0L;
     private String libelle;
 
     @JsonIgnore

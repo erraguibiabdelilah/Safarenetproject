@@ -118,11 +118,16 @@ public class Config extends WebSecurityConfigurerAdapter {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 AppUser appUser = accountService.loadUserByUsername(username);
-                Collection<GrantedAuthority> authorities = new ArrayList<>();
-                appUser.getAppRoles().forEach(r -> {
-                    authorities.add(new SimpleGrantedAuthority(r.getRoleName()));
-                });
-                return new User(appUser.getUsername(), appUser.getPassword(), authorities);
+                if(appUser==null){
+                    throw new UsernameNotFoundException("User not found with username: " + username);
+                }
+                else {
+                    Collection<GrantedAuthority> authorities = new ArrayList<>();
+                    appUser.getAppRoles().forEach(r -> {
+                        authorities.add(new SimpleGrantedAuthority(r.getRoleName()));
+                    });
+                    return new User(appUser.getUsername(), appUser.getPassword(), authorities);
+                }
             }
         });
     }

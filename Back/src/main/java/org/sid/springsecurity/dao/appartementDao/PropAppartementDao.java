@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface PropAppartementDao extends JpaRepository<PropAppartement,Long> {
     PropAppartement findByCin(String cin);
     int deleteByCin(String cin);
+    PropAppartement findByUsername(String username);
 }

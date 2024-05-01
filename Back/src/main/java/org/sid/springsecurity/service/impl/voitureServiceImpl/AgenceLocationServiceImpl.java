@@ -54,7 +54,7 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
     }
 
     @Override
-    public AgenceLocation findByiceAgLoc(String iceAgLoc) {
+    public AgenceLocation findByiceAgLoc(Long iceAgLoc) {
         return agenceLocationDao.findByIceAgLoc(iceAgLoc);
     }
 
@@ -69,7 +69,7 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
             return -1;
         }
 
-        String iceAgLoc = agenceLocation.getIceAgLoc();
+        Long iceAgLoc = agenceLocation.getIceAgLoc();
         if (iceAgLoc == null) {
             return -2;
         }
@@ -96,8 +96,14 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
     }
 
     @Override
-    public int deleteByiceAgLoc(Long iceAgLoc) {
+    public int deleteByIceAgLoc(Long iceAgLoc) {
         return agenceLocationDao.deleteByIceAgLoc(iceAgLoc);
+    }
+
+
+    @Override
+    public AgenceLocation findByUsername(String username) {
+        return agenceLocationDao.findByUsername(username);
     }
 }
 

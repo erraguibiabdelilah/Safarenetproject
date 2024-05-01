@@ -88,11 +88,12 @@ public class AppartementServiceImpl implements AppartementService {
 
         String code = appartementNv.getCode();
 
-        if (code == null) {
+        if (code == null || code.isEmpty()) {
             return -2;
         }
 
         Appartement appartement = appartementDao.findByCode(code);
+        System.out.println(appartement);
         if (appartement == null) {
             return -3;
         }

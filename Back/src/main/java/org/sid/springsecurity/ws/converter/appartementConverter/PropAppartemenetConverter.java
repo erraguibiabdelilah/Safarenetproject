@@ -29,6 +29,8 @@ public class PropAppartemenetConverter {
         }
         else {
             PropAppartement bean = new PropAppartement();
+
+            bean.setId(dto.getId());
             bean.setNom(dto.getNom());
             bean.setPrenom(dto.getPrenom());
             bean.setNumTele(dto.getNumTele());
@@ -49,6 +51,7 @@ public class PropAppartemenetConverter {
         }
         else {
             PropAppartemenetDto dto = new PropAppartemenetDto();
+            dto.setId(bean.getId());
             dto.setNom(bean.getNom());
             dto.setPrenom(bean.getPrenom());
             dto.setNumTele(bean.getNumTele());

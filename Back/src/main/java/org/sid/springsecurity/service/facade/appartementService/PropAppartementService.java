@@ -13,5 +13,6 @@ public interface PropAppartementService {
     PropAppartement findByCin(String cin);
     int deleteByCin(String cin);
 
+    PropAppartement findByUsername(String username);
 
 }

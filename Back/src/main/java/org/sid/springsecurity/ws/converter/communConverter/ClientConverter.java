@@ -29,7 +29,7 @@ public class ClientConverter {
             dto.setCin(bean.getCin());
             dto.setNom(bean.getNom());
             dto.setPrenom(bean.getPrenom());
-            dto.setNul_TeleClient(bean.getNumTeleClient());
+            dto.setNumTeleClient(bean.getNumTeleClient());
             dto.setUsername_Client(bean.getUsername());
             dto.setPassword_Client(bean.getPassword());
             dto.setEmail_Client(bean.getEmailClient());
@@ -52,7 +52,7 @@ public class ClientConverter {
             bean.setCin(dto.getCin());
             bean.setNom(dto.getNom());
             bean.setPrenom(dto.getPrenom());
-            bean.setNumTeleClient(dto.getNul_TeleClient());
+            bean.setNumTeleClient(dto.getNumTeleClient());
             bean.setUsername(dto.getUsername_Client());
             bean.setPassword(dto.getPassword_Client());
             bean.setEmailClient(dto.getEmail_Client());

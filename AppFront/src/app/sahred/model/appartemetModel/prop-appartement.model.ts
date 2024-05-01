@@ -1,4 +1,5 @@
 export class PropAppartement {
+  id:number;
   nom: string;
   prenom: string;
   numTele: string;
@@ -9,6 +10,7 @@ export class PropAppartement {
   username: string;
   password:string;
   constructor() {
+    this.id=0;
     this.nom = "";
     this.prenom = "";
     this.numTele = "";

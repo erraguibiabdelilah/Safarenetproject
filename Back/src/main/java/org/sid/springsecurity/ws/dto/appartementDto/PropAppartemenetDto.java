@@ -3,6 +3,7 @@ public class PropAppartemenetDto {
 
 
 
+    private Long id;
     private String nom;
     private String prenom;
     private String numTele;
@@ -85,5 +86,14 @@ public class PropAppartemenetDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

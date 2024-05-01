@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 public class AgenceLocation extends AppUser {
-    private String iceAgLoc;
+    private Long iceAgLoc;
     private String raisonSocialAg;
     private String adresse;
     private String numTelephone;
@@ -38,11 +38,11 @@ public class AgenceLocation extends AppUser {
     }
 
 
-    public String getIceAgLoc() {
+    public Long getIceAgLoc() {
         return iceAgLoc;
     }
 
-    public void setIceAgLoc(String iceAgLoc) {
+    public void setIceAgLoc(Long iceAgLoc) {
         this.iceAgLoc = iceAgLoc;
     }
 
@@ -113,7 +113,7 @@ public class AgenceLocation extends AppUser {
         this.paiements = paiements;
     }
 
-    public AgenceLocation(Long id, String username, String password, Collection<AppRole> appRoles, String iceAgLoc, String raisonSocialAg, String adresse, String numTelephone, int numCompteBkAgLoc, Long ribAgenceLoc, Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
+    public AgenceLocation(Long id, String username, String password, Collection<AppRole> appRoles, Long iceAgLoc, String raisonSocialAg, String adresse, String numTelephone, int numCompteBkAgLoc, Long ribAgenceLoc, Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
         super(id, username, password, appRoles);
         this.iceAgLoc = iceAgLoc;
         this.raisonSocialAg = raisonSocialAg;

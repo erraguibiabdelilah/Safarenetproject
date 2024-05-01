@@ -112,4 +112,11 @@ public class PropAppartementServiceImpl implements PropAppartementService {
     }
 
 
+
+    @Override
+    public PropAppartement findByUsername(String username) {
+        return propAppartementDao.findByUsername(username);
+    }
+
+
 }
