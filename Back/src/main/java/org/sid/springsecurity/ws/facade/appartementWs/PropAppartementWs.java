@@ -42,6 +42,13 @@ public class PropAppartementWs {
         propAppartementService.update(propAppartemenetDto);
     }
 
+
+    @GetMapping("/username/{username}")
+    public PropAppartement findByUsername(@PathVariable  String username) {
+        return propAppartementService.findByUsername(username);
+    }
+
+
     private final PropAppartementService propAppartementService;
     private final PropAppartemenetConverter propAppartemenetConverter;
 

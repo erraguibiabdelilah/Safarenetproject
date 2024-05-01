@@ -9,7 +9,7 @@ public class ClientDto {
     private String cin ;
     private String prenom ;
     private String nom ;
-    private String nul_TeleClient  ;
+    private String numTeleClient  ;
     private String username_Client  ;
     private String password_Client  ;
     private String email_Client  ;
@@ -43,12 +43,12 @@ public class ClientDto {
         this.nom = nom;
     }
 
-    public String getNul_TeleClient() {
-        return nul_TeleClient;
+    public String getNumTeleClient() {
+        return numTeleClient;
     }
 
-    public void setNul_TeleClient(String nul_TeleClient) {
-        this.nul_TeleClient = nul_TeleClient;
+    public void setNumTeleClient(String numTeleClient) {
+        this.numTeleClient = numTeleClient;
     }
 
     public String getUsername_Client() {

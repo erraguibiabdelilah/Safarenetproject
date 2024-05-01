@@ -16,4 +16,5 @@ public interface ClientService {
 
     int deleteByCin(String cin);
 
+    Client findByUsername(String username);
 }

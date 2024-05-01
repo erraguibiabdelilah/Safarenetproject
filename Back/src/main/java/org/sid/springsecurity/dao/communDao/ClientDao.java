@@ -12,4 +12,7 @@ public interface ClientDao extends JpaRepository<Client , Long> {
     int deleteByCin(String cin);
 //    List<Client> findByReservationRef(String ref);
 //    int deleteByReservationRef(Long id);
+
+
+    Client findByUsername(String username);
 }

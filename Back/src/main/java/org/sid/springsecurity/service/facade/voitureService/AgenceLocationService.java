@@ -10,7 +10,7 @@ public interface AgenceLocationService {
 
     int save(AgenceLocation agenceLocation);
 
-    AgenceLocation findByiceAgLoc(String iceAgLoc);
+    AgenceLocation findByiceAgLoc(Long iceAgLoc);
 
     List<AgenceLocation> findAll();
 
@@ -18,5 +18,7 @@ public interface AgenceLocationService {
 
     int update(AgenceLocation agenceLocation);
 
-    int deleteByiceAgLoc(Long iceAgLoc);
+    int deleteByIceAgLoc(Long iceAgLoc);
+
+    AgenceLocation findByUsername(String username);
 }

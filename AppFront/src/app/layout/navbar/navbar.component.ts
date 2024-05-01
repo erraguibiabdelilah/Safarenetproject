@@ -10,6 +10,7 @@ import {RedirectService} from "../../sahred/service/LayoutService/RedirectServic
 })
 export class NavbarComponent implements OnInit {
 
+  isMenuToggle:boolean=false;
   constructor(public authService: AuthService,private router: Router, private redirectService:RedirectService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
 
   handleLogout() {
     this.authService.logout();
+    this.isMenuToggle=false;
   }
 
 
@@ -39,4 +41,13 @@ export class NavbarComponent implements OnInit {
 
   }
 
+
+  toggleMenu() {
+    console.log(this.isMenuToggle)
+    this.isMenuToggle=!this.isMenuToggle;
+  }
+
+  toggleMenuColose() {
+    this.isMenuToggle=false;
+  }
 }

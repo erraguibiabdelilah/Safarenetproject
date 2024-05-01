@@ -20,7 +20,6 @@ export class AuthService {
   accessToken! : any ;
 
   accessTokenEz! : any ;
-  userApp :AppUser=new AppUser();
 
   client:Client=new Client();
 
@@ -28,6 +27,12 @@ export class AuthService {
 
   agenceLocation:AgenceLocation=new AgenceLocation();
 
+  //soient user | prop | agence
+  dataUtilisateur:any;
+
+  isUser: boolean = true;
+  isPropraitaire!: boolean;
+  isAgenceLocation!: boolean;
 
 
   // refrechToken! :any;
@@ -56,7 +61,38 @@ export class AuthService {
     let decodejwt = jwtDecode(this.accessToken) as { sub: string, authority: string };
     this.username=decodejwt.sub;
     this.roles=decodejwt.authority
-    console.log(this.roles)
+
+    if(this.roles.includes("USER") && !this.roles.includes("ADMIN") && !this.roles.includes("MANAGER-VOI") && !this.roles.includes("MANAGER-APT")){
+        this.isUser=true
+      this.isAgenceLocation=false;
+      this.isPropraitaire=true;
+    }
+    else if(this.roles.includes("USER") && !this.roles.includes("ADMIN") && this.roles.includes("MANAGER-VOI") && !this.roles.includes("MANAGER-APT")) {
+      this.isUser=false
+      this.isAgenceLocation=true;
+      this.isPropraitaire=false;
+    }
+    else if(this.roles.includes("USER") && !this.roles.includes("ADMIN") && !this.roles.includes("MANAGER-VOI") && this.roles.includes("MANAGER-APT")) {
+      this.isUser=false
+      this.isAgenceLocation=false;
+      this.isPropraitaire=true;
+    }else {
+      this.isUser=false;
+      this.isAgenceLocation=false;
+      this.isPropraitaire=false;
+    }
+
+    // @ts-ignore
+    this.getByUsername(this.username).subscribe(
+      {next:data=>{
+
+        console.log(data)
+          this.dataUtilisateur=data
+          console.log(this.dataUtilisateur)
+        },
+        error:err => {console.log("error")}
+      }
+    )
 
     window.localStorage.setItem("jwt-token-access",this.accessToken);
     // window.localStorage.setItem("jwt-token-ref",this.refrechToken);
@@ -109,6 +145,22 @@ export class AuthService {
 
   creeCompte3(agenceLocation:AgenceLocation){
     return  this.http.post<number>("http://localhost:8085/api/agenceLocation/",agenceLocation)
+  }
+
+  public getByUsername(username:string):Observable<any> | null{
+    if(this.isUser){
+      return this.http.get<any>(`http://localhost:8085/api/client/username/${username}`);
+    }
+    else if(this.isPropraitaire){
+      return this.http.get<any>(`http://localhost:8085/api/propAppartement/username/${username}`);
+    }
+    else if(this.isAgenceLocation){
+      console.log("hello word")
+      return this.http.get<any>(`http://localhost:8085/api/agenceLocation/username/${username}`);
+    }
+    else {
+      return null;
+    }
   }
 
 

@@ -25,6 +25,7 @@ public class CategoriesAppartementConverter {
         }
         else{
             CategoriesAppartement bean = new CategoriesAppartement();
+            bean.setId(dto.getId());
             bean.setLibelle(dto.getLibelle());
             return bean;
         }
@@ -36,6 +37,7 @@ public class CategoriesAppartementConverter {
         }
         else {
             CategoriesAppartementDto dto = new CategoriesAppartementDto();
+            dto.setId(bean.getId());
             dto.setLibelle(bean.getLibelle());
             return dto;
         }

@@ -49,7 +49,7 @@ public class ClientServiceImpl implements ClientService {
         System.out.println(client.getUsername());
         System.out.println(client.getPassword());
         System.out.println("********************************************************************************************");
-        String iceAgLoc =null;
+        Long iceAgLoc =null;
         String cin = "";
 
         if (client == null) {
@@ -144,5 +144,10 @@ public class ClientServiceImpl implements ClientService {
         return clientDao.deleteByCin(cin);
     }
 
+
+    @Override
+    public Client findByUsername(String username) {
+        return clientDao.findByUsername(username);
+    }
 
 }

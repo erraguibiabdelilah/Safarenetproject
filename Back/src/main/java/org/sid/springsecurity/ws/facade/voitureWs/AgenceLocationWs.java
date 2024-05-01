@@ -27,7 +27,7 @@ public class AgenceLocationWs {
         return agenceLocationService.save(agenceLocation);
     }
     @GetMapping("iceAgLoc/{iceAgLoc}")
-    public AgenceLocationDto findByiceAgLoc(@PathVariable String iceAgLoc)  {
+    public AgenceLocationDto findByiceAgLoc(@PathVariable Long iceAgLoc)  {
         return converter.toDto(agenceLocationService.findByiceAgLoc(iceAgLoc));
     }
     @GetMapping
@@ -42,7 +42,13 @@ public class AgenceLocationWs {
 
     @Transactional
     @DeleteMapping("iceAgLoc/{iceAgLoc}")
-    public int deleteByiceAgLoc(Long  iceAgLoc) {
-        return agenceLocationService.deleteByiceAgLoc(iceAgLoc);
+    public int deleteByiceAgLoc(@PathVariable  Long  iceAgLoc) {
+        return agenceLocationService.deleteByIceAgLoc(iceAgLoc);
     }
+
+    @GetMapping("/username/{username}")
+    public AgenceLocation findByUsername(@PathVariable  String username) {
+        return agenceLocationService.findByUsername(username);
+    }
+
 }

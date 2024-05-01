@@ -30,6 +30,7 @@ import {CreatLocationComponent} from "./view/communComponent/location/creat-loca
 import {LoginComponent} from "./security/login/login.component";
 import {ProfileComponent} from "./layout/profile/profile/profile.component";
 import {authGuard} from "./layout/navbar/garde/garde";
+import {ProfileEzComponent} from "./view/appartemetComponent/profile-ez/profile-ez.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -40,18 +41,18 @@ const routes: Routes = [
   { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
-  { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
-
-      { path :"appartemet",component:CreatAppartemetComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
-      { path :"categories",component:CreatCategoriesAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
+      { path :"appartemet",component:CreatAppartemetComponent},
+      { path :"categories",component:CreatCategoriesAppartementComponent},
       { path :"propraitaire",component:CreatPropAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
       { path: "createContrat" , component:CreatContratComponent},
       { path: "createFacteur" , component:CreatFactureComponent},
       { path: "createLocation" , component:CreatLocationComponent},
+      // { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
+      { path: "profile", component: ProfileEzComponent,canActivate:[authGuard] }
     ]},
 
 
@@ -63,3 +64,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

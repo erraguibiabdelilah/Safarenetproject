@@ -7,7 +7,7 @@ import org.sid.springsecurity.ws.dto.communDto.PaiementDto;
 import java.util.List;
 
 public class AgenceLocationDto {
-    private String iceAgLoc;
+    private Long iceAgLoc;
     private String raisonSocialAg;
     private String adresse;
     private String numTelephone;
@@ -22,12 +22,11 @@ public class AgenceLocationDto {
 //    private List<PaiementDto> paiementDtos ;
 
 
-
-    public String getIceAgLoc() {
+    public Long getIceAgLoc() {
         return iceAgLoc;
     }
 
-    public void setIceAgLoc(String iceAgLoc) {
+    public void setIceAgLoc(Long iceAgLoc) {
         this.iceAgLoc = iceAgLoc;
     }
 
