@@ -95,15 +95,14 @@
 
     <div *ngIf="obejetClicked === false" class="container " style="margin-left: 8rem;">
 
+
       <div class="row">
         <div class="col-4">
-          <select name="category" class=" form-control form-select">
-            <option value="" disabled selected> Categorie</option>
-            <option value="voiture">Catégorie 1</option>
-            <option value="appartement">Catégorie 2</option>
+          <select name="category" class="form-control form-select" [(ngModel)]="selecCategorieApt" (change)="onCategorieChange()">
+            <option value="" selected> Categorie</option>
+            <option [value]="cate.libelle" *ngFor="let cate of dataCategorieApartement">{{cate.libelle}}</option>
           </select>
         </div>
-
 
 
         <div class=" btn_format">
@@ -126,7 +125,7 @@
               Audi Q8
             </div>
             <div class="card-text">
-              Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
+              ismail Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
 
             </div>
 
@@ -142,108 +141,106 @@
 
       <div *ngIf="formatcard===false" class="container" style="margin-top:50px;">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let apparetement of dataApartement">
             <div class="card-sl">
               <div class="card-image">
                 <img
-                  src="assets/photo/image/voiture1.jpg"/>
+                  src="assets/photo/Apparetement/image1.jpg"/>
               </div>
 
               <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
               <div class="card-heading">
-                Audi Q8
+                {{apparetement.code}}
               </div>
               <div class="card-text">
-                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
+                {{apparetement.adresse}}
               </div>
               <div class="card-text">
-                $67,400
+                ${{apparetement.loyerMensuel}}
               </div>
-              <a href="#" class="card-button"> Purchase</a>
+              <button href="#" class="card-button" > Purchase</button>
             </div>
           </div>
+          <!--          <div class="col-md-4">-->
+          <!--            <div class="card-sl">-->
+          <!--              <div class="card-image">-->
+          <!--                <img-->
+          <!--                  src="assets/photo/image/voiture1.jpg"/>-->
+          <!--              </div>-->
 
-          <div class="col-md-4">
-            <div class="card-sl">
-              <div class="card-image">
-                <img
-                  src="assets/photo/image/voiture1.jpg"/>
-              </div>
+          <!--              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>-->
+          <!--              <div class="card-heading">-->
+          <!--                Audi Q8-->
+          <!--              </div>-->
+          <!--              <div class="card-text">-->
+          <!--                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.-->
+          <!--              </div>-->
+          <!--              <div class="card-text">-->
+          <!--                $67,400-->
+          <!--              </div>-->
+          <!--              <a href="#" class="card-button"> Purchase</a>-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <!--          <div class="col-md-4">-->
+          <!--            <div class="card-sl">-->
+          <!--              <div class="card-image">-->
+          <!--                <img-->
+          <!--                  src="assets/photo/image/voiture1.jpg"/>-->
+          <!--              </div>-->
 
-              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-              <div class="card-heading">
-                Audi Q8
-              </div>
-              <div class="card-text">
-                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
-              </div>
-              <div class="card-text">
-                $67,400
-              </div>
-              <a href="#" class="card-button"> Purchase</a>
-            </div>
-          </div>
+          <!--              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>-->
 
-          <div class="col-md-4">
-            <div class="card-sl">
-              <div class="card-image">
-                <img
-                  src="assets/photo/image/voiture1.jpg"/>
-              </div>
-
-              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-
-                <div class="card-heading">
-                  Audi Q8
+          <!--                <div class="card-heading">-->
+          <!--                  Audi Q8-->
 
 
-                <div class="description card-text">
+          <!--                <div class="description card-text">-->
 
 
-                   <div >
-                     <span class="mx-2">categorie :Sport</span>
-                     <span class="mx-2"> coleur: noir</span>
-                   </div>
-                   <div>
-                     <span class="mx-2"> <i class="pi-user"></i> 5
-                        <i class="pi-ellipsis-h"></i>
-                        Manuel</span>
-                     <span class="mx-2"> coleur: noir</span>
-                   </div>
-                   <div>
-                     <span class="mx-2"><i class="pi-circle-on"></i>>
-                        200 km/h</span>
-                     <span class="mx-2"> coleur: noir</span>
-                   </div>
-                </div>
-              </div>
+          <!--                   <div >-->
+          <!--                     <span class="mx-2">categorie :Sport</span>-->
+          <!--                     <span class="mx-2"> coleur: noir</span>-->
+          <!--                   </div>-->
+          <!--                   <div>-->
+          <!--                     <span class="mx-2"> <i class="pi-user"></i> 5-->
+          <!--                        <i class="pi-ellipsis-h"></i>-->
+          <!--                        Manuel</span>-->
+          <!--                     <span class="mx-2"> coleur: noir</span>-->
+          <!--                   </div>-->
+          <!--                   <div>-->
+          <!--                     <span class="mx-2"><i class="pi-circle-on"></i>>-->
+          <!--                        200 km/h</span>-->
+          <!--                     <span class="mx-2"> coleur: noir</span>-->
+          <!--                   </div>-->
+          <!--                </div>-->
+          <!--              </div>-->
 
-              <div class="card-text">
-                $67,400
-              </div>
-              <a href="#" class="card-button"> Reserver</a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-sl">
-              <div class="card-image">
-                <img
-                  src="assets/photo/image/voiture1.jpg"/>
-              </div>
+          <!--              <div class="card-text">-->
+          <!--                $67,400-->
+          <!--              </div>-->
+          <!--              <a href="#" class="card-button"> Reserver</a>-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <!--          <div class="col-md-4">-->
+          <!--            <div class="card-sl">-->
+          <!--              <div class="card-image">-->
+          <!--                <img-->
+          <!--                  src="assets/photo/image/voiture1.jpg"/>-->
+          <!--              </div>-->
 
-              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-              <div class="card-heading">
-                Audi Q8
-              </div>
-              <div class="card-text">
-                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
-              </div>
-              <div class="card-text">
-                $67,400
-              </div>
-              <a href="#" class="card-button"> Purchase</a>
-            </div>
-          </div>
+          <!--              <a class="card-action" href="#"><i class="fa fa-heart"></i></a>-->
+          <!--              <div class="card-heading">-->
+          <!--                Audi Q8-->
+          <!--              </div>-->
+          <!--              <div class="card-text">-->
+          <!--                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.-->
+          <!--              </div>-->
+          <!--              <div class="card-text">-->
+          <!--                $67,400-->
+          <!--              </div>-->
+          <!--              <a href="#" class="card-button"> Purchase</a>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
       </div>
     </div>

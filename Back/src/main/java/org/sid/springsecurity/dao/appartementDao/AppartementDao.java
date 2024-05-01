@@ -15,5 +15,7 @@ public interface AppartementDao extends JpaRepository<Appartement,Long> {
    List<Appartement> findByCategoriesAppartementLibelle(String libelle);
 
    List<Appartement> findByPropAppartementCin(String cin);
+   List<Appartement> findByAdresse(String adresse);
+   List<Appartement> findByLoyerMensuelLessThanEqual(double mont);
 
 }
