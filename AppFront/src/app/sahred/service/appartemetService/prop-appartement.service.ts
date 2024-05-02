@@ -3,6 +3,7 @@ import { PropAppartement } from '../../model/appartemetModel/prop-appartement.mo
 import {Appartement} from "../../model/appartemetModel/appartement.model";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Client} from "../../model/communModel/client.model";
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,10 @@ export class PropAppartementService {
     return this.http.put("http://localhost:8085/api/propAppartement/",propritaire)
 
   }
+  public getByusername(username: String): Observable<PropAppartement> {
+    return this.http.get<PropAppartement>(`http://localhost:8085/api/propAppartement/username/${username}`);
+  }
+
 
 
   creeCompte(cin:any,username: any, password: any):Observable<any> {

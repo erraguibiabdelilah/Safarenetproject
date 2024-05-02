@@ -39,7 +39,7 @@ import { ListCategorieVoitureComponent } from './view/voitureComponent/categorie
 import { CreatVoitureComponent } from './view/voitureComponent/voiture/creat-voiture/creat-voiture.component';
 import { EditVoitureComponent } from './view/voitureComponent/voiture/edit-voiture/edit-voiture.component';
 import { ListVoitureComponent } from './view/voitureComponent/voiture/list-voiture/list-voiture.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NavbarComponent} from "./layout/navbar/navbar.component";
 import {NoteAuthorizedComponent} from "./security/note-authorized/note-authorized.component";
@@ -84,6 +84,12 @@ import { CarouselWithAnimationComponent } from './layout/carousel-with-animation
 import {SearchIcon} from "primeng/icons/search";
 import {HomeComponent} from "./layout/home/home.component";
 import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.component';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -178,6 +184,15 @@ import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.co
     RippleModule,
     ChipsModule,
     SearchIcon,
+    TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }
+    ),
+
 
   ],
   providers: [

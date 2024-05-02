@@ -31,6 +31,11 @@ import {ProfileComponent} from "./layout/profile/profile/profile.component";
 import {authGuard} from "./layout/navbar/garde/garde";
 import {CarouselTestComponent} from "./layout/carousel-test/carousel-test.component";
 import {HomeComponent} from "./layout/home/home.component";
+import {CreatPaiementComponent} from "./view/communComponent/paiement/creat-paiement/creat-paiement.component";
+import {
+  CreatAgenceLocationComponent
+} from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
+import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
 
 const routes: Routes = [
   { path: "home", component:HomeComponent},
@@ -53,6 +58,9 @@ const routes: Routes = [
       { path: "createContrat" , component:CreatContratComponent},
       { path: "createFacteur" , component:CreatFactureComponent},
       { path: "createLocation" , component:CreatLocationComponent},
+      { path: "createClient" , component:CreatClientComponent},
+      { path: "createAgence" , component:CreatAgenceLocationComponent},
+      { path: "createPaiement" , component:CreatPaiementComponent},
     ]},
 
 

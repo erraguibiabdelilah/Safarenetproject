@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../security/serviceAuth/auth.service";
 import {RedirectService} from "../../sahred/service/LayoutService/RedirectService.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,20 @@ import {RedirectService} from "../../sahred/service/LayoutService/RedirectServic
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  selectedLanguage: string='English';
 
   isMenuToggle:boolean=false;
-  constructor(public authService: AuthService,private router: Router, private redirectService:RedirectService) { }
+  constructor(public authService: AuthService,private router: Router, private redirectService:RedirectService,private translateService:TranslateService) {
+    this.translateService.setDefaultLang('en');
+
+  }
 
   ngOnInit(): void {
   }
-
+  SwitchLanguage(lang:string) {
+    this.translateService.use(lang);
+    this.selectedLanguage = lang === 'en' ? 'English' : 'Français';
+  }
   handleLogout() {
     this.authService.logout();
     this.isMenuToggle=false;

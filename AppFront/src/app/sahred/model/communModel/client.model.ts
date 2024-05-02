@@ -12,19 +12,39 @@ export class Client {
   email_Client: string;
   agenceLocation: AgenceLocation;
   propAppartemenetDto: PropAppartement;
-  reservationDto: Reservation[];
+  reservationDto!: Array<Reservation>;
 
   constructor() {
-    this.cin = '';
-    this.prenom = '';
-    this.nom = '';
-    this.numTeleClient = '';
-    this.username_Client = '';
-    this.password_Client='';
-    this.email_Client='';
-    this.agenceLocation =new AgenceLocation();
-    this.propAppartemenetDto = new PropAppartement();
-    this.reservationDto = [];
-  }
+    this.cin = "";
+    this.prenom = "";
+    this.nom = "";
+    this.numTeleClient = "";
+    this.username_Client = "";
+    this.password_Client = "";
+    this.email_Client = "";
+    this.agenceLocation = {
+      iceAgLoc: 0,
+      ribAgenceLoc: 0,
+      raisonSocialAg: "",
+      adresse: "",
+      numTelephone: "",
+      numCompteBkAgLoc: 0,
+      usernameAgenceLoc: "",
+      password: "",
+      RCAgLoc: 0
+    };
+    this.propAppartemenetDto = {
+      nom: "",
+      prenom: "",
+      numTele: "",
+      email: "",
+      ribPropAppt: "",
+      numCompteBkPropApp: "",
+      cin: "",
+      username: "",
+      password: ""
+    };
 
+
+  }
 }

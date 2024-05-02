@@ -192,7 +192,7 @@ export class AuthService {
     this.agenceLocation.iceAgLoc=0;
     this.agenceLocation.raisonSocialAg="";
     this.agenceLocation.adresse="";
-    this.agenceLocation.numTelephone=0;
+    this.agenceLocation.numTelephone="";
     this.agenceLocation.numCompteBkAgLoc=0;
     this.agenceLocation.ribAgenceLoc=0;
     this.agenceLocation.usernameAgenceLoc="";

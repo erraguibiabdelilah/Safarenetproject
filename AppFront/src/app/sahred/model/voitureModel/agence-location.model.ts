@@ -6,21 +6,23 @@ export class AgenceLocation {
   iceAgLoc: number;
   raisonSocialAg: string;
   adresse: string;
-  numTelephone: number;
+  numTelephone: string;
   numCompteBkAgLoc: number;
+  ribAgenceLoc: number;
+
   usernameAgenceLoc: string;
   password: string;
   RCAgLoc: number;
-  ribAgenceLoc!:number
-  ;
+
   constructor() {
     this.iceAgLoc = 0;
-    this.raisonSocialAg = '';
-    this.adresse = '';
-    this.numTelephone = 0;
+    this.raisonSocialAg = "";
+    this.adresse = "";
+    this.numTelephone = "";
     this.numCompteBkAgLoc = 0;
-    this.usernameAgenceLoc = '';
-    this.password = '';
+    this.usernameAgenceLoc = "";
+    this.password = "";
     this.RCAgLoc = 0;
+    this.ribAgenceLoc = 0;
   }
 }

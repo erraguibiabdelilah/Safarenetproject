@@ -103,37 +103,35 @@ public class ClientServiceImpl implements ClientService {
 
         Client existingClient = findByCin(client.getCin());
 
-        if (client == null) {
+        if (existingClient == null) {
             return -1;
         }
 
         try {
-            if (client.getProp_appartement() == null || client.getAgence_Location() == null) {
+            if (client.getProp_appartement() == null && client.getAgence_Location() == null) {
                 return -2;
             }
-            if (client.getProp_appartement().getCin() == null || client.getAgence_Location().getIceAgLoc() == null) {
-                return -3;
-            }
+
             PropAppartement propAppartement = propAppartementService.findByCin(client.getProp_appartement().getCin());
             AgenceLocation agenceLocation = agenceLocationService.findByiceAgLoc(client.getAgence_Location().getIceAgLoc());
 
 
-            client.setReservation(client.getReservation());
-            client.setEmailClient(client.getEmailClient());
-            client.setPrenom(client.getPrenom());
-            client.setNom(client.getNom());
-            client.setNumTeleClient(client.getNumTeleClient());
-            client.setUsername(client.getUsername());
-            client.setAgence_Location(client.getAgence_Location());
-            client.setProp_appartement(client.getProp_appartement());
+            existingClient.setPrenom(client.getPrenom());
+            existingClient.setNom(client.getNom());
+            existingClient.setEmailClient(client.getEmailClient());
+            existingClient.setNumTeleClient(client.getNumTeleClient());
+            existingClient.setCin(client.getCin());
+            existingClient.setProp_appartement(propAppartement);
+            existingClient.setAgence_Location(agenceLocation);
 
 
-            clientDao.save(client);
+
+            clientDao.save(existingClient);
 
             return 1;
 
         } catch (Exception e) {
-            System.err.println("Erreur lors de la mise à jour de client : " + e.getMessage());
+            System.err.println("Erreur lors de la mise à jour de paiement : " + e.getMessage());
             e.printStackTrace();
             return -4;
         }
