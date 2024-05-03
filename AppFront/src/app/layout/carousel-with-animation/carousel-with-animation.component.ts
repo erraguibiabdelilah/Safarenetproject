@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {Voiture} from "../../sahred/model/voitureModel/voiture.model";
 import {CategoriesAppartement} from "../../sahred/model/appartemetModel/categories-appartement.model";
 import {Appartement} from "../../sahred/model/appartemetModel/appartement.model";
@@ -32,7 +32,7 @@ export class CarouselWithAnimationComponent implements OnInit{
 
 
   constructor(private voitureService:VoitureService , private categoreieappartemetService:CategoriesAppartementService ,
-              private apartement:AppartemetService,private router:Router) {
+              private apartement:AppartemetService,private router:Router,private renderer: Renderer2, private el: ElementRef) {
   }
 
 
@@ -59,6 +59,7 @@ export class CarouselWithAnimationComponent implements OnInit{
     this.runNextAuto = setTimeout(() => {
       this.nextDom.click();
     }, this.timeAutoNext);
+    this.initSlider();
   }
 
 
@@ -98,5 +99,36 @@ export class CarouselWithAnimationComponent implements OnInit{
   }
 
 
-}
+  initSlider() {
+    const imageList = this.el.nativeElement.querySelector(".slider-wrapper .image-list");
+    const slideButtons = this.el.nativeElement.querySelectorAll(".slider-wrapper .slide-button");
+    const sliderScrollbar = this.el.nativeElement.querySelector(".container .slider-scrollbar");
+    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
 
+    // Gestion des événements et manipulation du DOM ici
+    // Assurez-vous d'utiliser this.renderer pour manipuler le DOM au lieu de document
+
+    // Gestion du clic sur le bouton de défilement
+    slideButtons.forEach((button: HTMLElement) =>{
+      this.renderer.listen(button, 'click', () => {
+        const direction = button.id === "prev-slide" ? -1 : 1;
+        const scrollAmount = imageList.clientWidth * direction;
+        imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    });
+
+    // Gestion du redimensionnement de la fenêtre
+    this.renderer.listen(window, 'resize', () => {
+      // Réinitialise le slider en cas de redimensionnement
+      this.initSlider();
+    });
+  }
+
+
+  RedirectToFacture() {
+    this.router.navigateByUrl("/reservationInformation");
+  }
+
+
+}
