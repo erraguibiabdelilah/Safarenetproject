@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-carousel-test',
@@ -7,7 +8,7 @@ import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 })
 export class CarouselTestComponent implements OnInit{
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private renderer: Renderer2, private el: ElementRef,private router:Router) {}
 
   ngOnInit() {
     this.initSlider();
@@ -38,5 +39,9 @@ export class CarouselTestComponent implements OnInit{
       // Réinitialise le slider en cas de redimensionnement
       this.initSlider();
     });
+  }
+
+  RedirectToFacture() {
+    this.router.navigateByUrl("/reservationInformation");
   }
 }
