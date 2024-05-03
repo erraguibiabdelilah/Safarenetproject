@@ -36,6 +36,7 @@ import {
   CreatAgenceLocationComponent
 } from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
 import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
+import {ProdileEzzComponent} from "./layout/profile/prodile-ezz/prodile-ezz.component";
 
 const routes: Routes = [
   { path: "home", component:HomeComponent},
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
+  { path: "profileezz", component: ProdileEzzComponent},
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[

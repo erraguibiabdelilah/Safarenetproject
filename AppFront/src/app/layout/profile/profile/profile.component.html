@@ -1,3 +1,129 @@
+<div  *ngIf="authService.roles=='USER'"  class="container rounded bg-white mt-5 mb-5">
+  <mat-card class="card_t">
+    <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="">
+            <span class="font-weight-bold">{{authService.username}}</span>
+            <span class="text-black-50"></span>
+          </div>
+        </div>
+        <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="First Name" value="" [(ngModel)]="client.prenom"></div>
+              <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="Last Name"></div>
+
+              <div ><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+              <div><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+
+              <div class="mt-5">
+                <button class="btn btn-primary form-control" routerLink="/profileezz">Update</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<div *ngIf="authService.roles.includes('MANAGER-APT')" class="container rounded bg-white mt-5 mb-5">
+  <mat-card class="card_t">
+    <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.seloger.com/list/img/illu_dossier_candidatures.png" alt=""><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>
+        </div>
+        <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" placeholder="nom" value=""></div>
+              <div class="col-md-6"><label class="labels">Prénom</label><input type="text" class="form-control" value="" placeholder="prenom"></div>
+
+              <div ><label class="labels">Email</label><input type="text" class="form-control" placeholder="email" value=""></div>
+              <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" value="" placeholder="numtelephone"></div>
+              <div><label class="labels">RIB </label><input type="text" class="form-control" value="" placeholder="rib"></div>
+              <div><label class="labels">N° Compte Banquaire </label><input type="text" class="form-control" value="" placeholder="numcompteBK"></div>
+
+              <div class="mt-5">
+                <button class="btn btn-primary form-control" routerLink="/profileezz">Update</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+<div *ngIf="authService.roles.includes('MANAGER-VOI')" class="container rounded bg-white mt-5 mb-5">
+  <mat-card class="card_t">
+    <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.autoeurope.fr/plugins/ae3/themes/AE1/images/car_hero.png" alt=""><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>
+        </div>
+        <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Adresse</label><input type="text" class="form-control" placeholder="adresse" value=""></div>
+              <div class="col-md-6"><label class="labels">Raison social </label><input type="text" class="form-control" value="" placeholder="raisonsocial"></div>
+              <div ><label class="labels">Email</label><input type="text" class="form-control" placeholder="email" value=""></div>
+              <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" value="" placeholder="numtelephone"></div>
+              <div><label class="labels">RC  </label><input type="text" class="form-control" value="" placeholder="rc"></div>
+              <div><label class="labels">N° Compte Banquaire </label><input type="text" class="form-control" value="" placeholder="numcompteBK"></div>
+
+              <div class="mt-5">
+                <button class="btn btn-primary form-control" routerLink="/profileezz">Update</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--<div  *ngIf="authService.roles.includes('USER')"  class="container rounded bg-white mt-5 mb-5">
   <mat-card class="card_t">
     <mat-card-header><mat-card-title>PROFILE</mat-card-title> </mat-card-header>
@@ -67,39 +193,39 @@
 
 
 
-<div *ngIf="authService.roles.includes('MANAGER-VOI')" class="container rounded bg-white mt-5 mb-5">
-  <mat-card class="card_t">
-    <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
+<!--<div *ngIf="authService.roles.includes('MANAGER-VOI')" class="container rounded bg-white mt-5 mb-5">-->
+<!--  <mat-card class="card_t">-->
+<!--    <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>-->
+<!--    <mat-divider></mat-divider>-->
+<!--    <mat-card-content>-->
 
-      <div class="row">
-        <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.autoeurope.fr/plugins/ae3/themes/AE1/images/car_hero.png"><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>
-        </div>
-        <div class="col-md-5 border-right">
-          <div class="p-3 py-5">
+<!--      <div class="row">-->
+<!--        <div class="col-md-3 border-right">-->
+<!--          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.autoeurope.fr/plugins/ae3/themes/AE1/images/car_hero.png"><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>-->
+<!--        </div>-->
+<!--        <div class="col-md-5 border-right">-->
+<!--          <div class="p-3 py-5">-->
 
-            <div class="row mt-2">
-              <div class="col-md-6"><label class="labels">Adresse</label><input type="text" class="form-control" [(ngModel)]="agence.adresse" placeholder="adresse" value=""></div>
-              <div class="col-md-6"><label class="labels">Raison social </label><input type="text" class="form-control" [(ngModel)]="agence.raisonSocialAg" value="" placeholder="raisonsocial"></div>
-              <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" [(ngModel)]="agence.numTelephone" value="" placeholder="N°"></div>
-              <div><label class="labels">RC  </label><input type="text" class="form-control" [(ngModel)]="agence.RCAgLoc" value="" placeholder="RC"></div>
-              <div><label class="labels">N° Compte Banquaire </label><input type="text" class="form-control" [(ngModel)]="agence.numCompteBkAgLoc" value="" placeholder="numcompteBK"></div>
+<!--            <div class="row mt-2">-->
+<!--              <div class="col-md-6"><label class="labels">Adresse</label><input type="text" class="form-control" [(ngModel)]="agence.adresse" placeholder="adresse" value=""></div>-->
+<!--              <div class="col-md-6"><label class="labels">Raison social </label><input type="text" class="form-control" [(ngModel)]="agence.raisonSocialAg" value="" placeholder="raisonsocial"></div>-->
+<!--              <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" [(ngModel)]="agence.numTelephone" value="" placeholder="N°"></div>-->
+<!--              <div><label class="labels">RC  </label><input type="text" class="form-control" [(ngModel)]="agence.RCAgLoc" value="" placeholder="RC"></div>-->
+<!--              <div><label class="labels">N° Compte Banquaire </label><input type="text" class="form-control" [(ngModel)]="agence.numCompteBkAgLoc" value="" placeholder="numcompteBK"></div>-->
 
-              <div class="mt-5">
-                <button class="btn btn-primary form-control" (click)="updateAgence()" >Update</button>
-              </div>
+<!--              <div class="mt-5">-->
+<!--                <button class="btn btn-primary form-control" (click)="updateAgence()" >Update</button>-->
+<!--              </div>-->
 
-            </div>
+<!--            </div>-->
 
-          </div>
-        </div>
-      </div>
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </mat-card-content>
-  </mat-card>
-</div>
+<!--    </mat-card-content>-->
+<!--  </mat-card>-->
+<!--</div>-->
 
 
 

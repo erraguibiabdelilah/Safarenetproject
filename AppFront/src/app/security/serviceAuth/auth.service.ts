@@ -28,7 +28,7 @@ export class AuthService {
   agenceLocation:AgenceLocation=new AgenceLocation();
 
   //soient user | prop | agence
-  dataUtilisateur:any;
+  dataUtilisateur:Client=new Client();
 
   isUser: boolean = true;
   isPropraitaire!: boolean;
@@ -85,7 +85,6 @@ export class AuthService {
     // @ts-ignore
     this.getByUsername(this.username).subscribe(
       {next:data=>{
-
           console.log(data)
           this.dataUtilisateur=data
           console.log(this.dataUtilisateur)

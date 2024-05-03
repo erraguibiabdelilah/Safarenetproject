@@ -14,6 +14,9 @@ export class Client {
   propAppartemenetDto: PropAppartement;
   reservationDto!: Array<Reservation>;
 
+
+
+
   constructor() {
     this.cin = "";
     this.prenom = "";

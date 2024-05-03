@@ -52,9 +52,10 @@ public class ClientWs {
 
 
     @GetMapping("username/{username}")
-    public Client findByUsername(@PathVariable  String username) {
+    public ClientDto findByUsername(@PathVariable  String username) {
         Client client=clientService.findByUsername(username);
         System.out.println(client);
-        return clientService.findByUsername(username);
+
+        return converter.toDto(clientService.findByUsername(username));
     }
 }
