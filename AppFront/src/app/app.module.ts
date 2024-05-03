@@ -86,6 +86,7 @@ import {HomeComponent} from "./layout/home/home.component";
 import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.component';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -142,6 +143,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselWithAnimationComponent,
     HomeComponent,
     ProdileEzzComponent,
+    ReservationInformationComponent,
 
   ],
   imports: [

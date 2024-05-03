@@ -26,6 +26,8 @@
   <mat-menu #importMenu1>
     <button mat-menu-item (click)="SwitchLanguage('en')">English</button>
     <button mat-menu-item (click)="SwitchLanguage('fr')">Français</button>
+    <button mat-menu-item routerLink="/reservationInformation">reservation</button>
+    
   </mat-menu>
 
   <button mat-button routerLink="/login" *ngIf="!authService.isAuthService" >{{ 'Sign in'|translate }}</button>

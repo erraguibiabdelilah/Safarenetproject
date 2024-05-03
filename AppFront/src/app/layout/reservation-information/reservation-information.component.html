@@ -1,0 +1,267 @@
+<div class="page-resrevation">
+    <div class="page-resrevation-titre">
+        <i class="bi bi-arrow-left-short"></i>
+        <div> Voir toutes les voitures</div>
+    </div>
+    <section class="reserver">
+
+        <div class="reserver-headre">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item ms-3 active" (click)="handleClick('Apercu')"(click)="toggleHoverEffect($event.target)">aperçu </li>
+                <li class="nav-item" (click)="handleClick('Location')" (click)="toggleHoverEffect($event.target)">Location
+                </li>
+                <li class="nav-item" (click)="handleClick('Conditions')" (click)="toggleHoverEffect($event.target)">
+                    Conditions</li>
+            </ul>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-7 m-0">
+
+                    <div class="card cardOne" id="Apercu">
+                        <div class="card-body">
+                            <span style="display: block;">Électrique</span>
+
+                            <div class="photo">
+                                <img src="../../../assets/pexels-prime-cinematics-1005175-2036544.jpg">
+                            </div>
+
+                            <div class="content">
+                                <h2>Économique</h2>
+                                <p>Peugeot e-208 ou similaire</p>
+
+                                <div class="grid-container">
+
+                                    <div><i class="bi bi-person-fill"></i> <span>5 passagers</span></div>
+
+                                    <div><i class="bi bi-slack"></i><span>Climatisation</span></div>
+
+                                    <div> <i class="bi bi-terminal-fill"><a>portes</a></i></div>
+                                    <div> <i class="bi bi-terminal-fill"><a>Automatique</a></i></div>
+                                    <div> <i class="bi bi-terminal-fill"><a>Kilométrage illimité</a></i></div>
+
+
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="card cardTree" id="Location">
+                        <div class="card-body">
+                            <h2 style="display: block;">Location de voiture</h2>
+                            <div class="content">
+                                <p>Prise en charge et restitution</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <i class="bi bi-calendar2"></i> <span>mer. 15 mai – 10 h 30 - jeu. 16 mai –
+                                                10 h
+                                                30</span>
+                                        </div>
+
+                                        <div>
+                                            <i class="bi bi-slack"></i><span>Aéroport CDG</span>
+                                            <p>Paris Ch De Gaulle Apt T1 T2 Roissy Apt Bp 332 Cedex Cdg, Roissy, France
+                                                95716</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <i class="bi bi-clock"></i><span> Heures d’ouverture</span>
+                                            <p>
+                                                mer. 07 h 00 – 23 h 59
+                                                jeu. 07 h 00 – 23 h 59
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <i class="bi bi-terminal-fill"></i> <span>Comptoir de l’agence et voiture
+                                                dans
+                                                le terminal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card cardTree" id="Conditions">
+                        <div class="card-body">
+                            <h2>Conditions de location</h2>
+                            <div class="content">
+                                <ul class="multi-column-list">
+                                    <li>
+                                        Un dépôt de garantie remboursable de 250,00 € sera retenu sur votre carte au
+                                        moment
+                                        de la prise en charge. Cela n’est pas compris dans le prix total affiché pour la
+                                        location de voiture. Ce montant est remboursable et sera automatiquement crédité
+                                        sur
+                                        votre compte si le véhicule n’est pas endommagé ni volé pendant la durée de
+                                        location.
+                                    </li>
+                                    <li>
+                                        Une carte de crédit valide disposant de fonds suffisants au nom du conducteur
+                                        est
+                                        requise pour le paiement du dépôt de garantie remboursable.
+                                    </li>
+                                    <li>
+                                        En vertu de la réglementation européenne sur les droits des consommateurs, ce
+                                        service de location de voiture n’est pas soumis au droit de rétractation. La
+                                        politique d’annulation du prestataire s’appliquera.
+                                    </li>
+                                    <li>
+                                        Ce service de location de voiture est proposé par un commerçant professionnel
+                                        (c’est-à-dire une personne qui agit dans le cadre de son activité, de son
+                                        entreprise
+                                        ou de sa profession).
+                                    </li>
+                                </ul>
+
+
+                                <h5>Ce qui est inclus</h5>
+                                <p>Le ou les éléments suivants sont inclus dans le prix total de la location de voiture.
+                                </p>
+                                <div>
+                                    <i class="bi bi-check2"></i> <span style="margin-left: 2px;">Assurance collision de
+                                        base</span>
+                                    <ul class="multi-column-list">
+                                        <li>
+                                            Franchise : jusqu’à 1 500,00 € à payer en cas d’accident ou de vol</li>
+                                        <li>
+                                            Assurance dommages pour la carrosserie
+                                        </li>
+                                        <li>Assurance contre le vol</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <i class="bi bi-check2"></i> <span style="margin-left: 2px;">Contact minimal grâce à
+                                        l’option d’enregistrement en ligne</span>
+                                    <ul class="multi-column-list">
+                                        <li>
+                                            Alamo Rent A Car vous enverra un e-mail ou un message pour l’enregistrement
+                                            en
+                                            ligne dès que vous aurez réservé votre voiture
+                                        </li>
+                                        <li>
+                                            Aucun document à remplir lors de la prise en charge
+                                        </li>
+                                        <li>
+                                            Limitez les contacts et gagnez du temps au comptoir de la prise en charge
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="col-4">
+                    <div class="card  cardTwo">
+                        <div class="card-body">
+                            <h1 class="content">$65</h1>
+                            <span style="font-size: 13px;">per day</span>
+                            <div style="line-height: 13px;">
+                                <p class="text-success">Free cancellation</p>
+                                <p>Pay at pick-up</p>
+                                <p>Reserve without a credit card</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card cardfor">
+                        <div id="content" class="card-body-ez">
+                            <h4 style="display: inline-block;">Price details</h4>
+                            <button class="btn-export" (click)="exportToPDF()"><i
+                                    class="pi pi-file-export"></i>Exporte</button>
+                            <h5>Pay at pick-up</h5>
+                            <div class="grid-container4">
+
+                                <div><span>Car rental fee x 1 day</span>
+                                    <p>$65.40 per day</p>
+                                </div>
+                                <div><span>$65.40</span></div>
+
+                                <div> <a>Taxes and fees</a></div>
+                                <div> <a>$24.85</a></div>
+                            </div>
+                            <hr>
+                            <div class="grid-container4 ">
+                                <div> <span>Total</span></div>
+                                <div><span>$65.40</span></div>
+
+                                <div> <a>Pay at pick-up</a></div>
+                                <div> <a>$90.25</a></div>
+
+                                <div> <a>Pay now</a></div>
+                                <div> <a>$0.00</a></div>
+                            </div>
+
+                        </div>
+
+                        <button class="btn-rserver">Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-7 m-0">
+                  <div class="card cardTree">
+                      <div class="card-body">
+                          <h3 style="display: block;">Location de voiture</h3>
+                          <div class="content">
+                            <p>Prise en charge et restitution</p>
+                            <div class="row">
+                              <div class="col-6">
+                                <div>
+                                    <i class="bi bi-calendar2"></i> <span>mer. 15 mai – 10 h 30 - jeu. 16 mai – 10 h 30</span>
+                                  </div>
+      
+                                <div>
+                                  <i class="bi bi-slack"></i><span>Aéroport CDG</span>
+                                  <p>Paris Ch De Gaulle Apt T1 T2 Roissy Apt Bp 332 Cedex Cdg, Roissy, France 95716</p>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div>
+                                  <i class="bi bi-clock"></i><span>  Heures d’ouverture</span>
+                               <p>
+                                mer. 07 h 00 – 23 h 59
+                                jeu. 07 h 00 – 23 h 59
+                               </p>
+                             </div>
+                               
+                                 <div>
+                                  <i class="bi bi-terminal-fill"></i> <span>Comptoir de l’agence et voiture dans le terminal</span>
+                                 </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+      
+      
+      
+              <div class="col-3">
+                  <div class="card cardTwo" >
+                      <div class="card-body">
+                      </div>
+                  </div>
+              </div>
+              
+          </div> -->
+
+
+        </div>
+    </section>
+</div>

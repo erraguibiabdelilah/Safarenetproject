@@ -36,6 +36,7 @@ import {
   CreatAgenceLocationComponent
 } from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
 import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
+import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component.js';
 
 const routes: Routes = [
   { path: "home", component:HomeComponent},
@@ -46,7 +47,9 @@ const routes: Routes = [
   { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
+  { path: "reservationInformation", component: ReservationInformationComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
+  
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
