@@ -148,7 +148,7 @@ export class CreatClientComponent implements OnInit, AfterViewInit {
         this.getAll();
         if(data==1) alert('deleted')
       },
-      error:(err) => {
+      error:err=> {
         console.log(err)
       }
     })

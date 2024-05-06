@@ -1,6 +1,7 @@
 package org.sid.springsecurity.ws.facade.appartementWs;
 
 import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
 import org.sid.springsecurity.ws.converter.appartementConverter.PropAppartemenetConverter;
 import org.sid.springsecurity.ws.dto.appartementDto.PropAppartemenetDto;
@@ -37,9 +38,9 @@ public class PropAppartementWs {
     }
 
     @PutMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
-    public void update(@RequestBody PropAppartemenetDto propAppartemenetDto) {
-        propAppartementService.update(propAppartemenetDto);
+    public int update(@RequestBody PropAppartemenetDto propAppartemenetDto) {
+        PropAppartement propAppartement = propAppartemenetConverter.toBean(propAppartemenetDto);
+        return propAppartementService.update(propAppartement);
     }
 
 

@@ -29,45 +29,46 @@
                   <div class="row" >
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600" >Last Name</p>
-                      <h6 class="text-muted f-w-400">xxxxxxxxxxxx</h6>
+                      <h6 class="text-muted f-w-400">{{client.nom}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">First Name</p>
-                      <h6 class="text-muted f-w-400">yyyyyyyyyyy</h6>
+                      <h6 class="text-muted f-w-400">{{client.prenom}}</h6>
                     </div>
                   </div>
                   <div class="row" >
                     <div class="col-sm-6" >
                       <p class="m-b-10 f-w-600">CIN</p>
-                      <h6 class="text-muted f-w-400">12345</h6>
+                      <h6 class="text-muted f-w-400">{{client.cin}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">UserName</p>
-                      <h6 class="text-muted f-w-400">TTTTTTTT</h6>
+                      <h6 class="text-muted f-w-400">{{client.username_Client}}</h6>
                     </div>
                   </div>
                   <h6 class="m-b-20 p-b-5 b-b-default f-w-600" >Information de Comminication</h6>
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Email</p>
-                      <h6 class="text-muted f-w-400">rntnggmail.com</h6>
+                      <h6 class="text-muted f-w-400">{{client.email_Client}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Phone</p>
-                      <h6 class="text-muted f-w-400">98979989898</h6>
+                      <h6 class="text-muted f-w-400">{{client.numTeleClient}}</h6>
                     </div>
                   </div>
                   <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information de Paiemment</h6>
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Rib Banking</p>
-                      <h6 class="text-muted f-w-400">rntnggmail.com</h6>
+                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Credit Card Number</p>
-                      <h6 class="text-muted f-w-400">989.898.656</h6>
+                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>
                     </div>
                   </div>
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
                 </div>
                 <!--                Profile Manager_Apt-->
                 <div class="" *ngIf="authService.roles.includes('MANAGER-APT')">
@@ -77,45 +78,46 @@
                   <div class="row" >
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600" >Last Name</p>
-                      <h6 class="text-muted f-w-400">xxxxxxxxxxxx</h6>
+                      <h6 class="text-muted f-w-400">{{propre.nom}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">First Name</p>
-                      <h6 class="text-muted f-w-400">yyyyyyyyyyy</h6>
+                      <h6 class="text-muted f-w-400">{{propre.prenom}}</h6>
                     </div>
                   </div>
                   <div class="row" >
                     <div class="col-sm-6" >
                       <p class="m-b-10 f-w-600">CIN</p>
-                      <h6 class="text-muted f-w-400">12345</h6>
+                      <h6 class="text-muted f-w-400">{{propre.cin}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">UserName</p>
-                      <h6 class="text-muted f-w-400">TTTTTTTT</h6>
+                      <h6 class="text-muted f-w-400">{{propre.username}}</h6>
                     </div>
                   </div>
                   <h6 class="m-b-20 p-b-5 b-b-default f-w-600" >Information de Comminication</h6>
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Email</p>
-                      <h6 class="text-muted f-w-400">rntnggmail.com</h6>
+                      <h6 class="text-muted f-w-400">{{propre.email}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Phone</p>
-                      <h6 class="text-muted f-w-400">98979989898</h6>
+                      <h6 class="text-muted f-w-400">{{propre.numTele}}</h6>
                     </div>
                   </div>
                   <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information de Paiemment</h6>
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Rib Banking</p>
-                      <h6 class="text-muted f-w-400">rntnggmail.com</h6>
+                      <h6 class="text-muted f-w-400">{{propre.ribPropAppt}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Credit Card Number</p>
-                      <h6 class="text-muted f-w-400">989.898.656</h6>
+                      <h6 class="text-muted f-w-400">{{propre.numCompteBkPropApp}}</h6>
                     </div>
                   </div>
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
                 </div>
                 <!--                Profile Manager_Voi-->
                 <div class="" *ngIf="authService.roles.includes('MANAGER-VOI')">
@@ -123,31 +125,42 @@
                   <div class="row" >
                     <div class="col-sm-6" >
                       <p class="m-b-10 f-w-600">UserName Agence</p>
-                      <h6 class="text-muted f-w-400">TTTTTTTT</h6>
+                      <h6 class="text-muted f-w-400">{{authService.username}}</h6>
                     </div>
 
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">RCAgLoc</p>
-                      <h6 class="text-muted f-w-400">12345</h6>
+                      <h6 class="text-muted f-w-400">{{agence.RCAgLoc}}</h6>
                     </div>
                   </div>
                   <div class="row" >
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Adresse</p>
-                      <h6 class="text-muted f-w-400">aaaaaaaaaa</h6>
+                      <h6 class="text-muted f-w-400">{{agence.adresse}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Phone</p>
-                      <h6 class="text-muted f-w-400">98979989898</h6>
+                      <h6 class="text-muted f-w-400">{{agence.numTelephone}}</h6>
                     </div>
                   </div>
                   <div class="row" >
+                    <div class="col-sm-6">
+                      <p class="m-b-10 f-w-600">NumCompteBkAgLoc</p>
+                      <h6 class="text-muted f-w-400">{{agence.numCompteBkAgLoc}}</h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <p class="m-b-10 f-w-600">Rib Agence Location</p>
+                      <h6 class="text-muted f-w-400">{{agence.ribAgenceLoc}}</h6>
+                    </div>
+                  </div>
+
+                  <div class="row" >
                     <div class="col-sm-12">
                       <p class="m-b-10 f-w-600">Raison social d'agence</p>
-                      <h6 class="text-muted f-w-400">Lorememmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</h6>
+                      <h6 class="text-muted f-w-400">{{agence.raisonSocialAg}}</h6>
                     </div>
-
                   </div>
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
                 </div>
 
 

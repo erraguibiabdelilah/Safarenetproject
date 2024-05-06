@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit{
   public dataApartement:Array<Appartement>=new Array<Appartement>();
   public dataApartement2:Array<Appartement>=new Array<Appartement>();
   public selecCategorieApt:any;
+  public dataByPrixApparetement:Array<Appartement>=new Array<Appartement>();
+
+
   constructor(private voitureService:VoitureService , private categoreieappartemetService:CategoriesAppartementService ,
               private apartement:AppartemetService,private router:Router) {
   }
@@ -109,6 +112,27 @@ export class HomeComponent implements OnInit{
 
 
 //+++++++++++++++++++++++++Voiture+++++++++++++++++++++++++++++++
+  public clicVoiture() {
+    this.obejetClicked=true;
+  }
+  public clicApp() {
+    this.obejetClicked=false;
+  }
+
+  handelVertical() {
+    this.formatcard=false
+  }
+
+  handelHorizental() {
+    this.formatcard=true;
+
+  }
+
+
+  horizentalClic(){
+    this.isClicked=true;
+  }
+
   getAll(){
     this.voitureService.getAll().subscribe({
       next:(data)=>{
@@ -120,22 +144,8 @@ export class HomeComponent implements OnInit{
 
 
 //+++++++++++++++++++++++++++++++++APP+++++++++++++++++++++++++++++++++
-  public clicVoiture() {
-    this.obejetClicked=true;
-  }
-  public clicApp() {
-    this.obejetClicked=false;
-  }
-  handelVertical() {
-    this.formatcard=false
-  }
-  handelHorizental() {
-    this.formatcard=true;
 
-  }
-  horizentalClic(){
-    this.isClicked=true;
-  }
+
   handelSearch() {
     this.selected=false;
   }

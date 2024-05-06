@@ -9,7 +9,6 @@ import org.sid.springsecurity.security.bean.AppRole;
 import org.sid.springsecurity.security.dao.AppRoleDao;
 import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
 import org.sid.springsecurity.ws.converter.appartementConverter.PropAppartemenetConverter;
-import org.sid.springsecurity.ws.dto.appartementDto.PropAppartemenetDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -70,12 +69,12 @@ public class PropAppartementServiceImpl implements PropAppartementService {
     }
 
     @Override
-    public int update(PropAppartemenetDto propAppartemenetDto) {
-        if (propAppartemenetDto == null) {
+    public int update(PropAppartement propAppartemenet) {
+        if (propAppartemenet == null) {
             return -1;
         }
 
-        String cin = propAppartemenetDto.getCin();
+        String cin = propAppartemenet.getCin();
         if (cin == null || cin.isEmpty()) {
             return -2;
         }
@@ -85,15 +84,15 @@ public class PropAppartementServiceImpl implements PropAppartementService {
             return -3;
         }
 
-        propAppartement.setNom(propAppartemenetDto.getNom());
-        propAppartement.setPrenom(propAppartemenetDto.getPrenom());
-        propAppartement.setNumTele(propAppartemenetDto.getNumTele());
-        propAppartement.setEmail(propAppartemenetDto.getEmail());
+        propAppartement.setNom(propAppartemenet.getNom());
+        propAppartement.setPrenom(propAppartemenet.getPrenom());
+        propAppartement.setNumTele(propAppartemenet.getNumTele());
+        propAppartement.setEmail(propAppartemenet.getEmail());
 
-        propAppartement.setRibPropAppt(propAppartemenetDto.getRibPropAppt());
-        propAppartement.setNumCompteBkPropApp(propAppartemenetDto.getNumCompteBkPropApp());
-        propAppartement.setCin(propAppartemenetDto.getCin());
-        propAppartement.setUsername(propAppartemenetDto.getUsername());
+        propAppartement.setRibPropAppt(propAppartemenet.getRibPropAppt());
+        propAppartement.setNumCompteBkPropApp(propAppartemenet.getNumCompteBkPropApp());
+        propAppartement.setCin(propAppartemenet.getCin());
+        propAppartement.setUsername(propAppartemenet.getUsername());
 
         propAppartementDao.save(propAppartement);
         return 1;

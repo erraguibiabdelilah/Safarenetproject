@@ -34,6 +34,9 @@ export class ClientService {
   public getByusername(username: String): Observable<Client> {
     return this.http.get<Client>(`${this.url}username/${username}`);
   }
+public getByCin(cin: String): Observable<Client> {
+    return this.http.get<Client>(`http://localhost:8085/api/client/cin/${cin}`);
+  }
 
 
   get item(): Client {

@@ -87,6 +87,7 @@ import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.co
 // import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 // import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
+import { FacteurApparetementComponent } from './layout/facteur-apparetement/facteur-apparetement.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {DragDirective} from "./security/drag/drg.directive";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
@@ -147,7 +148,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ProdileEzzComponent,
     ReservationInformationComponent,
+<<<<<<< HEAD
     DragDirective,
+=======
+    FacteurApparetementComponent,
+>>>>>>> 7c8d6236f06cabd503dca1bb67afaa69f167b5b2
 
   ],
     imports: [
