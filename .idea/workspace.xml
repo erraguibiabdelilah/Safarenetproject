@@ -50,7 +50,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "Spring Boot.SafarentProjectApplication.executor": "Run",
+=======
+>>>>>>> 202093a5587063890bc029783696e701c83f1982
     "git-widget-placeholder": "feature/ismail",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -58,6 +61,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+<<<<<<< HEAD
+=======
+    "ts.external.directory.path": "D:\\Prorammes\\p  Safarente\\SafarentProject3\\Safarenetproject\\AppFront\\node_modules\\typescript\\lib",
+>>>>>>> 202093a5587063890bc029783696e701c83f1982
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -93,8 +100,12 @@
       <workItem from="1714324150514" duration="26000" />
       <workItem from="1714413788009" duration="53000" />
       <workItem from="1714487629703" duration="41000" />
+<<<<<<< HEAD
       <workItem from="1714983070768" duration="104000" />
       <workItem from="1714983245159" duration="396000" />
+=======
+      <workItem from="1714555175603" duration="1532000" />
+>>>>>>> 202093a5587063890bc029783696e701c83f1982
     </task>
     <servers />
   </component>

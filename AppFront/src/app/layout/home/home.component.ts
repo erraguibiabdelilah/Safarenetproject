@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit{
   public dataApartement:Array<Appartement>=new Array<Appartement>();
   public dataApartement2:Array<Appartement>=new Array<Appartement>();
   public selecCategorieApt:any;
+  public dataByPrixApparetement:Array<Appartement>=new Array<Appartement>();
+
+
   constructor(private voitureService:VoitureService , private categoreieappartemetService:CategoriesAppartementService ,
               private apartement:AppartemetService,private router:Router) {
   }
@@ -38,6 +41,7 @@ export class HomeComponent implements OnInit{
     this.getAll();
     this.getAllCategoriesApt();
     this.getAllApartement();
+<<<<<<< HEAD
   }
   // ++++++++++++++++++++++++++++++++++++++APPARETEMENT+++++++++++++++++++++
   public  getAllCategoriesApt(){
@@ -109,6 +113,101 @@ export class HomeComponent implements OnInit{
 
 
 //+++++++++++++++++++++++++Voiture+++++++++++++++++++++++++++++++
+=======
+    }
+
+
+
+
+
+  public  getAllCategoriesApt(){
+    this.categoreieappartemetService.getAll().subscribe({
+      next:data=>{
+        this.dataCategorieApartement=data
+      },
+      error:err => {
+        console.log(err)
+      }
+    })
+  }
+
+  public getAllApartement(){
+    this.apartement.getAll().subscribe({
+      next:data=>{
+        this.dataApartement=data
+        this.dataApartement2=data
+      },
+      error:err => {
+        console.log("verfie getAll Apparetement")
+      }
+    })
+  }
+  public getAllByCategorierAPT(libelle:string){
+    this.apartement.getAppartemetsbyLibelle(libelle).subscribe({
+      next:data=>{
+        this.dataApartement=data ;
+        this.dataApartement2=data;
+      },
+      error:err=>{
+        console.log("verifie getByCategorieAppartement");
+      }
+    })
+  }
+  public onCategorieChange(){
+    if(this.selecCategorieApt == ""){this.getAllApartement()}
+    else{
+      // this.getAllApartement()
+      this.getAllByCategorierAPT(this.selecCategorieApt)
+    }
+
+    console.log("dataselectcate====>"+this.selecCategorieApt)
+  }
+  public apparetementByMontant(){
+    if(this.villSelected == ''){
+      this.onCategorieChange()
+      // if(this.selecCategorieApt===""){
+      //   this.getAll();
+      // }else{
+      //   this.getAllByCategorierAPT(this.selecCategorieApt);
+      // }
+    }else {
+      alert(this.villSelected)
+      this.dataApartement = this.dataApartement2
+      this.dataApartement = this.dataApartement.filter(appartement => appartement.adresse === this.villSelected);
+    }
+  }
+  ville: any[] =[ "Agadire","Safi","Zagora", "Rabat"];
+  villSelected!:string;
+
+
+
+
+
+
+
+
+  public clicVoiture() {
+    this.obejetClicked=true;
+  }
+  public clicApp() {
+    this.obejetClicked=false;
+  }
+
+  handelVertical() {
+    this.formatcard=false
+  }
+
+  handelHorizental() {
+    this.formatcard=true;
+
+  }
+
+
+  horizentalClic(){
+    this.isClicked=true;
+  }
+
+>>>>>>> 202093a5587063890bc029783696e701c83f1982
   getAll(){
     this.voitureService.getAll().subscribe({
       next:(data)=>{
@@ -119,6 +218,7 @@ export class HomeComponent implements OnInit{
   }
 
 
+<<<<<<< HEAD
 //+++++++++++++++++++++++++++++++++APP+++++++++++++++++++++++++++++++++
   public clicVoiture() {
     this.obejetClicked=true;
@@ -202,6 +302,8 @@ export class HomeComponent implements OnInit{
   //
 
 
+=======
+>>>>>>> 202093a5587063890bc029783696e701c83f1982
 }
 
 
