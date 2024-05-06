@@ -36,12 +36,8 @@ import {
   CreatAgenceLocationComponent
 } from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
 import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
-<<<<<<< HEAD
 import {ProdileEzzComponent} from "./layout/profile/prodile-ezz/prodile-ezz.component";
-=======
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component.js';
->>>>>>> 09062a6b78488daee89f7362a0854ef49642332e
-
 const routes: Routes = [
   { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
@@ -53,18 +49,14 @@ const routes: Routes = [
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "reservationInformation", component: ReservationInformationComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
-<<<<<<< HEAD
   { path: "profileezz", component: ProdileEzzComponent},
-=======
-  
->>>>>>> 09062a6b78488daee89f7362a0854ef49642332e
+
 
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
-
-      { path :"appartemet",component:CreatAppartemetComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
-      { path :"categories",component:CreatCategoriesAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
-      { path :"propraitaire",component:CreatPropAppartementComponent,canActivate:[AuthorizationGuard],data:{role:"ADMIN"}},
+      { path :"appartemet",component:CreatAppartemetComponent},
+      { path :"categories",component:CreatCategoriesAppartementComponent},
+      { path :"propraitaire",component:CreatPropAppartementComponent},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
       { path: "createContrat" , component:CreatContratComponent},
       { path: "createFacteur" , component:CreatFactureComponent},

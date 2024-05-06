@@ -57,6 +57,14 @@
 
       </mat-list-item>
       <mat-list-item>
+        <button mat-button routerLink="/admin/categories" *ngIf="authService.isAuthService">
+          <mat-icon>{{ 'categories'|translate }} </mat-icon>
+          {{ 'create categories'|translate }}
+        </button>
+
+      </mat-list-item>
+
+      <mat-list-item>
         <button mat-button routerLink="/admin/createAgence" *ngIf="authService.isAuthService">
           <mat-icon>Agence Location</mat-icon>
           {{ 'Create Agence de Location'|translate   }}
