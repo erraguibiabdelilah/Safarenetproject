@@ -17,15 +17,9 @@
   <div class="card-body">
 
 
-<<<<<<< HEAD
     <div *ngIf="obejetClicked ===true">
-      <div class="row " style="position: relative;
-top: 3rem;
-">
-=======
-    <div *ngIf="obejetClicked">
-      <div class="row">
->>>>>>> 202093a5587063890bc029783696e701c83f1982
+      <div class="row " style="position: relative;top: 3rem;">
+
         <div class="col-4">
           <select name="category" class=" form-control form-select" (change)="handelSearch()">
             <option value="" disabled selected> Categorie</option>
@@ -103,17 +97,12 @@ top: 3rem;
             </div>
           </div>
         </div>
-
-
       </div>
-
-
     </div>
-
     <div *ngIf="!obejetClicked" class="container " style="margin-left: 8rem;">
 
 
-      <div class="row" style="position: relative;top: 2rem;">
+      <div class="row mt-4" >
         <div class="col-4">
           <label for="browser" class="form-label">Choose Categorie:</label>
           <select name="category" class="form-control form-select" [(ngModel)]="selecCategorieApt" (change)="onCategorieChange();handelSearch()">
@@ -141,21 +130,12 @@ top: 3rem;
         </div>
 
       </div>
-
-
-<<<<<<< HEAD
       <div *ngIf="formatcard && !selected" class="container" style=" margin-top: 50px;">
         <div class="card-horizontal" *ngFor="let apparetement of dataApartement">
 
           <div class="card-image">
             <img class="img_horizental" src="assets/photo/Apparetement/image2.jpg" alt="" />
-=======
-      <hr>
-      <div *ngIf="formatcard" class="container" style=" margin-top: 50px;">
-        <div class="card-horizontal" *ngFor="let apparetement of dataApartement">
-          <div class="card-image">
-            <img class="img_horizental" src="assets/photo/Apparetement/image2.jpg"/>
->>>>>>> 202093a5587063890bc029783696e701c83f1982
+
           </div>
           <div class="card-details">
             <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
@@ -176,30 +156,20 @@ top: 3rem;
       </div>
 
 
-<<<<<<< HEAD
       <div *ngIf="!formatcard && !selected" class="container" style="margin-top:50px;">
-=======
-      <div *ngIf="!formatcard" class="container" style="margin-top:50px;">
+
         <div class="col-4">
           <select name="category" class="form-control form-select" [(ngModel)]="villSelected" (change)="apparetementByMontant()">
             <option value="" selected> Ville</option>
             <option [value]="cate" *ngFor="let cate of ville">{{cate}}</option>
           </select>
         </div>
->>>>>>> 202093a5587063890bc029783696e701c83f1982
         <div class="row">
-
-
 
           <div class="col-md-4" *ngFor="let apparetement of dataApartement">
             <div class="card-sl">
               <div class="card-image">
-                <img
-<<<<<<< HEAD
-                  src="assets/photo/Apparetement/image1.jpg" alt=""/>
-=======
-                  src="assets/photo/Apparetement/image2.jpg"/>
->>>>>>> 202093a5587063890bc029783696e701c83f1982
+                <img src="assets/photo/Apparetement/image1.jpg" alt=""/>
               </div>
               <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
               <div class="card-heading">
@@ -211,11 +181,8 @@ top: 3rem;
               <div class="card-text">
                 ${{apparetement.loyerMensuel}}
               </div>
-<<<<<<< HEAD
               <button href="#" class="card-button" routerLink="/facteurApparetement"> Purchase</button>
-=======
-              <button href="#" class="card-button" (click)="apparetementByMontant()"> Purchase</button>
->>>>>>> 202093a5587063890bc029783696e701c83f1982
+
             </div>
           </div>
         </div>
@@ -223,7 +190,6 @@ top: 3rem;
     </div>
   </div>
 </div>
-<<<<<<< HEAD
 <div *ngIf="selected==true" class="container mt-5">
 <h1 class="mx-4" style="
     padding-left: 4rem;
@@ -236,5 +202,3 @@ top: 3rem;
   </div>
 
 </div>
-=======
->>>>>>> 202093a5587063890bc029783696e701c83f1982
