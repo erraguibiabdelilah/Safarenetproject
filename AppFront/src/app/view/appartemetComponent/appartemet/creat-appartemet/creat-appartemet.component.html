@@ -197,10 +197,8 @@
       <input class="form-control" type="text" pTooltip="Enter libelle" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">
     </div>
 
-
-
-
-    <div class="col-12 mt-5">
+    
+    <div class="col-12 mt-5" *ngIf="isCreate">
       <div class="dropzone" appDrag (files)="fileDropped($event)"   (click)="selectFile.click()">
         <div class="dropzone-text">
           <div class="center">Drag and drop your file or
@@ -257,6 +255,8 @@
         <img *ngFor="let photo of images"  [src]="getImageData(photo)"  alt="" width="200px" height="200px">
       </div>
 </p-dialog>
+
+
 
 
 

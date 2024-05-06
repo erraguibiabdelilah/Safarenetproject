@@ -148,11 +148,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ProdileEzzComponent,
     ReservationInformationComponent,
-<<<<<<< HEAD
     DragDirective,
-=======
     FacteurApparetementComponent,
->>>>>>> 7c8d6236f06cabd503dca1bb67afaa69f167b5b2
 
   ],
     imports: [

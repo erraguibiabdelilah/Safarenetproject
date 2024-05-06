@@ -66,10 +66,6 @@ public class AppartementWs {
 
 
 
-    @PostMapping("appartement")
-    public int save(@RequestBody AppartementDto appartementDto) {
-        return appartementService.save(appartementConverter.toBean(appartementDto));
-    }
 
     @GetMapping
     public List<AppartementDto> findAll() {

@@ -1,6 +1,9 @@
 package org.sid.springsecurity.service.impl.voitureServiceImpl;
 
+import org.sid.springsecurity.bean.appartementBean.Appartement;
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
+import org.sid.springsecurity.bean.voitureBean.Voiture;
 import org.sid.springsecurity.dao.voitureDao.AgenceLocationDao;
 import org.sid.springsecurity.security.bean.AppRole;
 import org.sid.springsecurity.security.dao.AppRoleDao;
@@ -10,6 +13,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Lazy
@@ -52,6 +57,10 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
             return 1;
         }
     }
+
+
+
+
 
     @Override
     public AgenceLocation findByiceAgLoc(Long iceAgLoc) {

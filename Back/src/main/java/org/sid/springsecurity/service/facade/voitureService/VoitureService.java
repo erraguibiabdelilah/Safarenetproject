@@ -1,12 +1,15 @@
 package org.sid.springsecurity.service.facade.voitureService;
 
 
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.bean.voitureBean.Voiture;
 
 import java.util.List;
 
 public interface VoitureService {
     int save(Voiture voiture);
+
+    List<ImageModule> getImagesByProductMatricule(String matricule);
 
     List<Voiture> findAll();
 

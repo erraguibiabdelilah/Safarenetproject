@@ -1,9 +1,11 @@
 package org.sid.springsecurity.ws.dto.voitureDto;
 
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.ws.dto.communDto.ReservationDto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class VoitureDto extends ModeleDto{
 
@@ -31,6 +33,17 @@ public class VoitureDto extends ModeleDto{
     private CategorieVoitureDto categorie;
     private AgenceLocationDto agenceLocation;
     private List<ReservationDto> reservation;
+
+    private Set<ImageModule> images;
+
+
+    public Set<ImageModule> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ImageModule> images) {
+        this.images = images;
+    }
 
     public String getCouleur() {
         return couleur;
