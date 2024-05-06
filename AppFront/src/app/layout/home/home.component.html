@@ -111,7 +111,7 @@ top: 3rem;
       <div class="row" style="position: relative;top: 2rem;">
         <div class="col-4">
           <label for="browser" class="form-label">Choose Categorie:</label>
-          <select name="category" class="form-control form-select" [(ngModel)]="selecCategorieApt" (change)="onCategorieChange()">
+          <select name="category" class="form-control form-select" [(ngModel)]="selecCategorieApt" (change)="onCategorieChange();handelSearch()">
             <option value="" selected> </option>
 
             <option [value]="cate.libelle" *ngFor="let cate of dataCategorieApartement">{{cate.libelle}}</option>
@@ -120,7 +120,7 @@ top: 3rem;
         <div class="col-4">
           <form>
             <label for="browser" class="form-label">Choose Ville:</label>
-            <input class="form-control " list="browsers" name="browser" id="browser"  [(ngModel)]="villSelected" (change)="apparetementByMontant()">
+            <input class="form-control " list="browsers" name="browser" id="browser"  [(ngModel)]="villSelected" (change)="apparetementByMontant();handelSearch()">
             <datalist id="browsers">
               <option [value]="cate" *ngFor="let cate of ville">{{cate}}</option>
             </datalist>
@@ -138,7 +138,7 @@ top: 3rem;
       </div>
 
 
-      <div *ngIf="formatcard" class="container" style=" margin-top: 50px;">
+      <div *ngIf="formatcard && !selected" class="container" style=" margin-top: 50px;">
         <div class="card-horizontal" *ngFor="let apparetement of dataApartement">
 
           <div class="card-image">
@@ -163,7 +163,7 @@ top: 3rem;
       </div>
 
 
-      <div *ngIf="!formatcard" class="container" style="margin-top:50px;">
+      <div *ngIf="!formatcard && !selected" class="container" style="margin-top:50px;">
         <div class="row">
           <div class="col-md-4" *ngFor="let apparetement of dataApartement">
             <div class="card-sl">

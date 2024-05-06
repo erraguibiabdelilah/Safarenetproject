@@ -37,13 +37,9 @@ import {
 } from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
 import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
 import {ProdileEzzComponent} from "./layout/profile/prodile-ezz/prodile-ezz.component";
-<<<<<<< HEAD
-import {ReservationInformationComponent} from "./layout/reservation-information/reservation-information.component";
 import {FacteurApparetementComponent} from "./layout/facteur-apparetement/facteur-apparetement.component";
 
-=======
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component.js';
->>>>>>> 4a068327d87a5d379f4a5a1b8d02b5868c1fd412
 const routes: Routes = [
   { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
@@ -57,11 +53,8 @@ const routes: Routes = [
   { path: "facteurApparetement", component: FacteurApparetementComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
   { path: "profileezz", component: ProdileEzzComponent},
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 4a068327d87a5d379f4a5a1b8d02b5868c1fd412
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
       { path :"appartemet",component:CreatAppartemetComponent},

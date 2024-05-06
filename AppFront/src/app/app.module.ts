@@ -87,11 +87,8 @@ import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.co
 // import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 // import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
-<<<<<<< HEAD
 import { FacteurApparetementComponent } from './layout/facteur-apparetement/facteur-apparetement.component';
-=======
 import {TranslateModule} from "@ngx-translate/core";
->>>>>>> 4a068327d87a5d379f4a5a1b8d02b5868c1fd412
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
