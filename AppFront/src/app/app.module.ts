@@ -84,13 +84,17 @@ import { CarouselWithAnimationComponent } from './layout/carousel-with-animation
 import {SearchIcon} from "primeng/icons/search";
 import {HomeComponent} from "./layout/home/home.component";
 import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.component';
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+// import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+// import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
+<<<<<<< HEAD
 import { FacteurApparetementComponent } from './layout/facteur-apparetement/facteur-apparetement.component';
+=======
+import {TranslateModule} from "@ngx-translate/core";
+>>>>>>> 4a068327d87a5d379f4a5a1b8d02b5868c1fd412
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  // return new TranslateHttpLoader(http);
 }
 
 
@@ -148,57 +152,59 @@ export function HttpLoaderFactory(http: HttpClient) {
     FacteurApparetementComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    MatTableModule,
-    MatCardContent,
-    MatCardModule,
-    MatDividerModule,
-    MatPaginatorModule,
-    MatSortModule,
-    ButtonModule,
-    ToolbarModule,
-    SplitButtonModule,
-    DialogModule,
-    RadioButtonModule,
-    MenuModule,
-    ToastModule,
-    MatInputModule,
-    MatFormFieldModule,
-    DropdownModule,
-    PaginatorModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        MatTableModule,
+        MatCardContent,
+        MatCardModule,
+        MatDividerModule,
+        MatPaginatorModule,
+        MatSortModule,
+        ButtonModule,
+        ToolbarModule,
+        SplitButtonModule,
+        DialogModule,
+        RadioButtonModule,
+        MenuModule,
+        ToastModule,
+        MatInputModule,
+        MatFormFieldModule,
+        DropdownModule,
+        PaginatorModule,
 
-    MatDrawerContent,
-    MatListItem,
+        MatDrawerContent,
+        MatListItem,
 
-    MatIconModule,
-    MatDrawerContainer,
-    MatNavList,
-    MatMenuTrigger,
-    MatMenuModule,
-    MatBadgeModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatList,
-    RippleModule,
-    ChipsModule,
-    SearchIcon,
-    TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        }
-      }
-    ),
+        MatIconModule,
+        MatDrawerContainer,
+        MatNavList,
+        MatMenuTrigger,
+        MatMenuModule,
+        MatBadgeModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatList,
+        RippleModule,
+        ChipsModule,
+        SearchIcon,
+        TranslateModule,
+      TranslateModule.forRoot()
+      // TranslateModule.forRoot({
+        //     loader: {
+        //       provide: TranslateLoader,
+        //       useFactory: HttpLoaderFactory,
+        //       deps: [HttpClient]
+        //     }
+        //   }
+        // ),
 
 
-  ],
+    ],
   providers: [
     MessageService,
     AuthService,
