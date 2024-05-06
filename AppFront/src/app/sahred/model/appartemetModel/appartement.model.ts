@@ -2,6 +2,7 @@
 import {CategoriesAppartement} from "./categories-appartement.model";
 import {Reservation} from "../communModel/reservation.model";
 import {PropAppartement} from "./prop-appartement.model";
+import {FileHandle} from "../file-handle.model";
 export class Appartement {
   id:number;
   code: string;
@@ -9,6 +10,7 @@ export class Appartement {
   adresse: string;
   loyerMensuel: number;
   reservationDto: Reservation;
+  images: FileHandle[];
   categoriesAppartementDto: CategoriesAppartement;
   propAppartemenetDto: PropAppartement;
   constructor() {
@@ -18,6 +20,7 @@ export class Appartement {
     this.adresse = "";
     this.loyerMensuel = 0;
     this.reservationDto = {};
+    this.images=[]
     this.categoriesAppartementDto = {
       id:0,
       libelle:""

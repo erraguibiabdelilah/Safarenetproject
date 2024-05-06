@@ -39,14 +39,17 @@ public class AppartementConverter {
             bean.setAdresse(dto.getAdresse());
             bean.setLoyerMensuel(dto.getLoyerMensuel());
 
-            if( dto.getCategoriesAppartementDto()!=null){
+            if(dto.getCategoriesAppartementDto()!=null){
                 bean.setCategoriesAppartement(categoriesAppartementConverter.toBean(dto.getCategoriesAppartementDto()));
             }
-            if( dto.getPropAppartemenetDto()!=null){
+            if(dto.getPropAppartemenetDto()!=null){
                 bean.setPropAppartement(propAppartemenetConverter.toBean(dto.getPropAppartemenetDto()));
             }
             if (dto.getReservationDtos()!=null){
                 bean.setReservation(reservationConverter.toBean(dto.getReservationDtos()));
+            }
+            if(dto.getImages()!=null){
+                bean.setImages(dto.getImages());
             }
             return bean;
         }
@@ -72,6 +75,9 @@ public class AppartementConverter {
             }
             if (bean.getReservation()!=null){
                 dto.setReservationDtos(reservationConverter.toDto(bean.getReservation()));
+            }
+            if(bean.getImages()!=null){
+                dto.setImages(bean.getImages());
             }
             return dto;
         }

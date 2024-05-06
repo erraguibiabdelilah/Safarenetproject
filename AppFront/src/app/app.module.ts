@@ -88,6 +88,8 @@ import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.co
 // import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {DragDirective} from "./security/drag/drg.directive";
+import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -145,6 +147,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ProdileEzzComponent,
     ReservationInformationComponent,
+    DragDirective,
 
   ],
     imports: [
@@ -174,6 +177,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         MatDrawerContent,
         MatListItem,
 
+      MatGridList,
+      MatGridTile,
         MatIconModule,
         MatDrawerContainer,
         MatNavList,

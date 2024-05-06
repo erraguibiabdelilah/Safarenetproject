@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 export class AppartemetService {
 
 
+  imagesUtilisateur:any;
   public codeAppartemetService! :string;
 
   public  editAppartemetExiste : Appartement=new Appartement();
@@ -23,8 +24,8 @@ export class AppartemetService {
 
   }
 
-  public save(): Observable<any> {
-    return this.http.post<number>("http://localhost:8085/api/appartement/", this.item);
+  public save(appadtemetFormData: FormData): Observable<any> {
+    return this.http.post<number>("http://localhost:8085/api/appartement/", appadtemetFormData);
   }
 
   public getAll():Observable<Array<Appartement>>{
@@ -48,6 +49,28 @@ export class AppartemetService {
 
   public  update(propritaire:Appartement):Observable<any>{
     return this.http.put("http://localhost:8085/api/appartement/",propritaire)
+
+  }
+
+  // public getImagesByProduitRef(code:string):any{
+  //
+  //   this.http.get(`http://localhost:8085/api/appartement/images/${code}`).subscribe(
+  //     {
+  //       next:data=>{
+  //         this.imagesUtilisateur=data
+  //         console.log(this.imagesUtilisateur);
+  //       },
+  //       error:err => {
+  //         console.log(err);
+  //       }
+  //     }
+  //   );
+  //
+  // }
+
+
+  public getImagesByProduitRef(code:string):Observable<any>{
+   return  this.http.get<any>(`http://localhost:8085/api/appartement/images/${code}`);
 
   }
 

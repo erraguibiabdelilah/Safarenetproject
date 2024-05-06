@@ -2,10 +2,13 @@ package org.sid.springsecurity.service.facade.appartementService;
 
 
 import org.sid.springsecurity.bean.appartementBean.Appartement;
+import org.sid.springsecurity.bean.photo.ImageModule;
 
 import java.util.List;
 
 public interface AppartementService {
+    List<ImageModule> getImagesByProductRef(String code);
+
     int save(Appartement appartement);
 
     List<Appartement> findAll();

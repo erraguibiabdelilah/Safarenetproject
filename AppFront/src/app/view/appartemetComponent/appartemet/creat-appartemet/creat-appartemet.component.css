@@ -32,3 +32,64 @@ button{
     transform: translateY(100%); /* Fait descendre la notification jusqu'en bas */
   }
 }
+
+
+
+.btn-remove{
+  position: absolute;
+  cursor: pointer;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: auto;
+  text-align: center;
+}
+
+
+.dropzone{
+  height: 150px;
+  min-width: 100px;
+  display: table;
+  background-color: #eee;
+  width: 300px;
+  border: dashed 1px  #aaa;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.dropzone-text{
+  display:table-cell;
+  vertical-align: middle;
+}
+
+.center{
+  text-align: center;
+
+}
+
+
+.iamges{
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  border: 5px black;
+  display: flex;
+  margin: 5px;
+}
+img{
+  width: 200px;
+  vertical-align: middle;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  float: left;
+  margin: 5px;
+}
+
+
