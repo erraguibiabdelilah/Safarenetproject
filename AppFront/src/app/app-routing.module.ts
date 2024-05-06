@@ -37,7 +37,8 @@ import {
 } from "./view/voitureComponent/agenceLocation/creat-agence-location/creat-agence-location.component";
 import {CreatClientComponent} from "./view/communComponent/client/creat-client/creat-client.component";
 import {ProdileEzzComponent} from "./layout/profile/prodile-ezz/prodile-ezz.component";
-import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component.js';
+import {ReservationInformationComponent} from "./layout/reservation-information/reservation-information.component";
+import {FacteurApparetementComponent} from "./layout/facteur-apparetement/facteur-apparetement.component";
 
 const routes: Routes = [
   { path: "home", component:HomeComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "reservationInformation", component: ReservationInformationComponent },
+  { path: "facteurApparetement", component: FacteurApparetementComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
   { path: "profileezz", component: ProdileEzzComponent},
 

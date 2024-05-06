@@ -280,7 +280,7 @@ export class LoginComponent implements OnInit {
               this.showCreate();
               setTimeout(() => {
                 this.signUpMode = false;
-              }, 3000);
+              }, 500);
 
             }
              if(data==-2){
@@ -312,7 +312,7 @@ export class LoginComponent implements OnInit {
               this.showCreate();
               setTimeout(() => {
                 this.signUpMode = false;
-              }, 3000);
+              }, 500);
 
             }
             if(data==-2){
@@ -345,7 +345,7 @@ export class LoginComponent implements OnInit {
               this.showCreate();
               setTimeout(() => {
                 this.signUpMode = false;
-              }, 3000);
+              }, 500);
 
             }
              if(data==-2){
@@ -409,7 +409,7 @@ export class LoginComponent implements OnInit {
           this.authService.loadProfile(data)
           setTimeout(()=>{
             this.router.navigateByUrl("home");
-          },1000);
+          },500);
 
         },
         error :err => {

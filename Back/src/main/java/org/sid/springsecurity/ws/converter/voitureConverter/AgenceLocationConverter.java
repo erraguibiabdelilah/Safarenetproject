@@ -24,7 +24,7 @@ public class AgenceLocationConverter {
            bean.setAdresse(dto.getAdresse());
            bean.setNumTelephone(dto.getNumTelephone());
            bean.setNumCompteBkAgLoc(dto.getNumCompteBkAgLoc());
-           bean.setRibAgenceLoc(dto.getRibAgence_Loc());
+           bean.setRibAgenceLoc(dto.getRibAgenceLoc());
            bean.setUsername(dto.getUsernameAgenceLoc());
            bean.setPassword(dto.getPassword());
            bean.setRCAgLoc(dto.getRCAgLoc());
@@ -54,7 +54,7 @@ public class AgenceLocationConverter {
             dto.setAdresse(bean.getAdresse());
             dto.setNumTelephone(bean.getNumTelephone());
             dto.setNumCompteBkAgLoc(bean.getNumCompteBkAgLoc());
-            dto.setRibAgence_Loc(bean.getRibAgenceLoc());
+            dto.setRibAgenceLoc(bean.getRibAgenceLoc());
             dto.setUsernameAgenceLoc(bean.getUsername());
             dto.setPassword(bean.getPassword());
             dto.setRCAgLoc(bean.getRCAgLoc());

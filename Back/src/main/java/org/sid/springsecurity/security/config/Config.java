@@ -56,8 +56,16 @@ public class Config extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.GET, "/users/**").hasAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/client/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/client/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/agenceLocation/").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/propAppartement/").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/client/**").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/agenceLocation/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/agenceLocation/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/agenceLocation/**").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/propAppartement/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/propAppartement/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/propAppartement/**").permitAll()
+
                 .antMatchers( "/refreshToken/", "/login/", "/user/").permitAll()
                 .anyRequest().authenticated()
                 .and()

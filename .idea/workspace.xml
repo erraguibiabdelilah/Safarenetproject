@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5ac6d2f-0ae8-4af3-ba94-1cbc0a886cec" name="Changes" comment="" />
+    <list default="true" id="c5ac6d2f-0ae8-4af3-ba94-1cbc0a886cec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/profile/prodile-ezz/prodile-ezz.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/profile/prodile-ezz/prodile-ezz.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/profile/prodile-ezz/prodile-ezz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/profile/prodile-ezz/prodile-ezz.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/profile/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/profile/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/layout/profile/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/layout/profile/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/sahred/service/communService/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/sahred/service/communService/client.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/security/serviceAuth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/security/serviceAuth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppFront/src/app/view/communComponent/client/creat-client/creat-client.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AppFront/src/app/view/communComponent/client/creat-client/creat-client.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/security/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/appartementService/PropAppartementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/facade/appartementService/PropAppartementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/appartementServiceImpl/PropAppartementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/service/impl/appartementServiceImpl/PropAppartementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/converter/voitureConverter/AgenceLocationConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/converter/voitureConverter/AgenceLocationConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/appartementWs/PropAppartementWs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/main/java/org/sid/springsecurity/ws/facade/appartementWs/PropAppartementWs.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,23 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/ismail&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SafarentProjectApplication.executor": "Run",
+    "git-widget-placeholder": "feature/ismail",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SafarentProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="safarent_project" />
+      <module name="Safarenetproject" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="allobaba.group.safarent_project.SafarentProjectApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -77,6 +93,8 @@
       <workItem from="1714324150514" duration="26000" />
       <workItem from="1714413788009" duration="53000" />
       <workItem from="1714487629703" duration="41000" />
+      <workItem from="1714983070768" duration="104000" />
+      <workItem from="1714983245159" duration="396000" />
     </task>
     <servers />
   </component>

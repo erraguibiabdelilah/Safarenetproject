@@ -75,7 +75,7 @@ top: 3rem;
       </div>
 
 
-      <div *ngIf="formatcard===false" class="container" style="margin-top:50px;">
+      <div *ngIf="!formatcard" class="container" style="margin-top:50px;">
         <div class="row">
           <div *ngFor="let item of dataVoiture" class="col-md-4">
             <div class="card-sl">
@@ -182,7 +182,7 @@ top: 3rem;
               <div class="card-text">
                 ${{apparetement.loyerMensuel}}
               </div>
-              <button href="#" class="card-button" > Purchase</button>
+              <button href="#" class="card-button" routerLink="/facteurApparetement"> Purchase</button>
             </div>
           </div>
         </div>
