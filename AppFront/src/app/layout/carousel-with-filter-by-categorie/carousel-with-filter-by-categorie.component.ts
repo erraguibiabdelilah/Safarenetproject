@@ -1,15 +1,14 @@
 import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthService} from "../../security/serviceAuth/auth.service";
 
 @Component({
-  selector: 'app-carousel-test',
-  templateUrl: './carousel-test.component.html',
-  styleUrl: './carousel-test.component.css'
+  selector: 'app-carousel-with-filter-by-categorie',
+  templateUrl: './carousel-with-filter-by-categorie.component.html',
+  styleUrl: './carousel-with-filter-by-categorie.component.css'
 })
-export class CarouselTestComponent implements OnInit{
+export class CarouselWithFilterByCategorieComponent implements OnInit{
 
-  constructor(private renderer: Renderer2,private authService:AuthService, private el: ElementRef,private router:Router) {}
+  constructor(private renderer: Renderer2, private el: ElementRef,private router:Router) {}
 
   ngOnInit() {
     this.initSlider();
@@ -46,13 +45,4 @@ export class CarouselTestComponent implements OnInit{
     this.router.navigateByUrl("/reservationInformation");
   }
 
-  RedirectTOLoginOrfacture() {
-    if(this.authService.isAuthService){
-      this.router.navigateByUrl("/reservationInformation")
-    }
-
-    else {
-      this.router.navigateByUrl("/login")
-    }
-  }
 }

@@ -42,29 +42,47 @@
     </svg></a>
   </button>
 
-  <img *ngIf="authService.isAuthService" src="./assets/images/user.png" class="user-pic"  (click)="toggleMenu()">
+
+  <button mat-button *ngIf="authService.isAuthService  && authService.roles.includes('ADMIN')" (click)="handleLogout()" >
+    <a (click)="onMessageClick()" class="nav-link " href="#" tabindex="-1"   >
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+      </svg>
+    </a>
+  </button>
+
+  <img *ngIf="authService.isAuthService  && !authService.roles.includes('ADMIN')" src="./assets/images/user.png" class="user-pic"  (click)="toggleMenu()">
+
+
 </mat-toolbar>
 
 
 <mat-drawer-container (click)="toggleMenuColose()" >
   <mat-drawer  #mydrawer opened="true" mode="side" position="start" >
     <mat-list>
-      <mat-list-item>
-        <button mat-button routerLink="/admin/appartemet" *ngIf="authService.isAuthService">
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('MANAGER-APT')">
+        <button mat-button routerLink="/admin/appartemet" >
           <mat-icon>{{ 'Appartement'|translate }} </mat-icon>
           {{ 'create Appartement'|translate }}
         </button>
 
       </mat-list-item>
-      <mat-list-item>
-        <button mat-button routerLink="/admin/categories" *ngIf="authService.isAuthService">
-          <mat-icon>{{ 'categories'|translate }} </mat-icon>
-          {{ 'create categories'|translate }}
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('MANAGER-APT')">
+        <button mat-button routerLink="/admin/categoriesapp" >
+          <mat-icon>{{ 'CategorieAppartement'|translate }} </mat-icon>
+          {{ 'create CategorieAppartement'|translate }}
         </button>
-
+      </mat-list-item>
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('ADMIN')">
+        <button mat-button routerLink="/admin/propraitaire" >
+          <mat-icon>{{ 'PropAppartement'|translate }} </mat-icon>
+          {{ 'create PropAppartement'|translate }}
+        </button>
       </mat-list-item>
 
-      <mat-list-item>
+
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('ADMIN')">
         <button mat-button routerLink="/admin/createAgence" *ngIf="authService.isAuthService">
           <mat-icon>Agence Location</mat-icon>
           {{ 'Create Agence de Location'|translate   }}
@@ -100,10 +118,27 @@
           {{ 'Create Facture'|translate }}
         </button>
       </mat-list-item>
-    <mat-list-item>
-      <button mat-button routerLink="/admin/createPaiement" *ngIf="authService.isAuthService">
-        <mat-icon>Paiement</mat-icon>
-        {{ 'Create Paiement'|translate }}
+      <mat-list-item>
+        <button mat-button routerLink="/admin/createPaiement" *ngIf="authService.isAuthService">
+          <mat-icon>Paiement</mat-icon>
+          {{ 'Create Paiement'|translate }}
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('MANAGER-VOI')">
+        <button mat-button routerLink="/admin/createVoiture" >
+          <mat-icon>Voiture</mat-icon>
+          {{ 'Create Voiture'|translate }}
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('MANAGER-VOI')">
+        <button mat-button routerLink="/admin/createCategorieVoiture" >
+          <mat-icon>Categorie_Voiture</mat-icon>
+          {{ 'Create CategorieVoiture'|translate }}
+        </button>
+      </mat-list-item>    <mat-list-item>
+      <button mat-button routerLink="/admin/createReservation" *ngIf="authService.isAuthService">
+        <mat-icon>Reservation</mat-icon>
+        {{ 'Create Reservation'|translate }}
       </button>
     </mat-list-item>
     </mat-list>
@@ -112,8 +147,8 @@
     <div style="min-height: 600px">
       <router-outlet></router-outlet>
       <div  style="min-height: auto">
-        <div class="sub-menu-wrap" id="supMenu" style="position: absolute; top: 0; z-index: 1;" *ngIf="isMenuToggle">
-          <div class="sub-menu bg-light">
+        <div class="sub-menu-wrap" id="supMenu" style="position: absolute; top: 0; z-index: 1;" *ngIf="isMenuToggle ">
+          <div  class="sub-menu bg-light">
             <div class="user-info">
               <img src="./assets/images/user.png" >
               <h2>{{this.authService.username}}</h2>
@@ -140,6 +175,8 @@
               <p>Logout</p>
             </a>
           </div>
+
+
         </div>
       </div>
     </div>
