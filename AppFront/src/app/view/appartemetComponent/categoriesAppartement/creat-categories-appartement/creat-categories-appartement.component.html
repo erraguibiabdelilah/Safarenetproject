@@ -94,13 +94,20 @@
           <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>
         </div>
 
-        <div class="p-toolbar-group-right">
 
-          <mat-form-field appearance="outline">
-            <mat-label>Search</mat-label>
-            <input matInput (input)="search($event)">
-          </mat-form-field>
+        <div class="p-toolbar-group-right">
+          <div class="container d-flex" >
+            <input type="text" name="" placeholder="Search..." (input)="search($event)">
+            <div class="search"></div>
+          </div>
         </div>
+<!--        <div class="p-toolbar-group-right">-->
+
+<!--          <mat-form-field appearance="outline">-->
+<!--            <mat-label>Search</mat-label>-->
+<!--            <input matInput (input)="search($event)">-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
       </p-toolbar>
 

@@ -13,14 +13,19 @@ public class AppartementDto {
     private String adresse;
     private double loyerMensuel;
 
+    private String ville;
+    private String wifi;
+    private int nmbrPersont ;
+    private String climatiseur;
     private List<ReservationDto> reservationDtos;
+    private Set<ImageModule>  images;
+    private CategoriesAppartementDto categoriesAppartementDto;
+    private PropAppartemenetDto propAppartemenetDto;
 
     public List<ReservationDto> getReservationDtos() {
         return reservationDtos;
     }
 
-
-    private Set<ImageModule>  images;
 
     public Set<ImageModule> getImages() {
         return images;
@@ -34,8 +39,7 @@ public class AppartementDto {
         this.reservationDtos = reservationDtos;
     }
 
-    private CategoriesAppartementDto categoriesAppartementDto;
-    private PropAppartemenetDto propAppartemenetDto;
+
 
     public PropAppartemenetDto getPropAppartemenetDto() {
         return propAppartemenetDto;
@@ -92,5 +96,37 @@ public class AppartementDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getWifi() {
+        return wifi;
+    }
+
+    public void setWifi(String wifi) {
+        this.wifi = wifi;
+    }
+
+    public int getNmbrPersont() {
+        return nmbrPersont;
+    }
+
+    public void setNmbrPersont(int nmbrPersont) {
+        this.nmbrPersont = nmbrPersont;
+    }
+
+    public String getClimatiseur() {
+        return climatiseur;
+    }
+
+    public void setClimatiseur(String climatiseur) {
+        this.climatiseur = climatiseur;
     }
 }

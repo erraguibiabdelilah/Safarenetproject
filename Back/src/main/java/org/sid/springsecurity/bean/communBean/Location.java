@@ -1,12 +1,15 @@
 package org.sid.springsecurity.bean.communBean;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Location {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLocation;
     private String ref;
+    private LocalDateTime dateDebut;
+    private LocalDateTime datefine;
 
     @OneToOne(mappedBy = "location")
     private Contrat contrat;
@@ -56,6 +59,32 @@ public class Location {
     }
 
     public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public LocalDateTime getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(LocalDateTime dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public LocalDateTime getDatefine() {
+        return datefine;
+    }
+
+    public void setDatefine(LocalDateTime datefine) {
+        this.datefine = datefine;
+    }
+
+    public Location(Long idLocation, String ref, LocalDateTime dateDebut, LocalDateTime datefine, Contrat contrat, Facture facture, Reservation reservation) {
+        this.idLocation = idLocation;
+        this.ref = ref;
+        this.dateDebut = dateDebut;
+        this.datefine = datefine;
+        this.contrat = contrat;
+        this.facture = facture;
         this.reservation = reservation;
     }
 

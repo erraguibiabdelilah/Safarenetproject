@@ -34,7 +34,7 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   displayImagesByCode: boolean=false;
 
   public displayedColumns = [
-    "id", "code","superficie","adresse","loyerMensuel","ref","photo","libelle","action"
+    "id", "code","superficie","adresse","loyerMensuel", "ville","wifi","nmbrPersont","climatiseur","ref","photo","libelle","action"
   ];
 
 
@@ -49,6 +49,10 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     "superficie":0,
     "adresse":"",
     "loyerMensuel":0,
+    "ville": "",
+    "wifi": "",
+    "nmbrPersont": 0,
+    "climatiseur": "",
     reservationDto:{},
     images:[],
     categoriesAppartementDto : {
@@ -300,6 +304,10 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
       "superficie":0,
       "adresse":"",
       "loyerMensuel":0,
+      "ville": "",
+      "wifi": "",
+      "nmbrPersont": 0,
+      "climatiseur": "",
       reservationDto:{},
       images:[],
       categoriesAppartementDto : {

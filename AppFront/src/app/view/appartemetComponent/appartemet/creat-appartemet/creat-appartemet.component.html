@@ -94,13 +94,20 @@
           <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>
         </div>
 
-        <div class="p-toolbar-group-right">
 
-          <mat-form-field appearance="outline">
-            <mat-label>Search</mat-label>
-            <input matInput (input)="search($event)">
-          </mat-form-field>
+        <div class="p-toolbar-group-right">
+          <div class="container d-flex" >
+            <input type="text" name="" placeholder="Search..." (input)="search($event)">
+            <div class="search"></div>
+          </div>
         </div>
+<!--        <div class="p-toolbar-group-right">-->
+
+<!--          <mat-form-field appearance="outline">-->
+<!--            <mat-label>Search</mat-label>-->
+<!--            <input matInput (input)="search($event)">-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
       </p-toolbar>
 
@@ -130,6 +137,27 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>loyerMensuel</th>
           <td mat-cell *matCellDef="let element"> {{element.loyerMensuel}}</td>
         </ng-container>
+
+        <ng-container matColumnDef="ville">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ville</th>
+          <td mat-cell *matCellDef="let element"> {{element.ville}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="wifi">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Wifi</th>
+          <td mat-cell *matCellDef="let element"> {{element.wifi}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nmbrPersont">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nomber persent</th>
+          <td mat-cell *matCellDef="let element"> {{element.nmbrPersont}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="climatiseur">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Climatiseur</th>
+          <td mat-cell *matCellDef="let element"> {{element.climatiseur}}</td>
+        </ng-container>
+
 
         <ng-container matColumnDef="ref">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ref</th>
@@ -186,9 +214,28 @@
       <label>adresse</label>
       <input class="form-control" type="text" pTooltip="Enter adresse" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.adresse" [value]="selectedAppartementItem.adresse">
     </div>
+
     <div class="col-12">
       <label>loyer</label>
       <input class="form-control" type="number" pTooltip="Enter loyer" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.loyerMensuel" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+
+
+    <div class="col-12">
+      <label>Ville</label>
+      <input class="form-control" type="text" pTooltip="Enter Ville" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.ville" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Wifi</label>
+      <input class="form-control" type="text" pTooltip="Enter Wiffi" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.wifi" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Nomber Persont</label>
+      <input class="form-control" type="number" pTooltip="Enter Nomber de persont" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.nmbrPersont" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Climatiseur</label>
+      <input class="form-control" type="text" pTooltip="Enter Climatiseur" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.climatiseur" [value]="selectedAppartementItem.loyerMensuel">
     </div>
 
     <div class="col-12">

@@ -102,6 +102,9 @@ public class LocationServiceImpl implements LocationService {
             }
 
             existingLocation.setReservation(reservation);
+            existingLocation.setDatefine(location.getDatefine());
+            existingLocation.setDateDebut(location.getDateDebut());
+
             locationDao.save(existingLocation);
             return 1;
         } catch (Exception e) {

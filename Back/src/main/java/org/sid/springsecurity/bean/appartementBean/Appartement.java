@@ -22,6 +22,10 @@ public class Appartement {
     private int superficie;
 
     private String adresse;
+    private String ville;
+    private String wifi;
+    private int nmbrPersont ;
+    private String climatiseur;
 
     private double loyerMensuel;
 
@@ -66,15 +70,20 @@ public class Appartement {
         this.propAppartement = propAppartement;
     }
 
-    public Appartement(Long id, String code, int superficie, String adresse, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, PropAppartement propAppartement) {
+    public Appartement(Long id, String code, int superficie, String adresse, String ville, String wifi, int nmbrPersont, String climatiseur, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, PropAppartement propAppartement, Set<ImageModule> images) {
         this.id = id;
         this.code = code;
         this.superficie = superficie;
         this.adresse = adresse;
+        this.ville = ville;
+        this.wifi = wifi;
+        this.nmbrPersont = nmbrPersont;
+        this.climatiseur = climatiseur;
         this.loyerMensuel = loyerMensuel;
         this.reservation = reservation;
         this.categoriesAppartement = categoriesAppartement;
         this.propAppartement = propAppartement;
+        this.images = images;
     }
 
     public Appartement() {
@@ -134,4 +143,37 @@ public class Appartement {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getWifi() {
+        return wifi;
+    }
+
+    public void setWifi(String wifi) {
+        this.wifi = wifi;
+    }
+
+    public int getNmbrPersont() {
+        return nmbrPersont;
+    }
+
+    public void setNmbrPersont(int nmbrPersont) {
+        this.nmbrPersont = nmbrPersont;
+    }
+
+    public String getClimatiseur() {
+        return climatiseur;
+    }
+
+    public void setClimatiseur(String climatiseur) {
+        this.climatiseur = climatiseur;
+    }
+
 }

@@ -39,6 +39,11 @@ public class AppartementConverter {
             bean.setAdresse(dto.getAdresse());
             bean.setLoyerMensuel(dto.getLoyerMensuel());
 
+            bean.setWifi(dto.getWifi());
+            bean.setClimatiseur(dto.getClimatiseur());
+            bean.setNmbrPersont(dto.getNmbrPersont());
+            bean.setVille(dto.getVille());
+
             if(dto.getCategoriesAppartementDto()!=null){
                 bean.setCategoriesAppartement(categoriesAppartementConverter.toBean(dto.getCategoriesAppartementDto()));
             }
@@ -66,6 +71,11 @@ public class AppartementConverter {
             dto.setSuperficie(bean.getSuperficie());
             dto.setAdresse(bean.getAdresse());
             dto.setLoyerMensuel(bean.getLoyerMensuel());
+
+            dto.setWifi(bean.getWifi());
+            dto.setVille(bean.getVille());
+            dto.setClimatiseur(bean.getClimatiseur());
+            dto.setNmbrPersont(bean.getNmbrPersont());
 
             if( bean.getCategoriesAppartement()!=null){
                 dto.setCategoriesAppartementDto(categoriesAppartementConverter.toDto(bean.getCategoriesAppartement()));

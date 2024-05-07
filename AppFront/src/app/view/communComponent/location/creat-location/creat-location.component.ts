@@ -24,7 +24,7 @@ export class CreatLocationComponent implements OnInit, AfterViewInit {
   contrat:any ;
 
   public ListeColum = [
-    "ref","action"
+    "ref","dateDebut","datefine","action"
     // "ref","reservationDto","action"
   ];
 
