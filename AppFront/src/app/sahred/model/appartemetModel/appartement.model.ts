@@ -9,6 +9,10 @@ export class Appartement {
   superficie: number;
   adresse: string;
   loyerMensuel: number;
+  ville: string;
+  wifi: string;
+  nmbrPersont: number;
+  climatiseur: string;
   reservationDto: Reservation;
   images: FileHandle[];
   categoriesAppartementDto: CategoriesAppartement;
@@ -19,6 +23,10 @@ export class Appartement {
     this.superficie = 0;
     this.adresse = "";
     this.loyerMensuel = 0;
+    this.ville="";
+    this.wifi="";
+    this.nmbrPersont=0;
+    this.climatiseur="";
     this.reservationDto = {};
     this.images=[]
     this.categoriesAppartementDto = {

@@ -138,6 +138,27 @@
           <td mat-cell *matCellDef="let element"> {{element.loyerMensuel}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="ville">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ville</th>
+          <td mat-cell *matCellDef="let element"> {{element.ville}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="wifi">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Wifi</th>
+          <td mat-cell *matCellDef="let element"> {{element.wifi}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nmbrPersont">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nomber persent</th>
+          <td mat-cell *matCellDef="let element"> {{element.nmbrPersont}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="climatiseur">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Climatiseur</th>
+          <td mat-cell *matCellDef="let element"> {{element.climatiseur}}</td>
+        </ng-container>
+
+
         <ng-container matColumnDef="ref">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ref</th>
           <td mat-cell *matCellDef="let element"> {{element.reservationDto?.ref || ""}}
@@ -194,9 +215,28 @@
       <label>adresse</label>
       <input class="form-control" type="text" pTooltip="Enter adresse" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.adresse" [value]="selectedAppartementItem.adresse">
     </div>
+
     <div class="col-12">
       <label>loyer</label>
       <input class="form-control" type="number" pTooltip="Enter loyer" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.loyerMensuel" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+
+
+    <div class="col-12">
+      <label>Ville</label>
+      <input class="form-control" type="text" pTooltip="Enter Ville" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.ville" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Wifi</label>
+      <input class="form-control" type="text" pTooltip="Enter Wiffi" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.wifi" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Nomber Persont</label>
+      <input class="form-control" type="number" pTooltip="Enter Nomber de persont" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.nmbrPersont" [value]="selectedAppartementItem.loyerMensuel">
+    </div>
+    <div class="col-12">
+      <label>Climatiseur</label>
+      <input class="form-control" type="text" pTooltip="Enter Climatiseur" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.climatiseur" [value]="selectedAppartementItem.loyerMensuel">
     </div>
 
     <div class="col-12">
@@ -204,7 +244,7 @@
       <input class="form-control" type="text" pTooltip="Enter libelle" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">
     </div>
 
-    
+
     <div class="col-12 mt-5" *ngIf="isCreate">
       <div class="dropzone" appDrag (files)="fileDropped($event)"   (click)="selectFile.click()">
         <div class="dropzone-text">

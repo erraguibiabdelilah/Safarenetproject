@@ -129,6 +129,12 @@ public class AppartementServiceImpl implements AppartementService {
         appartement.setCode(appartementNv.getCode());
         appartement.setSuperficie(appartementNv.getSuperficie());
         appartement.setAdresse(appartementNv.getAdresse());
+
+        appartement.setVille(appartementNv.getVille());
+        appartement.setWifi(appartementNv.getWifi());
+        appartement.setNmbrPersont(appartementNv.getNmbrPersont());
+        appartement.setClimatiseur(appartementNv.getClimatiseur());
+
         appartement.setLoyerMensuel(appartementNv.getLoyerMensuel());
 
         if(categoriesAppartement!=null){

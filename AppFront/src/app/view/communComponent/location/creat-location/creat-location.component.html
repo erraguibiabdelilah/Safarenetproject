@@ -27,6 +27,16 @@
           <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="dateDebut"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date dDebut </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateDebut}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="datefine"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Fine </th>
+          <td mat-cell *matCellDef="let element"> {{element.datefine}} </td>
+        </ng-container>
+
         <!--        <ng-container matColumnDef="prixreservationDtoHT">-->
         <!--          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref Reservation </th>-->
         <!--          <td mat-cell *matCellDef="let element"> {{element.reservationDto.ref}} </td>-->
@@ -69,6 +79,16 @@
       <input class="form-control" type="text" pInputText id="name" [(ngModel)]="item.ref" required autofocus/>
     </div>
 
+    <div class="field col">
+      <label class="form-label">Date Debut</label>
+      <input class="form-control" type="datetime-local" pInputText id="name1" [(ngModel)]="item.dateDebut" required autofocus/>
+    </div>
+
+    <div class="field col">
+      <label class="form-label">Date Fine</label>
+      <input class="form-control" type="datetime-local" pInputText id="name2" [(ngModel)]="item.datefine" required autofocus/>
+    </div>
+
     <!--    <div class="field col">-->
     <!--      <label class="form-label">Ref Reservation</label>-->
     <!--      <input class="form-control" type="number" pInputText id="name1" [(ngModel)]="item.reservationDto.ref" required autofocus/>-->
@@ -84,6 +104,16 @@
     <div class="field col">
       <label class="form-label">Ref</label>
       <input class="form-control" type="text" pInputText id="name11" [(ngModel)]="contrat.ref" required autofocus/>
+    </div>
+
+    <div class="field col">
+      <label class="form-label">Date Debut</label>
+      <input class="form-control" type="datetime-local" pInputText id="name4" [(ngModel)]="contrat.dateDebut" required autofocus/>
+    </div>
+
+    <div class="field col">
+      <label class="form-label">Date Fine</label>
+      <input class="form-control" type="datetime-local" pInputText id="name5" [(ngModel)]="contrat.datefine" required autofocus/>
     </div>
 
     <!--    <div class="field col">-->

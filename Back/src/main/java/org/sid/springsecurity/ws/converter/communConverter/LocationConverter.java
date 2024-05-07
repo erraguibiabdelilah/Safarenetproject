@@ -25,6 +25,8 @@ public class LocationConverter {
         else {
             LocationDto dto = new LocationDto();
             dto.setRef(bean.getRef());
+            dto.setDateDebut(bean.getDateDebut());
+            dto.setDatefine(bean.getDatefine());
 //            if (bean.getFacture() != null) {
 //                dto.setFacture(factureConverter.toDto(bean.getFacture()));
 //            }
@@ -45,6 +47,8 @@ public class LocationConverter {
         else {
             Location bean = new Location();
             bean.setRef(dto.getRef());
+            bean.setDateDebut(dto.getDateDebut());
+            bean.setDatefine(dto.getDatefine());
 //            if (dto.getFacture() != null) {
 //                bean.setFacture(factureConverter.toBean(dto.getFacture()));
 //            }
