@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "reservationInformation", component: ReservationInformationComponent },
-  { path: "facteurApparetement", component: FacteurApparetementComponent },
+  { path: "facteurApparetement/:code", component: FacteurApparetementComponent },
   { path: "profile", component: ProfileComponent,canActivate:[authGuard] },
   { path: "profileezz", component: ProdileEzzComponent},
 

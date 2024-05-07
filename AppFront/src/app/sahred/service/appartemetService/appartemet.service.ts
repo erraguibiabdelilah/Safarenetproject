@@ -94,6 +94,5 @@ export class AppartemetService {
 
   get(code: string):Observable<Appartement> {
     return this.http.get<Appartement>(`http://localhost:8085/api/appartement/code/${code}`);
-
   }
 }
