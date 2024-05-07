@@ -16,6 +16,8 @@ import {Reservation} from "../../../../sahred/model/communModel/reservation.mode
 import {content} from "html2canvas/dist/types/css/property-descriptors/content";
 import {response} from "express";
 import {AuthService} from "../../../../security/serviceAuth/auth.service";
+import {FileHandle} from "../../../../sahred/model/file-handle.model";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-creat-appartemet',
@@ -29,15 +31,17 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   public submitted:boolean=false;
 
 
+  displayImagesByCode: boolean=false;
 
   public displayedColumns = [
-    "id", "code","superficie","adresse","loyerMensuel","ref","libelle","cin","action"
+    "id", "code","superficie","adresse","loyerMensuel","ref","photo","libelle","action"
   ];
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!:MatSort;
 
+  images:any;
 
   selectedAppartementItem: Appartement ={
     "id":0,
@@ -46,6 +50,7 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     "adresse":"",
     "loyerMensuel":0,
     reservationDto:{},
+    images:[],
     categoriesAppartementDto : {
       id:0,
       libelle:""
@@ -67,13 +72,14 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   isCreate :boolean=false;
 
 
-  constructor(private appartemetService:AppartemetService, private categoriesAppartementService:CategoriesAppartementService, protected authService:AuthService) {
+  constructor(private sanitizer:DomSanitizer, protected appartemetService:AppartemetService, private categoriesAppartementService:CategoriesAppartementService, protected authService:AuthService) {
   }
 
   ngOnInit(): void {
     this.viderItemSelected();
     this.getAll()
     console.log(this.authService.dataUtilisateur)
+    this.appartemetService.getImagesByProduitRef("1212");
   }
 
 
@@ -82,6 +88,33 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     this.isEdit=false;
     this.viderItemSelected();
     this.display = true;
+  }
+
+  fileDropped(fileHandle: FileHandle) {
+    this.appartemetService.item.images.push(fileHandle);
+  }
+
+
+
+  prepareFormData(apartemet:Appartement):FormData{
+    const  formData=new FormData();
+    formData.append(
+      'apartment'
+      , new Blob(
+        [JSON.stringify(apartemet)],
+        {type:'application/json'}
+      ));
+
+    for (var i=0;i<apartemet.images.length;i++){
+      formData.append(
+        'imageFile',
+        apartemet.images[i].file,
+        apartemet.images[i].file.name
+      );
+    }
+    console.log("mohammed")
+    console.log(formData)
+    return formData;
   }
 
   saveObject() {
@@ -144,19 +177,49 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     })
 
   }
+/***************************************************************************************************/
+  oneFileSelected($event: Event) {
+    // @ts-ignore
+    if($event.target.files){
+      // @ts-ignore
+      const  file=$event.target.files[0];
 
+      console.log(file);
+      const fileHandle:FileHandle={
+        file:file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+      console.log(fileHandle)
+      console.log(this.appartemetService.item.images)
+      this.appartemetService.item.images.push(fileHandle);
+    }
+  }
+
+
+
+  removeImages(i:number) {
+    this.appartemetService.item.images.splice(i,1);
+  }
+
+  /***************************************************************************************************/
 
   search(event: Event) {
     let value=(event.target as HTMLInputElement).value;
     this.dataSource.filter=value
   }
 
-
   //crud
 
   //1-save
   public save() {
-    this.appartemetService.save().subscribe({
+    const  productFormData=this.prepareFormData(this.appartemetService.item);
+    console.log("appartemet item :")
+    console.log(this.appartemetService.item)
+    console.log("productFormData  :")
+    console.log(productFormData)
+    this.appartemetService.save(productFormData).subscribe({
       next: response => {
         console.log(response)
         if (response === -1) {
@@ -228,11 +291,8 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
         this.getAll();
       },
       error:()=>{
-
       }
-
     })
-
   }
 
   viderItemSelected(){
@@ -243,6 +303,7 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
       "adresse":"",
       "loyerMensuel":0,
       reservationDto:{},
+      images:[],
       categoriesAppartementDto : {
         id:0,
         libelle:""
@@ -436,5 +497,26 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   //   this.getCategoriesLibelle();
   //   this.getPropCin();
   // }
+
+  photoByCode(code:any) {
+    this.appartemetService.getImagesByProduitRef(code).subscribe(
+      {
+        next:data=>{
+        this.images=data;
+        this.displayImagesByCode=true;
+        console.log(this.images)
+        }
+      }
+    )
+
+  }
+
+
+  getImageData(photo:any) {
+
+    // // return 'data:image/jpeg;base64,' + image1.picByte;
+    // console.log('data:'+image1.type+';base64,' + image1.picByte)
+    return 'data:'+photo.type+';base64,' + photo.picByte;
+  }
 
 }

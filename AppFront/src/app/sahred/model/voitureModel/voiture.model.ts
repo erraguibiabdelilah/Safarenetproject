@@ -1,5 +1,6 @@
 import {CategorieVoiture} from "./categorie-voiture.model";
 import {AgenceLocation} from "./agence-location.model";
+import {FileHandle} from "../file-handle.model";
 
 export class Voiture {
   couleur:string;
@@ -14,6 +15,7 @@ export class Voiture {
   dateAssurance:Date;
   sateVisitetechnique:Date;
   nomModele:string;
+  images: FileHandle[];
   categorie!:CategorieVoiture;
   agenceLocation!:AgenceLocation;
   prix!:number;
@@ -29,6 +31,7 @@ export class Voiture {
     this.boitevitesse = "";
     this.annee = 0;
     this.ville = "";
+    this.images=[];
     this.dateMisecirculation = new Date();
     this.dateAssurance = new Date();
     this.sateVisitetechnique = new Date();

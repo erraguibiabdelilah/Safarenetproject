@@ -4,6 +4,7 @@ package org.sid.springsecurity.service.impl.appartementServiceImpl;
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
 import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.dao.appartementDao.AppartementDao;
 import org.sid.springsecurity.service.facade.appartementService.AppartementService;
 import org.sid.springsecurity.service.facade.appartementService.CategoriesAppartementService;
@@ -14,6 +15,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 @Lazy
 
@@ -35,6 +38,20 @@ public class AppartementServiceImpl implements AppartementService {
         this.propAppartementService = propAppartementService;
         this.reservationService = reservationService;
     }
+
+
+
+    @Override
+    public List<ImageModule> getImagesByProductRef(String code) {
+        Appartement appartement = appartementDao.findByCode(code);
+        if (appartement != null) {
+            return new ArrayList<>(appartement.getImages());
+        }
+        return Collections.emptyList();
+    }
+
+
+
 
     @Override
     public int save(Appartement appartement) {

@@ -1,8 +1,10 @@
 package org.sid.springsecurity.ws.dto.appartementDto;
 
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.ws.dto.communDto.ReservationDto;
 
 import java.util.List;
+import java.util.Set;
 
 public class AppartementDto {
     private Long id;
@@ -15,6 +17,17 @@ public class AppartementDto {
 
     public List<ReservationDto> getReservationDtos() {
         return reservationDtos;
+    }
+
+
+    private Set<ImageModule>  images;
+
+    public Set<ImageModule> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ImageModule> images) {
+        this.images = images;
     }
 
     public void setReservationDtos(List<ReservationDto> reservationDtos) {

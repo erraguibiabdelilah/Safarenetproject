@@ -89,6 +89,11 @@ import { ProdileEzzComponent } from './layout/profile/prodile-ezz/prodile-ezz.co
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component';
 import { FacteurApparetementComponent } from './layout/facteur-apparetement/facteur-apparetement.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {DragDirective} from "./security/drag/drg.directive";
+import {MatGridList, MatGridTile} from "@angular/material/grid-list";
+import { CarouselWithFilterVOITComponent } from './layout/carousel-with-filter-voit/carousel-with-filter-voit.component';
+import { CarouselWithFilterByCategorieComponent } from './layout/carousel-with-filter-by-categorie/carousel-with-filter-by-categorie.component';
+import {CarouselWithFilterAPPComponent} from "./layout/carousel-with-filter-app/carousel-with-filter-app.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -146,7 +151,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ProdileEzzComponent,
     ReservationInformationComponent,
+    DragDirective,
     FacteurApparetementComponent,
+    CarouselWithFilterAPPComponent,
+    CarouselWithFilterVOITComponent,
+    CarouselWithFilterByCategorieComponent,
 
   ],
     imports: [
@@ -176,6 +185,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         MatDrawerContent,
         MatListItem,
 
+      MatGridList,
+      MatGridTile,
         MatIconModule,
         MatDrawerContainer,
         MatNavList,

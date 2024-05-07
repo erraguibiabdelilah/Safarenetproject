@@ -33,6 +33,9 @@ public class AgenceLocation extends AppUser {
     @OneToMany(mappedBy = "agenceLocation")
     private List<Paiement> paiements ;
 
+
+
+
     public AgenceLocation() {
 
     }

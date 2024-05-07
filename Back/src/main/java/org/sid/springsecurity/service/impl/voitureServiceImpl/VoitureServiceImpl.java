@@ -1,5 +1,6 @@
 package org.sid.springsecurity.service.impl.voitureServiceImpl;
 
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.bean.voitureBean.CategorieVoiture;
 import org.sid.springsecurity.bean.voitureBean.Voiture;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -55,6 +58,18 @@ public class VoitureServiceImpl implements VoitureService {
             return -5;
         }
     }
+
+
+
+    @Override
+    public List<ImageModule> getImagesByProductMatricule(String matricule) {
+        Voiture voiture = voitureDao.findByMatricule(matricule);
+        if (voiture != null) {
+            return new ArrayList<>(voiture.getImages());
+        }
+        return Collections.emptyList();
+    }
+
 
 
     @Override

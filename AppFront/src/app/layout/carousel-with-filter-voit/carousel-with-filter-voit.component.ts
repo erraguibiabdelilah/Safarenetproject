@@ -1,15 +1,16 @@
 import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthService} from "../../security/serviceAuth/auth.service";
 
 @Component({
-  selector: 'app-carousel-test',
-  templateUrl: './carousel-test.component.html',
-  styleUrl: './carousel-test.component.css'
+  selector: 'app-carousel-with-filter-voit',
+  templateUrl: './carousel-with-filter-voit.component.html',
+  styleUrl: './carousel-with-filter-voit.component.css'
 })
-export class CarouselTestComponent implements OnInit{
-
-  constructor(private renderer: Renderer2,private authService:AuthService, private el: ElementRef,private router:Router) {}
+export class CarouselWithFilterVOITComponent implements OnInit{
+  public display:boolean=false;
+  public formatcard:boolean=false;
+  public selected:boolean =true;
+  constructor(private renderer: Renderer2, private el: ElementRef,private router:Router) {}
 
   ngOnInit() {
     this.initSlider();
@@ -43,16 +44,14 @@ export class CarouselTestComponent implements OnInit{
   }
 
   RedirectToFacture() {
-    this.router.navigateByUrl("/reservationInformation");
+    this.display=true;
   }
 
-  RedirectTOLoginOrfacture() {
-    if(this.authService.isAuthService){
-      this.router.navigateByUrl("/reservationInformation")
-    }
+  handelVertical() {
+    this.formatcard=false
+  }
+  handelHorizental() {
+    this.formatcard=true;
 
-    else {
-      this.router.navigateByUrl("/login")
-    }
   }
 }

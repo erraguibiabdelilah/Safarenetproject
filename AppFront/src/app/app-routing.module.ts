@@ -40,6 +40,10 @@ import {ProdileEzzComponent} from "./layout/profile/prodile-ezz/prodile-ezz.comp
 import {FacteurApparetementComponent} from "./layout/facteur-apparetement/facteur-apparetement.component";
 
 import { ReservationInformationComponent } from './layout/reservation-information/reservation-information.component.js';
+import {
+  CreatReservationComponent
+} from "./view/communComponent/reservation/creat-reservation/creat-reservation.component";
+import {CreatVoitureComponent} from "./view/voitureComponent/voiture/creat-voiture/creat-voiture.component";
 const routes: Routes = [
   { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
@@ -58,7 +62,7 @@ const routes: Routes = [
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
       { path :"appartemet",component:CreatAppartemetComponent},
-      { path :"categories",component:CreatCategoriesAppartementComponent},
+      { path :"categoriesapp",component:CreatCategoriesAppartementComponent},
       { path :"propraitaire",component:CreatPropAppartementComponent},
       { path :"listAppartemetCompoent",component:ListAppartemetComponent},
       { path: "createContrat" , component:CreatContratComponent},
@@ -67,6 +71,9 @@ const routes: Routes = [
       { path: "createClient" , component:CreatClientComponent},
       { path: "createAgence" , component:CreatAgenceLocationComponent},
       { path: "createPaiement" , component:CreatPaiementComponent},
+      { path: "createVoiture" , component: CreatVoitureComponent},
+      { path: "createCategorieVoiture" , component:CreatCategorieVoitureComponent},
+      { path: "createReservation" , component: CreatReservationComponent},
     ]},
 
 

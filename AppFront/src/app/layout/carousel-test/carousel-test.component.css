@@ -64,8 +64,8 @@
 }
 
 .slider-wrapper .image-list .image-item {
-  width: 325px;
-  height: 400px;
+  width: 18rem;
+  height: 18rem;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -129,10 +129,6 @@
     scroll-snap-type: x mandatory;
   }
 
-  .slider-wrapper .image-list .image-item {
-    width: 280px;
-    height: 380px;
-  }
 
   .slider-scrollbar .scrollbar-thumb {
     width: 20%;
@@ -140,8 +136,8 @@
 }
 
 .card {
-  width: 280px;
-  height: 360px;
+  width: 16rem;
+  height: 16rem;
   background: #fff;
   display: flex;
   align-items: flex-end;
@@ -215,4 +211,10 @@
   background: #fc5185;
   color: #fff;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.image{
+  width: 18rem;
+  height: 18rem;
+  border-radius: 20px;
 }

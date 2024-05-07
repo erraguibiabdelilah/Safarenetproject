@@ -2,11 +2,13 @@ package org.sid.springsecurity.bean.appartementBean;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.sid.springsecurity.bean.communBean.Reservation;
+import org.sid.springsecurity.bean.photo.ImageModule;
 
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "appartement")
@@ -34,6 +36,27 @@ public class Appartement {
     @JoinColumn(name = "propAppartement_id")
     private PropAppartement propAppartement;
 
+
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(name = "appartement_images",
+            joinColumns = {
+                    @JoinColumn(name = "appartement_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "image_id")
+            }
+    )
+    private Set<ImageModule>  images;
+
+
+    public Set<ImageModule> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ImageModule> images) {
+        this.images = images;
+    }
 
     public PropAppartement getPropAppartement() {
         return propAppartement;

@@ -1,11 +1,13 @@
 package org.sid.springsecurity.bean.voitureBean;
 
 import org.sid.springsecurity.bean.communBean.Reservation;
+import org.sid.springsecurity.bean.photo.ImageModule;
 
 import javax.persistence.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Voiture extends Modele{
@@ -38,6 +40,28 @@ public class Voiture extends Modele{
     @OneToMany
     private List<Reservation> reservation;
 
+
+
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(name = "appartement_images",
+            joinColumns = {
+                    @JoinColumn(name = "appartement_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "image_id")
+            }
+    )
+    private Set<ImageModule> images;
+
+
+    public Set<ImageModule> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ImageModule> images) {
+        this.images = images;
+    }
 
     public String getCouleur() {
         return couleur;

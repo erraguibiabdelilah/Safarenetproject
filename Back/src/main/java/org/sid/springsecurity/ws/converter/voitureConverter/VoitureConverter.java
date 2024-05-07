@@ -41,6 +41,9 @@ public class VoitureConverter {
             if(dto.getReservation()!=null){
                 bean.setReservation(reservationConverter.toBean(dto.getReservation()));
             }
+            if(dto.getImages()!=null){
+                bean.setImages(dto.getImages());
+            }
             return bean;
         }
     }
@@ -74,6 +77,9 @@ public class VoitureConverter {
             }
             if(bean.getReservation()!=null){
                 dto.setReservation(reservationConverter.toDto(bean.getReservation()));
+            }
+            if(bean.getImages()!=null){
+                dto.setImages(bean.getImages());
             }
             return dto;
         }
