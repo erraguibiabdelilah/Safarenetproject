@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Voiture} from "../../model/voitureModel/voiture.model";
 import {CategorieVoiture} from "../../model/voitureModel/categorie-voiture.model";
+import {Appartement} from "../../model/appartemetModel/appartement.model";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,9 @@ private url="http://localhost:8085/api/safarent/manager/voiture/"
 
   public delete(matricule:String):Observable<any>{
     return this.http.delete<number>(`${this.url}matricule/${matricule}`);
+  }
+  get(matricul: string):Observable<Voiture> {
+    return this.http.get<Voiture>(`http://localhost:8085/api/safarent/manager/voiture/matricule/${matricul}`);
   }
 
   public  update(voiture:Voiture):Observable<any>{

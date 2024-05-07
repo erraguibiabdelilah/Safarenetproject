@@ -93,7 +93,7 @@
               <div class="card-text">
                 {{item.prix}}
               </div>
-              <a href="#" class="card-button"> Purchase</a>
+              <a href="#" class="card-button" routerLink="/reservationInformation/{{item.matricule}}"> Purchase</a>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@
             <div class="card-text">
               ${{apparetement.loyerMensuel}}
             </div>
-            <a href="#" class="card-button">Purchase</a>
+            <a href="#" class="card-button" routerLink="/facteurApparetement/{{apparetement.code}}">Purchase</a>
           </div>
         </div>
 

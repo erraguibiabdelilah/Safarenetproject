@@ -22,7 +22,7 @@
 
           <div class="card cardOne" id="Apercu">
             <div class="card-body">
-              <span style="display: block;">Électrique</span>
+              <span style="display: block;">{{voitureData.categorie}}</span>
 
               <div class="photo">
                 <img src="../../../assets/pexels-prime-cinematics-1005175-2036544.jpg">
@@ -34,13 +34,13 @@
 
                 <div class="grid-container">
 
-                  <div><i class="bi bi-person-fill"></i> <span>5 passagers</span></div>
+                  <div><i class="bi bi-person-fill"></i> <span>{{ voitureData.nbrPlace }} passagers</span></div>
 
                   <div><i class="bi bi-slack"></i><span>Climatisation</span></div>
 
                   <div> <i class="bi bi-terminal-fill"><a>portes</a></i></div>
                   <div> <i class="bi bi-terminal-fill"><a>Automatique</a></i></div>
-                  <div> <i class="bi bi-terminal-fill"><a>Kilométrage illimité</a></i></div>
+                  <div> <i class="bi bi-terminal-fill"><a>Kilométrage {{voitureData.kiloMetrage}}</a></i></div>
 
 
                 </div>
@@ -168,7 +168,7 @@
         <div class="col-4">
           <div class="card  cardTwo">
             <div class="card-body">
-              <h1 class="content">$65</h1>
+              <h1 class="content">${{voitureData.prix}}</h1>
               <span style="font-size: 13px;">per day</span>
               <div style="line-height: 13px;">
                 <p class="text-success">Free cancellation</p>
@@ -188,9 +188,9 @@
               <div class="grid-container4">
 
                 <div><span>Car rental fee x 1 day</span>
-                  <p>$65.40 per day</p>
+                  <p>${{voitureData.prix}} per day</p>
                 </div>
-                <div><span>$65.40</span></div>
+                <div><span>${{voitureData.prix}}</span></div>
 
                 <div> <a>Taxes and fees</a></div>
                 <div> <a>$24.85</a></div>
