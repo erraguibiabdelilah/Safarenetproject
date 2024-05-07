@@ -92,6 +92,28 @@ export class ProfileComponent implements OnInit {
   updateClient(): void {
     console.log(this.client);
     this.client.cin = this.authService.dataUtilisateur.cin
+    this.client.propAppartemenetDto = {
+      nom: "",
+      prenom: "",
+      numTele: "",
+      email: "",
+      ribPropAppt: "",
+      numCompteBkPropApp: "",
+      cin: "",
+      username: "",
+      password: ""
+    };
+    this.client.agenceLocation= {
+      iceAgLoc: 0,
+      ribAgenceLoc: 0,
+      raisonSocialAg: "",
+      adresse: "",
+      numTelephone: "",
+      numCompteBkAgLoc: 0,
+      usernameAgenceLoc: "",
+      password: "",
+      RCAgLoc: 0
+    };
     this.clientService.update(this.client).subscribe({
       next: (data) => {
         if (data === 1) {
