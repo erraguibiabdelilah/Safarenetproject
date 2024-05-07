@@ -18,7 +18,7 @@
 
 
     <div *ngIf="obejetClicked ===true">
-      <div class="row " style="position: relative;top: 3rem;">
+      <div class="row mt-5" >
 
         <div class="col-4">
           <select name="category" class=" form-control form-select" (change)="handelSearch()">
@@ -102,19 +102,20 @@
     <div *ngIf="!obejetClicked" class="container " style="margin-left: 8rem;">
 
 
-      <div class="row mt-4" >
+      <div class="row mt-5" >
         <div class="col-4">
-          <label for="browser" class="form-label">Choose Categorie:</label>
-          <select name="category" class="form-control form-select" [(ngModel)]="selecCategorieApt" (change)="onCategorieChange();handelSearch()">
-            <option value="" selected> </option>
-
+<!--          <label for="browser" class="form-label">Choose Categorie:</label>-->
+          <select name="category" class="form-control form-select"  [(ngModel)]="selecCategorieApt" (change)="onCategorieChange();handelSearch()">
+            <option value="" disabled selected>Choose Categorie:</option>
+            <option value="">All</option>
             <option [value]="cate.libelle" *ngFor="let cate of dataCategorieApartement">{{cate.libelle}}</option>
           </select>
+
         </div>
         <div class="col-4">
           <form>
-            <label for="browser" class="form-label">Choose Ville:</label>
-            <input class="form-control " list="browsers" name="browser" id="browser"  [(ngModel)]="villSelected" (change)="apparetementByMontant();handelSearch()">
+<!--            <label for="browser" class="form-label">Choose Ville:</label>-->
+            <input class="form-control " list="browsers" name="browser" id="browser"  placeholder="Choose Ville..."  [(ngModel)]="villSelected" (change)="apparetementByMontant();handelSearch()">
             <datalist id="browsers">
               <option [value]="cate" *ngFor="let cate of ville">{{cate}}</option>
             </datalist>

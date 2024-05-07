@@ -1,4 +1,4 @@
-import {Paiement} from "./paiement.model";
+import {Paiement} from "./paiementDto.model";
 import {Location} from "./location.model";
 
 export class Facture {

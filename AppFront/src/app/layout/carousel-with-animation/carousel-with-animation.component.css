@@ -411,7 +411,7 @@
 }
 
 .conteneur{
-  background:grey no-repeat center center / cover;
+  /*background:grey no-repeat center center / cover;*/
   width: 78rem;
   border: 1px solid #000;
   margin:2rem;

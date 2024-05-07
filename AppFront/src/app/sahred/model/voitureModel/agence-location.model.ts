@@ -1,4 +1,4 @@
-import {Paiement} from "../communModel/paiement.model";
+import {Paiement} from "../communModel/paiementDto.model";
 import {Client} from "../communModel/client.model";
 import {Voiture} from "./voiture.model";
 
