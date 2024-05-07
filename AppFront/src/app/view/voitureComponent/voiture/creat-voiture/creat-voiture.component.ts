@@ -10,6 +10,9 @@ import {CategorieVoiture} from "../../../../sahred/model/voitureModel/categorie-
 import {AgenceLocation} from "../../../../sahred/model/voitureModel/agence-location.model";
 import {Voiture} from "../../../../sahred/model/voitureModel/voiture.model";
 import {AgenceLocationService} from "../../../../sahred/service/voitureService/agence-location.service";
+import {FileHandle} from "../../../../sahred/model/file-handle.model";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.model";
 
 @Component({
   selector: 'app-creat-voiture',
@@ -32,7 +35,7 @@ export class CreatVoitureComponent  implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!:MatSort;
 
 
-  constructor(private service:VoitureService,private categorieService:CategorieVoitureService,private agenceService :AgenceLocationService) {
+  constructor(private sanitizer:DomSanitizer, protected service:VoitureService, private categorieService:CategorieVoitureService, private agenceService :AgenceLocationService) {
 
   }
 
@@ -65,6 +68,67 @@ getAllCategorie(){
   }
 
 
+
+
+  /**********************************************************************/
+  prepareFormData(voiture:Voiture):FormData{
+    const  formData=new FormData();
+    formData.append(
+      'voiture'
+      , new Blob(
+        [JSON.stringify(voiture)],
+        {type:'application/json'}
+      ));
+
+    for (var i=0;i<voiture.images.length;i++){
+      formData.append(
+        'imageFile',
+        voiture.images[i].file,
+        voiture.images[i].file.name
+      );
+    }
+    console.log("mohammed")
+    console.log(formData)
+    return formData;
+  }
+
+
+  fileDropped(fileHandle: FileHandle) {
+    this.service.item.images.push(fileHandle);
+  }
+
+
+  oneFileSelected($event: Event) {
+    // @ts-ignore
+    if($event.target.files){
+      // @ts-ignore
+      const  file=$event.target.files[0];
+
+      console.log(file);
+      const fileHandle:FileHandle={
+        file:file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+      console.log(fileHandle)
+      console.log(this.service.item.images)
+      this.service.item.images.push(fileHandle);
+    }
+  }
+
+
+
+  removeImages(i:number) {
+    this.service.item.images.splice(i,1);
+  }
+
+
+
+
+
+  /**********************************************************************/
+
   public getAll(){
     this.service.getAll().subscribe({
       next:(data)=>{
@@ -90,7 +154,9 @@ getAllCategorie(){
   }
 
   saveObject() {
-    this.service.save().subscribe({
+        const formData=this.prepareFormData(this.item);
+        console.log(formData);
+    this.service.save(formData).subscribe({
       next:(data)=>{
         if(data==1){
           this.submitted = true;

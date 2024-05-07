@@ -14,7 +14,6 @@ public class Voiture extends Modele{
 
 
     private String couleur;
-    private String photo;
 
     private int  nbrPlace;
 
@@ -44,9 +43,9 @@ public class Voiture extends Modele{
 
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinTable(name = "appartement_images",
+    @JoinTable(name = "voiture_images",
             joinColumns = {
-                    @JoinColumn(name = "appartement_id")
+                    @JoinColumn(name = "voiture_id")
             },
             inverseJoinColumns = {
                     @JoinColumn(name = "image_id")
@@ -69,14 +68,6 @@ public class Voiture extends Modele{
 
     public void setCouleur(String couleur) {
         this.couleur = couleur;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 
     public int getNbrPlace() {

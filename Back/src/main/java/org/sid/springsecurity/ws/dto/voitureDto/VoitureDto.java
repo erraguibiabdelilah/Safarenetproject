@@ -10,7 +10,6 @@ import java.util.Set;
 public class VoitureDto extends ModeleDto{
 
     private String couleur;
-    private String photo;
 
     private int  nbrPlace;
 
@@ -53,13 +52,6 @@ public class VoitureDto extends ModeleDto{
         this.couleur = couleur;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
 
     public int getNbrPlace() {
         return nbrPlace;

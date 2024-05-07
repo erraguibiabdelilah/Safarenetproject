@@ -18,7 +18,6 @@ public class VoitureConverter {
             Voiture bean = new Voiture();
             bean.setId(dto.getId());
             bean.setCouleur(dto.getCouleur());
-            bean.setPhoto(dto.getPhoto());
             bean.setNbrPlace(dto.getNbrPlace());
             bean.setMatricule(dto.getMatricule());
             bean.setKiloMetrage(dto.getKiloMetrage());
@@ -55,7 +54,6 @@ public class VoitureConverter {
             VoitureDto dto = new VoitureDto();
             dto.setId(bean.getId());
             dto.setCouleur(bean.getCouleur());
-            dto.setPhoto(bean.getPhoto());
             dto.setNbrPlace(bean.getNbrPlace());
             dto.setMatricule(bean.getMatricule());
             dto.setKiloMetrage(bean.getKiloMetrage());

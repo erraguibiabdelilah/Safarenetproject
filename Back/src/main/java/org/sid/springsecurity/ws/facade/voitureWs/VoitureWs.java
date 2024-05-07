@@ -51,12 +51,12 @@ public class VoitureWs {
     public List<VoitureDto> findByNomModele(@PathVariable String nom) {
         return converter.toDto(voitureService.findByNomModele(nom));
     }
-//
-//    @PostMapping
-//    public int save(@RequestBody VoitureDto voitureDto) {
-//        Voiture voiture=converter.toBean(voitureDto);
-//        return voitureService.save(voiture);
-//    }
+
+    @PostMapping
+    public int save(@RequestBody VoitureDto voitureDto) {
+        Voiture voiture=converter.toBean(voitureDto);
+        return voitureService.save(voiture);
+    }
 
 
 

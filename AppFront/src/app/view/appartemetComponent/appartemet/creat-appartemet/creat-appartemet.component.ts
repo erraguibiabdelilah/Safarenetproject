@@ -94,8 +94,6 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     this.appartemetService.item.images.push(fileHandle);
   }
 
-
-
   prepareFormData(apartemet:Appartement):FormData{
     const  formData=new FormData();
     formData.append(

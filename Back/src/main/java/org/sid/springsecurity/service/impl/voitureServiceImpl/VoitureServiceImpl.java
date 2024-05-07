@@ -133,7 +133,7 @@ public class VoitureServiceImpl implements VoitureService {
 
 
             existingVoiture.setCouleur(voiture.getCouleur());
-            existingVoiture.setPhoto(voiture.getPhoto());
+            existingVoiture.setImages(voiture.getImages());
             existingVoiture.setNbrPlace(voiture.getNbrPlace());
             existingVoiture.setKiloMetrage(voiture.getKiloMetrage());
             existingVoiture.setBoitevitesse(voiture.getBoitevitesse());

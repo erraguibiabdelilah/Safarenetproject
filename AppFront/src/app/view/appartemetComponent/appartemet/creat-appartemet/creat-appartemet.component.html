@@ -172,7 +172,6 @@
 
 </div>
 
-
 <p-dialog [maximizable]="true" [(visible)]="display" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
   <div class="row">
     <div class="col-12">
@@ -197,7 +196,7 @@
       <input class="form-control" type="text" pTooltip="Enter libelle" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">
     </div>
 
-    
+
     <div class="col-12 mt-5" *ngIf="isCreate">
       <div class="dropzone" appDrag (files)="fileDropped($event)"   (click)="selectFile.click()">
         <div class="dropzone-text">
@@ -250,7 +249,7 @@
 
 
 
-<p-dialog  [maximizable]="true"  [(visible)]="displayImagesByCode" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+<p-dialog  [maximizable]="true"  [(visible)]="displayImagesByCode" [style]="{width: '900px',height:'900px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
       <div class="iamges" >
         <img *ngFor="let photo of images"  [src]="getImageData(photo)"  alt="" width="200px" height="200px">
       </div>

@@ -4,7 +4,6 @@ import {FileHandle} from "../file-handle.model";
 
 export class Voiture {
   couleur:string;
-  photo:string;
   nbrPlace:string;
   matricule:string;
   kiloMetrage:string;
@@ -24,7 +23,6 @@ export class Voiture {
 
   constructor(){
     this.couleur = "";
-    this.photo = "";
     this.nbrPlace = "";
     this.matricule = "";
     this.kiloMetrage = "";

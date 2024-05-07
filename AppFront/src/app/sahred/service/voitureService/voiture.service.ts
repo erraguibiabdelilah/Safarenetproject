@@ -14,8 +14,8 @@ private url="http://localhost:8085/api/safarent/manager/voiture/"
 
   constructor(private http:HttpClient) { }
 
-  public save(): Observable<number> {
-    return this.http.post<number>(this.url, this._item);
+  public save(voitureFormData: FormData): Observable<number> {
+    return this.http.post<number>(this.url, voitureFormData);
   }
 
   public getAll():Observable<Array<Voiture>>{

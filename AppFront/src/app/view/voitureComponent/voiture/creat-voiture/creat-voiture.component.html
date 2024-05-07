@@ -31,11 +31,12 @@
             <td mat-cell *matCellDef="let element"> {{ element.couleur }}</td>
           </ng-container>
 
-
-          <ng-container matColumnDef="photo"> <!-- Utilisation de 'id' au lieu de 'Id' -->
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>photo</th>
-            <td mat-cell *matCellDef="let element"> {{ element.photo }}</td>
+<!--          (click)="photoByCode(element.code)"-->
+          <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef >photo</th>
+            <td mat-cell *matCellDef="let element"><i class="bi bi-image" ></i></td>
           </ng-container>
+
 
           <ng-container matColumnDef="nbrPlace"> <!-- Utilisation de 'id' au lieu de 'Id' -->
             <th mat-header-cell *matHeaderCellDef mat-sort-header>nbrPlace</th>
@@ -144,7 +145,7 @@
 </div>
 
 
-<p-dialog [(visible)]="display" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true"
+<p-dialog [maximizable]="true"  [(visible)]="display" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true"
           styleClass="p-fluid">
 
   <div class=" row field col">
@@ -159,11 +160,6 @@
       <input class="form-control" type="text" pInputText placeholder="nbrPlace" [(ngModel)]="item.nbrPlace" required autofocus/>
     </div>
 
-  </div>
-
-  <div class="field col">
-    <label class="form-label">photo</label>
-    <input class="form-control" type="text" pInputText placeholder="photo" [(ngModel)]="item.photo" required autofocus/>
   </div>
 
 
@@ -259,6 +255,31 @@
       </select>
     </div>
   </div>
+
+
+  <div class="col-12 mt-5">
+    <div class="dropzone" appDrag (files)="fileDropped($event)"   (click)="selectFile.click()">
+      <div class="dropzone-text">
+        <div class="center">Drag and drop your file or
+          <a class="browser-button" (click)="selectFile.click()">browse</a> a file
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input style="display: none" type="file" multiple value="select" #selectFile (change)="oneFileSelected($event)">
+    </div>
+
+    <mat-grid-list cols="6" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let file of service.item.images; let i=index;">
+        <div style="position: relative" class="mt-5">
+          <span class="btn-remove" (click)="removeImages(i)">x</span>
+          <img [src]="file.url">
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
 
 
   <ng-template pTemplate="footer">
