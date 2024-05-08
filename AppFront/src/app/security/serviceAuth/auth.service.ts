@@ -28,7 +28,7 @@ export class AuthService {
   agenceLocation:AgenceLocation=new AgenceLocation();
 
   //soient user | prop | agence
-  dataUtilisateur:Client=new Client();
+  dataUtilisateur:any;
 
   isUser: boolean = true;
   isPropraitaire!: boolean;
@@ -87,7 +87,6 @@ export class AuthService {
       {next:data=>{
           console.log(data)
           this.dataUtilisateur=data
-          console.log(this.dataUtilisateur)
         },
         error:err => {console.log("error")}
       }
@@ -104,6 +103,7 @@ export class AuthService {
     this.roles=undefined;
     window.localStorage.removeItem("jwt-token-access")
     this.router.navigateByUrl("/login")
+    location.reload();
   }
 
 
@@ -114,7 +114,6 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       let tokenAccess=window.localStorage.getItem("jwt-token-access");
       // let tokenRefrech=window.localStorage.getItem("jwt-token-ref");
-      console.log("token localStorage")
       if(tokenAccess ){
         this.loadProfile({"accessToken":tokenAccess});
         this.router.navigateByUrl("/admin")
@@ -198,5 +197,4 @@ export class AuthService {
     this.agenceLocation.password="";
     this.agenceLocation.RCAgLoc=0;
   }
-
 }

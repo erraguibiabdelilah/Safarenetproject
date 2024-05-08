@@ -13,6 +13,8 @@ import {AgenceLocationService} from "../../../../sahred/service/voitureService/a
 import {FileHandle} from "../../../../sahred/model/file-handle.model";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.model";
+import {AuthService} from "../../../../security/serviceAuth/auth.service";
+import {villesMaroc} from "../../../../layout/villes-maroc/villes-maroc.module";
 
 @Component({
   selector: 'app-creat-voiture',
@@ -20,6 +22,35 @@ import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.
   styleUrl: './creat-voiture.component.css'
 })
 export class CreatVoitureComponent  implements OnInit, AfterViewInit {
+
+
+
+  public  images:any;
+  displayImagesByCode: boolean=false;
+  selectedVoitureItem:Voiture={
+    couleur:  "",
+    nbrPlace: "",
+    matricule: "",
+    kiloMetrage: "",
+    boitevitesse: "",
+    annee:  0,
+    ville: "",
+    dateMisecirculation: new Date(),
+    dateAssurance: new Date(),
+    sateVisitetechnique: new Date(),
+    nomModele: "",
+    images: [],
+    categorie:{
+      libelle:""
+    },
+  agenceLocation: new AgenceLocation(),
+  prix:  0,
+  puissance:  0,
+  Carburant: "",
+  }
+
+  isEdit :boolean=false;
+  isCreate :boolean=false;
 
   public dataSource!: MatTableDataSource<any>;
   public display:boolean = false;
@@ -35,19 +66,16 @@ export class CreatVoitureComponent  implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!:MatSort;
 
 
-  constructor(private sanitizer:DomSanitizer, protected service:VoitureService, private categorieService:CategorieVoitureService, private agenceService :AgenceLocationService) {
+  villes:any;
+  constructor(private authService:AuthService,private sanitizer:DomSanitizer, protected service:VoitureService, private categorieService:CategorieVoitureService, private agenceService :AgenceLocationService) {
 
   }
 
-
-
   ngOnInit(): void {
+    this.villes=villesMaroc;
     this.getAll();
-
-    console.log(this.dataSource)
     this.getAllCategorie();
     this.getAllAgence();
-    console.log(this.categorie)
   this.item.categorie=new CategorieVoiture();
   this.item.agenceLocation=new AgenceLocation();
   }
@@ -87,8 +115,6 @@ getAllCategorie(){
         voiture.images[i].file.name
       );
     }
-    console.log("mohammed")
-    console.log(formData)
     return formData;
   }
 
@@ -129,6 +155,7 @@ getAllCategorie(){
 
   /**********************************************************************/
 
+
   public getAll(){
     this.service.getAll().subscribe({
       next:(data)=>{
@@ -136,7 +163,7 @@ getAllCategorie(){
         this.items=data;
         this.dataSource = new MatTableDataSource<any>(this.items);
 
-        if(data.length!=0){console.log(data); console.log(this.items)}
+        if(data.length!=0){console.log(data); }
       },
       error:(err)=>{
         console.log('verifier getAll categorie Voiture');
@@ -146,14 +173,15 @@ getAllCategorie(){
 
 
 
-
-
-
   showDialog() {
+    this.isCreate=true;
+    this.isEdit=false;
     this.display = true;
   }
 
   saveObject() {
+      this.item.agenceLocation.iceAgLoc=this.authService.dataUtilisateur.iceAgLoc;
+      console.log(this.item)
         const formData=this.prepareFormData(this.item);
         console.log(formData);
     this.service.save(formData).subscribe({
@@ -161,7 +189,7 @@ getAllCategorie(){
         if(data==1){
           this.submitted = true;
           this.display=false;
-          alert('ok')
+          this.getAll();
         }
         else {
           console.log(data)
@@ -223,15 +251,10 @@ getAllCategorie(){
   }
 
   editProduct(item: Voiture) {
-    this.service.update(item).subscribe({
-      next:(data)=>{
-        if(data==1){
-          alert("updated")
-        }else{
-          console.log(data);
-        }
-      }
-    })
+      this.isCreate=false;
+      this.isEdit=true
+      this.selectedVoitureItem = Object.assign({}, item);
+      this.display = true;
   }
 
 
@@ -247,4 +270,86 @@ getAllCategorie(){
     })
   }
 
+
+
+  photoByMatricule(matricule:string) {
+    this.service.getImagesVoitureByMatricule(matricule).subscribe({
+      next:data=>{
+        this.images=data;
+        this.displayImagesByCode=true;
+      },
+      error:err => {
+
+      }
+    });
+  }
+
+  getImageData(photo:any) {
+    // // return 'data:image/jpeg;base64,' + image1.picByte;
+    // console.log('data:'+image1.type+';base64,' + image1.picByte)
+    return 'data:'+photo.type+';base64,' + photo.picByte;
+  }
+
+  EditObject() {
+    console.log(this.selectedVoitureItem)
+    this.item.images=this.selectedVoitureItem.images;
+    this.item.agenceLocation.iceAgLoc=this.authService.dataUtilisateur.iceAgLoc;
+
+    if(this.item.couleur==""){
+      this.item.couleur=this.selectedVoitureItem.couleur
+    }
+    if(this.item.nbrPlace==""){
+      this.item.nbrPlace=this.selectedVoitureItem.nbrPlace
+    }
+
+    if(this.item.matricule==""){
+      this.item.matricule=this.selectedVoitureItem.matricule
+    }
+    if(this.item.kiloMetrage==""){
+      this.item.kiloMetrage=this.selectedVoitureItem.kiloMetrage
+    }
+    if(this.item.boitevitesse==""){
+      this.item.boitevitesse=this.selectedVoitureItem.boitevitesse
+    }
+    if(this.item.annee==0){
+      this.item.annee=this.selectedVoitureItem.annee
+    }
+    if(this.item.ville==""){
+      this.item.ville=this.selectedVoitureItem.ville
+    }
+    if(!this.item.dateMisecirculation){
+      this.item.dateMisecirculation=this.selectedVoitureItem.dateMisecirculation
+    }
+    if(!this.item.dateAssurance){
+      this.item.dateAssurance=this.selectedVoitureItem.dateAssurance
+    }
+    if(!this.item.sateVisitetechnique){
+      this.item.sateVisitetechnique=this.selectedVoitureItem.sateVisitetechnique
+    }
+    if(this.item.nomModele==""){
+      this.item.nomModele=this.selectedVoitureItem.nomModele
+    }
+    if(this.item.categorie.libelle==null){
+      this.item.categorie=this.selectedVoitureItem.categorie
+    }
+    if(!this.item.prix){
+      this.item.prix=this.selectedVoitureItem.prix
+    }
+    if(!this.item.puissance){
+      this.item.puissance=this.selectedVoitureItem.puissance
+    }
+    if(!this.item.Carburant){
+      this.item.Carburant=this.selectedVoitureItem.Carburant
+    }
+    this.service.update(this.item).subscribe({
+      next:(data)=>{
+        if(data==1){
+         this.display=false
+          this.getAll();
+        }else{
+          console.log(data);
+        }
+      }
+    })
+  }
 }

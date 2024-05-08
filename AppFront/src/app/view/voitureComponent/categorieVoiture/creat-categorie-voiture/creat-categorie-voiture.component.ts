@@ -8,6 +8,9 @@ import {Voiture} from "../../../../sahred/model/voitureModel/voiture.model";
 import {VoitureService} from "../../../../sahred/service/voitureService/voiture.service";
 import {CategorieVoiture} from "../../../../sahred/model/voitureModel/categorie-voiture.model";
 import {CategorieVoitureService} from "../../../../sahred/service/voitureService/categorie-voiture.service";
+import {CategoriesAppartement} from "../../../../sahred/model/appartemetModel/categories-appartement.model";
+import {content} from "html2canvas/dist/types/css/property-descriptors/content";
+
 
 @Component({
   selector: 'app-creat-categorie-voiture',
@@ -15,6 +18,9 @@ import {CategorieVoitureService} from "../../../../sahred/service/voitureService
   styleUrl: './creat-categorie-voiture.component.css'
 })
 export class CreatCategorieVoitureComponent implements OnInit, AfterViewInit {
+  public isEdit: boolean=false;
+  public isCreat: boolean=false;
+
 
 public dataSource!: MatTableDataSource<any>;
 public display:boolean = false;
@@ -68,6 +74,8 @@ public ListeColum = [
 
 
   showDialog() {
+    this.isCreat=true;
+    this.isEdit=false
     this.display = true;
   }
 
@@ -77,7 +85,7 @@ public ListeColum = [
         if(data==1){
           this.submitted = true;
           this.display=false;
-          alert('ok')
+         this.getAll();
         }
         else {
           console.log(data)
@@ -138,10 +146,20 @@ public ListeColum = [
     this.service.items = value;
   }
 
-  editProduct(item: CategorieVoiture) {
+  selectedCategorieItem: CategorieVoiture ={
+    "libelle":""
+  };
 
-        alert('pas de champ à modifier ');
+  editCategorie(element:CategorieVoiture) {
+    console.log(element)
+    console.log(this.selectedCategorieItem)
+    this.isCreat=false;
+    this.isEdit=true
+    this.selectedCategorieItem = Object.assign({}, element);
+    this.display = true;
+
   }
+
 
   protected readonly console = console;
 
@@ -159,5 +177,22 @@ public ListeColum = [
   }
 
 
+  Editbject() {
+    let data={
+      "libelle": this.selectedCategorieItem.libelle,
+      "libelleNew": this.item.libelle
+    }
+    console.log(data);
+    this.service.update(data).subscribe({
+      next:data=>{
+        console.log(data)
+        this.display=false;
+        this.getAll();
+      },
+      error:err => {
+        console.log(err)
+      }
+    })
+  }
 }
 

@@ -26,8 +26,8 @@ export class CategorieVoitureService {
     return this.http.delete<number>(`${this.url}libelle/${libelle}`);
   }
 
-  public  update(categorie:CategorieVoiture):Observable<any>{
-    return this.http.put(this.url,categorie)
+  public  update(data:any):Observable<any>{
+    return this.http.put(this.url,data)
   }
 
   get item(): CategorieVoiture {

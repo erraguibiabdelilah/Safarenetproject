@@ -18,7 +18,7 @@ import {response} from "express";
 import {AuthService} from "../../../../security/serviceAuth/auth.service";
 import {FileHandle} from "../../../../sahred/model/file-handle.model";
 import {DomSanitizer} from "@angular/platform-browser";
-
+import {villesMaroc} from  "../../../../layout/villes-maroc/villes-maroc.module"
 @Component({
   selector: 'app-creat-appartemet',
   templateUrl: './creat-appartemet.component.html',
@@ -38,11 +38,13 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   ];
 
 
+  villes = villesMaroc;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!:MatSort;
 
   images:any;
 
+wifi :any;
   selectedAppartementItem: Appartement ={
     "id":0,
     "code":"",
@@ -53,7 +55,6 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     "wifi": "",
     "nmbrPersont": 0,
     "climatiseur": "",
-    reservationDto:{},
     images:[],
     categoriesAppartementDto : {
       id:0,
@@ -74,12 +75,15 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
 
   isEdit :boolean=false;
   isCreate :boolean=false;
+  protected categorie!: Array<CategoriesAppartement>;
 
 
   constructor(private sanitizer:DomSanitizer, protected appartemetService:AppartemetService, private categoriesAppartementService:CategoriesAppartementService, protected authService:AuthService) {
   }
 
   ngOnInit(): void {
+    this.wifi=["oui","non"]
+    this.getAllCategorie();
     this.viderItemSelected();
     this.getAll()
     console.log(this.authService.dataUtilisateur)
@@ -160,24 +164,40 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
 
 
   updateObject() {
+    console.log("item prev :")
     console.log(this.selectedAppartementItem)
+    console.log("item new :")
     console.log(this.item)
-    this.appartemetService.update(this.item).subscribe({
-      next:data=>{
-        if(data==1){
-          this.getAll();
-          this.display=false;
-          console.log(data)
-        }else {
-         console.log(data)
-        }
 
-      },
-      error:err => {
-        console.log(err)
-      }
-    })
+    this.item.images=this.selectedAppartementItem.images;
+    this.item.propAppartemenetDto=this.selectedAppartementItem.propAppartemenetDto
 
+    if(this.item.superficie==0){
+      this.item.superficie=this.selectedAppartementItem.superficie;
+    }
+    if(this.item.adresse==""){
+      this.item.adresse=this.selectedAppartementItem.adresse;
+    }
+    if(this.item.loyerMensuel==0){
+      this.item.loyerMensuel=this.selectedAppartementItem.loyerMensuel;
+    }
+    if(this.item.ville==""){
+      this.item.ville =this.selectedAppartementItem.ville;
+    }
+    if(this.item.wifi ==""){
+      this.item.ville =this.selectedAppartementItem.wifi;
+    }
+    if(this.item.nmbrPersont ==0){
+      this.item.nmbrPersont =this.selectedAppartementItem.nmbrPersont;
+    }
+    if(this.item.climatiseur ==""){
+      this.item.climatiseur =this.selectedAppartementItem.climatiseur;
+    }
+    if(!this.item.categoriesAppartementDto){
+      console.log("categoriesAppartement")
+      this.item.categoriesAppartementDto=this.selectedAppartementItem.categoriesAppartementDto
+    }
+    this.update();
   }
 /***************************************************************************************************/
   oneFileSelected($event: Event) {
@@ -289,10 +309,18 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
 
   public  update():any{
     return this.appartemetService.update(this.item).subscribe({
-      next:()=>{
-        this.getAll();
+      next:data=>{
+        if(data==1){
+          this.getAll();
+          this.display=false;
+          console.log(data)
+        }else {
+          console.log(data)
+        }
+
       },
-      error:()=>{
+      error:err => {
+        console.log(err)
       }
     })
   }
@@ -308,7 +336,6 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
       "wifi": "",
       "nmbrPersont": 0,
       "climatiseur": "",
-      reservationDto:{},
       images:[],
       categoriesAppartementDto : {
         id:0,
@@ -328,7 +355,10 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     }
   }
 
-
+  getAllCategorie(){
+    this.categoriesAppartementService.getAll().subscribe({
+      next:(data)=>{this.categorie=data}})
+  }
 
 
   get item(): Appartement {
@@ -353,156 +383,6 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
     // this.dataSource.sort=this.sort;
   }
 
-
-
-  //
-  // public _ok:boolean=false;
-  //
-  // public  propUpdate!:Appartement;
-  //
-  // public  categorits : CategoriesAppartement[]=[]
-  //
-  // public  categoriesString: string[]=[]
-  //
-  // public selectedCategory: string="";
-  //
-  // public  propAppartements! :PropAppartement[]
-  //
-  // public  propString : string[]=[]
-  // public  selectedProp :string=""
-  // constructor(public appartemetService :AppartemetService,public categorieService:CategoriesAppartementService,public  propAppartement:PropAppartementService) {
-  // }
-  //
-  // public save() {
-  //   this.item.categoriesAppartementDto.libelle=this.selectedCategory
-  //   this.item.propAppartemenetDto.cin=this.selectedProp
-  //   this.service.save().subscribe({
-  //
-  //     next: (response: number) => {
-  //
-  //       console.log(response)
-  //       if (response === -1) {
-  //
-  //       } else if (response === -2) {
-  //         console.log("mohammed l3z!!")
-  //       } else if (response === -3) {
-  //         // Traitement pour le cas où l'enregistrement a échoué avec le code -3
-  //       } else if (response === 1) {
-  //
-  //         this._ok = true
-  //         setTimeout(() => {
-  //           this._ok = false; // Hide the notification after 5 seconds
-  //         }, 10000);
-  //
-  //         this.getAll();
-  //
-  //       }
-  //     },
-  //     error: () => {
-  //       // Gérer les erreurs
-  //     }
-  //   });
-  // }
-  //
-  //
-  // public  getAll(){
-  //   this.appartemetService.getAll().subscribe({
-  //     next:data=>{
-  //       this.items=data
-  //     },
-  //     error:err => {
-  //       console.log(err)
-  //     }
-  //   })
-  // }
-  //
-  //
-  //
-  // public  getCategoriesLibelle(){
-  //   this.categorieService.getAll().subscribe(
-  //     {
-  //       next:data=>{
-  //         this.categorits=data
-  //         this.categorits.map(c=>{
-  //           this.categoriesString.push(c.libelle.toString())
-  //         })
-  //       }
-  //     }
-  //   )
-  // }
-  //
-  // public  getPropCin(){
-  //   this.propAppartement.getAll().subscribe(
-  //     {
-  //       next:data=>{
-  //         this.propAppartements=data
-  //         this.propAppartements.map(c=>{
-  //           this.propString.push(c.cin.toString())
-  //         })
-  //       }
-  //     }
-  //   )
-  // }
-  //
-  //
-  // public  delete(cin:string){
-  //   this.appartemetService.delete(cin).subscribe({
-  //     next:value => {
-  //       this.getAll();
-  //     },
-  //     error:err => {
-  //       console.log(err)
-  //     }
-  //   })
-  // }
-  //
-  //
-  // public  update():any{
-  //   return this.appartemetService.update(this.propUpdate).subscribe({
-  //     next:()=>{
-  //       this.getAll();
-  //     },
-  //     error:()=>{
-  //
-  //     }
-  //
-  //   })
-  //
-  // }
-  //
-  //
-  //
-  // get item(): Appartement {
-  //   return this.appartemetService.item;
-  // }
-  //
-  // set item(value: Appartement) {
-  //   this.appartemetService.item = value;
-  // }
-  //
-  // get items(): Array<Appartement> {
-  //   return this.appartemetService._items;
-  // }
-  //
-  // set items(value: Array<Appartement>) {
-  //   this.appartemetService._items = value;
-  // }
-  //
-  //
-  // get service(): AppartemetService {
-  //   return this.appartemetService;
-  // }
-  //
-  // set service(value: AppartemetService) {
-  //   this.appartemetService = value;
-  // }
-  //
-  // ngOnInit(): void {
-  //   console.log(this.items.map(value => console.log(value)))
-  //   this.getAll();
-  //   this.getCategoriesLibelle();
-  //   this.getPropCin();
-  // }
 
   photoByCode(code:any) {
     this.appartemetService.getImagesByProduitRef(code).subscribe(

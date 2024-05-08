@@ -10,8 +10,7 @@ import {CategorieVoiture} from "../../model/voitureModel/categorie-voiture.model
 export class VoitureService {
 private _item:Voiture=new Voiture();
 private _items:Array<Voiture>=new Array<Voiture>();
-private url="http://localhost:8085/api/safarent/manager/voiture/"
-
+private url="http://localhost:8085/api/safarent/manager/voiture/";
   constructor(private http:HttpClient) { }
 
   public save(voitureFormData: FormData): Observable<number> {
@@ -28,6 +27,10 @@ private url="http://localhost:8085/api/safarent/manager/voiture/"
 
   public  update(voiture:Voiture):Observable<any>{
     return this.http.put(this.url,voiture)
+  }
+
+  public getImagesVoitureByMatricule(matricule:String):Observable<any>{
+    return this.http.get<any>(`${this.url}images/${matricule}`);
   }
 
 

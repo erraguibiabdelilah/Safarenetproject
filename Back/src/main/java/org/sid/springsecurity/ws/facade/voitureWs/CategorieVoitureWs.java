@@ -6,6 +6,7 @@ import org.sid.springsecurity.service.facade.voitureService.CategorieVoitureServ
 import org.sid.springsecurity.ws.converter.voitureConverter.CategorieVoitureConverter;
 import org.sid.springsecurity.ws.dto.voitureDto.CategorieVoitureDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,4 +42,16 @@ public class CategorieVoitureWs {
     public int deleteByLibelle(@PathVariable String libelle) {
         return categorieVoitureService.deleteByLibelle(libelle);
     }
+
+    @PutMapping
+    public int update(@RequestBody UpdateCategories updateCategories) {
+        System.out.println(updateCategories);
+        return categorieVoitureService.update(updateCategories.libelle,updateCategories.libelleNew);
+    }
+
+}
+
+class UpdateCategories{
+    public   String libelle;
+    public   String libelleNew;
 }

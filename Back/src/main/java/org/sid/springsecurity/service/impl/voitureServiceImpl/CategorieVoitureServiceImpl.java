@@ -1,5 +1,6 @@
 package org.sid.springsecurity.service.impl.voitureServiceImpl;
 
+import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
 import org.sid.springsecurity.bean.voitureBean.CategorieVoiture;
 import org.sid.springsecurity.dao.voitureDao.CategorieVoitureDao;
 import org.sid.springsecurity.service.facade.voitureService.CategorieVoitureService;
@@ -33,6 +34,24 @@ public class CategorieVoitureServiceImpl implements CategorieVoitureService {
             e.printStackTrace();
             return -4;
         }
+    }
+
+
+    @Override
+    public int update(String libelle, String libelleNew) {
+
+        if (libelle == null || libelle.isEmpty()) {
+            return -1;
+        }
+
+        CategorieVoiture categorieVoiture = categorieVoitureDao.findByLibelle(libelle);
+        if (categorieVoiture == null) {
+            return -2;
+        }
+
+        categorieVoiture.setLibelle(libelleNew);
+        categorieVoitureDao.save(categorieVoiture);
+        return 1;
     }
 
 

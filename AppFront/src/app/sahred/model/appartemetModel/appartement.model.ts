@@ -13,7 +13,6 @@ export class Appartement {
   wifi: string;
   nmbrPersont: number;
   climatiseur: string;
-  reservationDto: Reservation;
   images: FileHandle[];
   categoriesAppartementDto: CategoriesAppartement;
   propAppartemenetDto: PropAppartement;
@@ -27,7 +26,6 @@ export class Appartement {
     this.wifi="";
     this.nmbrPersont=0;
     this.climatiseur="";
-    this.reservationDto = {};
     this.images=[]
     this.categoriesAppartementDto = {
       id:0,

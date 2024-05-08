@@ -1,87 +1,3 @@
-<!--<div class="container mt-5">-->
-<!--  <div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Categories save with succes-->
-<!--    <i class="bi bi-bell-fill"></i></div>-->
-<!--  <div class="card">-->
-<!--    <h5 class="card-header">Categories-->
-<!--      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-<!--        <i class="bi bi-plus-square custom-icon"></i> Ajouter-->
-<!--      </button>-->
-<!--    </h5>-->
-
-<!--    <div class="card-body">-->
-<!--      <table class="table table-striped">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--          <th>libelle</th>-->
-<!--          <th>Action</th>-->
-<!--          <th>listAppartemet</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr *ngFor="let ez of items; let i = index">-->
-<!--          <td>{{ez.libelle}}</td>-->
-<!--          <td>-->
-<!--            <div class="d-flex gap-2">-->
-<!--              <a class="btn btn-outline-danger" (click)="delete(ez.libelle)">-->
-<!--                <i class="bi bi-trash"></i>-->
-<!--              </a>-->
-<!--              <app-edit-categories-appartement [libelleEnfante]="ez.libelle"> <i class="bi bi-pencil-square"></i></app-edit-categories-appartement>-->
-<!--              <a class="btn btn-outline-primary">-->
-<!--                <i class="bi bi-printer"></i>-->
-<!--              </a>-->
-<!--            </div>-->
-<!--          </td>-->
-<!--          <td>-->
-<!--            <button class="btn btn-outline-primary" (click)="getAppartemetsbyLibelle(ez.libelle)">-->
-<!--              <i class=" bi-house-door-fill"></i>-->
-<!--            </button>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-<!--<div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Propritaire save with succes-->
-<!--  <i class="bi bi-bell-fill"></i></div>-->
-
-<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content custom-modal">-->
-<!--      <div class="modal-header bg-primary text-white">-->
-<!--        <h5 class="modal-title" id="exampleModalLabel">Ajouter un élément</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        <div class="p-3">-->
-<!--          <div class="card">-->
-<!--            <div class="card-body">-->
-<!--              <div class="col-md-6">-->
-<!--                <form>-->
-<!--                  <div class="col-12">-->
-<!--                    <label class="form-label">libelle</label>-->
-<!--                    <input class="form-control" [(ngModel)]="item.libelle" [ngModelOptions]="{standalone: true}" >-->
-<!--                  </div>-->
-<!--                </form>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="card-footer m-5">-->
-<!--        <button class="btn btn-outline-danger" type="submit" (click)="save()" >Save</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-
-
 <div class="table-wrapper mt-10">
   <mat-card>
     <mat-card-header><mat-card-title> Appartements  </mat-card-title> </mat-card-header>
@@ -167,8 +83,6 @@
         </ng-container>
 
 
-
-
         <ng-container matColumnDef="photo">
           <th mat-header-cell *matHeaderCellDef >photo</th>
           <td mat-cell *matCellDef="let element"><i class="bi bi-image" (click)="photoByCode(element.code)"></i></td>
@@ -220,27 +134,37 @@
       <input class="form-control" type="number" pTooltip="Enter loyer" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.loyerMensuel" [value]="selectedAppartementItem.loyerMensuel">
     </div>
 
-
     <div class="col-12">
       <label>Ville</label>
-      <input class="form-control" type="text" pTooltip="Enter Ville" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.ville" [value]="selectedAppartementItem.loyerMensuel">
+
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [(ngModel)]="item.ville" [value]="selectedAppartementItem.ville">
+        <option *ngFor="let option of villes" [value]="option">{{ option }}</option>
+      </select>
     </div>
     <div class="col-12">
       <label>Wifi</label>
-      <input class="form-control" type="text" pTooltip="Enter Wiffi" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.wifi" [value]="selectedAppartementItem.loyerMensuel">
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [(ngModel)]="item.wifi" [value]="selectedAppartementItem.wifi">
+        <option *ngFor="let option of wifi" [value]="option">{{ option }}</option>
+      </select>
     </div>
     <div class="col-12">
       <label>Nomber Persont</label>
-      <input class="form-control" type="number" pTooltip="Enter Nomber de persont" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.nmbrPersont" [value]="selectedAppartementItem.loyerMensuel">
+      <input class="form-control" type="number" pTooltip="Enter Nomber de persont" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.nmbrPersont" [value]="selectedAppartementItem.nmbrPersont">
     </div>
     <div class="col-12">
       <label>Climatiseur</label>
-      <input class="form-control" type="text" pTooltip="Enter Climatiseur" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.climatiseur" [value]="selectedAppartementItem.loyerMensuel">
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [(ngModel)]="item.climatiseur"  [value]="selectedAppartementItem.climatiseur">
+        <option *ngFor="let option of wifi" [value]="option">{{ option }}</option>
+      </select>
     </div>
 
     <div class="col-12">
+
       <label>libelle</label>
-      <input class="form-control" type="text" pTooltip="Enter libelle" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">
+<!--      <input class="form-control" type="text" pTooltip="Enter libelle" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">-->
+      <select class="form-select form-select-lg " aria-label=".form-select-lg example"  [(ngModel)]="item.categoriesAppartementDto.libelle" [value]="selectedAppartementItem.categoriesAppartementDto.libelle">
+        <option *ngFor="let option of categorie" [value]="option.libelle">{{ option.libelle }}</option>
+      </select>
     </div>
 
 
@@ -289,128 +213,8 @@
     <button *ngIf="isEdit" pButton pRipple label="Update" icon="pi pi-check" class="p-button-text" (click)="updateObject()"></button>
   </ng-template>
 </p-dialog>
-
-
-
-
-
-
-
 <p-dialog  [maximizable]="true"  [(visible)]="displayImagesByCode" [style]="{width: '900px',height:'900px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
       <div class="iamges" >
         <img *ngFor="let photo of images"  [src]="getImageData(photo)"  alt="" width="200px" height="200px">
       </div>
 </p-dialog>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="container mt-5">-->
-<!--  <div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Appartement save with succes-->
-<!--    <i class="bi bi-bell-fill"></i></div>-->
-<!--  <div class="card">-->
-<!--    <h5 class="card-header">ProPritaire-->
-<!--      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-<!--        <i class="bi bi-plus-square custom-icon"></i> Ajouter-->
-<!--      </button>-->
-<!--    </h5>-->
-<!--    <div class="card-body">-->
-<!--      <table class="table table-striped">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--          <th>code</th>-->
-<!--          <th>adress</th>-->
-<!--          <th>superficie</th>-->
-<!--          <th>loyerMensuel</th>-->
-<!--          <th>cin</th>-->
-<!--          <th>libelle</th>-->
-<!--          <th>Actions</th> &lt;!&ndash; Nouvelle colonne pour les actions &ndash;&gt;-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr *ngFor="let ez of items; let i = index">-->
-<!--          <td>{{ez.code}}</td>-->
-<!--          <td>{{ez.adresse}}</td>-->
-<!--          <td>{{ez.superficie}}</td>-->
-<!--          <td>{{ez.loyerMensuel}}</td>-->
-<!--          <td>{{ez.propAppartemenetDto.cin}}</td>-->
-<!--          <td>{{ez.categoriesAppartementDto.libelle}}</td>-->
-<!--          <td>-->
-<!--            <div class="d-flex gap-2"> &lt;!&ndash; Utilisation d'une classe flexbox avec un espace entre les éléments &ndash;&gt;-->
-<!--              <a class="btn btn-outline-danger" (click)="delete(ez.code)">-->
-<!--                <i class="bi bi-trash"></i>-->
-<!--              </a>-->
-<!--              <app-edit-appartemet [codeEnfante]="ez.code"></app-edit-appartemet>-->
-<!--              <a class="btn btn-outline-primary">-->
-<!--                <i class="bi bi-printer"></i>-->
-<!--              </a>-->
-<!--            </div>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content custom-modal">-->
-<!--      <div class="modal-header bg-primary text-white">-->
-<!--        <h5 class="modal-title" id="exampleModalLabel">Ajouter un élément</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        <div class="p-3">-->
-<!--          <div class="card">-->
-<!--            <div class="card-body">-->
-<!--              <div class="col-md-6">-->
-<!--                <form>-->
-<!--                  <div class="col-12">-->
-<!--                    <label class="form-label">code</label>-->
-<!--                    <input class="form-control" [(ngModel)]="item.code" [ngModelOptions]="{standalone: true}" >-->
-<!--                  </div>-->
-<!--                  <div class="mb-3">-->
-<!--                    <label class="form-label">adresse</label>-->
-<!--                    <input class="form-control" [(ngModel)]="item.adresse" [ngModelOptions]="{standalone: true}" >-->
-<!--                  </div>-->
-<!--                  <div class="mb-3">-->
-<!--                    <label class="form-label">superficie</label>-->
-<!--                    <input class="form-control" [(ngModel)]="item.superficie" [ngModelOptions]="{standalone: true}" >-->
-<!--                  </div>-->
-<!--                  <div class="mb-3">-->
-<!--                    <label class="form-label">loyerMensuel</label>-->
-<!--                    <input class="form-control" [(ngModel)]="item.loyerMensuel" [ngModelOptions]="{standalone: true}" >-->
-<!--                  </div>-->
-<!--                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"   [(ngModel)]="selectedProp" [ngModelOptions]="{standalone: true}" >-->
-<!--                    <option *ngFor="let option of propString" [value]="option">{{ option }}</option>-->
-<!--                  </select>-->
-
-<!--                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedCategory" [ngModelOptions]="{standalone: true}" >-->
-<!--                    <option *ngFor="let option of categoriesString" [value]="option">{{ option }}</option>-->
-<!--                  </select>-->
-<!--                  <button class="btn btn-outline-danger" type="submit" (click)="save()" >Save</button>-->
-<!--                </form>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-

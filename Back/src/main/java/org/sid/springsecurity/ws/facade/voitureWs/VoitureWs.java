@@ -60,6 +60,9 @@ public class VoitureWs {
 
 
 
+
+
+
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public @ResponseBody int save(@RequestPart("voiture") VoitureDto voitureDto,
                                   @RequestPart("imageFile") MultipartFile[] file) {
