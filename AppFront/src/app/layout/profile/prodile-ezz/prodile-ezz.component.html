@@ -57,18 +57,18 @@
                       <h6 class="text-muted f-w-400">{{client.numTeleClient}}</h6>
                     </div>
                   </div>
-                  <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information de Paiemment</h6>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <p class="m-b-10 f-w-600">Rib Banking</p>
-                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>
-                    </div>
-                    <div class="col-sm-6">
-                      <p class="m-b-10 f-w-600">Credit Card Number</p>
-                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>
-                    </div>
-                  </div>
-                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
+<!--                  <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information de Paiemment</h6>-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <p class="m-b-10 f-w-600">Rib Banking</p>-->
+<!--                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <p class="m-b-10 f-w-600">Credit Card Number</p>-->
+<!--                      <h6 class="text-muted f-w-400">makayeneche fe backend</h6>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/editProfile">Update</button>
                 </div>
                 <!--                Profile Manager_Apt-->
                 <div class="" *ngIf="authService.roles.includes('MANAGER-APT')">
@@ -117,7 +117,7 @@
                       <h6 class="text-muted f-w-400">{{propre.numCompteBkPropApp}}</h6>
                     </div>
                   </div>
-                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/editProfile">Update</button>
                 </div>
                 <!--                Profile Manager_Voi-->
                 <div class="" *ngIf="authService.roles.includes('MANAGER-VOI')">
@@ -160,7 +160,7 @@
                       <h6 class="text-muted f-w-400">{{agence.raisonSocialAg}}</h6>
                     </div>
                   </div>
-                  <button class="btn btn-outline-secondary mt-3" routerLink="/profile">Update</button>
+                  <button class="btn btn-outline-secondary mt-3" routerLink="/editProfile">Update</button>
                 </div>
 
 

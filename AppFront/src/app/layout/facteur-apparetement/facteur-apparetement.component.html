@@ -30,12 +30,12 @@
 
               <div class="content">
                 <h2>categoreie</h2>
-                <p>adress</p>
+                <p>adress:{{apparetement.adresse}}</p>
                   <div class="grid-container">
-                  <div><i class="bi bi-person-fill"></i> <span>supreficie</span></div>
-                  <div><i class="bi bi-slack"></i><span>Climatisation</span></div>
-                  <div> <i class="bi bi-terminal-fill"><a>5 persone</a></i></div>
-                  <div> <i class="bi bi-terminal-fill"><a>Free wifi</a></i></div>
+                  <div><i class="bi bi-person-fill"></i> <span>supreficie: {{apparetement.superficie}} m<sup>2</sup></span></div>
+                  <div><i class="bi bi-slack"></i><span>Climatisation:{{apparetement.climatiseur}}</span></div>
+                  <div> <i class="bi bi-terminal-fill"><a>pour {{apparetement.nmbrPersont}} persone</a></i></div>
+                  <div *ngIf="apparetement.wifi=='oui'"> <i class="bi bi-terminal-fill"><a>avec wifi</a></i></div>
 
 
                 </div>
@@ -70,7 +70,7 @@
                     </div>
 
                     <div>
-                      <i class="bi bi-terminal-fill"></i> <span>Comptoir de l’agence et voiture dans le terminal</span>
+                      <i class="bi bi-terminal-fill"></i> <span>Comptoir de propre d'appartement dans le terminal</span>
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                   </li>
                 </ul>
                 <h5>Ce qui est inclus</h5>
-                <p>Le ou les éléments suivants sont inclus dans le prix total de la location de voiture.</p>
+                <p>Le ou les éléments suivants sont inclus dans le prix total de la location de appartement.</p>
                 <div>
                   <i class="bi bi-check2"></i> <span style="margin-left: 2px;">Assurance collision debase</span>
                   <ul class="multi-column-list">
@@ -128,7 +128,7 @@
                     <li>
                       Alamo Rent A Car vous enverra un e-mail ou un message pour l’enregistrement
                       en
-                      ligne dès que vous aurez réservé votre voiture
+                      ligne dès que vous aurez réservé votre appartement
                     </li>
                     <li>
                       Aucun document à remplir lors de la prise en charge
@@ -151,7 +151,7 @@
         <div class="col-4">
           <div class="card  cardTwo">
             <div class="card-body">
-              <h1 class="content">$65</h1>
+              <h1 class="content">${{apparetement.loyerMensuel}}</h1>
               <span style="font-size: 13px;">per day</span>
               <div style="line-height: 13px;">
                 <p class="text-success">Free cancellation</p>
@@ -171,9 +171,9 @@
               <div class="grid-container4">
 
                 <div><span>Car rental fee x 1 day</span>
-                  <p>$65.40 per day</p>
+                  <p>${{apparetement.loyerMensuel}} per day</p>
                 </div>
-                <div><span>$65.40</span></div>
+                <div><span>${{apparetement.loyerMensuel}}</span></div>
 
                 <div> <a>Taxes and fees</a></div>
                 <div> <a>$24.85</a></div>
@@ -181,13 +181,13 @@
               <hr>
               <div class="grid-container4 ">
                 <div> <span>Total</span></div>
-                <div><span>$65.40</span></div>
+                <div><span>${{apparetement.loyerMensuel}}</span></div>
 
                 <div> <a>Pay at pick-up</a></div>
-                <div> <a>$90.25</a></div>
+                <div> <a>${{apparetement.loyerMensuel}}</a></div>
 
                 <div> <a>Pay now</a></div>
-                <div> <a>$0.00</a></div>
+                <div> <a>${{apparetement.loyerMensuel}}</a></div>
               </div>
 
             </div>

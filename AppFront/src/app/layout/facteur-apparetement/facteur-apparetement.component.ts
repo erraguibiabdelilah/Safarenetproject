@@ -1,6 +1,9 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import {ActivatedRoute} from "@angular/router";
+import {Appartement} from "../../sahred/model/appartemetModel/appartement.model";
+import {AppartemetService} from "../../sahred/service/appartemetService/appartemet.service";
 
 @Component({
   selector: 'app-facteur-apparetement',
@@ -9,12 +12,21 @@ import jsPDF from "jspdf";
 })
 export class FacteurApparetementComponent implements OnInit{
   lastClicked: HTMLElement | null = null;
+  code:any;
+  apparetement=new Appartement();
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef , private route: ActivatedRoute , private appartementService: AppartemetService) { }
 
   ngOnInit(): void {
     const defaultActiveElement = this.elementRef.nativeElement.querySelector('.nav-item.active');
     this.toggleHoverEffect(defaultActiveElement);
+
+
+    this.route.params.subscribe(params => {
+      this.code = params['code'];
+      console.log(this.code);
+    });
+    this.getApparetementByCode();
   }
   toggleHoverEffect(element: EventTarget | null) {
     if (element instanceof HTMLElement) {
@@ -32,13 +44,6 @@ export class FacteurApparetementComponent implements OnInit{
       this.lastClicked = element;
     }
   }
-
-
-
-
-
-
-
   scrollTo(id: string) {
     const element = this.elementRef.nativeElement.querySelector(`#${id}`);
     if (element) {
@@ -67,4 +72,15 @@ export class FacteurApparetementComponent implements OnInit{
     });
   }
 
+
+
+getApparetementByCode(){
+    this.appartementService.get(this.code).subscribe({
+      next:data=>{
+        console.log(data)
+        this.apparetement = data ;
+      },
+      error:err=>{console.log(err)}
+    })
+}
 }

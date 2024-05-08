@@ -408,7 +408,7 @@ export class LoginComponent implements OnInit {
           this.isConnected=true;
           this.authService.loadProfile(data)
           setTimeout(()=>{
-            this.router.navigateByUrl("home");
+            this.router.navigateByUrl("/home");
           },500);
 
         },

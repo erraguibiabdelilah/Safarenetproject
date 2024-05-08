@@ -102,8 +102,9 @@ export class AuthService {
     this.username=undefined;
     this.roles=undefined;
     window.localStorage.removeItem("jwt-token-access")
-    this.router.navigateByUrl("/login")
+    // this.router.navigateByUrl("/login")
     location.reload();
+    this.router.navigateByUrl("/home")
   }
 
 
@@ -116,7 +117,11 @@ export class AuthService {
       // let tokenRefrech=window.localStorage.getItem("jwt-token-ref");
       if(tokenAccess ){
         this.loadProfile({"accessToken":tokenAccess});
-        this.router.navigateByUrl("/admin")
+
+          this.router.navigateByUrl("/home")
+
+
+
 
       }
     }

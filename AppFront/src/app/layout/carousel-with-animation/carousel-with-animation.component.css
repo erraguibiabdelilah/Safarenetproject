@@ -411,8 +411,12 @@
 }
 
 .conteneur{
+<<<<<<< HEAD
   /*background:grey no-repeat center center / cover;*/
   width: 78rem;
+=======
+
+>>>>>>> 0a07b94f455eb2e21e1947126278398b8dbc4963
   background:grey no-repeat center center / cover;
   width: 86rem;
   border: 1px solid #000;
