@@ -118,7 +118,7 @@ export class ProfileComponent implements OnInit {
       next: (data) => {
         if (data === 1) {
           alert("mise à jour est effectuee avec succes ");
-          this.router.navigateByUrl("/profileezz")
+          this.router.navigateByUrl("/profile")
         } else
           console.log(data);
       },
@@ -130,13 +130,13 @@ export class ProfileComponent implements OnInit {
   updateAgence(): void {
     console.log(this.authService.agenceLocation.iceAgLoc+"    xxxxxxxx  "+this.authService.agenceLocation.usernameAgenceLoc+"yyyyyyyyyyy"+this.authService.username)
     console.log(this.agence);
-    this.agence.iceAgLoc=this.authService.agenceLocation.iceAgLoc;
+    // this.agence.iceAgLoc=this.authService.agenceLocation.iceAgLoc;
     this.agence.usernameAgenceLoc=this.authService.username;
     this.agenceLocationService.update(this.agence).subscribe({
       next: (data) => {
         if (data === 1) {
           alert("le mise à jour effectue avec succes ")
-          this.router.navigateByUrl(`/profileezz`)
+          this.router.navigateByUrl(`/profile`)
         } else
           console.log(data);
       },
@@ -150,14 +150,14 @@ export class ProfileComponent implements OnInit {
   updateProp(): void {
     console.log("CIN"+this.authService.propAppartement.cin)
     console.log(this.prop);
-    this.prop.cin=this.authService.propAppartement.cin;
-    this.prop.username=this.authService.propAppartement.username ;
+    // this.prop.cin=this.authService.propAppartement.cin;
+    // this.prop.username=this.authService.propAppartement.username ;
 
     this.propAppartementService.update(this.prop).subscribe({
       next: (data) => {
         if (data === 1) {
           alert("le mise à jour effectue avec succes ")
-          this.router.navigateByUrl("/profileezz")
+          this.router.navigateByUrl("/profile")
         } else
           console.log(data);
       },

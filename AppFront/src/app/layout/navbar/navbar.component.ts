@@ -13,12 +13,23 @@ export class NavbarComponent implements OnInit {
   selectedLanguage: string='English';
 
   isMenuToggle:boolean=false;
+  roleUrl!:string;
   constructor(public authService: AuthService,private router: Router, private redirectService:RedirectService,private translateService:TranslateService) {
     this.translateService.setDefaultLang('en');
 
   }
 
   ngOnInit(): void {
+  }
+  nameUrlROle(url:string){
+    if(this.authService.roles.includes('MANAGER-VOI')){
+      // this.roleUrl="agenceLocation";
+      this.router.navigateByUrl(`/agenceLocation/${url}`)
+    }
+    if(this.authService.roles.includes('MANAGER-APT')){
+      // this.roleUrl="propreAppartement"
+      this.router.navigateByUrl(`/propreAppartement/${url}`)
+    }
   }
   SwitchLanguage(lang:string) {
     this.translateService.use(lang);
