@@ -34,7 +34,7 @@ export class CreatAppartemetComponent implements OnInit,AfterViewInit{
   displayImagesByCode: boolean=false;
 
   public displayedColumns = [
-    "id", "code","superficie","adresse","loyerMensuel", "ville","wifi","nmbrPersont","climatiseur","ref","photo","libelle","action"
+    "id","superficie","adresse","loyerMensuel", "ville","wifi","nmbrPersont","climatiseur","ref","photo","libelle","action"
   ];
 
 
