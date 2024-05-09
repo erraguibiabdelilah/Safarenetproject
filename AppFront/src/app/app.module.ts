@@ -74,8 +74,6 @@ import {ButtonModule} from "primeng/button";
 import {SplitButtonModule} from "primeng/splitbutton";
 import {DialogModule} from "primeng/dialog";
 import {ToastModule} from "primeng/toast";
-import {MatInputModule} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
 import {MessageService} from "primeng/api";
 import { CarouselTestComponent } from './layout/carousel-test/carousel-test.component';
 import {ProfileComponent} from "./layout/profile/profile/profile.component";
@@ -95,6 +93,9 @@ import { CarouselWithFilterVOITComponent } from './layout/carousel-with-filter-v
 import { CarouselWithFilterByCategorieComponent } from './layout/carousel-with-filter-by-categorie/carousel-with-filter-by-categorie.component';
 import {CarouselWithFilterAPPComponent} from "./layout/carousel-with-filter-app/carousel-with-filter-app.component";
 import {MatDatepicker, MatDatepickerModule} from "@angular/material/datepicker";
+import {provideNativeDateAdapter} from "@angular/material/core";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -152,7 +153,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ProdileEzzComponent,
     ReservationInformationComponent,
-    DragDirective,
     FacteurApparetementComponent,
     CarouselWithFilterAPPComponent,
     CarouselWithFilterVOITComponent,
@@ -163,6 +163,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatDatepickerModule,
+      DragDirective,
         HttpClientModule,
         FormsModule,
         MatTableModule,
@@ -203,6 +207,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SearchIcon,
         TranslateModule,
         MatDatepickerModule,
+
       TranslateModule.forRoot()
       // TranslateModule.forRoot({
         //     loader: {
@@ -219,7 +224,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessageService,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true},
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideNativeDateAdapter()
   ],
   exports: [
     CarouselTestComponent

@@ -11,19 +11,32 @@ import {PropAppartementService} from "../../sahred/service/appartemetService/pro
 import {AgenceLocationService} from "../../sahred/service/voitureService/agence-location.service";
 import {VoitureService} from "../../sahred/service/voitureService/voiture.service";
 import {Voiture} from "../../sahred/model/voitureModel/voiture.model";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+
+
+
 @Component({
   selector: 'app-reservation-information',
   templateUrl: './reservation-information.component.html',
-  styleUrl: './reservation-information.component.css'
+  styleUrl: './reservation-information.component.css',
+
+
 })
 export class ReservationInformationComponent  implements OnInit{
+  minDate: Date;
+  maxDate: Date;
   lastClicked: HTMLElement | null = null;
   public dataLoaded!:Client;
   matricule:any;
   voitureData=new Voiture();
+  nbrJours=0;
 
   constructor(private elementRef: ElementRef , private authService:AuthService , private router:Router, private clientService :ClientService,private propAppService:PropAppartementService
-    , private voitureService:VoitureService , private route: ActivatedRoute ,private clienService:ClientService) { }
+    , private voitureService:VoitureService , private route: ActivatedRoute ,private clienService:ClientService) {
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 20, 0, 1);
+    this.maxDate = new Date(currentYear + 1, 11, 31);
+  }
 
   ngOnInit(): void {
     const defaultActiveElement = this.elementRef.nativeElement.querySelector('.nav-item.active');
@@ -121,9 +134,35 @@ export class ReservationInformationComponent  implements OnInit{
 
 // ????????????????????????????? Calendrie////
 
-  myFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
+
+
+
+
+  myFilter = (date: Date | null): boolean => {
+    // Example: Disable dates in the past
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to beginning of the day for comparison
+    // @ts-ignore
+    return date >= today; // Disable past dates
   };
+
+
+
+
+  dateSelected(event: MatDatepickerInputEvent<Date>) {
+    console.log('Selected date:', event.value);
+  }
+
+  decrement() {
+    if(this.nbrJours>0){
+      this.nbrJours=this.nbrJours-1;
+    }
+    console.log(this.nbrJours)
+  }
+
+  increment() {
+
+    this.nbrJours=this.nbrJours+1 ;
+    console.log(this.nbrJours)
+  }
 }

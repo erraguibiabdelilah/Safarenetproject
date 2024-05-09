@@ -4,6 +4,7 @@ import jsPDF from "jspdf";
 import {ActivatedRoute} from "@angular/router";
 import {Appartement} from "../../sahred/model/appartemetModel/appartement.model";
 import {AppartemetService} from "../../sahred/service/appartemetService/appartemet.service";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-facteur-apparetement',
@@ -14,6 +15,7 @@ export class FacteurApparetementComponent implements OnInit{
   lastClicked: HTMLElement | null = null;
   code:any;
   apparetement=new Appartement();
+  nbrJours=0;
 
   constructor(private elementRef: ElementRef , private route: ActivatedRoute , private appartementService: AppartemetService) { }
 
@@ -83,4 +85,40 @@ getApparetementByCode(){
       error:err=>{console.log(err)}
     })
 }
+
+
+// ????????????????????????????? Calendrie////
+
+
+
+
+
+  myFilter = (date: Date | null): boolean => {
+    // Example: Disable dates in the past
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to beginning of the day for comparison
+    // @ts-ignore
+    return date >= today; // Disable past dates
+  };
+
+
+
+
+  dateSelected(event: MatDatepickerInputEvent<Date>) {
+    console.log('Selected date:', event.value);
+  }
+
+  decrement() {
+    if(this.nbrJours>0){
+      this.nbrJours=this.nbrJours-1;
+    }
+    console.log(this.nbrJours)
+  }
+
+  increment() {
+
+    this.nbrJours=this.nbrJours+1 ;
+    console.log(this.nbrJours)
+  }
 }
+
