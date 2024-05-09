@@ -94,6 +94,7 @@ import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import { CarouselWithFilterVOITComponent } from './layout/carousel-with-filter-voit/carousel-with-filter-voit.component';
 import { CarouselWithFilterByCategorieComponent } from './layout/carousel-with-filter-by-categorie/carousel-with-filter-by-categorie.component';
 import {CarouselWithFilterAPPComponent} from "./layout/carousel-with-filter-app/carousel-with-filter-app.component";
+import {MatDatepicker, MatDatepickerModule} from "@angular/material/datepicker";
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -201,6 +202,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ChipsModule,
         SearchIcon,
         TranslateModule,
+        MatDatepickerModule,
       TranslateModule.forRoot()
       // TranslateModule.forRoot({
         //     loader: {
