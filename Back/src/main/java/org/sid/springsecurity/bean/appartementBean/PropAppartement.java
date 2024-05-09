@@ -36,7 +36,7 @@ public class PropAppartement extends AppUser {
     @OneToMany(mappedBy = "propAppartement",cascade = CascadeType.ALL)
     private List<Appartement> appartementList;
 
-    public PropAppartement( String nom, String prenom, String numTele, String email, String ribPropAppt, String numCompteBkPropApp, String cin,  List<Client> clients, List<Paiement> paiements, List<Appartement> appartementList) {
+    public PropAppartement( String nom, String prenom, String numTele, String email, String ribPropAppt, String numCompteBkPropApp, String cin,String username,String password) {
         this.nom = nom;
         this.prenom = prenom;
         this.numTele = numTele;
@@ -44,9 +44,8 @@ public class PropAppartement extends AppUser {
         this.ribPropAppt = ribPropAppt;
         this.numCompteBkPropApp = numCompteBkPropApp;
         this.cin = cin;
-        this.clients = clients;
-        this.paiements = paiements;
-        this.appartementList = appartementList;
+        this.setUsername(username);
+        this.setPassword(password);
     }
 
     public List<Appartement> getAppartementList() {

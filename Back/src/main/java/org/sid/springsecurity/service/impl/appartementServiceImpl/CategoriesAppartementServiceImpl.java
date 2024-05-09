@@ -19,9 +19,7 @@ public class CategoriesAppartementServiceImpl implements CategoriesAppartementSe
         this.categoriesAppartementDao = categoriesAppartementDao;
     }
     @Override
-    public int save(CategoriesAppartementDto categoriesAppartementDto) {
-
-        CategoriesAppartement categoriesAppartement = categoriesAppartementConverter.toBean(categoriesAppartementDto);
+    public int save(CategoriesAppartement categoriesAppartement) {
 
         if (categoriesAppartement == null) {
             return -1;

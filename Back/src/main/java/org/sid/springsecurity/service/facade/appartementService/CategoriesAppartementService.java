@@ -6,7 +6,7 @@ import org.sid.springsecurity.ws.dto.appartementDto.CategoriesAppartementDto;
 
 import java.util.List;
 public interface CategoriesAppartementService {
-    int save(CategoriesAppartementDto categoriesAppartement);
+    int save(CategoriesAppartement categoriesAppartement);
     List<CategoriesAppartement> findAll();
 
     int update(String libelle, String libelleNew);
