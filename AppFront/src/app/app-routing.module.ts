@@ -58,8 +58,6 @@ const routes: Routes = [
   { path: "editProfile", component: ProfileComponent,canActivate:[authGuard] },
   { path: "profile", component: ProdileEzzComponent},
 
-
-
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
       { path :"appartemet",component:CreatAppartemetComponent},
       { path :"categoriesapp",component:CreatCategoriesAppartementComponent},

@@ -18,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
+
 @Lazy
 
 @Service
@@ -25,6 +27,7 @@ public class AppartementServiceImpl implements AppartementService {
     private final AppartementDao appartementDao;
     private final AppartementConverter appartementConverter;
 
+    private UUID uuid;
 
     private final CategoriesAppartementService categoriesAppartementService;
     private final PropAppartementService propAppartementService;
@@ -77,6 +80,8 @@ public class AppartementServiceImpl implements AppartementService {
                 appartement.setCategoriesAppartement(categoriesAppartement);
                 appartement.setPropAppartement(propAppartement);
             }
+//            appartement.setCode(UUID.randomUUID().toString().substring(0, 7));
+            appartement.setCode(UUID.randomUUID().toString());
 
             appartementDao.save(appartement);
             return 1;
