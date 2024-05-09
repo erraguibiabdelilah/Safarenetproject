@@ -16,7 +16,7 @@ public class ClientDto {
     private AgenceLocationDto agenceLocation;
 
     private PropAppartemenetDto propAppartemenetDto ;
-    private List<ReservationDto> reservationDto ;
+//    private List<ReservationDto> reservationDto ;
 
 
     public String getCin() {
@@ -85,13 +85,13 @@ public class ClientDto {
         this.propAppartemenetDto = propAppartemenetDto;
     }
 
-    public List<ReservationDto> getReservationDto() {
-        return reservationDto;
-    }
-
-    public void setReservationDto(List<ReservationDto> reservationDto) {
-        this.reservationDto = reservationDto;
-    }
+//    public List<ReservationDto> getReservationDto() {
+//        return reservationDto;
+//    }
+//
+//    public void setReservationDto(List<ReservationDto> reservationDto) {
+//        this.reservationDto = reservationDto;
+//    }
 
     public AgenceLocationDto getAgenceLocation() {
         return agenceLocation;

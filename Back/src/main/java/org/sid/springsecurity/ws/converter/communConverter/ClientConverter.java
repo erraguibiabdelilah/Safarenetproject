@@ -39,9 +39,9 @@ public class ClientConverter {
             if (bean.getProp_appartement() != null) {
                 dto.setPropAppartemenetDto(propAppartementConverter.toDto(bean.getProp_appartement()));
             }
-            if (bean.getReservation() != null) {
-                dto.setReservationDto(reservationConverter.toDto(bean.getReservation()));
-            }
+//            if (bean.getReservation() != null) {
+//                dto.setReservationDto(reservationConverter.toDto(bean.getReservation()));
+//            }
             return dto;
         }
     }
@@ -62,9 +62,9 @@ public class ClientConverter {
             if (dto.getPropAppartemenetDto() != null) {
                 bean.setProp_appartement(propAppartementConverter.toBean(dto.getPropAppartemenetDto()));
             }
-            if (dto.getReservationDto() != null) {
-                bean.setReservation(reservationConverter.toBean(dto.getReservationDto()));
-            }
+//            if (dto.getReservationDto() != null) {
+//                bean.setReservation(reservationConverter.toBean(dto.getReservationDto()));
+//            }
             return bean;
         }
     }
