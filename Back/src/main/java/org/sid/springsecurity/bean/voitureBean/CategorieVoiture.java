@@ -15,10 +15,8 @@ public class CategorieVoiture {
     @OneToMany(mappedBy = "categorieVoiture")
     private List<Voiture> voitures;
 
-    public CategorieVoiture(Long id, String libelle, List<Voiture> voitures) {
-        this.id = id;
+    public CategorieVoiture(String libelle) {
         this.libelle = libelle;
-        this.voitures = voitures;
     }
 
     public CategorieVoiture() {

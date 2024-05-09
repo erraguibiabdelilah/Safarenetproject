@@ -42,8 +42,7 @@ public class CategoriesAppartement {
         this.appartement = appartement;
     }
 
-    public CategoriesAppartement(Long id, String libelle) {
-        this.id = id;
+    public CategoriesAppartement( String libelle) {
         this.libelle = libelle;
     }
     public CategoriesAppartement() {

@@ -6,6 +6,8 @@ import org.sid.springsecurity.bean.communBean.Reservation;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -33,6 +35,9 @@ public class Appartement {
     @ManyToOne
     @JoinColumn(name = "propAppartement_id")
     private PropAppartement propAppartement;
+
+    public <E> Appartement(long l, String app0044, int i, String s, String cityD, String yes, int i1, String yes1, double v, ArrayList<E> es, CategoriesAppartement categoriesAppartement4, PropAppartement propAppartement4, HashSet<E> es1) {
+    }
 
 
     public PropAppartement getPropAppartement() {

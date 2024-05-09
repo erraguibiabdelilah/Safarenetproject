@@ -33,6 +33,9 @@ public class AgenceLocation extends AppUser {
     @OneToMany(mappedBy = "agenceLocation")
     private List<Paiement> paiements ;
 
+
+
+
     public AgenceLocation() {
 
     }
@@ -113,8 +116,9 @@ public class AgenceLocation extends AppUser {
         this.paiements = paiements;
     }
 
-    public AgenceLocation(Long id, String username, String password, Collection<AppRole> appRoles, Long iceAgLoc, String raisonSocialAg, String adresse, String numTelephone, int numCompteBkAgLoc, Long ribAgenceLoc, Long RCAgLoc, List<Voiture> voitures, List<Client> clients, List<Paiement> paiements) {
-        super(id, username, password, appRoles);
+    public AgenceLocation(String username, String password, Long iceAgLoc, String raisonSocialAg, String adresse, String numTelephone, int numCompteBkAgLoc, Long ribAgenceLoc, Long RCAgLoc) {
+       this.setUsername(username);
+       this.setPassword(password);
         this.iceAgLoc = iceAgLoc;
         this.raisonSocialAg = raisonSocialAg;
         this.adresse = adresse;
@@ -122,9 +126,6 @@ public class AgenceLocation extends AppUser {
         this.numCompteBkAgLoc = numCompteBkAgLoc;
         this.ribAgenceLoc = ribAgenceLoc;
         this.RCAgLoc = RCAgLoc;
-        this.voitures = voitures;
-        this.clients = clients;
-        this.paiements = paiements;
     }
 
 

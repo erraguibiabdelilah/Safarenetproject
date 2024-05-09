@@ -97,15 +97,14 @@ public class Client extends AppUser {
         this.reservation = reservation;
     }
 
-    public Client(String cin, String prenom, String nom, String numTeleClient , String emailClient, AgenceLocation agence_Location, PropAppartement prop_appartement, List<Reservation> reservation) {
+    public Client(String username,String password,String cin, String prenom, String nom, String numTeleClient , String emailClient) {
+        this.setUsername(username);
+        this.setPassword(password);
         this.cin = cin;
         this.prenom = prenom;
         this.nom = nom;
         this.numTeleClient = numTeleClient;
         this.emailClient = emailClient;
-        this.agenceLocation = agence_Location;
-        this.prop_appartement = prop_appartement;
-        this.reservation = reservation;
     }
 
     public Client() {
