@@ -1,5 +1,6 @@
 package org.sid.springsecurity.ws.facade.appartementWs;
 
+import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
 import org.sid.springsecurity.service.facade.appartementService.CategoriesAppartementService;
 import org.sid.springsecurity.ws.converter.appartementConverter.CategoriesAppartementConverter;
 import org.sid.springsecurity.ws.dto.appartementDto.CategoriesAppartementDto;
@@ -15,7 +16,8 @@ public class CategoriesAppartementWs {
     @PostMapping
     @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int save(@RequestBody CategoriesAppartementDto categoriesAppartementDto) {
-        return categoriesAppartementService.save(categoriesAppartementDto);
+        CategoriesAppartement categoriesAppartement=categoriesAppartementConverter.toBean(categoriesAppartementDto);
+        return categoriesAppartementService.save(categoriesAppartement);
     }
 
     @GetMapping

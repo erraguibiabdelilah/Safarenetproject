@@ -110,4 +110,18 @@ public class NotificationReservation {
         this.dateReservation = new Date();
         this.isVisible = false;
     }
+
+
+    public NotificationReservation(Long id,String code, String cinClient, String nomClient, String matriculeVoiture, String codeAppartement, String ice_Agence, String cinPropAppartement, Date dateReservation, boolean isVisible) {
+        this.id=id;
+        this.code = code;
+        this.cinClient = cinClient;
+        this.nomClient = nomClient;
+        this.matriculeVoiture = matriculeVoiture;
+        this.codeAppartement = codeAppartement;
+        this.ice_Agence = ice_Agence;
+        this.cinPropAppartement = cinPropAppartement;
+        this.dateReservation = dateReservation;
+        this.isVisible = isVisible;
+    }
 }
