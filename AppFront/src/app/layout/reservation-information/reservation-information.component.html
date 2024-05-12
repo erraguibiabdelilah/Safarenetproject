@@ -22,7 +22,7 @@
 
           <div class="card cardOne" id="Apercu">
             <div class="card-body">
-              <span style="display: block;">{{voitureData?.categorie}}</span>
+              <span style="display: block;">{{voitureData.categorie.libelle}}</span>
 
               <div class="photo">
                 <img src="../../../assets/pexels-prime-cinematics-1005175-2036544.jpg">
@@ -34,20 +34,20 @@
 
                 <div class="grid-container">
 
-                  <div><i class="bi bi-person-fill"></i> <span>{{ voitureData?.nbrPlace }} passagers</span></div>
+                  <div><i class="bi bi-person-fill"></i> <span>{{ voitureData.nbrPlace }} passagers</span></div>
 
                   <div><i class="bi bi-slack"></i><span>Climatisation</span></div>
 
                   <div> <i class="bi bi-terminal-fill"><a>portes</a></i></div>
                   <div> <i class="bi bi-terminal-fill"><a>Automatique</a></i></div>
-                  <div> <i class="bi bi-terminal-fill"><a>Kilométrage {{voitureData?.kiloMetrage}}</a></i></div>
+                  <div> <i class="bi bi-terminal-fill"><a>Kilométrage {{voitureData.kiloMetrage}}</a></i></div>
 
 
                 </div>
               </div>
               <hr>
               <div class="card-body">
-                <h1 class="content">${{voitureData?.prix}}</h1>
+                <h1 class="content">${{voitureData.prix}}</h1>
                 <span style="font-size: 13px;">per day</span>
                 <div style="line-height: 13px;">
                   <p class="text-success">Free cancellation</p>
@@ -140,7 +140,7 @@
                                         base</span>
                   <ul class="multi-column-list">
                     <li>
-                      Franchise : jusqu’à 1 500,00 € à payer en cas d’accident ou de vol</li>
+                      Franchise : jusqu’à 500,00 € à payer en cas d’accident ou de vol</li>
                     <li>
                       Assurance dommages pour la carrosserie
                     </li>
@@ -198,9 +198,9 @@
               <div class="grid-container4">
 
                 <div><span>Car rental fee x 1 day</span>
-                  <p>${{voitureData?.prix}} per day</p>
+                  <p>${{voitureData.prix}} per day</p>
                 </div>?
-                <div><span>${{voitureData?.prix}}</span></div>
+                <div><span>${{voitureData.prix}}</span></div>
 
                 <div> <a>Taxes and fees</a></div>
                 <div> <a>$24.85</a></div>

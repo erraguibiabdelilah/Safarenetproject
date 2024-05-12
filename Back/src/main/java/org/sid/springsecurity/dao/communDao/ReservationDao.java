@@ -18,4 +18,6 @@ public interface ReservationDao extends JpaRepository<Reservation,Long > {
     List<Reservation> findAllByClientCin(String cin);
 
     Reservation findByLocationsRef(String ref);
+    List<Reservation> findReservationByVoitureMatricule(String matricule);
+    List<Reservation> findReservationByAppartementCode(String code);
 }
