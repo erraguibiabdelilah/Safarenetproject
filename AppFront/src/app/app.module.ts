@@ -157,7 +157,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselWithFilterAPPComponent,
     CarouselWithFilterVOITComponent,
     CarouselWithFilterByCategorieComponent,
-
   ],
     imports: [
         BrowserModule,

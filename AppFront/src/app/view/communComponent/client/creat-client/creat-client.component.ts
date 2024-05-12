@@ -22,7 +22,7 @@ export class CreatClientComponent implements OnInit, AfterViewInit {
   public submitted:boolean=false;
 
   public ListeColum = [
-    "cin","prenom","nom","numTeleClient","email_Client","action"
+    "cin","prenom","nom","numTeleClient","email_Client",
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

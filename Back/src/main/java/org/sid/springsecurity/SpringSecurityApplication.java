@@ -1,5 +1,6 @@
 package org.sid.springsecurity;
 
+import com.pusher.rest.Pusher;
 import org.sid.springsecurity.bean.NotificationReservation;
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
@@ -26,6 +27,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -34,6 +36,12 @@ public class SpringSecurityApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringSecurityApplication.class, args);
+
+        Pusher pusher = new Pusher("1801669", "e87177f2f7373cc515b0", "263650250d162704c0fa");
+        pusher.setCluster("eu");
+        pusher.setEncrypted(true);
+
+        pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "hello world"));
     }
 
     @Bean
