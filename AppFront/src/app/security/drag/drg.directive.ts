@@ -4,7 +4,8 @@ import {DomSanitizer} from "@angular/platform-browser";
 import  {EventEmitter} from  '@angular/core'
 import {FileHandle} from "../../sahred/model/file-handle.model";
 @Directive({
-  selector: '[appDrag]'
+    standalone: true,
+    selector: '[appDrag]'
 })
 export class DragDirective {
   @Output() files:EventEmitter<FileHandle>=new EventEmitter();

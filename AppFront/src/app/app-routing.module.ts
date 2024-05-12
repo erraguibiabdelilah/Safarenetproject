@@ -44,6 +44,8 @@ import {
   CreatReservationComponent
 } from "./view/communComponent/reservation/creat-reservation/creat-reservation.component";
 import {CreatVoitureComponent} from "./view/voitureComponent/voiture/creat-voiture/creat-voiture.component";
+import {FactureComponent} from "./layout/facture/facture.component";
+import {ContratLoactionComponent} from "./layout/contrat-loaction/contrat-loaction.component";
 const routes: Routes = [
   { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
@@ -57,6 +59,8 @@ const routes: Routes = [
   { path: "facteurApparetement/:code", component: FacteurApparetementComponent },
   { path: "editProfile", component: ProfileComponent,canActivate:[authGuard] },
   { path: "profile", component: ProdileEzzComponent},
+  { path: "facture", component: FactureComponent},
+  { path: "contrat", component: ContratLoactionComponent},
 
   { path :"admin",component:AdminTemplateComponent,canActivate:[AuthenticationGuard],children:[
       { path :"appartemet",component:CreatAppartemetComponent},

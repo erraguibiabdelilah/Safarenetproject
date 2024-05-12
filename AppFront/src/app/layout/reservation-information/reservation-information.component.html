@@ -22,7 +22,7 @@
 
           <div class="card cardOne" id="Apercu">
             <div class="card-body">
-              <span style="display: block;">{{voitureData.categorie}}</span>
+              <span style="display: block;">{{voitureData.categorie.libelle}}</span>
 
               <div class="photo">
                 <img src="../../../assets/pexels-prime-cinematics-1005175-2036544.jpg">
@@ -140,7 +140,7 @@
                                         base</span>
                   <ul class="multi-column-list">
                     <li>
-                      Franchise : jusqu’à 1 500,00 € à payer en cas d’accident ou de vol</li>
+                      Franchise : jusqu’à 500,00 € à payer en cas d’accident ou de vol</li>
                     <li>
                       Assurance dommages pour la carrosserie
                     </li>
@@ -176,19 +176,21 @@
 
         <div class="col-4">
           <div class="card  cardTwo">
+
             <mat-form-field class="example-full-width">
               <mat-label>Choose a date</mat-label>
               <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
+<!--              <mat-hint>DD/MM/YYYY</mat-hint>-->
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
+
           </div>
 
           <div class="card cardfor">
-            <button class="btn-export" (click)="exportToPDF()"><i
-              class="pi pi-file-export"></i>Exporte</button>
+<!--            <button class="btn-export" (click)="exportToPDF()"><i-->
+<!--              class="pi pi-file-export"></i>Exporte</button>-->
             <div id="content" class="card-body-ez">
               <h4 style="display: inline-block;">Price details</h4>
 
@@ -197,7 +199,7 @@
 
                 <div><span>Car rental fee x 1 day</span>
                   <p>${{voitureData.prix}} per day</p>
-                </div>
+                </div>?
                 <div><span>${{voitureData.prix}}</span></div>
 
                 <div> <a>Taxes and fees</a></div>
@@ -216,7 +218,14 @@
               </div>
 
             </div>
-
+            <div class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
+              <h3>Nomber des Jours</h3>
+             <div style="width: 50%">
+               <button id="decrement" (click)="decrement()">-</button>
+               <input type="text" id="input"  [(ngModel)]="nbrJours"  style="width: 30%">
+               <button id="increment" (click)="increment()">+</button>
+             </div>
+            </div>
             <button class="btn-rserver" (click)="RedirectversFacture_Paiment()">Réserver</button>
           </div>
         </div>

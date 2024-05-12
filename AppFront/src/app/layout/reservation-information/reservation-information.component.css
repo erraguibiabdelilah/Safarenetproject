@@ -60,7 +60,7 @@
 
 .card.cardTwo{
   margin-top: 15px;
-  min-height: 200px;
+  /*min-height: 200px;*/
   border: 1px solid rgb(205, 202, 202);
   border-radius: 20px;
 }
@@ -197,3 +197,43 @@ hr{
 }
 
 
+/*?????????????????????????????????????????????????????????????????????? Calendrie*/
+
+
+
+
+button,
+input {
+
+  outline: none;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+button:nth-last-child(1) {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+#decrement {
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+button:hover {
+  background-color: #e6e6e6;
+}
+button:nth-last-child(1):active {
+  box-shadow: inset -4px 5px 10px rgba(0, 0, 0, 0.5);
+}
+#decrement:active {
+  box-shadow: inset 4px 5px 10px rgba(0, 0, 0, 0.5);
+}

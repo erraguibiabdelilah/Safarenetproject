@@ -90,6 +90,15 @@ public class ReservationServiceImpl implements ReservationService {
 
 
     }
+    @Override
+    public List<Reservation> findReservationByVoitureMatricule(String matricule) {
+        return reservationDao.findReservationByVoitureMatricule(matricule);
+    }
+
+    @Override
+    public List<Reservation> findReservationByAppartementCode(String code) {
+        return reservationDao.findReservationByAppartementCode(code);
+    }
 
 
     @Autowired
