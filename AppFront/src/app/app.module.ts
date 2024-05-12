@@ -96,6 +96,7 @@ import {MatDatepicker, MatDatepickerModule} from "@angular/material/datepicker";
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {DatePipe} from "@angular/common";
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -208,6 +209,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         TranslateModule,
         MatDatepickerModule,
 
+
       TranslateModule.forRoot()
       // TranslateModule.forRoot({
         //     loader: {
@@ -225,7 +227,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: AppHtppEzInterceptor, multi: true},
     provideAnimationsAsync(),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    DatePipe
   ],
   exports: [
     CarouselTestComponent
