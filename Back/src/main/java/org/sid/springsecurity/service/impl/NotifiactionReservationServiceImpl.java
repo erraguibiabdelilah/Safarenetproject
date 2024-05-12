@@ -1,7 +1,7 @@
 package org.sid.springsecurity.service.impl;
 
-import org.sid.springsecurity.bean.NotificationReservation;
-import org.sid.springsecurity.dao.NotificationReservationDao;
+import org.sid.springsecurity.bean.notification.NotificationReservation;
+import org.sid.springsecurity.dao.notificationDao.NotificationReservationDao;
 import org.sid.springsecurity.service.facade.NotifiactionReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

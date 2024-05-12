@@ -1,4 +1,4 @@
-package org.sid.springsecurity.bean;
+package org.sid.springsecurity.bean.notification;
 
 import javax.persistence.*;
 

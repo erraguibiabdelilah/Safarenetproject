@@ -4,7 +4,6 @@ import jsPDF from "jspdf";
 import {ActivatedRoute} from "@angular/router";
 import {Appartement} from "../../sahred/model/appartemetModel/appartement.model";
 import {AppartemetService} from "../../sahred/service/appartemetService/appartemet.service";
-import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 import {DatePipe} from "@angular/common";
 
 @Component({

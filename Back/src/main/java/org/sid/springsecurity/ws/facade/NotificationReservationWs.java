@@ -1,6 +1,6 @@
 package org.sid.springsecurity.ws.facade;
 
-import org.sid.springsecurity.bean.NotificationReservation;
+import org.sid.springsecurity.bean.notification.NotificationReservation;
 import org.sid.springsecurity.service.facade.NotifiactionReservationService;
 import org.sid.springsecurity.ws.converter.NotificationReservationConverter;
 import org.sid.springsecurity.ws.dto.NotificationReservationDto;

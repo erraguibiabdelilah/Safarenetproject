@@ -52,7 +52,7 @@ const routes: Routes = [
   { path :"", redirectTo:"/home",pathMatch:"full"},
   { path: "message", component: SignInMessageComponent },
   { path: "notification", component: SignInNotificationComponent },
-  { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
+  { path: "videMessage", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
   { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "reservationInformation", component: ReservationInformationComponent },

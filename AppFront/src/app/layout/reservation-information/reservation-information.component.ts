@@ -12,6 +12,8 @@ import {AgenceLocationService} from "../../sahred/service/voitureService/agence-
 import {VoitureService} from "../../sahred/service/voitureService/voiture.service";
 import {Voiture} from "../../sahred/model/voitureModel/voiture.model";
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {ReservationService} from "../../sahred/service/communService/reservation.service";
+import {Reservation} from "../../sahred/model/communModel/reservation.model";
 
 
 
@@ -31,8 +33,13 @@ export class ReservationInformationComponent  implements OnInit{
   voitureData=new Voiture();
   nbrJours=0;
 
+  // findReservation
+  dataReservationVoiture:Array<Reservation>=new Array<Reservation>();
+  dataReservationAppartement:Array<Reservation>=new Array<Reservation>();
+  public minDateMin:Date=new Date();
+
   constructor(private elementRef: ElementRef , private authService:AuthService , private router:Router, private clientService :ClientService,private propAppService:PropAppartementService
-    , private voitureService:VoitureService , private route: ActivatedRoute ,private clienService:ClientService) {
+    , private voitureService:VoitureService,private reservationService:ReservationService , private route: ActivatedRoute ,private clienService:ClientService) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
@@ -42,8 +49,6 @@ export class ReservationInformationComponent  implements OnInit{
     const defaultActiveElement = this.elementRef.nativeElement.querySelector('.nav-item.active');
     this.toggleHoverEffect(defaultActiveElement);
     this.getDataByUsername();
-
-
     this.route.params.subscribe(params => {
       this.matricule = params['matricule'];
       console.log(this.matricule);
@@ -110,6 +115,28 @@ export class ReservationInformationComponent  implements OnInit{
       pdf.save('export.pdf');
     });
   }
+
+
+
+  getReseravtionbyMatricule(matricule :string){
+    this.reservationService.findReservationbyVoitureMatricule(matricule).subscribe({
+      next:(data)=>{
+        this.dataReservationVoiture=data;
+      }
+    })
+  }
+
+
+  getReseravtionApp(code :string){
+    this.reservationService.findReservationbyAppCode(code).subscribe({
+      next:(data)=>{
+        this.dataReservationAppartement=data;
+      }
+    })
+  }
+
+
+
   getDataByUsername(){
     this.clienService.getByusername(this.authService.username).subscribe({
       next:(data)=>{
@@ -165,4 +192,5 @@ export class ReservationInformationComponent  implements OnInit{
     this.nbrJours=this.nbrJours+1 ;
     console.log(this.nbrJours)
   }
+
 }
