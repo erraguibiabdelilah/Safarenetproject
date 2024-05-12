@@ -1,7 +1,11 @@
 package org.sid.springsecurity;
 
+<<<<<<< HEAD:Back/src/main/java/org/sid/springsecurity/SpringSecurityApplication.java
 import com.pusher.rest.Pusher;
 import org.sid.springsecurity.bean.NotificationReservation;
+=======
+import org.sid.springsecurity.bean.notification.NotificationReservation;
+>>>>>>> 7af6600a5fe3f4b2a726a37ae961ce98cae0740a:Back/src/main/java/org/sid/springsecurity/SafarentApplication.java
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
 import org.sid.springsecurity.bean.appartementBean.PropAppartement;
@@ -18,7 +22,6 @@ import org.sid.springsecurity.service.facade.appartementService.PropAppartementS
 import org.sid.springsecurity.service.facade.communService.ClientService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.sid.springsecurity.service.facade.voitureService.CategorieVoitureService;
-import org.sid.springsecurity.ws.dto.appartementDto.CategoriesAppartementDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,9 +35,10 @@ import java.util.Date;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class SpringSecurityApplication {
+public class SafarentApplication {
 
     public static void main(String[] args) {
+<<<<<<< HEAD:Back/src/main/java/org/sid/springsecurity/SpringSecurityApplication.java
         SpringApplication.run(SpringSecurityApplication.class, args);
 
         Pusher pusher = new Pusher("1801669", "e87177f2f7373cc515b0", "263650250d162704c0fa");
@@ -42,6 +46,9 @@ public class SpringSecurityApplication {
         pusher.setEncrypted(true);
 
         pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "hello world"));
+=======
+        SpringApplication.run(SafarentApplication.class, args);
+>>>>>>> 7af6600a5fe3f4b2a726a37ae961ce98cae0740a:Back/src/main/java/org/sid/springsecurity/SafarentApplication.java
     }
 
     @Bean

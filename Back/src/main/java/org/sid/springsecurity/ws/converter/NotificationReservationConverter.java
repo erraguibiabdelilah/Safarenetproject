@@ -1,7 +1,7 @@
 package org.sid.springsecurity.ws.converter;
 
 
-import org.sid.springsecurity.bean.NotificationReservation;
+import org.sid.springsecurity.bean.notification.NotificationReservation;
 import org.sid.springsecurity.ws.dto.NotificationReservationDto;
 import org.springframework.stereotype.Component;
 

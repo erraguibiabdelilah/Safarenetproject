@@ -1,7 +1,7 @@
 package org.sid.springsecurity.service.facade;
 
 
-import org.sid.springsecurity.bean.NotificationReservation;
+import org.sid.springsecurity.bean.notification.NotificationReservation;
 
 import java.util.List;
 
