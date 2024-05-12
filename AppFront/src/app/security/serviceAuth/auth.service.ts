@@ -119,10 +119,6 @@ export class AuthService {
         this.loadProfile({"accessToken":tokenAccess});
 
           this.router.navigateByUrl("/home")
-
-
-
-
       }
     }
   }

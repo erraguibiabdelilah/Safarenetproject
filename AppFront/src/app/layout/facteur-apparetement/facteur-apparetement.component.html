@@ -170,7 +170,7 @@
           </div>
 
           <div class="card cardfor">
-            
+
             <div id="content" class="card-body-ez">
               <h4 style="display: inline-block;">Price details</h4>
 
@@ -203,7 +203,7 @@
               <h3>Nomber des Jours</h3>
               <div style="width: 50%">
                 <button id="decrement" (click)="decrement()">-</button>
-                <input type="text" id="input"  [(ngModel)]="nbrJours"  style="width: 30%">
+                <input type="text" id="input"  [(ngModel)]="nbrJours" pattern="[0-9]*" style="width: 30%">
                 <button id="increment" (click)="increment()">+</button>
               </div>
             </div>
