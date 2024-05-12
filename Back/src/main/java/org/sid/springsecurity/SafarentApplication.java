@@ -1,6 +1,6 @@
 package org.sid.springsecurity;
 
-import org.sid.springsecurity.bean.NotificationReservation;
+import org.sid.springsecurity.bean.notification.NotificationReservation;
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
 import org.sid.springsecurity.bean.appartementBean.PropAppartement;
@@ -17,7 +17,6 @@ import org.sid.springsecurity.service.facade.appartementService.PropAppartementS
 import org.sid.springsecurity.service.facade.communService.ClientService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.sid.springsecurity.service.facade.voitureService.CategorieVoitureService;
-import org.sid.springsecurity.ws.dto.appartementDto.CategoriesAppartementDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,10 +29,10 @@ import java.util.Date;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class SpringSecurityApplication {
+public class SafarentApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringSecurityApplication.class, args);
+        SpringApplication.run(SafarentApplication.class, args);
     }
 
     @Bean

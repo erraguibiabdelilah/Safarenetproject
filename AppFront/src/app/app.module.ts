@@ -95,6 +95,7 @@ import { CarouselWithFilterVOITComponent } from './layout/carousel-with-filter-v
 import { CarouselWithFilterByCategorieComponent } from './layout/carousel-with-filter-by-categorie/carousel-with-filter-by-categorie.component';
 import {CarouselWithFilterAPPComponent} from "./layout/carousel-with-filter-app/carousel-with-filter-app.component";
 import {MatDatepicker, MatDatepickerModule} from "@angular/material/datepicker";
+import {MatMomentDateModule} from "@angular/material-moment-adapter";
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(http);
@@ -203,6 +204,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SearchIcon,
         TranslateModule,
         MatDatepickerModule,
+      MatMomentDateModule,
       TranslateModule.forRoot()
       // TranslateModule.forRoot({
         //     loader: {
