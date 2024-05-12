@@ -21,4 +21,7 @@ public interface ReservationService {
 
     Reservation findByLocationsRef(String ref);
 
+    List<Reservation> findReservationByVoitureMatricule(String matricule);
+
+    List<Reservation> findReservationByAppartementCode(String code);
 }
