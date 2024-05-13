@@ -4,26 +4,26 @@ import {Appartement} from "../appartemetModel/appartement.model";
 
 export class Reservation {
    ref:string;
-   DateDebut:Date;
-   HeureDebut:Date;
-   DateFin:Date;
-   HeureFin:Date;
-   LieuPrise: string;
-   LieuRetour: string;
-   Description:string;
-   voiture:Voiture;
-   client: Client;
-   appartement: Appartement;
+  date_Debut:Date;
+  heure_Debut:Date;
+  date_Fin:Date;
+  heure_Fin:Date;
+  lieu_Prise: string;
+  lieu_Retour: string;
+  description:string;
+  voiture:Voiture;
+  client: Client;
+  appartement: Appartement;
 
    constructor() {
      this.ref="";
-     this.DateDebut=new Date();
-     this.HeureDebut=new Date();
-     this.DateFin=new Date();
-     this.HeureFin=new Date();
-     this.LieuPrise= "";
-     this.LieuRetour= "";
-     this.Description="";
+     this.date_Debut=new Date();
+     this.heure_Debut=new Date();
+     this.date_Fin =new Date();
+     this.heure_Fin=new Date();
+     this.lieu_Prise= "";
+     this.lieu_Retour= "";
+     this.description="";
      this.voiture=new Voiture();
      this.client= new Client();
      this.appartement=new Appartement();

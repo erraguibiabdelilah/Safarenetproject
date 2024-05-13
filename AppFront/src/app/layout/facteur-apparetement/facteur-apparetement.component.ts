@@ -5,6 +5,9 @@ import {ActivatedRoute} from "@angular/router";
 import {Appartement} from "../../sahred/model/appartemetModel/appartement.model";
 import {AppartemetService} from "../../sahred/service/appartemetService/appartemet.service";
 import {DatePipe} from "@angular/common";
+import { MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {Reservation} from "../../sahred/model/communModel/reservation.model";
+import {ReservationService} from "../../sahred/service/communService/reservation.service";
 
 @Component({
   selector: 'app-facteur-apparetement',
@@ -12,25 +15,28 @@ import {DatePipe} from "@angular/common";
   styleUrl: './facteur-apparetement.component.css'
 })
 export class FacteurApparetementComponent implements OnInit{
+
   lastClicked: HTMLElement | null = null;
   code:any;
   apparetement=new Appartement();
   nbrJours=0;
   // maDate:any;
   maDate = new Date();
-
-  constructor(private elementRef: ElementRef , private route: ActivatedRoute , private appartementService: AppartemetService ,private datePipe: DatePipe) { }
+  dataReservationAppartement:Array<Reservation>=new Array<Reservation>();
+  tableauDate:any;
+  days: string[] = [];
+  constructor(private elementRef: ElementRef ,private reservationService:ReservationService, private route: ActivatedRoute , private appartementService: AppartemetService ,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     const defaultActiveElement = this.elementRef.nativeElement.querySelector('.nav-item.active');
     this.toggleHoverEffect(defaultActiveElement);
-
-
     this.route.params.subscribe(params => {
       this.code = params['code'];
       console.log(this.code);
     });
     this.getApparetementByCode();
+    this.getReservationApp();
+
   }
   toggleHoverEffect(element: EventTarget | null) {
     if (element instanceof HTMLElement) {
@@ -88,6 +94,36 @@ getApparetementByCode(){
     })
 }
 
+  getReservationApp() {
+    this.reservationService.findReservationbyAppCode(this.code).subscribe({
+      next: (data) => {
+        this.dataReservationAppartement = data;
+        this.tableauDate = this.dataReservationAppartement.map(e => ({
+          dateDebut: new Date(e.date_Debut),
+          dateFin: new Date(e.date_Fin)
+        }));
+
+        console.log("tableau de dates");
+        console.log(this.tableauDate);
+
+
+        for (let i = 0; i < this.tableauDate.length; i++) {
+          let currentDate = new Date(this.tableauDate[i].dateDebut);
+          const endDate = this.tableauDate[i].dateFin;
+
+          while (currentDate <= endDate) {
+            this.days.push(currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }));
+            currentDate.setDate(currentDate.getDate() + 1);
+          }
+        }
+
+        console.log("days");
+        console.log(this.days.toString());
+      }
+    });
+  }
+
+
 
 // ????????????????????????????? Calendrie////
 
@@ -102,20 +138,32 @@ getApparetementByCode(){
   //   // @ts-ignore
   //   return date >= today; // Disable past dates
   // };
+
+  // myFilter = (date: Date | null): boolean => {
+  //   if (!date) {
+  //     return false;
+  //   }
+  //
+  //
+  //   // @ts-ignore
+  //   return !this.days.includes(date.getDate()); // Filtrer la date si elle ne correspond à aucun intervalle
+  // };
+
+// Exemple d'utilisation
+
+
   myFilter = (date: Date | null): boolean => {
-    // Example: Disable dates outside a specific range
     if (!date) {
-      // Si la date est null, cela signifie qu'aucune date n'a été sélectionnée
-      return false; // Empêche la sélection de la date
+      return false; // Empêche la sélection de la date si elle est null
     }
 
-    // Définissez votre intervalle de dates ici
-    const dateDebut = new Date('5/18/2024'); // Date de début de l'intervalle
-    const dateFin = new Date('5/21/2024'); // Date de fin de l'intervalle
+    // Conversion de la date en format "mm/dd/yyyy"
+    const dateString = (date.getMonth() + 1).toString().padStart(2, '0') + '/' + date.getDate().toString().padStart(2, '0') + '/' + date.getFullYear().toString();
 
-    // Vérifiez si la date est dans l'intervalle spécifié
-    return date < dateDebut || date > dateFin; // Retourne true si la date est dans l'intervalle
+    // Vérification si la date est incluse dans this.days
+    return !this.days.includes(dateString);
   };
+
 
 
 
@@ -147,4 +195,5 @@ getApparetementByCode(){
 
   }
 }
+
 
