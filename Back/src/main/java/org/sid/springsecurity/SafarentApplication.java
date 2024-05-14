@@ -40,7 +40,7 @@ public class SafarentApplication {
         return  new BCryptPasswordEncoder();
     }
 
-    // @Bean
+     @Bean
     CommandLineRunner start(AccountService accountService,
                             CategoriesAppartementService categoriesAppartementService,
                             CategorieVoitureService categorieVoitureService,
