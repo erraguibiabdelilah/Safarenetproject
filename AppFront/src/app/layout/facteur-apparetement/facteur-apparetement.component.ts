@@ -265,6 +265,8 @@ export class FacteurApparetementComponent implements OnInit {
       next: (data) => {
         if (data == 1) {
           alert("Nice Bro")
+          this.getReservationApp()
+          this.ngOnInit()
         } else {
           console.log(data)
         }
@@ -303,7 +305,6 @@ export class FacteurApparetementComponent implements OnInit {
     console.log("this.authService.client.cin===>"+this.authService.dataUtilisateur.cin)
     console.log("this.authService.client.id===>"+this.authService.client.id)
     console.log("this.authService.dataUtilisateur.id===>"+this.authService.dataUtilisateur.id)
-    this.getReservationApp()
   }
 }
 

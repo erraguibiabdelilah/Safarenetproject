@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
 
   <mat-card>
     <mat-card-header>
@@ -15,12 +15,18 @@
         </div>
 
         <div class="p-toolbar-group-right">
-
-          <mat-form-field appearance="outline">
-            <mat-label>Search</mat-label>
-            <input matInput (change)="search($event)">
-          </mat-form-field>
+          <div class="container d-flex" >
+            <input type="text" name="" placeholder="Search..." (input)="search($event)">
+            <div class="search"></div>
+          </div>
         </div>
+<!--        <div class="p-toolbar-group-right">-->
+
+<!--          <mat-form-field appearance="outline">-->
+<!--            <mat-label>Search</mat-label>-->
+<!--            <input matInput (change)="search($event)">-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
       </p-toolbar>
       <div class="table-wrapper">

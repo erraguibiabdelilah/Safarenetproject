@@ -1,5 +1,5 @@
 
-<div class="container mt-5">
+<div class="container table-wrapper ">
 
   <mat-card>
     <mat-card-header><mat-card-title> CRUD CONTRAT </mat-card-title> </mat-card-header>
@@ -27,7 +27,7 @@
         <!--        </div>-->
 
       </p-toolbar>
-
+      <div class="table-wrapper">
       <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">
 
         <ng-container matColumnDef="numContrat"> <!-- Utilisation de 'id' au lieu de 'Id' -->
@@ -84,6 +84,7 @@
         <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>
         <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>
       </table>
+      </div>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                      showFirstLastButtons
                      aria-label="Select page of periodic elements">

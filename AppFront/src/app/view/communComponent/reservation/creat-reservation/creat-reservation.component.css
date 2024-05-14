@@ -46,8 +46,8 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-color: rgb(174, 161, 164);
   /* background-color: crimson; */
   border-radius: 50%;
@@ -89,25 +89,23 @@ body{
 .container input{
   position: relative;
   margin-top: auto;
-  margin-bottom: auto ;
-  /*top: 0;*/
-  /*left: 0;*/
-  right: -80px;
-  /*bottom: 0;*/
+  margin-bottom: auto;
+  right: -60px;
   width: 50px;
   height: 50px;
   outline: none;
   border: none;
-  background-color: crimson;
+  background-color: #2196f3;
   color: #fff;
   text-shadow: 0 0 10px crimson;
   padding: 0 80px 0 20px;
   border-radius: 30px;
-  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 #ffffff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
   opacity: 0;
   z-index: 5;
   letter-spacing: 0.1em;
   transition: 1s all;
+
 }
 .container input:hover{
   cursor: pointer;
@@ -140,6 +138,7 @@ body{
 .container input::placeholder{
   color: #fff;
 }
+
 .table-wrapper {
   max-width: 100%; /* Choisissez la hauteur maximale que vous souhaitez */
   overflow-x: auto; /* Active le défilement vertical si nécessaire */
