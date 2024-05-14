@@ -3,7 +3,7 @@ import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.
 import {
   CategoriesAppartementService
 } from "../../../../sahred/service/appartemetService/categories-appartement.service";
-import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
+import {AgenceAppartementService} from "../../../../sahred/service/appartemetService/agence-appartement.service";
 
 @Component({
   selector: 'app-list-appartemet',
@@ -11,7 +11,7 @@ import {PropAppartementService} from "../../../../sahred/service/appartemetServi
   styleUrl: './list-appartemet.component.css'
 })
 export class ListAppartemetComponent {
-  constructor(private categoriesSrervice:CategoriesAppartementService,private proprtaire:PropAppartementService) {
+  constructor(private categoriesSrervice:CategoriesAppartementService,private proprtaire:AgenceAppartementService) {
   }
 
   get appartemetsByCategories(): Array<Appartement> {

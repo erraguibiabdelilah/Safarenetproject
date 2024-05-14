@@ -1,6 +1,6 @@
 package org.sid.springsecurity.bean.communBean;
 
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 
 import javax.persistence.*;
@@ -21,18 +21,18 @@ public class Paiement {
     private AgenceLocation agenceLocation ;
 
     @ManyToOne
-    @JoinColumn(name = "prop_appartement_id")
-    private PropAppartement prop_appartement ;
+    @JoinColumn(name = "agenceAppartement_id")
+    private AgenceAppartement agenceAppartement ;
 
     @OneToOne(mappedBy = "paiement")
     private Facture facture ;
 
-    public PropAppartement getProp_appartement() {
-        return prop_appartement;
+    public AgenceAppartement getProp_appartement() {
+        return agenceAppartement;
     }
 
-    public void setProp_appartement(PropAppartement prop_appartement) {
-        this.prop_appartement = prop_appartement;
+    public void setProp_appartement(AgenceAppartement prop_appartement) {
+        this.agenceAppartement = prop_appartement;
     }
 
     public Facture getFacture() {
@@ -86,13 +86,13 @@ public class Paiement {
     public Paiement() {
     }
 
-    public Paiement(Long id, String ref, LocalDateTime datePaiement, Long ribClient, AgenceLocation agence_Location, PropAppartement prop_appartement, Facture facture) {
+    public Paiement(Long id, String ref, LocalDateTime datePaiement, Long ribClient, AgenceLocation agence_Location, AgenceAppartement prop_appartement, Facture facture) {
         this.id = id;
         this.ref = ref;
         this.datePaiement = datePaiement;
         this.ribClient = ribClient;
         this.agenceLocation = agence_Location;
-        this.prop_appartement = prop_appartement;
+        this.agenceAppartement = prop_appartement;
         this.facture = facture;
     }
 }

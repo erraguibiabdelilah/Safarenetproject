@@ -1,5 +1,6 @@
 package org.sid.springsecurity.service.impl.voitureServiceImpl;
 
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
@@ -98,6 +99,11 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
         existingagenceLocation.setRCAgLoc(agenceLocation.getRCAgLoc());
         existingagenceLocation.setUsername(agenceLocation.getUsername());
         existingagenceLocation.setVoitures(agenceLocation.getVoitures());
+        if(agenceLocation.getLogo()!=null){
+            existingagenceLocation.setLogo(agenceLocation.getLogo());
+        }else {
+            existingagenceLocation.setLogo(null);
+        }
 
         agenceLocationDao.save(existingagenceLocation);
         return 1;
@@ -113,6 +119,17 @@ public class AgenceLocationServiceImpl implements AgenceLocationService {
     @Override
     public AgenceLocation findByUsername(String username) {
         return agenceLocationDao.findByUsername(username);
+    }
+
+
+
+    @Override
+    public List<ImageModule> getImagesByIceAgLoc(String username) {
+        AgenceLocation agenceLocation = agenceLocationDao.findByUsername(username);
+        if (agenceLocation != null) {
+            return new ArrayList<>(agenceLocation.getLogo());
+        }
+        return Collections.emptyList();
     }
 }
 

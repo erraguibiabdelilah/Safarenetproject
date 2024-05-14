@@ -15,39 +15,41 @@
       <table class="table table-striped">
         <thead>
         <tr>
-          <th>CIN</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Numéro</th>
+          <th>id</th>
+          <th>iceAgApp</th>
+          <th>raisonSocialAg</th>
+          <th>numTele</th>
           <th>Email</th>
-          <th>RIB</th>
-          <th>Numéro de compte</th>
-          <th>Username PropAppt</th>
-          <th>listAppartement</th> <!-- Correction du nom de la colonne -->
+          <th>adresse</th>
+          <th>numCompteBkAgApp</th>
+          <th>ribAgenceApp</th>
+          <th>RCAgApp</th> <!-- Correction du nom de la colonne -->
+          <th>username</th> <!-- Correction du nom de la colonne -->
           <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let ez of items; let i = index">
-          <td>{{ez.cin}}</td>
-          <td>{{ez.nom}}</td>
-          <td>{{ez.prenom}}</td>
+          <td>{{ez.iceAgApp}}</td>
+          <td>{{ez.raisonSocialAg}}</td>
           <td>{{ez.numTele}}</td>
           <td>{{ez.email}}</td>
-          <td>{{ez.ribPropAppt}}</td>
-          <td>{{ez.numCompteBkPropApp}}</td>
+          <td>{{ez.adresse}}</td>
+          <td>{{ez.numCompteBkAgApp}}</td>
+          <td>{{ez.ribAgenceApp}}</td>
+          <td>{{ez.RCAgApp}}</td>
           <td>{{ez.username}}</td>
           <td>
-            <button class="btn btn-outline-primary" (click)="getAppartemetsbyCin(ez.cin)">
+            <button class="btn btn-outline-primary" (click)="getAppartemetsbyCin(ez.iceAgApp)">
               <i class="bi bi-house-door-fill"></i>
             </button>
           </td>
           <td>
             <div class="d-flex gap-2">
-              <a class="btn btn-outline-danger" (click)="delete(ez.cin)">
+              <a class="btn btn-outline-danger" (click)="delete(ez.iceAgApp)">
                 <i class="bi bi-trash"></i>
               </a>
-              <app-edit-prop-appartement   [cinEnfante]="ez.cin"></app-edit-prop-appartement>
+              <app-edit-prop-appartement   [cinEnfante]="ez.iceAgApp"></app-edit-prop-appartement>
             </div>
           </td>
         </tr>
@@ -71,42 +73,48 @@
             <div class="card-body">
               <div class="col-md-6">
                 <form>
+
+
                   <div class="col-12">
                     <label class="form-label">CIN</label>
-                    <input class="form-control" [(ngModel)]="item.cin" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.iceAgApp" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Nom</label>
-                    <input class="form-control" [(ngModel)]="item.nom" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.raisonSocialAg" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Prénom</label>
-                    <input class="form-control" [(ngModel)]="item.prenom" [ngModelOptions]="{standalone: true}">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Numéro de téléphone</label>
                     <input class="form-control" [(ngModel)]="item.numTele" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
+                    <label class="form-label">Numéro de téléphone</label>
+                    <input class="form-control" [(ngModel)]="item.email" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input class="form-control" type="email" [(ngModel)]="item.email" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" type="email" [(ngModel)]="item.adresse" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">RIB propriétaire</label>
-                    <input class="form-control" [(ngModel)]="item.ribPropAppt" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.numCompteBkAgApp" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Numéro de compte propriétaire</label>
-                    <input class="form-control" [(ngModel)]="item.numCompteBkPropApp" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.ribAgenceApp" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Nom d'utilisateur</label>
-                    <input class="form-control" [(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" [(ngModel)]="item.RCAgApp" [ngModelOptions]="{standalone: true}">
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Mot de passe</label>
-                    <input class="form-control" type="password" [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+                    <input class="form-control" type="text" [(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
                   </div>
+                  <div class="mb-3">
+                  <label class="form-label">Mot de passe</label>
+                  <input class="form-control" type="password" [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+                </div>
                   <button class="btn btn-outline-danger" type="submit" (click)="save()">Save</button>
                 </form>
               </div>

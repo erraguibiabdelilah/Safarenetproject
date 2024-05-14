@@ -2,7 +2,7 @@ package org.sid.springsecurity.ws.dto.communDto;
 
 
 
-import org.sid.springsecurity.ws.dto.appartementDto.PropAppartemenetDto;
+import org.sid.springsecurity.ws.dto.appartementDto.AgenceAppartementDto;
 import org.sid.springsecurity.ws.dto.voitureDto.AgenceLocationDto;
 
 import java.time.LocalDateTime;
@@ -16,7 +16,7 @@ public class PaiementDto {
 
     private AgenceLocationDto agenceLocationDto;
 
-    private PropAppartemenetDto propAppartemenetDto;
+    private AgenceAppartementDto agenceAppartementDto;
 
     private FactureDto factureDto;
 
@@ -60,12 +60,12 @@ public class PaiementDto {
         this.agenceLocationDto = agenceLocationDto;
     }
 
-    public PropAppartemenetDto getPropAppartemenetDto() {
-        return propAppartemenetDto;
+    public AgenceAppartementDto getPropAppartemenetDto() {
+        return agenceAppartementDto;
     }
 
-    public void setPropAppartemenetDto(PropAppartemenetDto propAppartemenetDto) {
-        this.propAppartemenetDto = propAppartemenetDto;
+    public void setPropAppartemenetDto(AgenceAppartementDto agenceAppartementDto) {
+        this.agenceAppartementDto = agenceAppartementDto;
     }
 
     public FactureDto getFactureDto() {

@@ -20,7 +20,7 @@ public interface AppartementService {
 
     List<Appartement> findByCategoriesAppartementLibelle(String libelle);
 
-    List<Appartement>  findByPropAppartementCin(String cin);
+    List<Appartement> findByAgenceAppartementIceAgApp(Long iceAgApp);
 
     List<Appartement> findByAdresse(String adresse);
 

@@ -42,7 +42,7 @@ export class AppartemetService {
   }
 
 
-  public  getAppartemetsCin(cin:String):Observable<any>{
+  public  getAppartemetsCin(cin:number):Observable<any>{
     return this.http.get(`http://localhost:8085/api/appartement/listAppartementCin/${cin}`);
   }
 

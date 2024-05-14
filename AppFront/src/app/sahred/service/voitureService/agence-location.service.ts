@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {PropAppartement} from "../../model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../model/appartemetModel/AgenceAppartement.model";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AgenceLocation} from "../../model/voitureModel/agence-location.model";
@@ -28,12 +28,22 @@ export class AgenceLocationService {
     return this.http.delete<number>(`${this.url}iceAgLoc/${iceAgLoc}`);
   }
 
-  public  update(agence:AgenceLocation):Observable<any>{
-    return this.http.put(this.url,agence)
+  public  update(agenceVoitureFormData:FormData):Observable<any>{
+    return this.http.put(this.url,agenceVoitureFormData)
   }
+
   public getByusername(username: String):Observable<AgenceLocation> {
     return this.http.get<AgenceLocation>(`${this.url}username/${username}`);
   }
+
+
+  //logo*************************************************************************
+  public getImagesByIceAgLoc(username:string):Observable<any>{
+    return  this.http.get<any>(`${this.url}images/${username}`);
+  }
+
+  //logo*************************************************************************
+
 
   get item(): AgenceLocation {
     return this._item;

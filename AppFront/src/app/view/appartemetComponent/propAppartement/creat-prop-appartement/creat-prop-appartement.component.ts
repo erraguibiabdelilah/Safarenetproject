@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
-import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartementService} from "../../../../sahred/service/appartemetService/agence-appartement.service";
+import {AgenceAppartement} from "../../../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {AppartemetService} from "../../../../sahred/service/appartemetService/appartemet.service";
 import {Router} from "@angular/router";
 
@@ -13,22 +13,22 @@ export class CreatPropAppartementComponent implements OnInit{
 
   public _ok:boolean=false;
 
-  constructor(public _service :PropAppartementService,public  _appartementService:AppartemetService,private router:Router) {
+  constructor(public _service :AgenceAppartementService,public  _appartementService:AppartemetService,private router:Router) {
 
   }
 
-  get item(): PropAppartement {
+  get item(): AgenceAppartement {
     return this._service.item;
   }
 
 
-  set item(value: PropAppartement) {
+  set item(value: AgenceAppartement) {
     this._service.item = value;
   }
   public save() {
     this.service.save().subscribe({
 
-      next: (response) => {
+      next: (response: number) => {
 
         console.log(response)
         if (response === -1) {
@@ -48,7 +48,7 @@ export class CreatPropAppartementComponent implements OnInit{
 
         }
       },
-      error: (err) => {
+      error: (err:any) => {
         // Gérer les erreurs
       }
     });
@@ -66,7 +66,7 @@ export class CreatPropAppartementComponent implements OnInit{
     })
   }
 
-  public  delete(cin:string){
+  public  delete(cin:number){
     this._service.delete(cin).subscribe({
       next:value => {
         this.get();
@@ -77,7 +77,7 @@ export class CreatPropAppartementComponent implements OnInit{
     })
   }
 
-  public  getAppartemetsbyCin(cin:String){
+  public  getAppartemetsbyCin(cin:number){
     this._appartementService.getAppartemetsCin(cin).subscribe({
       next:data=>{
         // console.log(data)
@@ -116,29 +116,31 @@ export class CreatPropAppartementComponent implements OnInit{
   }
 
 
-  get items(): Array<PropAppartement> {
+  get items(): Array<AgenceAppartement> {
     return this._service._items;
   }
 
-  set items(value: Array<PropAppartement>) {
+  set items(value: Array<AgenceAppartement>) {
     this._service._items = value;
   }
 
   supprimet() {
-    this.item.nom="";
-    this.item.prenom="";
-    this.item.email="";
-    this.item.username="";
-    this.item.ribPropAppt="";
-    this.item.numTele="",
-      this.item.numCompteBkPropApp="",
-      this.item.cin=""
+    this.item.iceAgApp= 0;
+    this.item.raisonSocialAg= "";
+    this.item.numTele= "";
+    this.item.email= "";
+    this.item.adresse= "";
+    this.item.numCompteBkAgApp= 0;
+    this.item.ribAgenceApp= 0;
+    this.item.RCAgApp= 0;
+    this.item.username= "";
+    this.item.password= "";
   }
-  get service(): PropAppartementService {
+  get service(): AgenceAppartementService {
     return this._service;
   }
 
-  set service(value: PropAppartementService) {
+  set service(value: AgenceAppartementService) {
     this._service = value;
   }
 

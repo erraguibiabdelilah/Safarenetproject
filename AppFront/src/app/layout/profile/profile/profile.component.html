@@ -43,20 +43,28 @@
     <mat-card-content>
       <div class="row">
         <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.seloger.com/list/img/illu_dossier_candidatures.png" alt=""><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <h1>Edit logo :</h1>
+            <img  *ngIf="!isExisteLogo" class="rounded-circle mt-5" (click)="selectFile.click()" width="150px" src="https://www.seloger.com/list/img/illu_dossier_candidatures.png" alt="">
+            <img *ngIf="isExisteLogo" width="150px" class="rounded-circle mt-5" [src]="prop.logo[0].url">
+            <input style="display: none" type="file" multiple value="select" #selectFile (change)="oneFileSelected($event)">
+<!--            <i class="mt-5 bi bi-card-image" style="width:100px;height:100px"></i>-->
+            <span class="font-weight-bold">{{authService.username}}</span>
+            <span class="text-black-50"></span>
+          </div>
+
         </div>
         <div class="col-md-5 border-right">
           <div class="p-3 py-5">
 
             <div class="row mt-2">
-              <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" placeholder="Last Name" value="" [(ngModel)]="prop.nom"></div>
-              <div class="col-md-6"><label class="labels">First Name"</label><input type="text" class="form-control" value="" placeholder="First Name" [(ngModel)]="prop.prenom"></div>
-
-              <div ><label class="labels">Email</label><input type="text" class="form-control" placeholder="email" value="" [(ngModel)]="prop.email"></div>
-              <div><label class="labels">Phone</label><input type="text" class="form-control" value="" placeholder="Phone" [(ngModel)]="prop.numTele"></div>
-              <div><label class="labels">RIB </label><input type="text" class="form-control" value="" placeholder="rib" [(ngModel)]="prop.ribPropAppt"></div>
-              <div><label class="labels">N° Compte Banquaire </label><input type="text" class="form-control" value="" placeholder="numcompteBK" [(ngModel)]="prop.numCompteBkPropApp"></div>
-
+              <div class="col-md-6"><label class="labels">Adresse</label><input type="text" class="form-control" placeholder="Adresse" value="" [(ngModel)]="prop.adresse"></div>
+              <div class="col-md-6"><label class="labels">Raison social </label><input type="text" class="form-control" value="" placeholder="Raison social " [(ngModel)]="prop.raisonSocialAg"></div>
+              <div ><label class="labels">RCAgLoc</label><input type="number" class="form-control" placeholder="RCAgLoc" value="" [(ngModel)]="prop.RCAgApp"></div>
+              <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" value="" placeholder="numtelephone" [(ngModel)]="prop.numTele"></div>
+              <div><label class="labels">Rib Agence Location  </label><input type="number" class="form-control" value="" placeholder="ribAgenceLoc" [(ngModel)]="prop.ribAgenceApp"></div>
+              <div><label class="labels">N° Compte Banquaire </label><input type="number" class="form-control" value="" placeholder="numcompteBK" [(ngModel)]="prop.numCompteBkAgApp"></div>
+              <div><label class="labels">email </label><input type="email" class="form-control" value="" placeholder="numcompteBK" [(ngModel)]="prop.email"></div>
               <div class="mt-5">
                 <button class="btn btn-primary form-control" (click)="updateProp()">Update</button>
               </div>
@@ -72,6 +80,7 @@
 
 
 
+
 <div *ngIf="authService.roles.includes('MANAGER-VOI')" class="container rounded bg-white mt-5 mb-5">
   <mat-card class="card_t">
     <mat-card-header><mat-card-title> PROFILE </mat-card-title> </mat-card-header>
@@ -80,11 +89,18 @@
 
       <div class="row">
         <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://www.autoeurope.fr/plugins/ae3/themes/AE1/images/car_hero.png" alt=""><span class="font-weight-bold">{{authService.username}}</span><span class="text-black-50"></span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img *ngIf="!isExisteLogo" class="rounded-circle mt-5" (click)="selectFileAgence.click()" width="150px" src="https://www.autoeurope.fr/plugins/ae3/themes/AE1/images/car_hero.png" alt="">
+            <img *ngIf="isExisteLogo" width="150px" class="rounded-circle mt-5" [src]="agence.logo[0].url">
+
+            <input style="display: none" type="file" multiple value="select" #selectFileAgence (change)="oneFileSelectedAgenceVoiture($event)">
+            <span class="font-weight-bold">{{authService.username}}</span>
+            <span class="text-black-50"></span>
+
+          </div>
         </div>
         <div class="col-md-5 border-right">
           <div class="p-3 py-5">
-
             <div class="row mt-2">
               <div class="col-md-6"><label class="labels">Adresse</label><input type="text" class="form-control" placeholder="Adresse" value="" [(ngModel)]="agence.adresse"></div>
               <div class="col-md-6"><label class="labels">Raison social </label><input type="text" class="form-control" value="" placeholder="Raison social " [(ngModel)]="agence.raisonSocialAg"></div>
@@ -92,7 +108,6 @@
               <div><label class="labels">Numéro de Télèphone</label><input type="text" class="form-control" value="" placeholder="numtelephone" [(ngModel)]="agence.numTelephone"></div>
               <div><label class="labels">Rib Agence Location  </label><input type="number" class="form-control" value="" placeholder="ribAgenceLoc" [(ngModel)]="agence.ribAgenceLoc"></div>
               <div><label class="labels">N° Compte Banquaire </label><input type="number" class="form-control" value="" placeholder="numcompteBK" [(ngModel)]="agence.numCompteBkAgLoc"></div>
-
               <div class="mt-5">
                 <button class="btn btn-primary form-control" (click)="updateAgence()">Update</button>
               </div>
@@ -102,7 +117,6 @@
           </div>
         </div>
       </div>
-
     </mat-card-content>
   </mat-card>
 </div>

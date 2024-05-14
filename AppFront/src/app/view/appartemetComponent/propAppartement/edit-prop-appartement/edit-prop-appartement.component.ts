@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
-import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
+import {AgenceAppartement} from "../../../../sahred/model/appartemetModel/AgenceAppartement.model";
+import {AgenceAppartementService} from "../../../../sahred/service/appartemetService/agence-appartement.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -13,7 +13,7 @@ export class EditPropAppartementComponent implements OnInit{
   // public _ok: boolean = false;
   // public editPropNew  :PropAppartement=new PropAppartement();
   // // @ts-ignore
-  @Input() cinEnfante: string | undefined;
+  @Input() cinEnfante: number | undefined;
   //
   //
   //

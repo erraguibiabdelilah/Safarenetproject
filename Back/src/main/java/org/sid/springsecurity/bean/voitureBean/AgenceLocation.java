@@ -3,6 +3,7 @@ package org.sid.springsecurity.bean.voitureBean;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.communBean.Paiement;
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.security.bean.AppRole;
 import org.sid.springsecurity.security.bean.AppUser;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class AgenceLocation extends AppUser {
@@ -34,6 +36,32 @@ public class AgenceLocation extends AppUser {
     private List<Paiement> paiements ;
 
 
+
+    //logo ***************************************************************************
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(name = "agenceLocation_logo",
+            joinColumns = {
+                    @JoinColumn(name = "agenceLocation_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "logo_id")
+            }
+    )
+    private Set<ImageModule> logo;
+
+    //logo ***************************************************************************
+
+
+    public Set<ImageModule> getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Set<ImageModule> logo) {
+        this.logo = logo;
+    }
+
+
+    
 
 
     public AgenceLocation() {

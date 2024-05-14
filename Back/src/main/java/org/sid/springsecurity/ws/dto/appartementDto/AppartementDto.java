@@ -20,7 +20,7 @@ public class AppartementDto {
     private List<ReservationDto> reservationDtos;
     private Set<ImageModule>  images;
     private CategoriesAppartementDto categoriesAppartementDto;
-    private PropAppartemenetDto propAppartemenetDto;
+    private AgenceAppartementDto agenceAppartementDto;
 
     public List<ReservationDto> getReservationDtos() {
         return reservationDtos;
@@ -41,12 +41,12 @@ public class AppartementDto {
 
 
 
-    public PropAppartemenetDto getPropAppartemenetDto() {
-        return propAppartemenetDto;
+    public AgenceAppartementDto getPropAppartemenetDto() {
+        return agenceAppartementDto;
     }
 
-    public void setPropAppartemenetDto(PropAppartemenetDto propAppartemenetDto) {
-        this.propAppartemenetDto = propAppartemenetDto;
+    public void setPropAppartemenetDto(AgenceAppartementDto agenceAppartementDto) {
+        this.agenceAppartementDto = agenceAppartementDto;
     }
 
     public String getCode() {

@@ -1,7 +1,7 @@
 package org.sid.springsecurity.bean.communBean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.security.bean.AppUser;
 
@@ -22,8 +22,8 @@ public class Client extends AppUser {
     private AgenceLocation agenceLocation ;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "prop_appartement_id")
-    private PropAppartement prop_appartement ;
+    @JoinColumn(name = "agenceAppartement_id")
+    private AgenceAppartement agenceAppartement ;
 
     @JsonIgnore
     @OneToMany(mappedBy = "client")
@@ -81,12 +81,12 @@ public class Client extends AppUser {
         this.agenceLocation = agence_Location;
     }
 
-    public PropAppartement getProp_appartement() {
-        return prop_appartement;
+    public AgenceAppartement getProp_appartement() {
+        return agenceAppartement;
     }
 
-    public void setProp_appartement(PropAppartement prop_appartement) {
-        this.prop_appartement = prop_appartement;
+    public void setProp_appartement(AgenceAppartement prop_appartement) {
+        this.agenceAppartement = prop_appartement;
     }
 
     public List<Reservation> getReservation() {

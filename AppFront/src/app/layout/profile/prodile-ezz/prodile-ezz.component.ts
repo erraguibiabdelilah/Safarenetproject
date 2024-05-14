@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../security/serviceAuth/auth.service";
 import {ClientService} from "../../../sahred/service/communService/client.service";
 import {AgenceLocationService} from "../../../sahred/service/voitureService/agence-location.service";
-import {PropAppartementService} from "../../../sahred/service/appartemetService/prop-appartement.service";
+import {AgenceAppartementService} from "../../../sahred/service/appartemetService/agence-appartement.service";
 import {Client} from "../../../sahred/model/communModel/client.model";
 import {AgenceLocation} from "../../../sahred/model/voitureModel/agence-location.model";
-import {PropAppartement} from "../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../../sahred/model/appartemetModel/AgenceAppartement.model";
 
 @Component({
   selector: 'app-prodile-ezz',
@@ -17,17 +17,23 @@ export class ProdileEzzComponent implements OnInit{
   // Variable
   client:Client=new Client();
   agence:AgenceLocation=new AgenceLocation();
-  propre:PropAppartement=new PropAppartement();
+  propre:AgenceAppartement=new AgenceAppartement();
 
-  constructor(protected authService:AuthService, private clientService: ClientService, private agenceLocationService: AgenceLocationService, private propAppartementService: PropAppartementService) {}
+  constructor(protected authService:AuthService, private clientService: ClientService, private agenceLocationService: AgenceLocationService, private propAppartementService: AgenceAppartementService) {}
   ngOnInit(): void {
     this.premierLettre()
     this.fonctionP()
-    this.getClient()
-    this.getAgence()
-    this.getPropre()
+    console.log(this.authService.roles)
+    if(this.authService.roles.includes("MANAGER-APT")){
+      this.getPropre()
+    }
+    else if(this.authService.roles.includes("MANAGER-VOI")){
+      this.getAgence()
+    }
+    else if(this.authService.roles.includes("USER")){
+      this.getClient()
+    }
   }
-
 
   getClient(){
     this.clientService.getByusername(this.authService.username).subscribe({

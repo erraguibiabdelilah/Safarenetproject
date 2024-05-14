@@ -5,13 +5,15 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/mat
 import {MatDivider} from "@angular/material/divider";
 import {ClientService} from "../../../sahred/service/communService/client.service";
 import {AgenceLocationService} from "../../../sahred/service/voitureService/agence-location.service";
-import {PropAppartementService} from "../../../sahred/service/appartemetService/prop-appartement.service";
+import {AgenceAppartementService} from "../../../sahred/service/appartemetService/agence-appartement.service";
 import {FormsModule} from "@angular/forms";
 import {AgenceLocation} from "../../../sahred/model/voitureModel/agence-location.model";
-import {PropAppartement} from "../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {Client} from "../../../sahred/model/communModel/client.model";
 import {Router, RouterLink} from "@angular/router";
-
+import {FileHandle} from "../../../sahred/model/file-handle.model";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Appartement} from "../../../sahred/model/appartemetModel/appartement.model";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -32,9 +34,10 @@ export class ProfileComponent implements OnInit {
   protected userRole: any
 
   agence = new AgenceLocation();
-  prop =new PropAppartement;
+  prop =new AgenceAppartement;
   client = new Client();
-  constructor(protected authService: AuthService, private clientService: ClientService, private agenceLocationService: AgenceLocationService, private propAppartementService:  PropAppartementService ,private router:Router) {
+  isExisteLogo: any;
+  constructor(private sanitizer:DomSanitizer, protected authService: AuthService, private clientService: ClientService, private agenceLocationService: AgenceLocationService, protected propAppartementService:  AgenceAppartementService , private router:Router) {
   }
 
   ngOnInit(): void {
@@ -92,28 +95,8 @@ export class ProfileComponent implements OnInit {
   updateClient(): void {
     console.log(this.client);
     this.client.cin = this.authService.dataUtilisateur.cin
-    this.client.propAppartemenetDto = {
-      nom: "",
-      prenom: "",
-      numTele: "",
-      email: "",
-      ribPropAppt: "",
-      numCompteBkPropApp: "",
-      cin: "",
-      username: "",
-      password: ""
-    };
-    this.client.agenceLocation= {
-      iceAgLoc: 0,
-      ribAgenceLoc: 0,
-      raisonSocialAg: "",
-      adresse: "",
-      numTelephone: "",
-      numCompteBkAgLoc: 0,
-      usernameAgenceLoc: "",
-      password: "",
-      RCAgLoc: 0
-    };
+    this.client.propAppartemenetDto = new AgenceAppartement()
+    this.client.agenceLocation= new AgenceLocation();
     this.clientService.update(this.client).subscribe({
       next: (data) => {
         if (data === 1) {
@@ -127,33 +110,13 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-  updateAgence(): void {
-    console.log(this.authService.agenceLocation.iceAgLoc+"    xxxxxxxx  "+this.authService.agenceLocation.usernameAgenceLoc+"yyyyyyyyyyy"+this.authService.username)
-    console.log(this.agence);
-    // this.agence.iceAgLoc=this.authService.agenceLocation.iceAgLoc;
-    this.agence.usernameAgenceLoc=this.authService.username;
-    this.agenceLocationService.update(this.agence).subscribe({
-      next: (data) => {
-        if (data === 1) {
-          alert("le mise à jour effectue avec succes ")
-          this.router.navigateByUrl(`/profile`)
-        } else
-          console.log(data);
-      },
-      error:err=>{
-        console.log(err)
-      }
-    });
-  }
 
-
+  /*************************************outile photo de logo appartemet************************************************/
   updateProp(): void {
-    console.log("CIN"+this.authService.propAppartement.cin)
-    console.log(this.prop);
-    // this.prop.cin=this.authService.propAppartement.cin;
-    // this.prop.username=this.authService.propAppartement.username ;
-
-    this.propAppartementService.update(this.prop).subscribe({
+    this.prop.iceAgApp=this.authService.dataUtilisateur.iceAgApp
+    this.prop.username=this.authService.dataUtilisateur.username
+    const preparData=this.prepareFormData(this.prop)
+    this.propAppartementService.update(preparData).subscribe({
       next: (data) => {
         if (data === 1) {
           alert("le mise à jour effectue avec succes ")
@@ -165,34 +128,102 @@ export class ProfileComponent implements OnInit {
         console.log(err)
       }
     });
+
   }
+
+  oneFileSelected($event: Event) {
+    // @ts-ignore
+    if($event.target.files){
+      // @ts-ignore
+      const  file=$event.target.files[0];
+      const fileHandle:FileHandle={
+        file:file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+        this.prop.logo.push(fileHandle)
+        this.isExisteLogo=true
+    }
+  }
+
+  prepareFormData(agenceAppartement:AgenceAppartement):FormData{
+    const  formData=new FormData();
+    formData.append(
+      'agenceAppartemet'
+      , new Blob(
+        [JSON.stringify(agenceAppartement)],
+        {type:'application/json'}
+      ));
+
+    for (var i=0;i<agenceAppartement.logo.length;i++){
+      formData.append(
+        'logo',
+        agenceAppartement.logo[i].file,
+        agenceAppartement.logo[i].file.name
+      );
+    }
+    return formData;
+  }
+  /*************************************outile photo de logo voiture************************************************/
+  oneFileSelectedAgenceVoiture($event: Event) {
+    // @ts-ignore
+    if($event.target.files){
+      // @ts-ignore
+      const  file=$event.target.files[0];
+      const fileHandle:FileHandle={
+        file:file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+      this.agence.logo.push(fileHandle)
+      console.log("Tfoooooo!!")
+      console.log(this.agence.logo)
+      this.isExisteLogo=true
+    }
+  }
+
+  prepareFormDataAgence(agenceLocation:AgenceLocation):FormData{
+
+    const  formData=new FormData();
+    formData.append(
+      'agenceLocation'
+      , new Blob(
+        [JSON.stringify(agenceLocation)],
+        {type:'application/json'}
+      ));
+
+    for (var i=0;i<agenceLocation.logo.length;i++){
+      formData.append(
+        'logo',
+        agenceLocation.logo[i].file,
+        agenceLocation.logo[i].file.name
+      );
+    }
+    return formData;
+  }
+
+  updateAgence(): void {
+    this.agence.usernameAgenceLoc=this.authService.username;
+    const preparData=this.prepareFormDataAgence(this.agence)
+    console.log(preparData)
+    this.agenceLocationService.update(preparData).subscribe({
+      next: (data) => {
+        if (data === 1) {
+          console.log("1")
+          this.router.navigateByUrl(`/profile`)
+        } else
+          console.log(data);
+      },
+      error:err=>{
+        console.log(err)
+      }
+    });
+  }
+
+  //*******************************************************************************************
 }
-
-  /*updateProp(): void {
-    this.propAppartementService.update(this.prop).subscribe({
-      next: (data) => {
-        if (data === 1) {
-          alert("le mise à jour effectue avec succes ")
-
-        } else
-          console.log(data);
-      }
-    });
-  }*/
-
-  /*updateClient(): void {
-    console.log(this.client);
-    this.clientService.update(this.client).subscribe({
-      next: (data) => {
-        if (data === 1) {
-          alert("mise à jour est effectuee avec succes ");
-        } else
-          console.log(data);
-      }
-    });
-
-  }
-}*/
 
 
 

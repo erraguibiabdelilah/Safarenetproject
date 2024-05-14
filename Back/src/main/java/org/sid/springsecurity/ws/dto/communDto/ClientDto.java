@@ -1,10 +1,9 @@
 package org.sid.springsecurity.ws.dto.communDto;
 
 
-import org.sid.springsecurity.ws.dto.appartementDto.PropAppartemenetDto;
+import org.sid.springsecurity.ws.dto.appartementDto.AgenceAppartementDto;
 import org.sid.springsecurity.ws.dto.voitureDto.AgenceLocationDto;
 
-import java.util.List;
 public class ClientDto {
     private String cin ;
     private String prenom ;
@@ -15,7 +14,7 @@ public class ClientDto {
     private String email_Client  ;
     private AgenceLocationDto agenceLocation;
 
-    private PropAppartemenetDto propAppartemenetDto ;
+    private AgenceAppartementDto agenceAppartementDto;
 //    private List<ReservationDto> reservationDto ;
 
 
@@ -77,12 +76,12 @@ public class ClientDto {
 
 
 
-    public PropAppartemenetDto getPropAppartemenetDto() {
-        return propAppartemenetDto;
+    public AgenceAppartementDto getPropAppartemenetDto() {
+        return agenceAppartementDto;
     }
 
-    public void setPropAppartemenetDto(PropAppartemenetDto propAppartemenetDto) {
-        this.propAppartemenetDto = propAppartemenetDto;
+    public void setPropAppartemenetDto(AgenceAppartementDto agenceAppartementDto) {
+        this.agenceAppartementDto = agenceAppartementDto;
     }
 
 //    public List<ReservationDto> getReservationDto() {

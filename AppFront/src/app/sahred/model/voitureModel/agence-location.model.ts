@@ -1,6 +1,7 @@
 import {Paiement} from "../communModel/paiementDto.model";
 import {Client} from "../communModel/client.model";
 import {Voiture} from "./voiture.model";
+import {FileHandle} from "../file-handle.model";
 
 export class AgenceLocation {
   iceAgLoc: number;
@@ -9,11 +10,10 @@ export class AgenceLocation {
   numTelephone: string;
   numCompteBkAgLoc: number;
   ribAgenceLoc: number;
-
   usernameAgenceLoc: string;
   password: string;
   RCAgLoc: number;
-
+  logo!: FileHandle[];
   constructor() {
     this.iceAgLoc = 0;
     this.raisonSocialAg = "";

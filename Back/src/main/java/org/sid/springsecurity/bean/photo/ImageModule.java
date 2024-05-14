@@ -15,15 +15,12 @@ public class ImageModule {
     private String type;
     @Column(length = 50000000)
     private byte[] picByte;
-
     public ImageModule(String name, String type, byte[] picByte) {
         this.name = name;
         this.type = type;
         this.picByte = picByte;
     }
-
     public ImageModule() {
 
     }
-
 }

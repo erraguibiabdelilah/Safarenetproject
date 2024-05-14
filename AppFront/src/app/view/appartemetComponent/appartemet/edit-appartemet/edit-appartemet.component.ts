@@ -3,8 +3,8 @@ import {AppartemetService} from "../../../../sahred/service/appartemetService/ap
 import {
   CategoriesAppartementService
 } from "../../../../sahred/service/appartemetService/categories-appartement.service";
-import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
-import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartementService} from "../../../../sahred/service/appartemetService/agence-appartement.service";
+import {AgenceAppartement} from "../../../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {CategoriesAppartement} from "../../../../sahred/model/appartemetModel/categories-appartement.model";
 import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.model";
 

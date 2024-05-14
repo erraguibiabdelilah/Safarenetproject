@@ -1,5 +1,5 @@
 import {AgenceLocation} from "../voitureModel/agence-location.model";
-import {PropAppartement} from "../appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../appartemetModel/AgenceAppartement.model";
 import {Reservation} from "./reservation.model";
 
 export class Client {
@@ -11,11 +11,8 @@ export class Client {
   password_Client: string;
   email_Client: string;
   agenceLocation: AgenceLocation;
-  propAppartemenetDto: PropAppartement;
+  propAppartemenetDto: AgenceAppartement;
   reservationDto!: Array<Reservation>;
-
-
-
 
   constructor() {
     this.cin = "";
@@ -25,29 +22,7 @@ export class Client {
     this.username_Client = "";
     this.password_Client = "";
     this.email_Client = "";
-    this.agenceLocation = {
-      iceAgLoc: 0,
-      ribAgenceLoc: 0,
-      raisonSocialAg: "",
-      adresse: "",
-      numTelephone: "",
-      numCompteBkAgLoc: 0,
-      usernameAgenceLoc: "",
-      password: "",
-      RCAgLoc: 0
-    };
-    this.propAppartemenetDto = {
-      nom: "",
-      prenom: "",
-      numTele: "",
-      email: "",
-      ribPropAppt: "",
-      numCompteBkPropApp: "",
-      cin: "",
-      username: "",
-      password: ""
-    };
-
-
+    this.agenceLocation = new AgenceLocation()
+    this.propAppartemenetDto = new AgenceAppartement()
   }
 }

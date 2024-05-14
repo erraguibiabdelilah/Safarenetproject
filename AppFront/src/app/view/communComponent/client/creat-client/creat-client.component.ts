@@ -7,7 +7,7 @@ import jsPDF from "jspdf";
 import {ClientService} from "../../../../sahred/service/communService/client.service";
 import {Client} from "../../../../sahred/model/communModel/client.model";
 import {AgenceLocation} from "../../../../sahred/model/voitureModel/agence-location.model";
-import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {Reservation} from "../../../../sahred/model/communModel/reservation.model";
 
 @Component({
@@ -22,7 +22,7 @@ export class CreatClientComponent implements OnInit, AfterViewInit {
   public submitted:boolean=false;
 
   public ListeColum = [
-    "cin","prenom","nom","numTeleClient","email_Client",
+    "cin","prenom","nom","numTeleClient","email_Client","action"
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

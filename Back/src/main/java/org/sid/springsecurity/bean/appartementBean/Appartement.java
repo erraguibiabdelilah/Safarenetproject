@@ -39,10 +39,10 @@ public class Appartement {
     private CategoriesAppartement categoriesAppartement;
 
     @ManyToOne
-    @JoinColumn(name = "propAppartement_id")
-    private PropAppartement propAppartement;
+    @JoinColumn(name = "agenceAppartement_id")
+    private AgenceAppartement agenceAppartement;
 
-    public <E> Appartement(long l, String app0044, int i, String s, String cityD, String yes, int i1, String yes1, double v, ArrayList<E> es, CategoriesAppartement categoriesAppartement4, PropAppartement propAppartement4, HashSet<E> es1) {
+    public <E> Appartement(long l, String app0044, int i, String s, String cityD, String yes, int i1, String yes1, double v, ArrayList<E> es, CategoriesAppartement categoriesAppartement4, AgenceAppartement agenceAppartement4, HashSet<E> es1) {
     }
 
 
@@ -67,15 +67,15 @@ public class Appartement {
         this.images = images;
     }
 
-    public PropAppartement getPropAppartement() {
-        return propAppartement;
+    public AgenceAppartement getAgenceAppartement() {
+        return agenceAppartement;
     }
 
-    public void setPropAppartement(PropAppartement propAppartement) {
-        this.propAppartement = propAppartement;
+    public void setAgenceAppartement(AgenceAppartement agenceAppartement) {
+        this.agenceAppartement = agenceAppartement;
     }
 
-    public Appartement(Long id, String code, int superficie, String adresse, String ville, String wifi, int nmbrPersont, String climatiseur, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, PropAppartement propAppartement, Set<ImageModule> images) {
+    public Appartement(Long id, String code, int superficie, String adresse, String ville, String wifi, int nmbrPersont, String climatiseur, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, AgenceAppartement agenceAppartement, Set<ImageModule> images) {
         this.id = id;
         this.code = code;
         this.superficie = superficie;
@@ -87,7 +87,7 @@ public class Appartement {
         this.loyerMensuel = loyerMensuel;
         this.reservation = reservation;
         this.categoriesAppartement = categoriesAppartement;
-        this.propAppartement = propAppartement;
+        this.agenceAppartement = agenceAppartement;
         this.images = images;
     }
 

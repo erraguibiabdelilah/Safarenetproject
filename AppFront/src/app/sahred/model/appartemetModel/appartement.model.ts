@@ -1,7 +1,7 @@
 
 import {CategoriesAppartement} from "./categories-appartement.model";
 import {Reservation} from "../communModel/reservation.model";
-import {PropAppartement} from "./prop-appartement.model";
+import {AgenceAppartement} from "./AgenceAppartement.model";
 import {FileHandle} from "../file-handle.model";
 export class Appartement {
   id:number;
@@ -15,7 +15,7 @@ export class Appartement {
   climatiseur: string;
   images: FileHandle[];
   categoriesAppartementDto: CategoriesAppartement;
-  propAppartemenetDto: PropAppartement;
+  propAppartemenetDto: AgenceAppartement;
   constructor() {
     this.id=0;
     this.code = "";
@@ -31,16 +31,6 @@ export class Appartement {
       id:0,
       libelle:""
     };
-    this.propAppartemenetDto= {
-      nom : "",
-      prenom : "",
-      numTele : "",
-      email : "",
-      ribPropAppt : "",
-      numCompteBkPropApp : "",
-      cin : "",
-      username : "",
-      password:""
-    };
+    this.propAppartemenetDto= new AgenceAppartement();
   }
 }
