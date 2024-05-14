@@ -167,15 +167,6 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-
-            <div  class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
-              <h3>Nomber des Jours</h3>
-              <div style="width: 50%">
-                <button id="decrement" (click)="decrement()" [disabled]="!display">-</button>
-                <input type="text" id="input"  [(ngModel)]="nbrJours" pattern="[0-9]*" style="width: 30%">
-                <button id="increment" (click)="increment()" [disabled]="!display">+</button>
-              </div>
-            </div>
           </div>
 
           <div class="card cardfor">
@@ -208,7 +199,6 @@
 
             </div>
 
-<<<<<<< HEAD
             <div class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
               <h3>Nomber des Jours</h3>
               <div style="width: 50%">
@@ -218,10 +208,6 @@
               </div>
             </div>
             <button class="btn-rserver">Réserver</button>
-=======
-
-            <button class="btn-rserver" (click)="handlReserve()">Réserver</button>
->>>>>>> 6007e75cbbde879de4b899fcd88d62566b75c174
           </div>
         </div>
       </div>

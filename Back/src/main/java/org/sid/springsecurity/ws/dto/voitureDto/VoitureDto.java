@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 public class VoitureDto extends ModeleDto{
-    private Long id;
 
     private String couleur;
 
@@ -36,15 +35,6 @@ public class VoitureDto extends ModeleDto{
 
     private Set<ImageModule> images;
 
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Set<ImageModule> getImages() {
         return images;

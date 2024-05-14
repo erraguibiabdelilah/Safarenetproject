@@ -3,7 +3,6 @@ import {AgenceAppartement} from "../appartemetModel/AgenceAppartement.model";
 import {Reservation} from "./reservation.model";
 
 export class Client {
-  id:number;
   cin: string;
   prenom: string;
   nom: string;
@@ -16,7 +15,6 @@ export class Client {
   reservationDto!: Array<Reservation>;
 
   constructor() {
-    this.id=0;
     this.cin = "";
     this.prenom = "";
     this.nom = "";

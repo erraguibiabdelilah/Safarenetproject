@@ -185,18 +185,6 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-<<<<<<< HEAD
-=======
-            <div class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
-              <h3>Nomber des Jours</h3>
-              <div style="width: 50%">
-                <button id="decrement" (click)="decrement()" [disabled]="!display">-</button>
-                <input type="text" id="input"  [(ngModel)]="nbrJours"  style="width: 30%">
-                <button id="increment" (click)="increment()" [disabled]="!display">+</button>
-              </div>
-            </div>
-
->>>>>>> 6007e75cbbde879de4b899fcd88d62566b75c174
 
           </div>
 
@@ -230,7 +218,14 @@
               </div>
 
             </div>
-
+            <div class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
+              <h3>Nomber des Jours</h3>
+             <div style="width: 50%">
+               <button id="decrement" (click)="decrement()">-</button>
+               <input type="text" id="input"  [(ngModel)]="nbrJours"  style="width: 30%">
+               <button id="increment" (click)="increment()">+</button>
+             </div>
+            </div>
             <button class="btn-rserver" (click)="RedirectversFacture_Paiment()">Réserver</button>
           </div>
         </div>

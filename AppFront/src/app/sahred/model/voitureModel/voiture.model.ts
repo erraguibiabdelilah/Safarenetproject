@@ -3,7 +3,6 @@ import {AgenceLocation} from "./agence-location.model";
 import {FileHandle} from "../file-handle.model";
 
 export class Voiture {
-  id:number;
   couleur:string;
   nbrPlace:string;
   matricule:string;
@@ -23,7 +22,6 @@ export class Voiture {
   Carburant:string;
 
   constructor(){
-    this.id=0;
     this.couleur = "";
     this.nbrPlace = "";
     this.matricule = "";

@@ -68,7 +68,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         if (reservation.getVoiture() != null && reservation.getVoiture().getMatricule() != null) {
             Voiture voiture = voitureService.findByMatricule(reservation.getVoiture().getMatricule());
-//            if (voiture == null) return -5;
+            if (voiture == null) return -5;
             reservation.setVoiture(voiture);
         } else {
             reservation.setVoiture(null);
@@ -76,9 +76,9 @@ public class ReservationServiceImpl implements ReservationService {
 
         if (reservation.getAppartement() != null && reservation.getAppartement().getCode() != null) {
             Appartement appartement = appartementService.findByCode(reservation.getAppartement().getCode());
-//            if (appartement == null) {
-//                return -6;
-//            }
+            if (appartement == null) {
+                return -6;
+            }
             reservation.setAppartement(appartement);
         } else {
             reservation.setAppartement(null);
