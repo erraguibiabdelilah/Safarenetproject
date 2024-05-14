@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {AppUser} from "../bean/app-user.model";
 import {isPlatformBrowser} from "@angular/common";
 import {Client} from "../../sahred/model/communModel/client.model";
-import {PropAppartement} from "../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {AgenceLocation} from "../../sahred/model/voitureModel/agence-location.model";
 
 @Injectable({
@@ -23,7 +23,7 @@ export class AuthService {
 
   client:Client=new Client();
 
-  propAppartement:PropAppartement=new PropAppartement();
+  propAppartement:AgenceAppartement=new AgenceAppartement();
 
   agenceLocation:AgenceLocation=new AgenceLocation();
 
@@ -87,6 +87,9 @@ export class AuthService {
       {next:data=>{
           console.log(data)
           this.dataUtilisateur=data
+          console.log("=========================================")
+          console.log(this.dataUtilisateur)
+          console.log("=========================================")
         },
         error:err => {console.log("error")}
       }
@@ -119,6 +122,10 @@ export class AuthService {
         this.loadProfile({"accessToken":tokenAccess});
 
           this.router.navigateByUrl("/home")
+
+
+
+
       }
     }
   }
@@ -138,8 +145,8 @@ export class AuthService {
     return  this.http.post<number>("http://localhost:8085/api/client/",client)
   }
 
-  creeCompte2(propAppartement:PropAppartement){
-    return  this.http.post<number>("http://localhost:8085/api/propAppartement/",propAppartement)
+  creeCompte2(propAppartement:AgenceAppartement){
+    return  this.http.post<number>("http://localhost:8085/api/agenceAppartement/",propAppartement)
   }
 
   creeCompte3(agenceLocation:AgenceLocation){
@@ -151,7 +158,7 @@ export class AuthService {
       return this.http.get<any>(`http://localhost:8085/api/client/username/${username}`);
     }
     else if(this.isPropraitaire){
-      return this.http.get<any>(`http://localhost:8085/api/propAppartement/username/${username}`);
+      return this.http.get<any>(`http://localhost:8085/api/agenceAppartement/username/${username}`);
     }
     else if(this.isAgenceLocation){
       console.log("hello word")
@@ -176,15 +183,16 @@ export class AuthService {
   }
 
   viderProp(){
-    this.propAppartement.cin="";
-    this.propAppartement.prenom="";
-    this.propAppartement.nom="";
-    this.propAppartement.numTele="";
-    this.propAppartement.email="";
-    this.propAppartement.ribPropAppt="";
-    this.propAppartement.numCompteBkPropApp="";
-    this.propAppartement.username="";
-    this.propAppartement.password="";
+    this.propAppartement.iceAgApp= 0,
+      this.propAppartement.raisonSocialAg= "",
+      this.propAppartement.numTele= "",
+      this.propAppartement.email= "",
+      this.propAppartement.adresse= "",
+      this.propAppartement.numCompteBkAgApp= 0,
+      this.propAppartement.ribAgenceApp= 0,
+      this.propAppartement.RCAgApp= 0,
+      this.propAppartement.username="",
+      this.propAppartement.password=""
   }
 
   viderAgence(){

@@ -1,5 +1,4 @@
 <mat-toolbar color="primary">
-<!--  style="background-color:#b3e5fc"-->
   <mat-card>
     <img mat-card-image class="mat-card" src="assets/photo/image/bima.gif" alt="Logo">
   </mat-card>
@@ -46,12 +45,9 @@
     </a>
   </button>
 
-  <img *ngIf="authService.isAuthService  && !authService.roles.includes('ADMIN')" src="./assets/images/user.png" class="user-pic"  (click)="toggleMenu()">
-
-
+  <img *ngIf="authService.isAuthService && !authService.roles.includes('ADMIN') && !logo " src="./assets/images/user.png" class="user-pic"  (click)="toggleMenu()">
+  <img *ngIf="authService.isAuthService && !authService.roles.includes('ADMIN') && logo" [src]="getImageData(logo)" class="user-pic"  (click)="toggleMenu()">
 </mat-toolbar>
-
-
 <mat-drawer-container (click)="toggleMenuColose()"  >
   <mat-drawer  #mydrawer  opened="false" mode="side" position="start" >
     <mat-list *ngIf="authService.roles!='USER' || authService.isAuthService" >
@@ -74,7 +70,6 @@
           {{ 'create PropAppartement'|translate }}
         </button>
       </mat-list-item>
-
 
       <mat-list-item *ngIf="authService.isAuthService && authService.roles.includes('ADMIN')">
         <button mat-button routerLink="/admin/createAgence" *ngIf="authService.isAuthService">
@@ -144,7 +139,8 @@
         <div class="sub-menu-wrap" id="supMenu" style="position: absolute; top: 0; z-index: 1;" *ngIf="isMenuToggle ">
           <div  class="sub-menu bg-light">
             <div class="user-info">
-              <img src="./assets/images/user.png" >
+
+              <img *ngIf="logo" [src]="getImageData(logo)">
               <h2>{{this.authService.username}}</h2>
             </div>
             <hr>

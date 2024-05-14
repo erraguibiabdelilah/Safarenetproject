@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Appartement} from "../../../../sahred/model/appartemetModel/appartement.model";
 import {CategoriesAppartement} from "../../../../sahred/model/appartemetModel/categories-appartement.model";
-import {PropAppartement} from "../../../../sahred/model/appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../../../../sahred/model/appartemetModel/AgenceAppartement.model";
 import {AppartemetService} from "../../../../sahred/service/appartemetService/appartemet.service";
 import {
   CategoriesAppartementService
 } from "../../../../sahred/service/appartemetService/categories-appartement.service";
-import {PropAppartementService} from "../../../../sahred/service/appartemetService/prop-appartement.service";
+import {AgenceAppartementService} from "../../../../sahred/service/appartemetService/agence-appartement.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
@@ -60,17 +60,7 @@ wifi :any;
       id:0,
       libelle:""
     },
-    propAppartemenetDto: {
-      nom : "",
-      prenom : "",
-      numTele : "",
-      email : "",
-      ribPropAppt : "",
-      numCompteBkPropApp : "",
-      cin : "",
-      username : "",
-      password:""
-    }
+    propAppartemenetDto: new AgenceAppartement()
   };
 
   isEdit :boolean=false;
@@ -86,7 +76,9 @@ wifi :any;
     this.getAllCategorie();
     this.viderItemSelected();
     this.getAll()
+    console.log("==========================================")
     console.log(this.authService.dataUtilisateur)
+    console.log("==========================================")
     this.appartemetService.getImagesByProduitRef("1212");
   }
 
@@ -125,8 +117,7 @@ wifi :any;
 
   saveObject() {
     console.log(this.authService.dataUtilisateur)
-    this.item.propAppartemenetDto.cin=this.authService.dataUtilisateur.cin
-    console.log(this.item.propAppartemenetDto.cin)
+    this.item.propAppartemenetDto.iceAgApp=this.authService.dataUtilisateur.iceAgApp
     this.save();
     this.submitted = true;
     this.display=false;
@@ -213,8 +204,6 @@ wifi :any;
           window.URL.createObjectURL(file)
         )
       }
-      console.log(fileHandle)
-      console.log(this.appartemetService.item.images)
       this.appartemetService.item.images.push(fileHandle);
     }
   }
@@ -237,6 +226,8 @@ wifi :any;
   //1-save
   public save() {
     const  productFormData=this.prepareFormData(this.appartemetService.item);
+    console.log("++!++")
+    console.log(productFormData)
     console.log("appartemet item :")
     console.log(this.appartemetService.item)
     console.log("productFormData  :")
@@ -256,6 +247,7 @@ wifi :any;
       }
     });
   }
+
 
 
   //2-getAll
@@ -341,17 +333,7 @@ wifi :any;
         id:0,
         libelle:""
       },
-      propAppartemenetDto: {
-        nom : "",
-        prenom : "",
-        numTele : "",
-        email : "",
-        ribPropAppt : "",
-        numCompteBkPropApp : "",
-        cin : "",
-        username : "",
-        password:""
-      }
+      propAppartemenetDto: new AgenceAppartement()
     }
   }
 
@@ -399,7 +381,6 @@ wifi :any;
 
 
   getImageData(photo:any) {
-
     // // return 'data:image/jpeg;base64,' + image1.picByte;
     // console.log('data:'+image1.type+';base64,' + image1.picByte)
     return 'data:'+photo.type+';base64,' + photo.picByte;

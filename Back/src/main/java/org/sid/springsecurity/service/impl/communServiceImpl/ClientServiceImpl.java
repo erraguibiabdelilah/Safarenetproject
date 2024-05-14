@@ -1,13 +1,13 @@
 package org.sid.springsecurity.service.impl.communServiceImpl;
 
 
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.dao.communDao.ClientDao;
 import org.sid.springsecurity.security.bean.AppRole;
 import org.sid.springsecurity.security.dao.AppRoleDao;
-import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
+import org.sid.springsecurity.service.facade.appartementService.AgenceAppartementService;
 import org.sid.springsecurity.service.facade.communService.ClientService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Autowired
-    private PropAppartementService propAppartementService;
+    private AgenceAppartementService agenceAppartementService;
     @Autowired
     private AgenceLocationService agenceLocationService;
 
@@ -50,7 +50,7 @@ public class ClientServiceImpl implements ClientService {
         System.out.println(client.getPassword());
         System.out.println("********************************************************************************************");
         Long iceAgLoc =null;
-        String cin = "";
+        Long iceAgApp = null;
 
         if (client == null) {
             System.out.println("null");
@@ -62,16 +62,15 @@ public class ClientServiceImpl implements ClientService {
         }
         if (client.getAgence_Location() != null || client.getProp_appartement() != null) {
             iceAgLoc = client.getAgence_Location().getIceAgLoc();
-            cin = client.getProp_appartement().getCin();
+            iceAgApp = client.getProp_appartement().getIceAgApp();
 
         }
         AgenceLocation agenceLocation = agenceLocationService.findByiceAgLoc(iceAgLoc);
-        PropAppartement propAppartement = propAppartementService.findByCin(cin);
+        AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(iceAgApp);
 
-
-        if (agenceLocation != null || propAppartement != null) {
+        if (agenceLocation != null || agenceAppartement != null) {
             client.setAgence_Location(agenceLocation);
-            client.setProp_appartement(propAppartement);
+            client.setProp_appartement(agenceAppartement);
         } else {
             client.setAgence_Location(null);
             client.setProp_appartement(null);
@@ -112,7 +111,7 @@ public class ClientServiceImpl implements ClientService {
                 return -2;
             }
 
-            PropAppartement propAppartement = propAppartementService.findByCin(client.getProp_appartement().getCin());
+            AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(client.getProp_appartement().getIceAgApp());
             AgenceLocation agenceLocation = agenceLocationService.findByiceAgLoc(client.getAgence_Location().getIceAgLoc());
 
 
@@ -121,7 +120,7 @@ public class ClientServiceImpl implements ClientService {
             existingClient.setEmailClient(client.getEmailClient());
             existingClient.setNumTeleClient(client.getNumTeleClient());
             existingClient.setCin(client.getCin());
-            existingClient.setProp_appartement(propAppartement);
+            existingClient.setProp_appartement(agenceAppartement);
             existingClient.setAgence_Location(agenceLocation);
 
 

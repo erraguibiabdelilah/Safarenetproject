@@ -43,14 +43,14 @@
 
         <div class="input-field" *ngIf="propRadio">
           <i class="bi bi-house-check-fill"></i>
-          <input  type="text" placeholder="cin" formControlName="cin"  (input)="inputChangeCin()" >
+          <input  type="text" placeholder="iceAgApp" formControlName="cin"  (input)="inputChangeCin()" >
         </div>
 
 
-    <div *ngIf="agenceRadio" class="input-field">
+       <div *ngIf="agenceRadio" class="input-field">
         <i class="bi bi-building-fill-check"></i>
         <input  type="text" placeholder="iceAgLoc" formControlName="iceAgLoc"  (input)="inputChangeIceAgLoc()" >
-    </div>
+       </div>
         <div  *ngIf="cinInput" class="error-message">
           Le cin est requis (au moins 5 caractere).
         </div>

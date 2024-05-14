@@ -1,5 +1,5 @@
 import {AgenceLocation} from "../voitureModel/agence-location.model";
-import {PropAppartement} from "../appartemetModel/prop-appartement.model";
+import {AgenceAppartement} from "../appartemetModel/AgenceAppartement.model";
 import {Facture} from "./facture.model";
 
 export class Paiement {
@@ -9,7 +9,7 @@ export class Paiement {
 
   agenceLocationDto: AgenceLocation;
 
-  propAppartemenetDto: PropAppartement;
+  propAppartemenetDto: AgenceAppartement;
 
   factureDto: Facture;
 
@@ -18,29 +18,8 @@ export class Paiement {
     this.ref = "";
     this.datePaiement = new Date();
     this.ribClient = 0;
-    this.agenceLocationDto = {
-      iceAgLoc: 0,
-      raisonSocialAg: "",
-      adresse: "",
-      numTelephone: "",
-      numCompteBkAgLoc: 0,
-      ribAgenceLoc: 0,
-      usernameAgenceLoc: "",
-      password: "",
-      RCAgLoc: 0,
-    }
-    this.propAppartemenetDto = {
-      nom: "",
-      prenom: "",
-      numTele: "",
-      email: "",
-      ribPropAppt: "",
-      numCompteBkPropApp: "",
-      cin: "",
-      username: "",
-      password: ""
-
-    };
+    this.agenceLocationDto =new AgenceLocation()
+    this.propAppartemenetDto =new AgenceAppartement()
 
     this.factureDto = new Facture();
   }

@@ -1,7 +1,7 @@
 package org.sid.springsecurity.ws.converter.communConverter;
 
 import org.sid.springsecurity.bean.communBean.Client;
-import org.sid.springsecurity.ws.converter.appartementConverter.PropAppartemenetConverter;
+import org.sid.springsecurity.ws.converter.appartementConverter.AgenceAppartementConverter;
 import org.sid.springsecurity.ws.converter.voitureConverter.AgenceLocationConverter;
 import org.sid.springsecurity.ws.dto.communDto.ClientDto;
 import org.springframework.context.annotation.Lazy;
@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 @Component
 public class ClientConverter {
     private AgenceLocationConverter agenceLocationConverter ;
-    private PropAppartemenetConverter propAppartementConverter ;
+    private AgenceAppartementConverter propAppartementConverter ;
     private ReservationConverter reservationConverter ;
 
-    public ClientConverter(@Lazy AgenceLocationConverter agenceLocationConverter,@Lazy PropAppartemenetConverter propAppartementConverter,@Lazy ReservationConverter reservationConverter) {
+    public ClientConverter(@Lazy AgenceLocationConverter agenceLocationConverter, @Lazy AgenceAppartementConverter propAppartementConverter, @Lazy ReservationConverter reservationConverter) {
         this.agenceLocationConverter = agenceLocationConverter;
         this.propAppartementConverter = propAppartementConverter;
         this.reservationConverter = reservationConverter;
@@ -26,7 +26,6 @@ public class ClientConverter {
         if(bean == null){return  null ;}
         else {
             ClientDto dto = new ClientDto();
-            dto.setId(bean.getId());
             dto.setCin(bean.getCin());
             dto.setNom(bean.getNom());
             dto.setPrenom(bean.getPrenom());
@@ -50,7 +49,6 @@ public class ClientConverter {
         if(dto == null){return  null ;}
         else {
             Client bean = new Client();
-            bean.setId(dto.getId());
             bean.setCin(dto.getCin());
             bean.setNom(dto.getNom());
             bean.setPrenom(dto.getPrenom());

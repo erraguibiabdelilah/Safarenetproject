@@ -16,14 +16,14 @@ public class AppartementConverter {
     @Autowired
     private  CategoriesAppartementConverter categoriesAppartementConverter;
     @Autowired
-    private  PropAppartemenetConverter propAppartemenetConverter;
+    private AgenceAppartementConverter agenceAppartementConverter;
 
 
 
-    public AppartementConverter(ReservationConverter reservationConverter, CategoriesAppartementConverter categoriesAppartementConverter, PropAppartemenetConverter propAppartemenetConverter) {
+    public AppartementConverter(ReservationConverter reservationConverter, CategoriesAppartementConverter categoriesAppartementConverter, AgenceAppartementConverter agenceAppartementConverter) {
         this.reservationConverter = reservationConverter;
         this.categoriesAppartementConverter = categoriesAppartementConverter;
-        this.propAppartemenetConverter = propAppartemenetConverter;
+        this.agenceAppartementConverter = agenceAppartementConverter;
     }
 
 
@@ -48,7 +48,7 @@ public class AppartementConverter {
                 bean.setCategoriesAppartement(categoriesAppartementConverter.toBean(dto.getCategoriesAppartementDto()));
             }
             if(dto.getPropAppartemenetDto()!=null){
-                bean.setPropAppartement(propAppartemenetConverter.toBean(dto.getPropAppartemenetDto()));
+                bean.setAgenceAppartement(agenceAppartementConverter.toBean(dto.getPropAppartemenetDto()));
             }
             if (dto.getReservationDtos()!=null){
                 bean.setReservation(reservationConverter.toBean(dto.getReservationDtos()));
@@ -80,8 +80,8 @@ public class AppartementConverter {
             if( bean.getCategoriesAppartement()!=null){
                 dto.setCategoriesAppartementDto(categoriesAppartementConverter.toDto(bean.getCategoriesAppartement()));
             }
-            if( bean.getPropAppartement()!=null){
-                dto.setPropAppartemenetDto(propAppartemenetConverter.toDto(bean.getPropAppartement()));
+            if( bean.getAgenceAppartement()!=null){
+                dto.setPropAppartemenetDto(agenceAppartementConverter.toDto(bean.getAgenceAppartement()));
             }
             if (bean.getReservation()!=null){
                 dto.setReservationDtos(reservationConverter.toDto(bean.getReservation()));

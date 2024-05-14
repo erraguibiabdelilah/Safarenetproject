@@ -1,7 +1,7 @@
 package org.sid.springsecurity.ws.converter.communConverter;
 
 import org.sid.springsecurity.bean.communBean.Paiement;
-import org.sid.springsecurity.ws.converter.appartementConverter.PropAppartemenetConverter;
+import org.sid.springsecurity.ws.converter.appartementConverter.AgenceAppartementConverter;
 import org.sid.springsecurity.ws.converter.voitureConverter.AgenceLocationConverter;
 import org.sid.springsecurity.ws.dto.communDto.PaiementDto;
 import org.springframework.context.annotation.Lazy;
@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class PaiementConverter {
-   public PaiementConverter(@Lazy AgenceLocationConverter agenceLocationConverter, @Lazy PropAppartemenetConverter propAppartemenetConverter, @Lazy FactureConverter factureConverter) {
+   public PaiementConverter(@Lazy AgenceLocationConverter agenceLocationConverter, @Lazy AgenceAppartementConverter agenceAppartementConverter, @Lazy FactureConverter factureConverter) {
       this.agenceLocationConverter = agenceLocationConverter;
-      this.propAppartemenetConverter = propAppartemenetConverter;
+      this.agenceAppartementConverter = agenceAppartementConverter;
       this.factureConverter = factureConverter;
    }
 
    private AgenceLocationConverter agenceLocationConverter;
-    private PropAppartemenetConverter propAppartemenetConverter ;
+    private AgenceAppartementConverter agenceAppartementConverter;
     private FactureConverter factureConverter ;
    public Paiement toBean(PaiementDto dto){
       if(dto == null){return null ;}
@@ -31,7 +31,7 @@ public class PaiementConverter {
 
 
          if (dto.getPropAppartemenetDto() != null) {
-            bean.setProp_appartement(propAppartemenetConverter.toBean(dto.getPropAppartemenetDto()));
+            bean.setProp_appartement(agenceAppartementConverter.toBean(dto.getPropAppartemenetDto()));
          }
 
          if (dto.getAgenceLocationDto() != null) {
@@ -61,7 +61,7 @@ public class PaiementConverter {
             dto.setFactureDto(factureConverter.toDto(bean.getFacture()));
          }
          if (bean.getProp_appartement() != null) {
-            dto.setPropAppartemenetDto(propAppartemenetConverter.toDto(bean.getProp_appartement()));
+            dto.setPropAppartemenetDto(agenceAppartementConverter.toDto(bean.getProp_appartement()));
          }
          return dto;
       }

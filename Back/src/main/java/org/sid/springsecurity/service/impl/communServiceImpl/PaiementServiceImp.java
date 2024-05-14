@@ -1,11 +1,11 @@
 package org.sid.springsecurity.service.impl.communServiceImpl;
 
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.communBean.Facture;
 import org.sid.springsecurity.bean.communBean.Paiement;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.dao.communDao.PaiementDao;
-import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
+import org.sid.springsecurity.service.facade.appartementService.AgenceAppartementService;
 import org.sid.springsecurity.service.facade.communService.FactureService;
 import org.sid.springsecurity.service.facade.communService.PaiementService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
@@ -22,7 +22,7 @@ public class PaiementServiceImp implements PaiementService {
     @Autowired
     private PaiementDao paiementDao;
     @Autowired
-    private PropAppartementService propAppartementService;
+    private AgenceAppartementService agenceAppartementService;
     @Autowired
     private AgenceLocationService agenceLocationService;
     @Autowired
@@ -31,7 +31,6 @@ public class PaiementServiceImp implements PaiementService {
 
 
     public int save(Paiement paiement) {
-
         if (paiement.getRef() == null) return -1;
 
         if (paiement.getFacture() == null || paiement.getFacture().getRef() == null) return -2;
@@ -48,12 +47,12 @@ public class PaiementServiceImp implements PaiementService {
             paiement.setAgenceLocation(null);
         }
 
-        if (paiement.getProp_appartement() != null && paiement.getProp_appartement().getCin() != null) {
-            PropAppartement propAppartement = propAppartementService.findByCin(paiement.getProp_appartement().getCin());
-            if (propAppartement == null) {
+        if (paiement.getProp_appartement() != null && paiement.getProp_appartement().getIceAgApp() != null) {
+            AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(paiement.getProp_appartement().getIceAgApp());
+            if (agenceAppartement == null) {
                 return -5;
             }
-            paiement.setProp_appartement(propAppartement);
+            paiement.setProp_appartement(agenceAppartement);
         } else {
         }paiement.setProp_appartement(null);
 
@@ -82,10 +81,10 @@ public class PaiementServiceImp implements PaiementService {
             if (paiement.getProp_appartement() == null || paiement.getAgenceLocation() == null) {
                 return -2;
             }
-            if (paiement.getProp_appartement().getCin() == null || paiement.getAgenceLocation().getIceAgLoc() == null || paiement.getFacture().getRef() == null) {
+            if (paiement.getProp_appartement().getIceAgApp() == null || paiement.getAgenceLocation().getIceAgLoc() == null || paiement.getFacture().getRef() == null) {
                 return -3;
             }
-            PropAppartement propAppartement = propAppartementService.findByCin(paiement.getProp_appartement().getCin());
+            AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(paiement.getProp_appartement().getIceAgApp());
             AgenceLocation agenceLocation = agenceLocationService.findByiceAgLoc(paiement.getAgenceLocation().getIceAgLoc());
             Facture facture=factureService.findByRef(paiement.getFacture().getRef());
 
@@ -93,7 +92,7 @@ public class PaiementServiceImp implements PaiementService {
             existingPaiement.setDatePaiement(paiement.getDatePaiement());
             existingPaiement.setFacture(facture);
             existingPaiement.setAgenceLocation(agenceLocation);
-            existingPaiement.setProp_appartement(propAppartement);
+            existingPaiement.setProp_appartement(agenceAppartement);
 
 
 
@@ -117,5 +116,4 @@ public class PaiementServiceImp implements PaiementService {
     public int deleteByRef(String ref) {
         return paiementDao.deleteByRef(ref);
     }
-
 }

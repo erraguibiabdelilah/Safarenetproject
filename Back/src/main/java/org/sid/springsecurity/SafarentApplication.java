@@ -1,10 +1,9 @@
 package org.sid.springsecurity;
 
-import com.pusher.rest.Pusher;
 import org.sid.springsecurity.bean.notification.NotificationReservation;
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.communBean.Client;
 import org.sid.springsecurity.bean.voitureBean.AgenceLocation;
 import org.sid.springsecurity.bean.voitureBean.CategorieVoiture;
@@ -14,7 +13,7 @@ import org.sid.springsecurity.security.service.AccountService;
 import org.sid.springsecurity.service.facade.NotifiactionReservationService;
 import org.sid.springsecurity.service.facade.appartementService.AppartementService;
 import org.sid.springsecurity.service.facade.appartementService.CategoriesAppartementService;
-import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
+import org.sid.springsecurity.service.facade.appartementService.AgenceAppartementService;
 import org.sid.springsecurity.service.facade.communService.ClientService;
 import org.sid.springsecurity.service.facade.voitureService.AgenceLocationService;
 import org.sid.springsecurity.service.facade.voitureService.CategorieVoitureService;
@@ -26,22 +25,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class SpringSecurityApplication {
+public class SafarentApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringSecurityApplication.class, args);
-
-        Pusher pusher = new Pusher("1801669", "e87177f2f7373cc515b0", "263650250d162704c0fa");
-        pusher.setCluster("eu");
-        pusher.setEncrypted(true);
-
-        pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", "hello world"));
-
+        SpringApplication.run(SafarentApplication.class, args);
     }
 
     @Bean
@@ -53,7 +44,7 @@ public class SpringSecurityApplication {
     CommandLineRunner start(AccountService accountService,
                             CategoriesAppartementService categoriesAppartementService,
                             CategorieVoitureService categorieVoitureService,
-                            PropAppartementService propAppartementService,
+                            AgenceAppartementService agenceAppartementService,
                             AgenceLocationService agenceLocationService,
                             ClientService clientService,
                             NotifiactionReservationService notifiactionReservationService,
@@ -94,14 +85,15 @@ public class SpringSecurityApplication {
             categorieVoitureService.save(categorieVoiture3);
 
 
-            PropAppartement propAppartement1=new PropAppartement("mohammed","mohammed","065554545","mohammed@gmail.com","535353535532626535","101010010","EE43434","mohammed.p","123");
-            PropAppartement propAppartement2=new PropAppartement("ismail","ismail","065554545","chafai@gmail.com","535353535532626535","101010010","EE43434","ismail.p","123");
-            PropAppartement propAppartement3=new PropAppartement("abdelilah","abdelilah","065554545","abdelilah@gmail.com","535353535532626535","101010010","EE43434","abdelilah.p","123");
-            PropAppartement propAppartement4=new PropAppartement("abderrahmane","abderrahmane","065554545","abderrahmane@gmail.com","535353535532626535","101010010","EE43434","abderrahmane.p","123");
-            propAppartementService.save(propAppartement1);
-            propAppartementService.save(propAppartement2);
-            propAppartementService.save(propAppartement3);
-            propAppartementService.save(propAppartement4);
+            AgenceAppartement agenceAppartement1 = new AgenceAppartement("mohammed.p", "123", 123456789L, "ImmoGestion SA", "+1234567890", "contact@immogestion.com", "10 Rue des Appartements", 987654321, 1234567890123456789L, 987654321L);
+            AgenceAppartement agenceAppartement2 = new AgenceAppartement("ismail.p", "123", 987654321L, "City Apartments Agency", "+9876543210", "info@cityapartments.com", "20 Avenue des Résidences", 1230987654, 1468013579246801357L, 123456789L);
+            AgenceAppartement agenceAppartement3 = new AgenceAppartement("abdelilah.p", "123", 246810975L, "Sunset Realty Services", "+1122334455", "info@sunsetrealty.com", "30 Boulevard du Soleil", 1357924680, 2468013579246801357L, 987654321L);
+            AgenceAppartement agenceAppartement4 = new AgenceAppartement("abderrahmane.p", "123", 555555555L, "Prime Properties Group", "+9999999999", "contact@primeproperties.com", "40 Place du Luxe", 444444444, 5555555555444444444L, 111111111L);
+
+            agenceAppartementService.save(agenceAppartement1);
+            agenceAppartementService.save(agenceAppartement2);
+            agenceAppartementService.save(agenceAppartement3);
+            agenceAppartementService.save(agenceAppartement4);
 
 
 
@@ -279,7 +271,7 @@ public class SpringSecurityApplication {
                     1000.0,
                     new ArrayList<>(),
                     categoriesAppartement1,
-                    propAppartement1,
+                    agenceAppartement1,
                     new HashSet<>()
             );
             Appartement appartement12 = new Appartement(
@@ -294,7 +286,7 @@ public class SpringSecurityApplication {
                     1000.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             Appartement appartement13 = new Appartement(
@@ -309,7 +301,7 @@ public class SpringSecurityApplication {
                     1000.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             Appartement appartement14 = new Appartement(
@@ -324,7 +316,7 @@ public class SpringSecurityApplication {
                     1000.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
 
@@ -348,7 +340,7 @@ public class SpringSecurityApplication {
                     1200.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             Appartement appartement22 = new Appartement(
@@ -363,7 +355,7 @@ public class SpringSecurityApplication {
                     1200.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             Appartement appartement23 = new Appartement(
@@ -378,7 +370,7 @@ public class SpringSecurityApplication {
                     1200.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             Appartement appartement24 = new Appartement(
@@ -393,7 +385,7 @@ public class SpringSecurityApplication {
                     1200.0,
                     new ArrayList<>(),
                     categoriesAppartement2,
-                    propAppartement2,
+                    agenceAppartement2,
                     new HashSet<>()
             );
             appartementService.save(appartement21);
@@ -416,7 +408,7 @@ public class SpringSecurityApplication {
                     800.0,
                     new ArrayList<>(),
                     categoriesAppartement3,
-                    propAppartement3,
+                    agenceAppartement3,
                     new HashSet<>()
             );
             Appartement appartement32 = new Appartement(
@@ -431,7 +423,7 @@ public class SpringSecurityApplication {
                     800.0,
                     new ArrayList<>(),
                     categoriesAppartement3,
-                    propAppartement3,
+                    agenceAppartement3,
                     new HashSet<>()
             );
 
@@ -447,7 +439,7 @@ public class SpringSecurityApplication {
                     800.0,
                     new ArrayList<>(),
                     categoriesAppartement3,
-                    propAppartement3,
+                    agenceAppartement3,
                     new HashSet<>()
             );
             Appartement appartement34 = new Appartement(
@@ -462,7 +454,7 @@ public class SpringSecurityApplication {
                     800.0,
                     new ArrayList<>(),
                     categoriesAppartement3,
-                    propAppartement3,
+                    agenceAppartement3,
                     new HashSet<>()
             );
 
@@ -485,7 +477,7 @@ public class SpringSecurityApplication {
                     1500.0,
                     new ArrayList<>(),
                     categoriesAppartement4,
-                    propAppartement4,
+                    agenceAppartement4,
                     new HashSet<>()
             );
             Appartement appartement42 = new Appartement(
@@ -500,7 +492,7 @@ public class SpringSecurityApplication {
                     1500.0,
                     new ArrayList<>(),
                     categoriesAppartement4,
-                    propAppartement4,
+                    agenceAppartement4,
                     new HashSet<>()
             );
             Appartement appartement43 = new Appartement(
@@ -515,7 +507,7 @@ public class SpringSecurityApplication {
                     1500.0,
                     new ArrayList<>(),
                     categoriesAppartement4,
-                    propAppartement4,
+                    agenceAppartement4,
                     new HashSet<>()
             );
             Appartement appartement44 = new Appartement(
@@ -530,7 +522,7 @@ public class SpringSecurityApplication {
                     1500.0,
                     new ArrayList<>(),
                     categoriesAppartement4,
-                    propAppartement4,
+                    agenceAppartement4,
                     new HashSet<>()
             );
 

@@ -300,7 +300,7 @@ export class LoginComponent implements OnInit {
       this.authService.viderProp();
       this.authService.propAppartement.username = this.signUpForm.value.username;
       this.authService.propAppartement.password = this.signUpForm.value.password;
-      this.authService.propAppartement.cin = this.signUpForm.value.cin;
+      this.authService.propAppartement.iceAgApp = this.signUpForm.value.cin;
 
       console.log(this.authService.propAppartement)
       this.authService.creeCompte2(this.authService.propAppartement).subscribe(

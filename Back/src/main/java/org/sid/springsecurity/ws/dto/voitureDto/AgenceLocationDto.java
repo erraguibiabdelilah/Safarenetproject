@@ -1,10 +1,12 @@
 package org.sid.springsecurity.ws.dto.voitureDto;
 
 
+import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.ws.dto.communDto.ClientDto;
 import org.sid.springsecurity.ws.dto.communDto.PaiementDto;
 
 import java.util.List;
+import java.util.Set;
 
 public class AgenceLocationDto {
     private Long iceAgLoc;
@@ -16,11 +18,20 @@ public class AgenceLocationDto {
     private String usernameAgenceLoc;
     private String password;
     private Long RCAgLoc ;
-
 //    private List<VoitureDto> voitureDtos;
 //    private List<ClientDto> clientDtos ;
 //    private List<PaiementDto> paiementDtos ;
 
+    private Set<ImageModule> logo;
+
+
+    public Set<ImageModule> getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Set<ImageModule> logo) {
+        this.logo = logo;
+    }
 
     public Long getIceAgLoc() {
         return iceAgLoc;

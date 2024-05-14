@@ -28,6 +28,7 @@ public class AgenceLocationConverter {
            bean.setUsername(dto.getUsernameAgenceLoc());
            bean.setPassword(dto.getPassword());
            bean.setRCAgLoc(dto.getRCAgLoc());
+            bean.setLogo(dto.getLogo());
 //            if(dto.getVoitureDtos()!=null){
 //                bean.setVoitures(voitureConverter.toBean(dto.getVoitureDtos()));
 //
@@ -58,6 +59,7 @@ public class AgenceLocationConverter {
             dto.setUsernameAgenceLoc(bean.getUsername());
             dto.setPassword(bean.getPassword());
             dto.setRCAgLoc(bean.getRCAgLoc());
+            dto.setLogo(bean.getLogo());
 
 //            if(bean.getVoitures()!=null){
 //                dto.setVoitureDtos(voitureConverter.toDto(bean.getVoitures()));

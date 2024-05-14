@@ -1,27 +1,22 @@
 package org.sid.springsecurity.service.impl.appartementServiceImpl;
-
-
 import org.sid.springsecurity.bean.appartementBean.Appartement;
 import org.sid.springsecurity.bean.appartementBean.CategoriesAppartement;
-import org.sid.springsecurity.bean.appartementBean.PropAppartement;
+import org.sid.springsecurity.bean.appartementBean.AgenceAppartement;
 import org.sid.springsecurity.bean.photo.ImageModule;
 import org.sid.springsecurity.dao.appartementDao.AppartementDao;
 import org.sid.springsecurity.service.facade.appartementService.AppartementService;
 import org.sid.springsecurity.service.facade.appartementService.CategoriesAppartementService;
-import org.sid.springsecurity.service.facade.appartementService.PropAppartementService;
+import org.sid.springsecurity.service.facade.appartementService.AgenceAppartementService;
 import org.sid.springsecurity.service.facade.communService.ReservationService;
 import org.sid.springsecurity.ws.converter.appartementConverter.AppartementConverter;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-
 @Lazy
-
 @Service
 public class AppartementServiceImpl implements AppartementService {
     private final AppartementDao appartementDao;
@@ -30,15 +25,15 @@ public class AppartementServiceImpl implements AppartementService {
     private UUID uuid;
 
     private final CategoriesAppartementService categoriesAppartementService;
-    private final PropAppartementService propAppartementService;
+    private final AgenceAppartementService agenceAppartementService;
 
     private final ReservationService reservationService;
 
-    public AppartementServiceImpl(AppartementDao appartementDao, AppartementConverter appartementConverter, CategoriesAppartementService categoriesAppartementService, PropAppartementService propAppartementService, ReservationService reservationService) {
+    public AppartementServiceImpl(AppartementDao appartementDao, AppartementConverter appartementConverter, CategoriesAppartementService categoriesAppartementService, AgenceAppartementService agenceAppartementService, ReservationService reservationService) {
         this.appartementDao = appartementDao;
         this.appartementConverter = appartementConverter;
         this.categoriesAppartementService = categoriesAppartementService;
-        this.propAppartementService = propAppartementService;
+        this.agenceAppartementService = agenceAppartementService;
         this.reservationService = reservationService;
     }
 
@@ -66,19 +61,19 @@ public class AppartementServiceImpl implements AppartementService {
         }
         else {
             String libelle=appartement.getCategoriesAppartement().getLibelle();
-            String cin=appartement.getPropAppartement().getCin();
+            Long iceAgApp=appartement.getAgenceAppartement().getIceAgApp();
 
             System.out.println(appartement.getReservation());
             CategoriesAppartement categoriesAppartement = categoriesAppartementService.findByLibelle(libelle);
-            PropAppartement propAppartement = propAppartementService.findByCin(cin);
+            AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(iceAgApp);
 
-            if (categoriesAppartement == null || propAppartement == null) {
+            if (categoriesAppartement == null || agenceAppartement == null) {
                 return -3;
             }
             if (categoriesAppartementService.findByLibelle(categoriesAppartement.getLibelle()) != null ||
-                    propAppartementService.findByCin(propAppartement.getCin()) != null ) {
+                    agenceAppartementService.findByIceAgApp(agenceAppartement.getIceAgApp()) != null ) {
                 appartement.setCategoriesAppartement(categoriesAppartement);
-                appartement.setPropAppartement(propAppartement);
+                appartement.setAgenceAppartement(agenceAppartement);
             }
 //            appartement.setCode(UUID.randomUUID().toString().substring(0, 7));
             appartement.setCode(UUID.randomUUID().toString());
@@ -121,15 +116,15 @@ public class AppartementServiceImpl implements AppartementService {
         }
 
         String libelle=appartementNv.getCategoriesAppartement().getLibelle();
-        String cin=appartementNv.getPropAppartement().getCin();
+        Long iceAgApp=appartementNv.getAgenceAppartement().getIceAgApp();
 
-        if(libelle==null  || cin==null || cin.isEmpty() || libelle.isEmpty()){
+        if(libelle==null  || iceAgApp==null || iceAgApp==0 || libelle.isEmpty()){
 
             return -5;
         }
 
         CategoriesAppartement categoriesAppartement=categoriesAppartementService.findByLibelle(libelle);
-        PropAppartement propAppartement=propAppartementService.findByCin(cin);
+        AgenceAppartement agenceAppartement = agenceAppartementService.findByIceAgApp(iceAgApp);
 
         appartement.setCode(appartementNv.getCode());
         appartement.setSuperficie(appartementNv.getSuperficie());
@@ -145,8 +140,8 @@ public class AppartementServiceImpl implements AppartementService {
         if(categoriesAppartement!=null){
             appartement.setCategoriesAppartement(categoriesAppartement);
         }
-        if(propAppartement!=null){
-            appartement.setPropAppartement(propAppartement);
+        if(agenceAppartement !=null){
+            appartement.setAgenceAppartement(agenceAppartement);
         }
         appartementDao.save(appartement);
         return 1;
@@ -158,8 +153,8 @@ public class AppartementServiceImpl implements AppartementService {
     }
 
     @Override
-    public List<Appartement> findByPropAppartementCin(String cin) {
-        return appartementDao.findByPropAppartementCin(cin);
+    public List<Appartement> findByAgenceAppartementIceAgApp(Long iceAgApp) {
+        return appartementDao.findByAgenceAppartementIceAgApp(iceAgApp);
     }
     @Override
     public List<Appartement> findByAdresse(String adresse){
@@ -170,5 +165,4 @@ public class AppartementServiceImpl implements AppartementService {
     public List<Appartement> findByLoyerMensuelLessThanEqual(double mont) {
         return appartementDao.findByLoyerMensuelLessThanEqual(mont);
     }
-
 }

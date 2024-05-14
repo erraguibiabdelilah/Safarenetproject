@@ -52,11 +52,11 @@ public class ReservationWs {
         return converter.toDto(reservationService.findByLocationsRef(ref));
     }
 @GetMapping("reservationByAppartement/code/{code}")
-    public List<ReservationDto> findReservationByAppartementCode(@PathVariable String code) {
-        return converter.toDto(reservationService.findReservationByAppartementCode(code));
+    public List<Reservation> findReservationByAppartementCode(@PathVariable String code) {
+        return reservationService.findReservationByAppartementCode(code);
     }
 @GetMapping("reservationByVoiture/matricule/{matricule}")
-    public List<ReservationDto> findReservationByVoitureMatricule(@PathVariable String matricule) {
-        return converter.toDto(reservationService.findReservationByVoitureMatricule(matricule));
+    public List<Reservation> findReservationByVoitureMatricule(@PathVariable String matricule) {
+        return reservationService.findReservationByVoitureMatricule(matricule);
     }
 }

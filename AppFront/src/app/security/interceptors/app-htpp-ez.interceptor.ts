@@ -26,7 +26,7 @@ export class AppHtppEzInterceptor implements HttpInterceptor {
       )
     }
 
-    else if(!request.url.includes("/login") && !request.url.includes("/user")&& !request.url.includes("/api/propAppartement/")&& !request.url.includes("/api/agenceLocation/")&& !request.url.includes("/api/client/")){
+    else if(!request.url.includes("/login") && !request.url.includes("/user")&& !request.url.includes("/api/agenceAppartement/")&& !request.url.includes("/api/agenceLocation/")&& !request.url.includes("/api/client/")){
       let newrrequest=request.clone({
         headers : request.headers.set('Authorization','Bearer '+this.authService.accessToken)
       })

@@ -31,9 +31,7 @@ public class AppartementWs {
     public @ResponseBody int save(@RequestPart("apartment") AppartementDto appartementDto,
                                       @RequestPart("imageFile")MultipartFile[] file) {
         try{
-            System.out.println("appartemetDto:"+appartementDto);
             Appartement appartement=appartementConverter.toBean(appartementDto);
-            System.out.println("appartement:"+appartementDto);
             Set<ImageModule> images=uploadImage(file);
             appartement.setImages(images);
             return   appartementService.save(appartement);
@@ -43,6 +41,8 @@ public class AppartementWs {
             return -99;
         }
     }
+
+
 
 
 
@@ -78,9 +78,9 @@ public class AppartementWs {
         return appartementConverter.toDto(appartementService.findByCategoriesAppartementLibelle(libelle));
     }
 
-    @GetMapping("listAppartementCin/{cin}")
-    public List<AppartementDto> findByPropAppartementCin(@PathVariable String cin) {
-        return appartementConverter.toDto(appartementService.findByPropAppartementCin(cin));
+    @GetMapping("listAppartementCin/{iceAgApp}")
+    public List<AppartementDto> findByPropAppartementCin(@PathVariable Long iceAgApp) {
+        return appartementConverter.toDto(appartementService.findByAgenceAppartementIceAgApp(iceAgApp));
     }
 
     @GetMapping("code/{code}")
@@ -109,4 +109,5 @@ public class AppartementWs {
     private final AppartementService appartementService;
 
     private  final AppartementConverter appartementConverter;
+
 }
