@@ -75,8 +75,7 @@ public class Appartement {
         this.agenceAppartement = agenceAppartement;
     }
 
-    public Appartement(Long id, String code, int superficie, String adresse, String ville, String wifi, int nmbrPersont, String climatiseur, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, AgenceAppartement agenceAppartement, Set<ImageModule> images) {
-        this.id = id;
+    public Appartement( String code, int superficie, String adresse, String ville, String wifi, int nmbrPersont, String climatiseur, double loyerMensuel, List<Reservation> reservation, CategoriesAppartement categoriesAppartement, AgenceAppartement agenceAppartement, Set<ImageModule> images) {
         this.code = code;
         this.superficie = superficie;
         this.adresse = adresse;

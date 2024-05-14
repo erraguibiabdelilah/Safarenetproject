@@ -25,8 +25,6 @@ public class AppartementWs {
         this.appartementConverter = appartementConverter;
     }
 
-
-
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public @ResponseBody int save(@RequestPart("apartment") AppartementDto appartementDto,
                                       @RequestPart("imageFile")MultipartFile[] file) {
@@ -41,10 +39,6 @@ public class AppartementWs {
             return -99;
         }
     }
-
-
-
-
 
     public Set<ImageModule> uploadImage(MultipartFile[] multipartFiles) throws IOException {
         Set<ImageModule> imageModuleSet=new HashSet<>();
@@ -63,9 +57,6 @@ public class AppartementWs {
     public List<ImageModule> getProductImages(@PathVariable String code) {
         return appartementService.getImagesByProductRef(code);
     }
-
-
-
 
     @GetMapping
     public List<AppartementDto> findAll() {

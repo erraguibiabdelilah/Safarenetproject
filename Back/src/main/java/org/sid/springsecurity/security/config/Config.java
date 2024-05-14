@@ -51,9 +51,8 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeRequests()
+
                 .antMatchers(HttpMethod.POST, "/user").permitAll()
-//                .antMatchers(HttpMethod.POST, "/users/**").hasAuthority("ADMIN")
-//                .antMatchers(HttpMethod.GET, "/users/**").hasAuthority("USER")
                 .antMatchers(HttpMethod.POST, "/api/client/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/client/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/client/**").permitAll()

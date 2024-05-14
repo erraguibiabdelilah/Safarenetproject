@@ -10,11 +10,28 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Service
 public class FactureServiceImpl implements FactureService {
     private FactureDao factureDao ;
     private LocationService locationService ;
+
+    private static final String FACTURE_PREFIX = "FACT-";
+    private static final String DATE_FORMAT = "dd/mm/yyyy";
+    private AtomicInteger counter = new AtomicInteger(1);
+
+
+    @Override
+    public String generateReference() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+        String date = dateFormat.format(new Date());
+        int sequenceNumber = counter.getAndIncrement();
+        return FACTURE_PREFIX + date + "-" + String.format("%08d", sequenceNumber);
+    }
 
 
     public FactureServiceImpl( FactureDao factureDao,@Lazy LocationService locationService) {
@@ -24,6 +41,7 @@ public class FactureServiceImpl implements FactureService {
 
     @Override
     public int save(Facture facture) {
+
         Paiement paiement = null ;
         if (facture == null) {
             System.out.println("facture null");
@@ -56,6 +74,8 @@ public class FactureServiceImpl implements FactureService {
 
         facture.setPaiement(paiement);
         facture.setLocation(location);
+
+        facture.setRef(generateReference());
         factureDao.save(facture);
         return 1;
    }

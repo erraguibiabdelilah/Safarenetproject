@@ -32,7 +32,6 @@ public class PaiementWs {
         return converter.toDto(paiementService.findByRef(ref));
     }
 
-
     @GetMapping
     public List<PaiementDto> findAll() {
         return converter.toDto(paiementService.findAll());

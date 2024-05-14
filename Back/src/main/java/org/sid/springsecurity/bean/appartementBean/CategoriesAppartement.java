@@ -14,6 +14,8 @@ public class CategoriesAppartement {
     private Long id= 0L;
     private String libelle;
 
+
+
     @JsonIgnore
     @OneToMany(mappedBy = "categoriesAppartement",cascade = CascadeType.REMOVE)
     private List<Appartement> appartement;

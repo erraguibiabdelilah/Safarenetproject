@@ -25,8 +25,7 @@ public class Contrat {
     public Contrat() {
     }
 
-    public Contrat(Long idContrat, int numContrat, float prixHT, float tva, String modelePaiement, int dureeRetard, LocalDateTime dateSignature, float rest, Location location) {
-        this.idContrat = idContrat;
+    public Contrat( int numContrat, float prixHT, float tva, String modelePaiement, int dureeRetard, LocalDateTime dateSignature, float rest, Location location) {
         this.numContrat = numContrat;
         this.prixHT = prixHT;
         this.tva = tva;

@@ -25,23 +25,28 @@ public class ReservationWs {
     public List<ReservationDto> findAll() {
         return converter.toDto(reservationService.findAll());
     }
+
     @DeleteMapping("ref/{ref}")
     public int deleteByRef(@PathVariable String ref) {
         return reservationService.deleteByRef(ref);
     }
+
     @GetMapping("VoitureMatricule/{matricule}")
     public ReservationDto findByVoitureMatricule(@PathVariable String matricule) {
         return converter.toDto(reservationService.findByVoitureMatricule(matricule));
     }
+
     @GetMapping("AppartementCode/{code}")
     public ReservationDto findByAppartementCode(@PathVariable String code) {
         return converter.toDto(reservationService.findByAppartementCode(code));
     }
+
     @PostMapping
     public int save(@RequestBody ReservationDto reservationDto) {
       Reservation reservation =converter.toBean(reservationDto);
         return reservationService.save(reservation);
     }
+
     @GetMapping("clientCin/{cin}")
     public List<ReservationDto> findAllByClientCin(@PathVariable String cin) {
         return converter.toDto(reservationService.findAllByClientCin(cin));
@@ -51,12 +56,15 @@ public class ReservationWs {
     public ReservationDto findByLocationsRef(@PathVariable String ref) {
         return converter.toDto(reservationService.findByLocationsRef(ref));
     }
-@GetMapping("reservationByAppartement/code/{code}")
+
+    @GetMapping("reservationByAppartement/code/{code}")
     public List<Reservation> findReservationByAppartementCode(@PathVariable String code) {
         return reservationService.findReservationByAppartementCode(code);
     }
-@GetMapping("reservationByVoiture/matricule/{matricule}")
+
+    @GetMapping("reservationByVoiture/matricule/{matricule}")
     public List<Reservation> findReservationByVoitureMatricule(@PathVariable String matricule) {
         return reservationService.findReservationByVoitureMatricule(matricule);
     }
+
 }

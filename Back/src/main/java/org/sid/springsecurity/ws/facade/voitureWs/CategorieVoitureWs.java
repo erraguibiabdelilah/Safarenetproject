@@ -28,6 +28,7 @@ public class CategorieVoitureWs {
     public CategorieVoitureDto findByLibelle(@PathVariable String libelle) {
         return converter.toDto(categorieVoitureService.findByLibelle(libelle));
     }
+
     @PostMapping
     public int save(@RequestBody CategorieVoitureDto categorieVoitureDto) {
         CategorieVoiture categorieVoiture=converter.toBean(categorieVoitureDto);
@@ -38,6 +39,7 @@ public class CategorieVoitureWs {
     public List<CategorieVoitureDto> findAll() {
         return converter.toDto(categorieVoitureService.findAll());
     }
+
     @DeleteMapping("libelle/{libelle}")
     public int deleteByLibelle(@PathVariable String libelle) {
         return categorieVoitureService.deleteByLibelle(libelle);

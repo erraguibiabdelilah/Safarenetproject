@@ -47,6 +47,7 @@ import {CreatVoitureComponent} from "./view/voitureComponent/voiture/creat-voitu
 import {FactureComponent} from "./layout/facture/facture.component";
 import {ContratLoactionComponent} from "./layout/contrat-loaction/contrat-loaction.component";
 const routes: Routes = [
+
   { path: "home", component:HomeComponent},
   { path :"login", component : LoginComponent},
   { path :"", redirectTo:"/home",pathMatch:"full"},
@@ -54,7 +55,7 @@ const routes: Routes = [
   { path: "notification", component: SignInNotificationComponent },
   { path: "videMessage", component: VideMessageComponent ,canActivate:[authGuard]},
   { path: "videNotification", component: VideNotificationComponent ,canActivate:[authGuard]},
-  { path: "listeVoiture", component: CreatCategorieVoitureComponent },
+  // { path: "listeVoiture", component: CreatCategorieVoitureComponent },
   { path: "reservationInformation", component: ReservationInformationComponent },
   { path: "facteurApparetement/:code", component: FacteurApparetementComponent },
   { path: "editProfile", component: ProfileComponent,canActivate:[authGuard] },
@@ -103,8 +104,6 @@ const routes: Routes = [
       { path: "createCategorieVoiture" , component:CreatCategorieVoitureComponent},
       { path: "createReservation" , component: CreatReservationComponent},
     ]},
-
-
   { path: '**', component: NotFoundPageComponent }
 ];
 

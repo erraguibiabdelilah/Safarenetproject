@@ -24,12 +24,10 @@ public class Facture {
     private Paiement paiement;
 
 
-
     public Facture() {
     }
 
-    public Facture(Long idFacture, String ref, LocalDateTime dateFacture, double montantTotal, Location location, Paiement paiement) {
-        this.idFacture = idFacture;
+    public Facture( String ref, LocalDateTime dateFacture, double montantTotal, Location location, Paiement paiement) {
         this.ref = ref;
         this.dateFacture = dateFacture;
         this.montantTotal = montantTotal;

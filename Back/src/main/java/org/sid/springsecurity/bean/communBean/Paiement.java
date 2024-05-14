@@ -27,6 +27,15 @@ public class Paiement {
     @OneToOne(mappedBy = "paiement")
     private Facture facture ;
 
+
+    public AgenceAppartement getAgenceAppartement() {
+        return agenceAppartement;
+    }
+
+    public void setAgenceAppartement(AgenceAppartement agenceAppartement) {
+        this.agenceAppartement = agenceAppartement;
+    }
+
     public AgenceAppartement getProp_appartement() {
         return agenceAppartement;
     }
@@ -86,8 +95,7 @@ public class Paiement {
     public Paiement() {
     }
 
-    public Paiement(Long id, String ref, LocalDateTime datePaiement, Long ribClient, AgenceLocation agence_Location, AgenceAppartement prop_appartement, Facture facture) {
-        this.id = id;
+    public Paiement(String ref, LocalDateTime datePaiement, Long ribClient, AgenceLocation agence_Location, AgenceAppartement prop_appartement, Facture facture) {
         this.ref = ref;
         this.datePaiement = datePaiement;
         this.ribClient = ribClient;

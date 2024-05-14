@@ -6,6 +6,8 @@ import org.sid.springsecurity.bean.communBean.Facture;
 import java.util.List;
 
 public interface FactureService {
+    String generateReference();
+
     int save(Facture facture);
     Facture findByRef(String ref);
     List<Facture> findAll();

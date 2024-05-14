@@ -45,7 +45,7 @@ public class ClientWs {
 
     @Transactional
     @DeleteMapping("cin/{cin}")
-    public int deleteByCin(String cin) {
+    public int deleteByCin(@PathVariable String cin) {
         return clientService.deleteByCin(cin);
     }
 

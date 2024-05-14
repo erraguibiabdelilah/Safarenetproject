@@ -17,10 +17,12 @@ public class NotificationReservationWs {
     private NotifiactionReservationService notifiactionReservationService;
     @Autowired
     private NotificationReservationConverter converter;
+
     @GetMapping("code/{code}")
     public NotificationReservationDto findByCode(@PathVariable String code) {
         return converter.toDto(notifiactionReservationService.findByCode(code));
     }
+
     @DeleteMapping("code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return notifiactionReservationService.deleteByCode(code);
@@ -29,6 +31,7 @@ public class NotificationReservationWs {
     public List<NotificationReservationDto> findAll() {
         return converter.toDto(notifiactionReservationService.findAll());
     }
+
     @PostMapping
     public int save(NotificationReservationDto notificationReservationDto) {
         NotificationReservation notificationReservation=converter.toBean(notificationReservationDto);

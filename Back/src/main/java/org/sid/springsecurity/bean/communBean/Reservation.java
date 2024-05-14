@@ -40,8 +40,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Long id, String ref, LocalDate date_Debut, LocalTime heure_Debut, LocalDate date_Fin, LocalTime heure_Fin, String lieu_Prise, String lieu_Retour, String description, Voiture voiture, Client client, List<Location> locations, Appartement appartement) {
-        this.id = id;
+    public Reservation( String ref, LocalDate date_Debut, LocalTime heure_Debut, LocalDate date_Fin, LocalTime heure_Fin, String lieu_Prise, String lieu_Retour, String description, Voiture voiture, Client client, List<Location> locations, Appartement appartement) {
         this.ref = ref;
         Date_Debut = date_Debut;
         Heure_Debut = heure_Debut;

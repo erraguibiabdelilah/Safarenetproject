@@ -67,7 +67,6 @@ public class AgenceAppartement extends AppUser {
     )
     private Set<ImageModule> logo;
 
-
 //    @OneToOne
 //    private ImageModule logo;
 //

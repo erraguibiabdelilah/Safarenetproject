@@ -23,48 +23,19 @@ public class AgenceAppartementWs {
     }
 
     @GetMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public List<AgenceAppartementDto> findAll() {
         return agenceAppartementConverter.toDto(agenceAppartementService.findAll());
     }
 
     @GetMapping("cin/{iceAgApp}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public AgenceAppartementDto findByIceAgApp(@PathVariable Long iceAgApp) {
         return agenceAppartementConverter.toDto(agenceAppartementService.findByIceAgApp(iceAgApp));
     }
 
     @DeleteMapping("cin/{iceAgApp}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int deleteByIceAgApp(@PathVariable Long iceAgApp) {
         return agenceAppartementService.deleteByIceAgApp(iceAgApp);
     }
-
-//    @PutMapping
-//    public int update(@RequestBody AgenceAppartementDto agenceAppartementDto) {
-//        AgenceAppartement agenceAppartement = agenceAppartementConverter.toBean(agenceAppartementDto);
-//        return agenceAppartementService.update(agenceAppartement);
-//    }
-
-
-//    @PutMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public int update(
-//            @RequestPart("agenceAppartemet") AgenceAppartementDto agenceAppartementDto,
-//            @RequestPart("logo") MultipartFile[] file
-//    )
-//    {
-//        try {
-//            AgenceAppartement agenceAppartement=agenceAppartementConverter.toBean(agenceAppartementDto);
-//            Set<ImageModule> logo = uploadImage(file);
-//            agenceAppartement.setLogo(logo);
-//            return agenceAppartementService.update(agenceAppartement);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("-9999999");
-//            return -99999;
-//        }
-//    }
-
 
     @PutMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public int update(

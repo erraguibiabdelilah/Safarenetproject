@@ -20,6 +20,9 @@ public class FactureWs {
     @PostMapping
     public int save(@RequestBody FactureDto factureDto) {
         Facture facture = factureConverter.toBean(factureDto);
+
+        String reference = factureService.generateReference();
+        factureDto.setRef(reference);
         return factureService.save(facture);
     }
     @GetMapping("ref/{ref}")

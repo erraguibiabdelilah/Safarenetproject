@@ -78,8 +78,7 @@ public class Location {
         this.datefine = datefine;
     }
 
-    public Location(Long idLocation, String ref, LocalDateTime dateDebut, LocalDateTime datefine, Contrat contrat, Facture facture, Reservation reservation) {
-        this.idLocation = idLocation;
+    public Location( String ref, LocalDateTime dateDebut, LocalDateTime datefine, Contrat contrat, Facture facture, Reservation reservation) {
         this.ref = ref;
         this.dateDebut = dateDebut;
         this.datefine = datefine;

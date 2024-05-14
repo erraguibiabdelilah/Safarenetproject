@@ -14,32 +14,27 @@ import java.util.List;
 public class CategoriesAppartementWs {
     //mohammed ezzaim
     @PostMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int save(@RequestBody CategoriesAppartementDto categoriesAppartementDto) {
         CategoriesAppartement categoriesAppartement=categoriesAppartementConverter.toBean(categoriesAppartementDto);
         return categoriesAppartementService.save(categoriesAppartement);
     }
 
     @GetMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public List<CategoriesAppartementDto> findAll() {
         return categoriesAppartementConverter.toDto(categoriesAppartementService.findAll());
     }
 
     @GetMapping("/libelle/{libelle}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public CategoriesAppartementDto findByLibelle(@PathVariable String libelle) {
         return categoriesAppartementConverter.toDto(categoriesAppartementService.findByLibelle(libelle));
     }
 
     @DeleteMapping("libelle/{libelle}")
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int deleteByLibelle(@PathVariable String libelle) {
         return categoriesAppartementService.deleteByLibelle(libelle);
     }
 
     @PutMapping
-    @PostAuthorize("hasAnyAuthority('ADMIN')")
     public int update(@RequestBody UpdateCategories updateCategories) {
         return categoriesAppartementService.update(updateCategories.libelle,updateCategories.libelleNew);
     }
