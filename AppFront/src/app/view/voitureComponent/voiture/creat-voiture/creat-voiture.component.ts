@@ -28,6 +28,7 @@ export class CreatVoitureComponent  implements OnInit, AfterViewInit {
   public  images:any;
   displayImagesByCode: boolean=false;
   selectedVoitureItem:Voiture={
+    id:0,
     couleur:  "",
     nbrPlace: "",
     matricule: "",

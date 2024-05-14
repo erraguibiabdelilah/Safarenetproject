@@ -26,6 +26,7 @@ public class ClientConverter {
         if(bean == null){return  null ;}
         else {
             ClientDto dto = new ClientDto();
+            dto.setId(bean.getId());
             dto.setCin(bean.getCin());
             dto.setNom(bean.getNom());
             dto.setPrenom(bean.getPrenom());
@@ -49,6 +50,7 @@ public class ClientConverter {
         if(dto == null){return  null ;}
         else {
             Client bean = new Client();
+            bean.setId(dto.getId());
             bean.setCin(dto.getCin());
             bean.setNom(dto.getNom());
             bean.setPrenom(dto.getPrenom());

@@ -5,6 +5,7 @@ import org.sid.springsecurity.ws.dto.appartementDto.AgenceAppartementDto;
 import org.sid.springsecurity.ws.dto.voitureDto.AgenceLocationDto;
 
 public class ClientDto {
+    private Long id ;
     private String cin ;
     private String prenom ;
     private String nom ;
@@ -91,6 +92,14 @@ public class ClientDto {
 //    public void setReservationDto(List<ReservationDto> reservationDto) {
 //        this.reservationDto = reservationDto;
 //    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public AgenceLocationDto getAgenceLocation() {
         return agenceLocation;
