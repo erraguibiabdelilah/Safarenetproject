@@ -11,6 +11,7 @@ import {Voiture} from "../../sahred/model/voitureModel/voiture.model";
 import {ReservationService} from "../../sahred/service/communService/reservation.service";
 import {Reservation} from "../../sahred/model/communModel/reservation.model";
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {DatePipe} from "@angular/common";
 
 
 
@@ -29,17 +30,18 @@ export class ReservationInformationComponent  implements OnInit{
   matricule:any;
   voitureData=new Voiture();
   nbrJours=0;
-
+  display=false;
   // findReservation
   dataReservationVoiture:Array<Reservation>=new Array<Reservation>();
   // dataReservationAppartement:Array<Reservation>=new Array<Reservation>();
   maDate = new Date();
+  maDate2 = new Date();
   tableauDate:any;
   days: string[] = [];
 
 
   constructor(private elementRef: ElementRef , private authService:AuthService , private router:Router, private clientService :ClientService,private propAppService:PropAppartementService
-    , private voitureService:VoitureService,private reservationService:ReservationService , private route: ActivatedRoute ,private clienService:ClientService) {
+    , private voitureService:VoitureService,private datePipe: DatePipe,private reservationService:ReservationService , private route: ActivatedRoute ,private clienService:ClientService) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
@@ -132,8 +134,8 @@ export class ReservationInformationComponent  implements OnInit{
         console.log(this.dataReservationVoiture);
 
         this.tableauDate = this.dataReservationVoiture.map(e => ({
-          dateDebut: new Date(e.date_Debut),
-          dateFin: new Date(e.date_Fin)
+          dateDebut: e.dateDebut,
+          dateFin: e.dateFin
         }));
 
         console.log("tableau de dates");
@@ -142,10 +144,14 @@ export class ReservationInformationComponent  implements OnInit{
 
         for (let i = 0; i < this.tableauDate.length; i++) {
           let currentDate = new Date(this.tableauDate[i].dateDebut);
-          const endDate = this.tableauDate[i].dateFin;
+          const endDate = new Date(this.tableauDate[i].dateFin);
 
           while (currentDate <= endDate) {
-            this.days.push(currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }));
+            this.days.push(currentDate.toLocaleDateString('en-US', {
+              month: '2-digit',
+              day: '2-digit',
+              year: 'numeric'
+            }));
             currentDate.setDate(currentDate.getDate() + 1);
           }
         }
@@ -179,6 +185,7 @@ export class ReservationInformationComponent  implements OnInit{
     if(this.authService.isAuthService){
       if(this.authService.roles.includes('USER')){
         if (this.dataLoaded.nom && this.dataLoaded.prenom){
+          this.handlReserve()
           this.router.navigateByUrl('/facture')
         } else this.router.navigateByUrl('/profile')
       }else {
@@ -217,12 +224,21 @@ export class ReservationInformationComponent  implements OnInit{
   };
 
   onDateInput(event: MatDatepickerInputEvent<Date>) {
-    this.maDate.setDate(event.value!.getDate()) ;
-    const formattedDate: string = this.maDate.getFullYear() + '-' +
-      ('0' + (this.maDate.getMonth() + 1)).slice(-2) + '-' +
-      ('0' + this.maDate.getDate()).slice(-2);
+    this.maDate = event.value!;
+    console.log("this.maDate")
+    console.log(this.maDate)
+    const formattedDate: string = this.datePipe.transform(this.maDate, 'yyyy-MM-dd')!;
     console.log('Formatted Date:', formattedDate);
-    this.maDate.setDate(Number(formattedDate));
+
+    const dateObject: Date = new Date(this.maDate);
+    const dateNumber: number = dateObject.getTime();
+
+    console.log('Date Number:', dateNumber); // Affiche le nombre de millisecondes depuis l'époque
+
+
+    this.maDate2 = new Date(this.maDate); // Clonage de maDate
+    this.display = !!this.maDate; // Affichage basé sur la présence de maDate
+    this.nbrJours = 0;
   }
 
 
@@ -232,16 +248,103 @@ export class ReservationInformationComponent  implements OnInit{
   }
 
   decrement() {
-    if(this.nbrJours>0){
-      this.nbrJours=this.nbrJours-1;
+    if (this.nbrJours > 0) {
+      this.nbrJours--;
+      this.maDate2.setDate(this.maDate2.getDate() - 1);
     }
-    console.log(this.nbrJours)
+    this.logDates();
   }
 
   increment() {
-
-    this.nbrJours=this.nbrJours+1 ;
-    console.log(this.nbrJours)
+    if (!this.days.includes(this.maDate2.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }))) {
+      this.nbrJours++;
+      this.maDate2.setDate(this.maDate2.getDate() + 1);
+      this.logDates();
+    }
   }
 
+  logDates() {
+    console.log('nbrJours:', this.nbrJours);
+    console.log('maDate:', this.maDate.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }));
+    console.log('maDate2:', this.maDate2.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }));
+  }
+
+
+  get item(): Reservation {
+    return this.reservationService.item;
+  }
+
+  set item(value: Reservation) {
+    this.reservationService.item = value;
+  }
+
+  get items(): Array<Reservation> {
+    return this.reservationService.items;
+  }
+
+  set items(value: Array<Reservation>) {
+    this.reservationService.items = value;
+  }
+  saveObject() {
+    this.reservationService.save().subscribe({
+      next: (data) => {
+        if (data == 1) {
+          alert("Nice Bro")
+        } else {
+          console.log(data)
+        }
+      }
+    })
+  }
+
+  handlReserve(){
+    console.log(this.maDate2, 'yyyy-MM-dd')
+    console.log(this.maDate, 'yyyy-MM-dd')
+    this.item.dateFin=this.datePipe.transform(this.maDate2, 'yyyy-MM-dd')!;
+    this.item.dateDebut=this.datePipe.transform(this.maDate, 'yyyy-MM-dd')!;
+
+
+    this.item.voiture.id = this.voitureData.id;
+    this.item.voiture.couleur = this.voitureData.couleur;
+    this.item.voiture.ville = this.voitureData.ville;
+    this.item.voiture.prix = this.voitureData.prix;
+    this.item.voiture.kiloMetrage = this.voitureData.kiloMetrage;
+    this.item.voiture.nbrPlace = this.voitureData.nbrPlace;
+    this.item.voiture.annee = this.voitureData.annee;
+    this.item.voiture.matricule = this.voitureData.matricule;
+    this.item.voiture.boitevitesse = this.voitureData.boitevitesse;
+    this.item.voiture.images = this.voitureData.images;
+    this.item.voiture.Carburant = this.voitureData.Carburant;
+    this.item.voiture.sateVisitetechnique = this.voitureData.sateVisitetechnique;
+    this.item.voiture.puissance = this.voitureData.puissance;
+    this.item.voiture.dateAssurance = this.voitureData.dateAssurance;
+    this.item.voiture.dateMisecirculation = this.voitureData.dateMisecirculation;
+    this.item.voiture.nomModele = this.voitureData.nomModele;
+
+    this.item.client.nom =this.authService.dataUtilisateur.nom;
+    this.item.client.cin =this.authService.dataUtilisateur.cin;
+    this.item.client.numTeleClient =this.authService.dataUtilisateur.numTeleClient;
+    this.item.client.email_Client =this.authService.dataUtilisateur.email_Client;
+    this.item.client.prenom =this.authService.dataUtilisateur.prenom;
+    this.item.client.id =this.authService.dataUtilisateur.id;
+    console.log("this.item")
+    console.log(this.item)
+    this.saveObject();
+    console.log("this.authService.client.cin===>"+this.authService.dataUtilisateur.cin)
+    console.log("this.authService.client.id===>"+this.authService.client.id)
+    console.log("this.authService.dataUtilisateur.id===>"+this.authService.dataUtilisateur.id)
+    this.getReseravtionbyMatricule()
+  }
 }
