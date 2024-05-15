@@ -8,7 +8,6 @@
 
       <p-toolbar [ngStyle]="{'margin': '2rem'}" class="custom-toolbar" >
         <div class="p-toolbar-group-left">
-          <p-button  type="button"  (click)="showDialog()" class="mx-2 " label="New" icon="pi pi-plus"></p-button>
           <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>
         </div>
 
@@ -52,13 +51,7 @@
         </ng-container>
 
 
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef >Action</th>
-          <td mat-cell *matCellDef="let element" >
-            <a  (click)=editProduct(element)><i class="bi bi-pencil mx-2 btn btn-outline-success rounded-5"></i></a>
-            <a><i (click)="handlDelete(element.cin)" class="bi bi-trash mx-2 btn btn-outline-danger rounded-5"></i></a>
-          </td>
-        </ng-container>
+
 
 
 
@@ -74,7 +67,7 @@
   </mat-card>
 
 </div>
-
+<!--
 
 <p-dialog [(visible)]="display" [style]="{width: '600px',height:'600px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
 
@@ -106,6 +99,6 @@
 </p-dialog>
 
 
-
+-->
 
 

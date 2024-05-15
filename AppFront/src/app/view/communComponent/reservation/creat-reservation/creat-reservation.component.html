@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <div class="container mt-3">
 
   <mat-card>
@@ -9,7 +7,8 @@
 
       <p-toolbar [ngStyle]="{'margin': '2rem'}" class="custom-toolbar" >
         <div class="p-toolbar-group-left">
-          <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>
+          <p-button  label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>
+<!--          <p-button (click)="exportToPDF()" label="Exporte" icon="pi pi-file-export" styleClass="p-button-success"></p-button>-->
         </div>
 
         <!--<div class="p-toolbar-group-right">
@@ -21,14 +20,16 @@
         </div>-->
         <div class="p-toolbar-group-right">
           <div class="container d-flex" >
-            <input type="text" name="" placeholder="Search..." (input)="search($event)">
+            <input type="text" name="" placeholder="Search..." (>
+<!--            <input type="text" name="" placeholder="Search..." (input)="search($event)">-->
             <div class="search"></div>
           </div>
         </div>
 
       </p-toolbar>
       <div class="table-wrapper">
-        <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">
+        <table id="content" matSort mat-table class="mat-elevation-z1 ">
+<!--        <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">-->
 
           <ng-container matColumnDef="ref"> <!-- Utilisation de 'id' au lieu de 'Id' -->
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref </th>
@@ -83,8 +84,10 @@
 
 
 
-          <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>
-          <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>
+          <tr mat-header-row ></tr>
+          <tr mat-row  ></tr>
+<!--          <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>-->
+<!--          <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>-->
         </table>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                        showFirstLastButtons
@@ -155,6 +158,3 @@
 
 
 
-=======
-<p>creat-reservation works!</p>
->>>>>>> 7435dce5685de8fb7fe5b83ce7c8b689ea3dc74b

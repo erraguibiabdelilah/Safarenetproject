@@ -3,7 +3,7 @@
     <mat-card-header><mat-card-title> Appartements  </mat-card-title> </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
-      <!-- mohammed -->
+
       <p-toolbar [ngStyle]="{'margin': '2rem'}" class="custom-toolbar" >
         <div class="p-toolbar-group-left">
           <p-button  type="button"  (click)="creatCategorie()" class="mx-2 " label="New" icon="pi pi-plus"></p-button>
@@ -158,6 +158,7 @@
       </select>
     </div>
 
+
     <div class="col-12 mt-5" *ngIf="isCreate">
       <div class="dropzone" appDrag (files)="fileDropped($event)"   (click)="selectFile.click()">
         <div class="dropzone-text">
@@ -166,9 +167,11 @@
           </div>
         </div>
       </div>
+
       <div>
         <input style="display: none" type="file" multiple value="select" #selectFile (change)="oneFileSelected($event)">
       </div>
+
       <mat-grid-list cols="6" rowHeight="1:1">
         <mat-grid-tile *ngFor="let file of appartemetService.item.images; let i=index;">
           <div style="position: relative" class="mt-5">
@@ -178,7 +181,6 @@
         </mat-grid-tile>
       </mat-grid-list>
     </div>
-
 <!--    <div class="col-12">-->
 <!--      <label>Reservation</label>-->
 <!--      <input class="form-control" type="number" pTooltip="Enter ref reservation" tooltipPosition="top" tooltipEvent="focus" [(ngModel)]="item.reservationDto.ref" [value]="selectedAppartementItem.reservationDto.ref">-->

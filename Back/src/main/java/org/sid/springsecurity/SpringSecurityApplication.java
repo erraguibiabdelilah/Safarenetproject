@@ -29,10 +29,10 @@ import java.util.Date;
 import java.util.HashSet;
 
 @SpringBootApplication
-public class SafarentApplication {
+public class SpringSecurityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SafarentApplication.class, args);
+        SpringApplication.run(SpringSecurityApplication.class, args);
     }
 
     @Bean

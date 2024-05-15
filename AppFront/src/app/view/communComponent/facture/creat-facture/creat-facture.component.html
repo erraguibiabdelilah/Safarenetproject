@@ -28,52 +28,52 @@
 
       </p-toolbar>
       <div class="table-wrapper">
-      <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">
+        <table id="content" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1 ">
 
-        <ng-container matColumnDef="ref"> <!-- Utilisation de 'id' au lieu de 'Id' -->
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref </th>
-          <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
-        </ng-container>
+          <ng-container matColumnDef="ref"> <!-- Utilisation de 'id' au lieu de 'Id' -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref </th>
+            <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="dateFacture">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Facture </th>
-          <td mat-cell *matCellDef="let element"> {{element.dateFacture}} </td>
-        </ng-container>
+          <ng-container matColumnDef="dateFacture">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Facture </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateFacture}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="TVA">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>TVA </th>
-          <td mat-cell *matCellDef="let element"> {{element.tva}} </td>
-        </ng-container>
+          <ng-container matColumnDef="TVA">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TVA </th>
+            <td mat-cell *matCellDef="let element"> {{element.tva}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="montantTotal">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Montant Total </th>
-          <td mat-cell *matCellDef="let element"> {{element.montantTotal}} </td>
-        </ng-container>
+          <ng-container matColumnDef="montantTotal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Montant Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.montantTotal}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="location">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref Location </th>
-          <td mat-cell *matCellDef="let element"> {{element.location.ref}} </td>
-        </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref Location </th>
+            <td mat-cell *matCellDef="let element"> {{element.location.ref}} </td>
+          </ng-container>
 
-        <!--        <ng-container matColumnDef="paiementDto">-->
-        <!--          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref Paiement</th>-->
-        <!--          <td mat-cell *matCellDef="let element"> {{element.paiementDto.ref}} </td>-->
-        <!--        </ng-container>-->
-
-
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef >Action</th>
-          <td mat-cell *matCellDef="let element" >
-            <a  (click)=showUpdate(element.ref)><i class="bi bi-pencil mx-2 btn btn-outline-success rounded-5"></i></a>
-            <a><i (click)="handlDelete(element.ref)" class="bi bi-trash mx-2 btn btn-outline-danger rounded-5"></i></a>
-          </td>
-        </ng-container>
+          <!--        <ng-container matColumnDef="paiementDto">-->
+          <!--          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ref Paiement</th>-->
+          <!--          <td mat-cell *matCellDef="let element"> {{element.paiementDto.ref}} </td>-->
+          <!--        </ng-container>-->
 
 
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef >Action</th>
+            <td mat-cell *matCellDef="let element" >
+              <a  (click)=showUpdate(element.ref)><i class="bi bi-pencil mx-2 btn btn-outline-success rounded-5"></i></a>
+              <a><i (click)="handlDelete(element.ref)" class="bi bi-trash mx-2 btn btn-outline-danger rounded-5"></i></a>
+            </td>
+          </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>
-        <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>
-      </table>
+
+
+          <tr mat-header-row *matHeaderRowDef="ListeColum"></tr>
+          <tr mat-row *matRowDef="let row; columns: ListeColum;"></tr>
+        </table>
       </div>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                      showFirstLastButtons

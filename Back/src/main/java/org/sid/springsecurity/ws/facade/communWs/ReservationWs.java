@@ -39,7 +39,7 @@ public class ReservationWs {
     }
     @PostMapping
     public int save(@RequestBody ReservationDto reservationDto) {
-      Reservation reservation =converter.toBean(reservationDto);
+        Reservation reservation =converter.toBean(reservationDto);
         return reservationService.save(reservation);
     }
     @GetMapping("clientCin/{cin}")
@@ -51,12 +51,12 @@ public class ReservationWs {
     public ReservationDto findByLocationsRef(@PathVariable String ref) {
         return converter.toDto(reservationService.findByLocationsRef(ref));
     }
-@GetMapping("reservationByAppartement/code/{code}")
-    public List<Reservation> findReservationByAppartementCode(@PathVariable String code) {
-        return reservationService.findReservationByAppartementCode(code);
+    @GetMapping("reservationByAppartement/code/{code}")
+    public List<ReservationDto> findReservationByAppartementCode(@PathVariable String code) {
+        return converter.toDto(reservationService.findReservationByAppartementCode(code));
     }
-@GetMapping("reservationByVoiture/matricule/{matricule}")
-    public List<Reservation> findReservationByVoitureMatricule(@PathVariable String matricule) {
-        return reservationService.findReservationByVoitureMatricule(matricule);
+    @GetMapping("reservationByVoiture/matricule/{matricule}")
+    public List<ReservationDto> findReservationByVoitureMatricule(@PathVariable String matricule) {
+        return converter.toDto(reservationService.findReservationByVoitureMatricule(matricule));
     }
 }

@@ -1,7 +1,7 @@
 <div class="page-resrevation">
   <!-- mohammed -->
   <div class="page-resrevation-titre">
-    <i class="bi bi-arrow-left-short" routerLink="/home" style="cursor:pointer;"></i>
+    <i class="bi bi-arrow-left-short"></i>
     <div> Voir toutes les appartement</div>
   </div>
   <section class="reserver">
@@ -161,12 +161,21 @@
           <div class="card  cardTwo">
             <mat-form-field class="example-full-width">
               <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
+              <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" (dateInput)="onDateInput($event)">
               <!--              <mat-hint>DD/MM/YYYY</mat-hint>-->
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
+
+            <div  class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
+              <h3>Nomber des Jours</h3>
+              <div style="width: 50%">
+                <button id="decrement" (click)="decrement()" [disabled]="!display">-</button>
+                <input type="text" id="input"  [(ngModel)]="nbrJours" pattern="[0-9]*" style="width: 30%">
+                <button id="increment" (click)="increment()" [disabled]="!display">+</button>
+              </div>
+            </div>
           </div>
 
           <div class="card cardfor">
@@ -199,15 +208,8 @@
 
             </div>
 
-            <div class="input-group" style="display: flex ; align-items: baseline;justify-content: space-around;">
-              <h3>Nomber des Jours</h3>
-              <div style="width: 50%">
-                <button id="decrement" (click)="decrement()">-</button>
-                <input type="text" id="input"  [(ngModel)]="nbrJours"  style="width: 30%">
-                <button id="increment" (click)="increment()">+</button>
-              </div>
-            </div>
-            <button class="btn-rserver">Réserver</button>
+
+            <button class="btn-rserver" (click)="handlReserve()">Réserver</button>
           </div>
         </div>
       </div>
